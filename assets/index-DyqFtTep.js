@@ -284,35 +284,35 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         ${u}
       </div>
     </div>
-  `}function le(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1),i=t.map((e,n)=>{let i=Math.max(e.count>0?Math.round(e.count/r*80):4,e.count>0?8:4),a=n===t.length-1?`var(--primary)`:`var(--primary-mid)`;return`
-      <div class="trend-bar-wrap">
+  `}function le(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1);Math.round(3/r*80);let i=t.map((e,n)=>{let i=e.count>0?Math.max(Math.round(e.count/r*80),8):4,a=n===t.length-1,o=e.count===0;return`
+      <div class="trend-bar-wrap" title="${a?`Эта неделя: ${e.count} занятий · Так держать!`:``}">
         <div class="trend-bar-val">${e.count>0?e.count:``}</div>
         <div class="trend-bar-bg">
-          <div class="trend-bar-fill"
-               style="height: ${i}px; background: ${a}; opacity: ${e.count>0?1:.3}"></div>
+          <div class="trend-bar-fill ${a?`bar-current`:``} ${o?`bar-empty`:``}"
+               style="height: ${i}px"></div>
         </div>
         <div class="trend-label">${e.label}</div>
       </div>
-    `}).join(``),a=t.slice(0,4).reduce((e,t)=>e+t.count,0),o=t.slice(4).reduce((e,t)=>e+t.count,0),s=o>a?`📈`:o<a?`📉`:`➡️`,c=o>a?`Занимаешься чаще!`:o<a?`Можно позаниматься больше`:`Стабильный ритм`,l=t.reduce((e,t)=>e+t.count,0);return`
+    `}).join(``);t.slice(0,4).reduce((e,t)=>e+t.count,0),t.slice(4).reduce((e,t)=>e+t.count,0);let a=t[t.length-1].count,o=t[t.length-2].count,s,c,l,u;d===0?(s=`🌱`,c=`Начни первое занятие!`,l=`#F0FDF4`,u=`#166534`):d===1?(s=`🌱`,c=`Первое занятие!`,l=`#F0FDF4`,u=`#166534`):a>o?(s=`📈`,c=`Занимаешься чаще!`,l=`#EDE7FB`,u=`#7C3AED`):a<o?(s=`📉`,c=`Можно позаниматься больше`,l=`#FEF3C7`,u=`#92400E`):(s=`➡️`,c=`Стабильный ритм`,l=`#EFF6FF`,u=`#1D4ED8`);let d=t.reduce((e,t)=>e+t.count,0),f=Math.max(...t.map(e=>e.count)),p=d/8,m=p<1&&p>0?`< 1`:Math.round(p).toString();return`
     <div class="trend-card">
       <div class="trend-header">
         <span class="trend-title">Тренд</span>
-        <span class="trend-badge">${s} ${c}</span>
+        <span class="trend-badge" style="background: ${l}; color: ${u}">${s} ${c}</span>
       </div>
       <div class="trend-mini-stats">
         <div class="trend-mini-stat">
-          <span class="trend-mini-val">${l}</span>
+          <span class="trend-mini-val">${d}</span>
           <span class="trend-mini-label">всего занятий</span>
         </div>
         <div class="trend-mini-divider"></div>
         <div class="trend-mini-stat">
-          <span class="trend-mini-val">${Math.max(...t.map(e=>e.count))}</span>
+          <span class="trend-mini-val">${f}</span>
           <span class="trend-mini-label">лучшая неделя</span>
         </div>
         <div class="trend-mini-divider"></div>
         <div class="trend-mini-stat">
-          <span class="trend-mini-val">${l>0?(l/8).toFixed(1):`0`}</span>
-          <span class="trend-mini-label">среднее/нед.</span>
+          <span class="trend-mini-val" style="color: ${p>=3?`#10B981`:`#7C3AED`}">${m}</span>
+          <span class="trend-mini-label">среднее/нед. <span style="color:#C4B5FD">(цель: 3)</span></span>
         </div>
       </div>
       <div class="trend-bars">${i}</div>

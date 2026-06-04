@@ -209,8 +209,8 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
       ${n?`
-      <h3 style="font-size: 14px; font-weight: 700; margin: 24px 0 12px; padding: 0 40px">Или выбери категорию:</h3>
-      <div class="category-grid" id="category-grid" style="padding: 0 40px">
+      <h3 style="font-size: 14px; font-weight: 700; margin: 24px 0 12px; padding: 0 40px">Обрати внимание на эти категории</h3>
+      <div class="category-grid-row" id="category-grid" style="padding: 0 40px">
         ${n}
       </div>`:``}
     </div>

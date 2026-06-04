@@ -184,7 +184,15 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>`:``}
       </div>
     </div>
-  `}function ce(e,t){return R=e,I=t,L=t,z=P[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},`<div class="vocab-page">${H()}</div>`}function U(e){R=e,z=P[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vocab`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),document.getElementById(`mode-flashcard`)?.addEventListener(`click`,()=>le(`flashcard`)),document.getElementById(`mode-test`)?.addEventListener(`click`,()=>le(`test`)),document.getElementById(`mode-hard`)?.addEventListener(`click`,()=>W(!0))}function le(e){ie=e;let t=oe(L),n=Object.keys(t).sort(),r=`
+  `}function ce(e,t){return R=e,I=t,L=t,z=P[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},`<div class="vocab-page">${H()}</div>`}function U(e){R=e,z=P[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vocab`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),document.getElementById(`mode-flashcard`)?.addEventListener(`click`,()=>le(`flashcard`)),document.getElementById(`mode-test`)?.addEventListener(`click`,()=>le(`test`)),document.getElementById(`mode-hard`)?.addEventListener(`click`,()=>W(!0))}function le(e){ie=e;let t=oe(L),n=[`числа`,`приветствия`,`дни недели`].filter(e=>t[e]).map(e=>{let n=t[e],r=ae[e]||`📚`;return`
+        <div class="category-card" data-category="${e}">
+          <div class="cat-icon" style="background: ${z.bg}">${r}</div>
+          <div class="cat-info">
+            <div class="cat-name">${e}</div>
+            <div class="cat-count">${n.length} слов</div>
+          </div>
+        </div>
+      `}).join(``),r=`
     <header class="header">
       <button class="btn-back" id="btn-back-source">← Режимы</button>
     </header>
@@ -200,20 +208,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
           <button class="mode-btn" style="background: ${z.color}">Начать →</button>
         </div>
       </div>
+      ${n?`
       <h3 style="font-size: 14px; font-weight: 700; margin: 24px 0 12px; padding: 0 40px">Или выбери категорию:</h3>
       <div class="category-grid" id="category-grid" style="padding: 0 40px">
-        ${n.map(e=>{let n=t[e],r=ae[e]||`📚`,i=e.length>3?e:`Глава ${e.replace(`ch`,``)}`;return`
-            <div class="category-card" data-category="${e}">
-              <div class="cat-icon" style="background: ${z.bg}">${r}</div>
-              <div class="cat-info">
-                <div class="cat-name">${i}</div>
-                <div class="cat-count">${n.length} слов</div>
-              </div>
-            </div>
-          `}).join(``)}
-      </div>
+        ${n}
+      </div>`:``}
     </div>
-  `;document.querySelector(`.vocab-page`).innerHTML=r,document.getElementById(`btn-back-source`)?.addEventListener(`click`,()=>{document.querySelector(`.vocab-page`).innerHTML=H(),U(R)}),document.getElementById(`source-all`)?.addEventListener(`click`,()=>{I=L,ie===`flashcard`?W(!1):me()}),document.querySelectorAll(`.category-card`).forEach(e=>{e.addEventListener(`click`,()=>{I=oe(L)[e.dataset.category]||[],ie===`flashcard`?W(!1):me()})})}function W(e=!1){let t=p(),n=t.activeProfile;if(e){let e=t.profiles[n]?.vocabulary[R.id]||{},r=Object.entries(e).filter(([,e])=>e.status===`hard`).map(([e])=>parseInt(e.replace(`w_`,``)));F=0,I=r.map(e=>({...I[e],_origIndex:e}))}else I=[...I].map((e,t)=>({...e,_origIndex:t})),F=C(n,R.id,I);B=!1,ue()}function ue(){let e=I[F];if(!e){pe();return}let t=p(),n=t.profiles[t.activeProfile]?.vocabulary[R.id]||{};n[`w_${e._origIndex??F}`]?.status,document.querySelector(`.vocab-page`).innerHTML=`
+  `;document.querySelector(`.vocab-page`).innerHTML=r,document.getElementById(`btn-back-source`)?.addEventListener(`click`,()=>{document.querySelector(`.vocab-page`).innerHTML=H(),U(R)}),document.getElementById(`source-all`)?.addEventListener(`click`,()=>{I=L,ie===`flashcard`?W(!1):me()}),document.querySelectorAll(`.category-card`).forEach(e=>{e.addEventListener(`click`,()=>{I=t[e.dataset.category]||[],ie===`flashcard`?W(!1):me()})})}function W(e=!1){let t=p(),n=t.activeProfile;if(e){let e=t.profiles[n]?.vocabulary[R.id]||{},r=Object.entries(e).filter(([,e])=>e.status===`hard`).map(([e])=>parseInt(e.replace(`w_`,``)));F=0,I=r.map(e=>({...I[e],_origIndex:e}))}else I=[...I].map((e,t)=>({...e,_origIndex:t})),F=C(n,R.id,I);B=!1,ue()}function ue(){let e=I[F];if(!e){pe();return}let t=p(),n=t.profiles[t.activeProfile]?.vocabulary[R.id]||{};n[`w_${e._origIndex??F}`]?.status,document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-back-fc">← Режимы</button>
       <span class="vocab-counter" id="vocab-counter">${F+1} / ${I.length}</span>

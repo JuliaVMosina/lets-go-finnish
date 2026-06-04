@@ -284,13 +284,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         ${u}
       </div>
     </div>
-  `}function le(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1),i=t.map((e,n)=>{let i=Math.round(e.count/r*100);return`
+  `}function le(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1),i=t.map((e,n)=>{let i=Math.max(e.count>0?Math.round(e.count/r*80):4,e.count>0?8:4),a=n===t.length-1?`var(--primary)`:`var(--primary-mid)`;return`
       <div class="trend-bar-wrap">
-        <div class="trend-bar-bg">
-          <div class="trend-bar-fill ${n===t.length-1?`trend-bar-current`:``}"
-               style="height: ${i}%"></div>
-        </div>
         <div class="trend-bar-val">${e.count>0?e.count:``}</div>
+        <div class="trend-bar-bg">
+          <div class="trend-bar-fill"
+               style="height: ${i}px; background: ${a}; opacity: ${e.count>0?1:.3}"></div>
+        </div>
         <div class="trend-label">${e.label}</div>
       </div>
     `}).join(``),a=t.slice(0,4).reduce((e,t)=>e+t.count,0),o=t.slice(4).reduce((e,t)=>e+t.count,0);return`

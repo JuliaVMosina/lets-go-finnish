@@ -107,11 +107,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <div class="flashcard" id="flashcard" style="--card-color: ${n.color}; --card-bg: ${n.bg}">
           <div class="flashcard-inner" id="flashcard-inner">
             <div class="flashcard-front">
+              ${M[0]?.tag===`puhekieli`?`<span class="puhekieli-badge">🗣️ puhekieli</span>`:``}
               <span class="card-lang">финский</span>
               <div class="card-word" id="card-word-front">${M[0]?.finnish||``}</div>
               <span class="card-hint">нажми чтобы перевернуть</span>
             </div>
             <div class="flashcard-back">
+              ${M[0]?.tag===`puhekieli`?`<span class="puhekieli-badge">🗣️ puhekieli</span>`:``}
               <span class="card-lang">перевод</span>
               <div class="card-word" id="card-word-back">${M[0]?.russian||``}</div>
               ${M[0]?.english?`<div class="card-word-en">${M[0].english}</div>`:``}
@@ -130,7 +132,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
     </div>
-  `}function I(e){let t=A[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`};N=e.id,document.getElementById(`btn-back-vocab`)?.addEventListener(`click`,()=>{w(`/chapter/${e.id}`)});let n=document.getElementById(`flashcard-inner`);document.getElementById(`flashcard`)?.addEventListener(`click`,()=>{P||(P=!0,n.classList.add(`flipped`),document.getElementById(`vocab-actions`).style.display=`flex`)});function r(r){if(g(d().activeProfile,N,j,r),j++,j>=M.length){L(e,t);return}P=!1,n.classList.remove(`flipped`),document.getElementById(`vocab-actions`).style.display=`none`,document.getElementById(`card-word-front`).textContent=M[j].finnish,document.getElementById(`card-word-back`).textContent=M[j].russian,document.getElementById(`vocab-counter`).textContent=`${j+1} / ${M.length}`,document.querySelectorAll(`.vocab-dot`).forEach((e,t)=>{e.classList.toggle(`active`,t===j),t<j&&e.classList.add(`done`)})}document.getElementById(`btn-hard`)?.addEventListener(`click`,()=>r(!1)),document.getElementById(`btn-ok`)?.addEventListener(`click`,()=>r(!1)),document.getElementById(`btn-know`)?.addEventListener(`click`,()=>r(!0))}function L(e,t){document.querySelector(`.vocab-container`).innerHTML=`
+  `}function I(e){let t=A[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`};N=e.id,document.getElementById(`btn-back-vocab`)?.addEventListener(`click`,()=>{w(`/chapter/${e.id}`)});let n=document.getElementById(`flashcard-inner`);document.getElementById(`flashcard`)?.addEventListener(`click`,()=>{P||(P=!0,n.classList.add(`flipped`),document.getElementById(`vocab-actions`).style.display=`flex`)});function r(r){if(g(d().activeProfile,N,j,r),j++,j>=M.length){L(e,t);return}P=!1,n.classList.remove(`flipped`),document.getElementById(`vocab-actions`).style.display=`none`;let i=M[j];document.getElementById(`card-word-front`).textContent=i.finnish,document.getElementById(`card-word-back`).textContent=i.russian,document.querySelectorAll(`.flashcard-front, .flashcard-back`).forEach(e=>{let t=e.querySelector(`.puhekieli-badge`);if(i.tag===`puhekieli`){if(!t){let t=document.createElement(`span`);t.className=`puhekieli-badge`,t.textContent=`🗣️ puhekieli`,e.prepend(t)}}else t?.remove()}),document.getElementById(`vocab-counter`).textContent=`${j+1} / ${M.length}`,document.querySelectorAll(`.vocab-dot`).forEach((e,t)=>{e.classList.toggle(`active`,t===j),t<j&&e.classList.add(`done`)})}document.getElementById(`btn-hard`)?.addEventListener(`click`,()=>r(!1)),document.getElementById(`btn-ok`)?.addEventListener(`click`,()=>r(!1)),document.getElementById(`btn-know`)?.addEventListener(`click`,()=>r(!0))}function L(e,t){document.querySelector(`.vocab-container`).innerHTML=`
     <div class="complete-screen">
       <div class="complete-emoji">🎉</div>
       <h2>Словарь главы пройден!</h2>

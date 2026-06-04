@@ -109,6 +109,36 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <div class="vocab-stat hard"><span class="vs-num">${r}</span><span class="vs-label">сложно</span></div>
         <div class="vocab-stat unseen"><span class="vs-num">${a}</span><span class="vs-label">новые</span></div>
       </div>
+      <!-- Learning path -->
+      <div class="learning-path">
+        <div class="path-intro">В этой главе <strong>${I.length} слов</strong></div>
+        <div class="path-steps">
+          <div class="path-step ${n+i>0?`step-done`:`step-active`}">
+            <div class="path-step-num">1</div>
+            <div class="path-step-text">
+              <div class="path-step-title">Заучи</div>
+              <div class="path-step-sub">Пройди флэш-карточки</div>
+            </div>
+          </div>
+          <div class="path-arrow">→</div>
+          <div class="path-step ${n>=Math.ceil(I.length*.8)?`step-done`:n+i>0?`step-active`:`step-locked`}">
+            <div class="path-step-num">2</div>
+            <div class="path-step-text">
+              <div class="path-step-title">Сдай тест</div>
+              <div class="path-step-sub">Закрепи результат</div>
+            </div>
+          </div>
+          <div class="path-arrow">→</div>
+          <div class="path-step ${n>=Math.ceil(I.length*.8)?`step-active`:`step-locked`}">
+            <div class="path-step-num">✓</div>
+            <div class="path-step-text">
+              <div class="path-step-title">Глава освоена</div>
+              <div class="path-step-sub">${n} / ${I.length} слов</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="mode-cards">
         <div class="mode-card" id="mode-flashcard">
           <div class="mode-icon" style="background: ${R.bg}">🃏</div>

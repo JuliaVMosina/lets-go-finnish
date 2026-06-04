@@ -372,19 +372,31 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
     </div>
     ${xe(t,n)}
-  `}function xe(e,t){let n={};return e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),he.filter(e=>n[e]).map(e=>{let r=ge[e]||{color:`#7C3AED`,bg:`#EDE7FB`},i=n[e],a=i.reduce((e,n)=>e+ve(t,n.id),0)/i.length;return`
-        <div class="level-section">
+  `}function xe(e,t){let n={};return e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),he.map(e=>{let r=ge[e]||{color:`#7C3AED`,bg:`#EDE7FB`},i=n[e]||[],a=i.length>0,o=a?i.reduce((e,n)=>e+ve(t,n.id),0)/i.length:0;return`
+        <div class="level-section ${a?``:`level-section-soon`}">
           <div class="level-header">
             <div class="level-badge" style="background: ${r.bg}; color: ${r.color}">${e}</div>
             <div class="level-progress-wrap">
+              ${a?`
               <div class="level-progress-bar">
-                <div class="level-progress-fill" style="width: ${Math.round(a)}%; background: ${r.color}"></div>
+                <div class="level-progress-fill" style="width: ${Math.round(o)}%; background: ${r.color}"></div>
               </div>
-              <span class="level-progress-label" style="color: ${r.color}">${Math.round(a)}%</span>
+              <span class="level-progress-label" style="color: ${r.color}">${Math.round(o)}%</span>
+              `:`<span class="level-soon-label">скоро</span>`}
             </div>
           </div>
           <div class="chapters-grid">
-            ${i.map((e,n)=>Se(e,e.globalIndex+1,t)).join(``)}
+            ${a?i.map(e=>Se(e,e.globalIndex+1,t)).join(``):[1,2,3].map(e=>`
+                  <div class="chapter-card chapter-card-soon">
+                    <div class="card-img-wrap soon-img-wrap" style="background: ${r.bg}">
+                      <span class="soon-emoji">🔒</span>
+                    </div>
+                    <div class="card-body">
+                      <div class="card-label" style="color: ${r.color}">Глава ${e}</div>
+                      <div class="card-title soon-title">Скоро</div>
+                      <div class="card-subtitle">Контент в разработке</div>
+                    </div>
+                  </div>`).join(``)}
           </div>
         </div>
       `}).join(``)}function Se(e,t,n){let r=ve(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`

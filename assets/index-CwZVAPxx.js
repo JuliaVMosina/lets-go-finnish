@@ -96,69 +96,48 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
 
       </div>
     </div>
-  `}function te(e,t,n){document.getElementById(`btn-back`)?.addEventListener(`click`,()=>{k(`/`)});let r=b(n,e,t.length),i=document.getElementById(`vocab-meta`);i&&(i.textContent=`выучено ${r.known} / ${t.length}`),document.querySelectorAll(`.section-btn`).forEach(t=>{t.addEventListener(`click`,()=>{let n=t.dataset.section;if(n===`grammar`){alert(`Грамматика — скоро!`);return}k(`/chapter/${e}/${n}`)})})}var P={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},F=0,I=[],L=null,R=null,z=!1,B=[];function ne(e,t){L=e,I=t,R=P[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`};let n=p(),r=n.profiles[n.activeProfile]?.vocabulary[e.id]||{},i=Object.values(r).filter(e=>e.status===`known`).length,a=Object.values(r).filter(e=>e.status===`hard`).length,o=Object.values(r).filter(e=>e.status===`learning`).length,s=I.length-Object.values(r).filter(e=>e.seen).length;return`
-    <div class="vocab-page">
-      <header class="header">
-        <button class="btn-back" id="btn-back-vocab">← ${e.title_fi}</button>
-        <span class="vocab-counter">${I.length} слов</span>
-      </header>
-
-      <div class="mode-select-screen">
-        <h2 class="mode-title">Словарь</h2>
-
-        <!-- Stats row -->
-        <div class="vocab-stats-row">
-          <div class="vocab-stat known">
-            <span class="vs-num">${i}</span>
-            <span class="vs-label">знаю ✓</span>
+  `}function te(e,t,n){document.getElementById(`btn-back`)?.addEventListener(`click`,()=>{k(`/`)});let r=b(n,e,t.length),i=document.getElementById(`vocab-meta`);i&&(i.textContent=`выучено ${r.known} / ${t.length}`),document.querySelectorAll(`.section-btn`).forEach(t=>{t.addEventListener(`click`,()=>{let n=t.dataset.section;if(n===`grammar`){alert(`Грамматика — скоро!`);return}k(`/chapter/${e}/${n}`)})})}var P={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},F=0,I=[],L=null,R=null,z=!1,B=[];function V(){let e=p(),t=e.profiles[e.activeProfile]?.vocabulary[L.id]||{},n=Object.values(t).filter(e=>e.status===`known`).length,r=Object.values(t).filter(e=>e.status===`hard`).length,i=Object.values(t).filter(e=>e.status===`learning`).length,a=I.length-Object.values(t).filter(e=>e.seen).length;return`
+    <header class="header">
+      <button class="btn-back" id="btn-back-vocab">← ${L.title_fi}</button>
+      <span class="vocab-counter">${I.length} слов</span>
+    </header>
+    <div class="mode-select-screen">
+      <h2 class="mode-title">Словарь</h2>
+      <div class="vocab-stats-row">
+        <div class="vocab-stat known"><span class="vs-num">${n}</span><span class="vs-label">знаю ✓</span></div>
+        <div class="vocab-stat learning"><span class="vs-num">${i}</span><span class="vs-label">учу</span></div>
+        <div class="vocab-stat hard"><span class="vs-num">${r}</span><span class="vs-label">сложно</span></div>
+        <div class="vocab-stat unseen"><span class="vs-num">${a}</span><span class="vs-label">новые</span></div>
+      </div>
+      <div class="mode-cards">
+        <div class="mode-card" id="mode-flashcard">
+          <div class="mode-icon" style="background: ${R.bg}">🃏</div>
+          <div class="mode-info">
+            <div class="mode-name">Заучивание</div>
+            <div class="mode-desc">Флэш-карточки · продолжить с места остановки</div>
           </div>
-          <div class="vocab-stat learning">
-            <span class="vs-num">${o}</span>
-            <span class="vs-label">учу</span>
-          </div>
-          <div class="vocab-stat hard">
-            <span class="vs-num">${a}</span>
-            <span class="vs-label">сложно</span>
-          </div>
-          <div class="vocab-stat unseen">
-            <span class="vs-num">${s}</span>
-            <span class="vs-label">новые</span>
-          </div>
+          <button class="mode-btn" style="background: ${R.color}">Начать →</button>
         </div>
-
-        <!-- Mode cards -->
-        <div class="mode-cards">
-          <div class="mode-card" id="mode-flashcard">
-            <div class="mode-icon" style="background: ${R.bg}">🃏</div>
-            <div class="mode-info">
-              <div class="mode-name">Заучивание</div>
-              <div class="mode-desc">Флэш-карточки · продолжить с места остановки</div>
-            </div>
-            <button class="mode-btn" style="background: ${R.color}">Начать →</button>
+        <div class="mode-card" id="mode-test">
+          <div class="mode-icon" style="background: ${R.bg}">📝</div>
+          <div class="mode-info">
+            <div class="mode-name">Тест</div>
+            <div class="mode-desc">Выбери правильный перевод из 4 вариантов</div>
           </div>
-
-          <div class="mode-card" id="mode-test">
-            <div class="mode-icon" style="background: ${R.bg}">📝</div>
-            <div class="mode-info">
-              <div class="mode-name">Тест</div>
-              <div class="mode-desc">Выбери правильный перевод из 4 вариантов</div>
-            </div>
-            <button class="mode-btn" style="background: ${R.color}">Начать →</button>
-          </div>
-
-          ${a>0?`
-          <div class="mode-card" id="mode-hard">
-            <div class="mode-icon" style="background: #FEF2F2">🔴</div>
-            <div class="mode-info">
-              <div class="mode-name">Повторить сложные</div>
-              <div class="mode-desc">${a} слов которые вызвали затруднение</div>
-            </div>
-            <button class="mode-btn" style="background: #EF4444">Повторить →</button>
-          </div>`:``}
+          <button class="mode-btn" style="background: ${R.color}">Начать →</button>
         </div>
+        ${r>0?`
+        <div class="mode-card" id="mode-hard">
+          <div class="mode-icon" style="background: #FEF2F2">🔴</div>
+          <div class="mode-info">
+            <div class="mode-name">Повторить сложные</div>
+            <div class="mode-desc">${r} слов которые вызвали затруднение</div>
+          </div>
+          <button class="mode-btn" style="background: #EF4444">Повторить →</button>
+        </div>`:``}
       </div>
     </div>
-  `}function re(e){L=e,R=P[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vocab`)?.addEventListener(`click`,()=>{k(`/chapter/${e.id}`)}),document.getElementById(`mode-flashcard`)?.addEventListener(`click`,()=>V(!1)),document.getElementById(`mode-test`)?.addEventListener(`click`,()=>se()),document.getElementById(`mode-hard`)?.addEventListener(`click`,()=>V(!0))}function V(e=!1){let t=p(),n=t.activeProfile;if(e){let e=t.profiles[n]?.vocabulary[L.id]||{},r=Object.entries(e).filter(([,e])=>e.status===`hard`).map(([e])=>parseInt(e.replace(`w_`,``)));F=0,I=r.map(e=>({...I[e],_origIndex:e}))}else I=[...I].map((e,t)=>({...e,_origIndex:t})),F=x(n,L.id,I);z=!1,ie()}function ie(){let e=I[F];if(!e){oe();return}let t=p(),n=t.profiles[t.activeProfile]?.vocabulary[L.id]||{};n[`w_${e._origIndex??F}`]?.status,document.querySelector(`.vocab-page`).innerHTML=`
+  `}function ne(e,t){return L=e,I=t,L._allWords=t,R=P[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},`<div class="vocab-page">${V()}</div>`}function H(e){L=e,R=P[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vocab`)?.addEventListener(`click`,()=>{k(`/chapter/${e.id}`)}),document.getElementById(`mode-flashcard`)?.addEventListener(`click`,()=>U(!1)),document.getElementById(`mode-test`)?.addEventListener(`click`,()=>se()),document.getElementById(`mode-hard`)?.addEventListener(`click`,()=>U(!0))}function U(e=!1){let t=p(),n=t.activeProfile;if(e){let e=t.profiles[n]?.vocabulary[L.id]||{},r=Object.entries(e).filter(([,e])=>e.status===`hard`).map(([e])=>parseInt(e.replace(`w_`,``)));F=0,I=r.map(e=>({...I[e],_origIndex:e}))}else I=[...I].map((e,t)=>({...e,_origIndex:t})),F=x(n,L.id,I);z=!1,re()}function re(){let e=I[F];if(!e){oe();return}let t=p(),n=t.profiles[t.activeProfile]?.vocabulary[L.id]||{};n[`w_${e._origIndex??F}`]?.status,document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-back-fc">← Режимы</button>
       <span class="vocab-counter" id="vocab-counter">${F+1} / ${I.length}</span>
@@ -192,7 +171,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         ${I.map((e,t)=>{let r=n[`w_${e._origIndex??t}`]?.status;return`<span class="vocab-dot ${r===`known`?`dot-known`:r===`hard`?`dot-hard`:r===`learning`?`dot-learning`:``} ${t===F?`active`:``}"></span>`}).join(``)}
       </div>
     </div>
-  `,ae()}function ae(){document.getElementById(`btn-back-fc`)?.addEventListener(`click`,()=>{I=I,document.querySelector(`.vocab-page`).outerHTML,k(`/chapter/${L.id}/vocabulary`)});let e=document.getElementById(`flashcard`),t=document.getElementById(`flashcard-inner`);e?.addEventListener(`click`,()=>{z||(z=!0,t.classList.add(`flipped`),document.getElementById(`vocab-actions`).style.display=`flex`)}),document.getElementById(`btn-hard`)?.addEventListener(`click`,()=>H(`hard`)),document.getElementById(`btn-ok`)?.addEventListener(`click`,()=>H(`learning`)),document.getElementById(`btn-know`)?.addEventListener(`click`,()=>H(`known`))}function H(e){let t=p(),n=I[F]._origIndex??F;if(y(t.activeProfile,L.id,n,e),F++,F>=I.length){oe();return}z=!1,ie()}function oe(){let e=p(),t=e.profiles[e.activeProfile]?.vocabulary[L.id]||{},n=Object.values(t).filter(e=>e.status===`known`).length;document.querySelector(`.vocab-container`)?.parentElement?.querySelector(`.vocab-container`),document.querySelector(`.vocab-page`).innerHTML=`
+  `,ie()}function ie(){document.getElementById(`btn-back-fc`)?.addEventListener(`click`,()=>{let e=p(),t=I[F];if(t){let n=t._origIndex??F;e.profiles[e.activeProfile]?.vocabulary[L.id]?.[`w_${n}`]?.seen||y(e.activeProfile,L.id,n,`learning`)}I=L._allWords||I,document.querySelector(`.vocab-page`).innerHTML=V(),H(L)});let e=document.getElementById(`flashcard`),t=document.getElementById(`flashcard-inner`);e?.addEventListener(`click`,()=>{z||(z=!0,t.classList.add(`flipped`),document.getElementById(`vocab-actions`).style.display=`flex`)}),document.getElementById(`btn-hard`)?.addEventListener(`click`,()=>ae(`hard`)),document.getElementById(`btn-ok`)?.addEventListener(`click`,()=>ae(`learning`)),document.getElementById(`btn-know`)?.addEventListener(`click`,()=>ae(`known`))}function ae(e){let t=p(),n=I[F]._origIndex??F;if(y(t.activeProfile,L.id,n,e),F++,F>=I.length){oe();return}z=!1,re()}function oe(){let e=p(),t=e.profiles[e.activeProfile]?.vocabulary[L.id]||{},n=Object.values(t).filter(e=>e.status===`known`).length;document.querySelector(`.vocab-container`)?.parentElement?.querySelector(`.vocab-container`),document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-complete-back">← Режимы</button>
     </header>
@@ -205,13 +184,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <button class="btn-complete" style="background: white; color: ${R.color}; border: 2px solid ${R.color}" id="btn-to-chapter-v">К главе</button>
       </div>
     </div>
-  `,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,()=>k(`/chapter/${L.id}/vocabulary`)),document.getElementById(`btn-repeat`)?.addEventListener(`click`,()=>V(!1)),document.getElementById(`btn-to-chapter-v`)?.addEventListener(`click`,()=>k(`/chapter/${L.id}`))}var U=0,W=0;function se(){U=0,W=0,B=[...I].sort(()=>Math.random()-.5).slice(0,Math.min(20,I.length)),ce()}function ce(){if(U>=B.length){ue();return}let e=B[U],t=[e,...I.filter(t=>t.finnish!==e.finnish).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);document.querySelector(`.vocab-page`).innerHTML=`
+  `,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,()=>{I=L._allWords||I,document.querySelector(`.vocab-page`).innerHTML=V(),H(L)}),document.getElementById(`btn-repeat`)?.addEventListener(`click`,()=>U(!1)),document.getElementById(`btn-to-chapter-v`)?.addEventListener(`click`,()=>k(`/chapter/${L.id}`))}var W=0,G=0;function se(){W=0,G=0,B=[...I].sort(()=>Math.random()-.5).slice(0,Math.min(20,I.length)),ce()}function ce(){if(W>=B.length){ue();return}let e=B[W],t=[e,...I.filter(t=>t.finnish!==e.finnish).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-back-test">← Режимы</button>
-      <span class="vocab-counter">${U+1} / ${B.length} · ✓ ${W}</span>
+      <span class="vocab-counter">${W+1} / ${B.length} · ✓ ${G}</span>
     </header>
     <div class="ex-progress-bar">
-      <div class="ex-progress-fill" style="width: ${U/B.length*100}%; background: ${R.color}"></div>
+      <div class="ex-progress-fill" style="width: ${W/B.length*100}%; background: ${R.color}"></div>
     </div>
     <div class="vocab-container" style="max-width: 560px; margin: 0 auto">
       <div class="test-question">
@@ -229,33 +208,33 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
       <div class="ex-feedback" id="test-feedback" style="display:none"></div>
     </div>
-  `,document.getElementById(`btn-back-test`)?.addEventListener(`click`,()=>k(`/chapter/${L.id}/vocabulary`)),le(e)}function le(e){let t=!1;document.querySelectorAll(`.test-option`).forEach(n=>{n.addEventListener(`click`,()=>{if(t)return;t=!0;let r=n.dataset.correct===`true`;r&&W++,document.querySelectorAll(`.test-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===n&&!r&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`test-feedback`);i.style.display=`flex`,i.innerHTML=r?`<div class="feedback-correct" style="border-color: ${R.color}">✓ Правильно!</div>
+  `,document.getElementById(`btn-back-test`)?.addEventListener(`click`,()=>{I=L._allWords||I,document.querySelector(`.vocab-page`).innerHTML=V(),H(L)}),le(e)}function le(e){let t=!1;document.querySelectorAll(`.test-option`).forEach(n=>{n.addEventListener(`click`,()=>{if(t)return;t=!0;let r=n.dataset.correct===`true`;r&&G++,document.querySelectorAll(`.test-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===n&&!r&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`test-feedback`);i.style.display=`flex`,i.innerHTML=r?`<div class="feedback-correct" style="border-color: ${R.color}">✓ Правильно!</div>
            <button class="ex-next-btn" id="btn-next-test" style="background: ${R.color}">Дальше →</button>`:`<div class="feedback-wrong">✗ Правильно: <strong>${e.russian}</strong></div>
-           <button class="ex-next-btn" id="btn-next-test" style="background: ${R.color}">Дальше →</button>`,i.style.flexDirection=`column`,i.style.gap=`10px`,document.getElementById(`btn-next-test`)?.addEventListener(`click`,()=>{U++,ce()})})})}function ue(){let e=Math.round(W/B.length*100),t=e>=80?`🏆`:e>=60?`👍`:`💪`;document.querySelector(`.vocab-page`).innerHTML=`
+           <button class="ex-next-btn" id="btn-next-test" style="background: ${R.color}">Дальше →</button>`,i.style.flexDirection=`column`,i.style.gap=`10px`,document.getElementById(`btn-next-test`)?.addEventListener(`click`,()=>{W++,ce()})})})}function ue(){let e=Math.round(G/B.length*100),t=e>=80?`🏆`:e>=60?`👍`:`💪`;document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-test-done">← Режимы</button>
     </header>
     <div class="complete-screen">
       <div class="complete-emoji">${t}</div>
       <h2>Тест завершён!</h2>
-      <p style="color: #6B7280; margin-top: 8px">Результат: <strong style="color: ${R.color}">${W} / ${B.length}</strong> (${e}%)</p>
+      <p style="color: #6B7280; margin-top: 8px">Результат: <strong style="color: ${R.color}">${G} / ${B.length}</strong> (${e}%)</p>
       <div style="display:flex; gap:12px; margin-top:24px; justify-content:center">
         <button class="btn-complete" style="background: ${R.color}" id="btn-retest">Ещё раз</button>
         <button class="btn-complete" style="background: white; color: ${R.color}; border: 2px solid ${R.color}" id="btn-to-chapter-t">К главе</button>
       </div>
     </div>
-  `,document.getElementById(`btn-test-done`)?.addEventListener(`click`,()=>k(`/chapter/${L.id}/vocabulary`)),document.getElementById(`btn-retest`)?.addEventListener(`click`,se),document.getElementById(`btn-to-chapter-t`)?.addEventListener(`click`,()=>k(`/chapter/${L.id}`))}var de={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},fe={multiple_choice:`☑️ Выбери правильный`,fill_blank:`✏️ Заполни пропуск`,self_check:`👁️ Самопроверка`,matching:`🔗 Соедини пары`,vowel_harmony:`🔤 Гармония гласных`},G=[],K=0,q=null,J=null,Y=!1;function pe(e,t){return q=e,G=t,K=0,Y=!1,J=de[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},G.length?`
+  `,document.getElementById(`btn-test-done`)?.addEventListener(`click`,()=>{I=L._allWords||I,document.querySelector(`.vocab-page`).innerHTML=V(),H(L)}),document.getElementById(`btn-retest`)?.addEventListener(`click`,se),document.getElementById(`btn-to-chapter-t`)?.addEventListener(`click`,()=>k(`/chapter/${L.id}`))}var de={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},fe={multiple_choice:`☑️ Выбери правильный`,fill_blank:`✏️ Заполни пропуск`,self_check:`👁️ Самопроверка`,matching:`🔗 Соедини пары`,vowel_harmony:`🔤 Гармония гласных`},K=[],q=0,J=null,Y=null,X=!1;function pe(e,t){return J=e,K=t,q=0,X=!1,Y=de[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},K.length?`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="btn-back-ex">← ${e.title_fi}</button>
-        <span class="ex-counter" id="ex-counter">${K+1} / ${G.length}</span>
+        <span class="ex-counter" id="ex-counter">${q+1} / ${K.length}</span>
       </header>
       <div class="ex-progress-bar">
         <div class="ex-progress-fill" id="ex-progress-fill"
-             style="width: ${me(0)}%; background: ${J.color}"></div>
+             style="width: ${me(0)}%; background: ${Y.color}"></div>
       </div>
       <div class="ex-container" id="ex-container">
-        ${ge(G[0],0)}
+        ${ge(K[0],0)}
       </div>
     </div>
   `:`
@@ -266,13 +245,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <div class="loading">Упражнения скоро появятся 💪<br>
           <small style="color:#aaa">Добавь их в Google Sheets → лист exercises</small>
         </div>
-      </div>`}function me(e){return Math.round(e/G.length*100)}function he(e){return e.map(e=>({v:e,sort:Math.random()})).sort((e,t)=>e.sort-t.sort).map(({v:e})=>e)}function ge(e,t){let n=e.type||`multiple_choice`,r=fe[n]||n,i=[e.option_a,e.option_b,e.option_c,e.option_d].filter(Boolean),a=`abcd`.indexOf((e.correct||`a`).toLowerCase()),o=i[a]||i[0],s=n===`self_check`?i:he(i.map((e,t)=>({text:e,isCorrect:t===a})));return n===`self_check`?`
+      </div>`}function me(e){return Math.round(e/K.length*100)}function he(e){return e.map(e=>({v:e,sort:Math.random()})).sort((e,t)=>e.sort-t.sort).map(({v:e})=>e)}function ge(e,t){let n=e.type||`multiple_choice`,r=fe[n]||n,i=[e.option_a,e.option_b,e.option_c,e.option_d].filter(Boolean),a=`abcd`.indexOf((e.correct||`a`).toLowerCase()),o=i[a]||i[0],s=n===`self_check`?i:he(i.map((e,t)=>({text:e,isCorrect:t===a})));return n===`self_check`?`
       <div class="ex-card" data-type="${n}">
-        <div class="ex-type-badge" style="background: ${J.bg}; color: ${J.color}">${r}</div>
+        <div class="ex-type-badge" style="background: ${Y.bg}; color: ${Y.color}">${r}</div>
         <div class="ex-question">${e.question}</div>
         <textarea class="ex-textarea" placeholder="Напиши свой ответ..."></textarea>
         <button class="ex-show-answer" id="btn-show-answer"
-                style="border-color: ${J.color}; color: ${J.color}">
+                style="border-color: ${Y.color}; color: ${Y.color}">
           Показать ответ
         </button>
         <div class="ex-answer-reveal" id="answer-reveal" style="display:none">
@@ -282,13 +261,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             <button class="self-btn self-wrong" data-result="wrong">😕 Неверно</button>
             <button class="self-btn self-close" data-result="close">~ Близко</button>
             <button class="self-btn self-right" data-result="right"
-                    style="background: ${J.color}; color: white">✓ Верно</button>
+                    style="background: ${Y.color}; color: white">✓ Верно</button>
           </div>
         </div>
       </div>
     `:`
     <div class="ex-card" data-type="${n}" data-correct="${o}">
-      <div class="ex-type-badge" style="background: ${J.bg}; color: ${J.color}">${r}</div>
+      <div class="ex-type-badge" style="background: ${Y.bg}; color: ${Y.color}">${r}</div>
       <div class="ex-question">${e.question}</div>
       <div class="ex-options" id="ex-options">
         ${s.map((e,t)=>`
@@ -300,27 +279,27 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
       <div class="ex-feedback" id="ex-feedback" style="display:none"></div>
     </div>
-  `}function _e(e){q=e,J=de[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-ex`)?.addEventListener(`click`,()=>{k(`/chapter/${e.id}`)}),ve()}function ve(){let e=G[K];e&&(Y=!1,document.getElementById(`btn-show-answer`)?.addEventListener(`click`,()=>{document.getElementById(`answer-reveal`).style.display=`block`,document.getElementById(`btn-show-answer`).style.display=`none`}),document.querySelectorAll(`.self-btn`).forEach(e=>{e.addEventListener(`click`,()=>{e.dataset.result,v(p().activeProfile,q.id,K,e.dataset.result),ye()})}),document.querySelectorAll(`.ex-option`).forEach(t=>{t.addEventListener(`click`,()=>{if(Y)return;Y=!0;let n=t.dataset.correct===`true`,r=document.querySelector(`.ex-card`).dataset.correct;document.querySelectorAll(`.ex-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===t&&!n&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`ex-feedback`);i.style.display=`block`,i.innerHTML=n?`<div class="feedback-correct" style="border-color: ${J.color}">
+  `}function _e(e){J=e,Y=de[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-ex`)?.addEventListener(`click`,()=>{k(`/chapter/${e.id}`)}),ve()}function ve(){let e=K[q];e&&(X=!1,document.getElementById(`btn-show-answer`)?.addEventListener(`click`,()=>{document.getElementById(`answer-reveal`).style.display=`block`,document.getElementById(`btn-show-answer`).style.display=`none`}),document.querySelectorAll(`.self-btn`).forEach(e=>{e.addEventListener(`click`,()=>{e.dataset.result,v(p().activeProfile,J.id,q,e.dataset.result),ye()})}),document.querySelectorAll(`.ex-option`).forEach(t=>{t.addEventListener(`click`,()=>{if(X)return;X=!0;let n=t.dataset.correct===`true`,r=document.querySelector(`.ex-card`).dataset.correct;document.querySelectorAll(`.ex-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===t&&!n&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`ex-feedback`);i.style.display=`block`,i.innerHTML=n?`<div class="feedback-correct" style="border-color: ${Y.color}">
              ✓ Правильно! ${e.explanation?`<span>${e.explanation}</span>`:``}
            </div>
-           <button class="ex-next-btn" id="btn-next" style="background: ${J.color}">
-             ${K+1<G.length?`Следующее →`:`Завершить 🎉`}
+           <button class="ex-next-btn" id="btn-next" style="background: ${Y.color}">
+             ${q+1<K.length?`Следующее →`:`Завершить 🎉`}
            </button>`:`<div class="feedback-wrong">
              ✗ Правильный ответ: <strong>${r}</strong>
              ${e.explanation?`<br><span>${e.explanation}</span>`:``}
            </div>
-           <button class="ex-next-btn" id="btn-next" style="background: ${J.color}">
-             ${K+1<G.length?`Следующее →`:`Завершить 🎉`}
-           </button>`,v(p().activeProfile,q.id,K,n?`right`:`wrong`),document.getElementById(`btn-next`)?.addEventListener(`click`,ye)})}))}function ye(){if(K++,K>=G.length){be();return}let e=document.getElementById(`ex-container`);e.innerHTML=ge(G[K],K),document.getElementById(`ex-counter`).textContent=`${K+1} / ${G.length}`,document.getElementById(`ex-progress-fill`).style.width=`${me(K)}%`,ve()}function be(){let e=document.getElementById(`ex-container`);e.innerHTML=`
+           <button class="ex-next-btn" id="btn-next" style="background: ${Y.color}">
+             ${q+1<K.length?`Следующее →`:`Завершить 🎉`}
+           </button>`,v(p().activeProfile,J.id,q,n?`right`:`wrong`),document.getElementById(`btn-next`)?.addEventListener(`click`,ye)})}))}function ye(){if(q++,q>=K.length){be();return}let e=document.getElementById(`ex-container`);e.innerHTML=ge(K[q],q),document.getElementById(`ex-counter`).textContent=`${q+1} / ${K.length}`,document.getElementById(`ex-progress-fill`).style.width=`${me(q)}%`,ve()}function be(){let e=document.getElementById(`ex-container`);e.innerHTML=`
     <div class="complete-screen">
       <div class="complete-emoji">🏆</div>
       <h2>Упражнения завершены!</h2>
-      <p style="color: #6B7280; margin-top: 8px">${G.length} заданий выполнено</p>
-      <button class="btn-complete" style="background: ${J.color}" id="btn-to-chapter-ex">
+      <p style="color: #6B7280; margin-top: 8px">${K.length} заданий выполнено</p>
+      <button class="btn-complete" style="background: ${Y.color}" id="btn-to-chapter-ex">
         Вернуться к главе →
       </button>
     </div>
-  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{k(`/chapter/${q.id}`)})}var X=[{id:`A0–A1`,label:`A0–A1`,color:`#7C3AED`,bg:`#EDE7FB`,chapters:[`ch1`,`ch2`,`ch3`,`ch4`,`ch5`]},{id:`A1–A2`,label:`A1–A2`,color:`#EC4899`,bg:`#FAE9F2`,chapters:[`ch6`,`ch7`,`ch8`,`ch9`,`ch10`]},{id:`A2–B1`,label:`A2–B1`,color:`#F59E0B`,bg:`#FEEEDB`,chapters:[`ch11`,`ch12`,`ch13`,`ch14`,`ch15`]},{id:`B1–B2`,label:`B1–B2`,color:`#10B981`,bg:`#E8F7EE`,chapters:[`ch16`,`ch17`,`ch18`,`ch19`,`ch20`]}];function xe(e){let t=p().profiles[e];for(let e=0;e<X.length;e++){let n=X[e],r=X[e+1],i=n.chapters.filter(e=>{let n=t.vocabulary[e]||{},r=t.exercises[e]||{};return Object.values(n).filter(e=>e.seen).length>0||Object.values(r).filter(e=>e.completed).length>0}).length,a=n.chapters.length,o=Math.round(i/a*100);if(o<100)return{current:n,next:r,completed:i,total:a,pct:o}}let n=X[X.length-1];return{current:n,next:null,completed:n.chapters.length,total:n.chapters.length,pct:100}}function Se(e){let t=p().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=S(e),{current:s,next:c,completed:l,total:u,pct:d}=xe(e);return`
+  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{k(`/chapter/${J.id}`)})}var Z=[{id:`A0–A1`,label:`A0–A1`,color:`#7C3AED`,bg:`#EDE7FB`,chapters:[`ch1`,`ch2`,`ch3`,`ch4`,`ch5`]},{id:`A1–A2`,label:`A1–A2`,color:`#EC4899`,bg:`#FAE9F2`,chapters:[`ch6`,`ch7`,`ch8`,`ch9`,`ch10`]},{id:`A2–B1`,label:`A2–B1`,color:`#F59E0B`,bg:`#FEEEDB`,chapters:[`ch11`,`ch12`,`ch13`,`ch14`,`ch15`]},{id:`B1–B2`,label:`B1–B2`,color:`#10B981`,bg:`#E8F7EE`,chapters:[`ch16`,`ch17`,`ch18`,`ch19`,`ch20`]}];function xe(e){let t=p().profiles[e];for(let e=0;e<Z.length;e++){let n=Z[e],r=Z[e+1],i=n.chapters.filter(e=>{let n=t.vocabulary[e]||{},r=t.exercises[e]||{};return Object.values(n).filter(e=>e.seen).length>0||Object.values(r).filter(e=>e.completed).length>0}).length,a=n.chapters.length,o=Math.round(i/a*100);if(o<100)return{current:n,next:r,completed:i,total:a,pct:o}}let n=Z[Z.length-1];return{current:n,next:null,completed:n.chapters.length,total:n.chapters.length,pct:100}}function Se(e){let t=p().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=S(e),{current:s,next:c,completed:l,total:u,pct:d}=xe(e);return`
     <div class="profile-page">
       <header class="header">
         <button class="btn-back" id="btn-back-profile">← Главная</button>
@@ -525,4 +504,4 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
     </div>
-  `}function Z(e){document.querySelector(`#app`).innerHTML=e}function Ie(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile;p().activeProfile===t?k(`/profile/${t}`):(_(t),Q())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{k(`/chapter/${e.dataset.chapter}`)})})}var Le=De.map(e=>({...e,...Ee[e.id]}));function Q(){Z(Ne(p(),Le)),Ie()}var $={chapters:[],vocabulary:[],exercises:[]};async function Re(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{$=await D(),$.chapters?.length>0&&(Le=$.chapters.map(e=>({...e,...Ee[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}ze(),A(ze)}function ze(){let e=O(),t=p();if(e.page===`dashboard`||!e.page){Q();return}if(e.page===`profile`){Z(Se(e.profileId)),Te();return}let n=Le.find(t=>t.id===e.chapterId);if(!n){Q();return}let r=$.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=$.exercises.filter(t=>t.chapter_id===e.chapterId);if(e.section===`vocabulary`){Z(ne(n,r)),re(n);return}if(e.section===`exercises`){Z(pe(n,i)),_e(n);return}Z(N(n,r,i,t)),te(e.chapterId,r,t.activeProfile)}Re();
+  `}function Q(e){document.querySelector(`#app`).innerHTML=e}function Ie(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile;p().activeProfile===t?k(`/profile/${t}`):(_(t),Re())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{k(`/chapter/${e.dataset.chapter}`)})})}var Le=De.map(e=>({...e,...Ee[e.id]}));function Re(){Q(Ne(p(),Le)),Ie()}var $={chapters:[],vocabulary:[],exercises:[]};async function ze(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{$=await D(),$.chapters?.length>0&&(Le=$.chapters.map(e=>({...e,...Ee[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Be(),A(Be)}function Be(){let e=O(),t=p();if(e.page===`dashboard`||!e.page){Re();return}if(e.page===`profile`){Q(Se(e.profileId)),Te();return}let n=Le.find(t=>t.id===e.chapterId);if(!n){Re();return}let r=$.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=$.exercises.filter(t=>t.chapter_id===e.chapterId);if(e.section===`vocabulary`){Q(ne(n,r)),H(n);return}if(e.section===`exercises`){Q(pe(n,i)),_e(n);return}Q(N(n,r,i,t)),te(e.chapterId,r,t.activeProfile)}ze();

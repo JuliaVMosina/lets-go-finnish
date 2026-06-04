@@ -293,11 +293,27 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
         <div class="trend-label">${e.label}</div>
       </div>
-    `}).join(``),a=t.slice(0,4).reduce((e,t)=>e+t.count,0),o=t.slice(4).reduce((e,t)=>e+t.count,0);return`
+    `}).join(``),a=t.slice(0,4).reduce((e,t)=>e+t.count,0),o=t.slice(4).reduce((e,t)=>e+t.count,0),s=o>a?`📈`:o<a?`📉`:`➡️`,c=o>a?`Занимаешься чаще!`:o<a?`Можно позаниматься больше`:`Стабильный ритм`,l=t.reduce((e,t)=>e+t.count,0);return`
     <div class="trend-card">
       <div class="trend-header">
         <span class="trend-title">Тренд</span>
-        <span class="trend-badge">${o>a?`📈`:o<a?`📉`:`➡️`} ${o>a?`Занимаешься чаще!`:o<a?`Можно позаниматься больше`:`Стабильный ритм`}</span>
+        <span class="trend-badge">${s} ${c}</span>
+      </div>
+      <div class="trend-mini-stats">
+        <div class="trend-mini-stat">
+          <span class="trend-mini-val">${l}</span>
+          <span class="trend-mini-label">всего занятий</span>
+        </div>
+        <div class="trend-mini-divider"></div>
+        <div class="trend-mini-stat">
+          <span class="trend-mini-val">${Math.max(...t.map(e=>e.count))}</span>
+          <span class="trend-mini-label">лучшая неделя</span>
+        </div>
+        <div class="trend-mini-divider"></div>
+        <div class="trend-mini-stat">
+          <span class="trend-mini-val">${l>0?(l/8).toFixed(1):`0`}</span>
+          <span class="trend-mini-label">среднее/нед.</span>
+        </div>
       </div>
       <div class="trend-bars">${i}</div>
       <div class="trend-hint">занятий за неделю · последние 8 недель</div>

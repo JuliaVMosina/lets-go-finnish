@@ -169,6 +169,15 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
           <div class="mode-info">
             <div class="mode-name">Заучивание</div>
             <div class="mode-desc">Флэш-карточки · продолжить с места остановки</div>
+            <div class="learning-progress" style="margin-top: 10px">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px">
+                <span>${n+i} выучено</span>
+                <span style="color: #999">${I.length} всего</span>
+              </div>
+              <div class="progress-bar" style="height: 6px">
+                <div class="progress-fill" style="width: ${Math.round((n+i)/I.length*100)}%; background: ${z.color}"></div>
+              </div>
+            </div>
           </div>
           <button class="mode-btn" style="background: ${z.color}">Начать →</button>
         </div>
@@ -219,6 +228,10 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <button class="btn-back" id="btn-back-fc">← Режимы</button>
       <span class="vocab-counter" id="vocab-counter">${F+1} / ${I.length}</span>
     </header>
+
+    <div class="ex-progress-bar">
+      <div class="ex-progress-fill" style="width: ${F/I.length*100}%; background: ${z.color}"></div>
+    </div>
 
     <div class="vocab-container">
       <div class="flashcard" id="flashcard" style="--card-color: ${z.color}; --card-bg: ${z.bg}">
@@ -287,7 +300,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
     </div>
   `,document.getElementById(`btn-back-test`)?.addEventListener(`click`,()=>{I=R._allWords||I,document.querySelector(`.vocab-page`).innerHTML=H(),U(R)}),ge(e)}function ge(e){let t=!1;document.querySelectorAll(`.test-option`).forEach(n=>{n.addEventListener(`click`,()=>{if(t)return;t=!0;let r=n.dataset.correct===`true`;r&&K++,document.querySelectorAll(`.test-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===n&&!r&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`test-feedback`);i.style.display=`flex`,i.innerHTML=r?`<div class="feedback-correct" style="border-color: ${z.color}">✓ Правильно!</div>
            <button class="ex-next-btn" id="btn-next-test" style="background: ${z.color}">Дальше →</button>`:`<div class="feedback-wrong">✗ Правильно: <strong>${e.russian}</strong></div>
-           <button class="ex-next-btn" id="btn-next-test" style="background: ${z.color}">Дальше →</button>`,i.style.flexDirection=`column`,i.style.gap=`10px`,document.getElementById(`btn-next-test`)?.addEventListener(`click`,()=>{G++,he()})})})}function _e(){b(p().activeProfile,R.id,K,V.length);let e=Math.round(K/V.length*100),t=e>=80?`🏆`:e>=60?`👍`:`💪`;document.querySelector(`.vocab-page`).innerHTML=`
+           <button class="ex-next-btn" id="btn-next-test" style="background: ${z.color}">Дальше →</button>`,i.style.flexDirection=`column`,i.style.gap=`10px`,document.getElementById(`btn-next-test`)?.addEventListener(`click`,()=>{G++,he()})})})}function _e(){b(p().activeProfile,R.id,K,V.length);let e=Math.round(K/V.length*100),t=e>=80?`🏆`:e>=60?`👍`:`💪`,n=new Date;n.setDate(n.getDate()+10);let r=n.toLocaleDateString(`ru`,{day:`numeric`,month:`short`});document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-test-done">← Режимы</button>
     </header>
@@ -295,6 +308,10 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <div class="complete-emoji">${t}</div>
       <h2>Тест завершён!</h2>
       <p style="color: #6B7280; margin-top: 8px">Результат: <strong style="color: ${z.color}">${K} / ${V.length}</strong> (${e}%)</p>
+      <div class="test-completion-info" style="background: ${z.bg}; padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center">
+        <div style="font-size: 12px; color: #6B7280; margin-bottom: 4px">Следующее повторение</div>
+        <div style="font-size: 16px; font-weight: 600; color: ${z.color}">${r}</div>
+      </div>
       <div style="display:flex; gap:12px; margin-top:24px; justify-content:center">
         <button class="btn-complete" style="background: ${z.color}" id="btn-retest">Ещё раз</button>
         <button class="btn-complete" style="background: white; color: ${z.color}; border: 2px solid ${z.color}" id="btn-to-chapter-t">К главе</button>

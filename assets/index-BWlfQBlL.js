@@ -197,7 +197,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
       <div class="ex-feedback" id="ex-feedback" style="display:none"></div>
     </div>
-  `}function ae(e){U=e,W=B[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-ex`)?.addEventListener(`click`,()=>{O(`/chapter/${e.id}`)}),J()}function J(){let e=V[H];e&&(G=!1,document.getElementById(`btn-show-answer`)?.addEventListener(`click`,()=>{document.getElementById(`answer-reveal`).style.display=`block`,document.getElementById(`btn-show-answer`).style.display=`none`}),document.querySelectorAll(`.self-btn`).forEach(e=>{e.addEventListener(`click`,()=>{e.dataset.result,v(p().activeProfile,U.id,H,e.dataset.result),Y()})}),document.querySelectorAll(`.ex-option`).forEach(t=>{t.addEventListener(`click`,()=>{if(G)return;G=!0;let n=t.dataset.correct===`true`,r=document.querySelector(`.ex-card`).dataset.correct;document.querySelectorAll(`.ex-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===t&&!n&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`ex-feedback`);i.style.display=`block`,i.innerHTML=n?`<div class="feedback-correct" style="border-color: ${W.color}">
+  `}function ae(e){U=e,W=B[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-ex`)?.addEventListener(`click`,()=>{O(`/chapter/${e.id}`)}),J()}function J(){let e=V[H];e&&(G=!1,document.getElementById(`btn-show-answer`)?.addEventListener(`click`,()=>{document.getElementById(`answer-reveal`).style.display=`block`,document.getElementById(`btn-show-answer`).style.display=`none`}),document.querySelectorAll(`.self-btn`).forEach(e=>{e.addEventListener(`click`,()=>{e.dataset.result,v(p().activeProfile,U.id,H,e.dataset.result),oe()})}),document.querySelectorAll(`.ex-option`).forEach(t=>{t.addEventListener(`click`,()=>{if(G)return;G=!0;let n=t.dataset.correct===`true`,r=document.querySelector(`.ex-card`).dataset.correct;document.querySelectorAll(`.ex-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===t&&!n&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`ex-feedback`);i.style.display=`block`,i.innerHTML=n?`<div class="feedback-correct" style="border-color: ${W.color}">
              ✓ Правильно! ${e.explanation?`<span>${e.explanation}</span>`:``}
            </div>
            <button class="ex-next-btn" id="btn-next" style="background: ${W.color}">
@@ -208,7 +208,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
            </div>
            <button class="ex-next-btn" id="btn-next" style="background: ${W.color}">
              ${H+1<V.length?`Следующее →`:`Завершить 🎉`}
-           </button>`,v(p().activeProfile,U.id,H,n?`right`:`wrong`),document.getElementById(`btn-next`)?.addEventListener(`click`,Y)})}))}function Y(){if(H++,H>=V.length){oe();return}let e=document.getElementById(`ex-container`);e.innerHTML=q(V[H],H),document.getElementById(`ex-counter`).textContent=`${H+1} / ${V.length}`,document.getElementById(`ex-progress-fill`).style.width=`${K(H)}%`,J()}function oe(){let e=document.getElementById(`ex-container`);e.innerHTML=`
+           </button>`,v(p().activeProfile,U.id,H,n?`right`:`wrong`),document.getElementById(`btn-next`)?.addEventListener(`click`,oe)})}))}function oe(){if(H++,H>=V.length){se();return}let e=document.getElementById(`ex-container`);e.innerHTML=q(V[H],H),document.getElementById(`ex-counter`).textContent=`${H+1} / ${V.length}`,document.getElementById(`ex-progress-fill`).style.width=`${K(H)}%`,J()}function se(){let e=document.getElementById(`ex-container`);e.innerHTML=`
     <div class="complete-screen">
       <div class="complete-emoji">🏆</div>
       <h2>Упражнения завершены!</h2>
@@ -217,7 +217,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         Вернуться к главе →
       </button>
     </div>
-  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{O(`/chapter/${U.id}`)})}function se(e){let t=p().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=b(e);return`
+  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{O(`/chapter/${U.id}`)})}var Y=[{id:`A0–A1`,label:`A0–A1`,color:`#7C3AED`,bg:`#EDE7FB`,chapters:[`ch1`,`ch2`,`ch3`,`ch4`,`ch5`]},{id:`A1–A2`,label:`A1–A2`,color:`#EC4899`,bg:`#FAE9F2`,chapters:[`ch6`,`ch7`,`ch8`,`ch9`,`ch10`]},{id:`A2–B1`,label:`A2–B1`,color:`#F59E0B`,bg:`#FEEEDB`,chapters:[`ch11`,`ch12`,`ch13`,`ch14`,`ch15`]},{id:`B1–B2`,label:`B1–B2`,color:`#10B981`,bg:`#E8F7EE`,chapters:[`ch16`,`ch17`,`ch18`,`ch19`,`ch20`]}];function ce(e){let t=p().profiles[e];for(let e=0;e<Y.length;e++){let n=Y[e],r=Y[e+1],i=n.chapters.filter(e=>{let n=t.vocabulary[e]||{},r=t.exercises[e]||{};return Object.values(n).filter(e=>e.seen).length>0||Object.values(r).filter(e=>e.completed).length>0}).length,a=n.chapters.length,o=Math.round(i/a*100);if(o<100)return{current:n,next:r,completed:i,total:a,pct:o}}let n=Y[Y.length-1];return{current:n,next:null,completed:n.chapters.length,total:n.chapters.length,pct:100}}function le(e){let t=p().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=b(e),{current:s,next:c,completed:l,total:u,pct:d}=ce(e);return`
     <div class="profile-page">
       <header class="header">
         <button class="btn-back" id="btn-back-profile">← Главная</button>
@@ -226,10 +226,32 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <!-- Profile hero -->
       <div class="profile-hero">
         <img src="/lets-go-finnish/${e}.png" class="profile-avatar-big" alt="${t.name}">
-        <div>
+        <div class="profile-hero-info">
           <h1 class="profile-name">${t.name}</h1>
           <div class="profile-streak">
             ${a>0?`<span class="streak-icon">🔥</span> <strong>${a}</strong> ${a===1?`день`:a<5?`дня`:`дней`} подряд`:`Начни заниматься сегодня!`}
+          </div>
+        </div>
+        <!-- Level badge block -->
+        <div class="level-block">
+          <div class="level-current-badge" style="background: ${s.bg}; color: ${s.color}">
+            ${s.label}
+          </div>
+          <div class="level-progress-section">
+            <div class="level-progress-info">
+              <span class="level-progress-text">${l} из ${u} глав</span>
+              ${c?`<span class="level-next-badge" style="color: ${c.color}">→ ${c.label}</span>`:`<span style="color:#10B981; font-weight:700">🏆 Уровень завершён!</span>`}
+            </div>
+            <div class="level-bar-track">
+              <div class="level-bar-fill" id="level-bar-fill"
+                   data-pct="${d}"
+                   style="width: 0%; background: linear-gradient(90deg, ${s.color}, ${c?c.color:s.color})">
+              </div>
+              <div class="level-bar-arrow" id="level-bar-arrow" style="left: 0%">
+                <div class="arrow-pulse" style="background: ${s.color}"></div>
+              </div>
+            </div>
+            <div class="level-pct">${d}%</div>
           </div>
         </div>
       </div>
@@ -262,13 +284,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <div class="profile-section">
         <h2 class="profile-section-title">Активность</h2>
         <div class="activity-row">
-          ${ce(o)}
-          ${le(o)}
+          ${ue(o)}
+          ${de(o)}
         </div>
       </div>
 
     </div>
-  `}function ce(e){let t=new Date,n=t.getFullYear(),r=t.getMonth(),i=new Date(n,r,1).toLocaleString(`ru`,{month:`long`,year:`numeric`}),a=new Date(n,r,1).getDay(),o=new Date(n,r+1,0).getDate(),s=a===0?6:a-1,c=[`Пн`,`Вт`,`Ср`,`Чт`,`Пт`,`Сб`,`Вс`],l=t.getDate(),u=``;for(let e=0;e<s;e++)u+=`<div class="cal-cell empty"></div>`;for(let t=1;t<=o;t++){let i=`${n}-${String(r+1).padStart(2,`0`)}-${String(t).padStart(2,`0`)}`,a=!!e[i],o=t===l,s=e[i]?.words||0,c=e[i]?.exercises||0;u+=`
+  `}function ue(e){let t=new Date,n=t.getFullYear(),r=t.getMonth(),i=new Date(n,r,1).toLocaleString(`ru`,{month:`long`,year:`numeric`}),a=new Date(n,r,1).getDay(),o=new Date(n,r+1,0).getDate(),s=a===0?6:a-1,c=[`Пн`,`Вт`,`Ср`,`Чт`,`Пт`,`Сб`,`Вс`],l=t.getDate(),u=``;for(let e=0;e<s;e++)u+=`<div class="cal-cell empty"></div>`;for(let t=1;t<=o;t++){let i=`${n}-${String(r+1).padStart(2,`0`)}-${String(t).padStart(2,`0`)}`,a=!!e[i],o=t===l,s=e[i]?.words||0,c=e[i]?.exercises||0;u+=`
       <div class="cal-cell ${a?`active`:``} ${o?`today`:``}"
            title="${a?`слов: ${s}, упражнений: ${c}`:``}">
         <span>${t}</span>
@@ -284,7 +306,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         ${u}
       </div>
     </div>
-  `}function le(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1);Math.round(3/r*80);let i=t.map((e,n)=>{let i=e.count>0?Math.max(Math.round(e.count/r*80),8):4,a=n===t.length-1,o=e.count===0;return`
+  `}function de(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1);Math.round(3/r*80);let i=t.map((e,n)=>{let i=e.count>0?Math.max(Math.round(e.count/r*80),8):4,a=n===t.length-1,o=e.count===0;return`
       <div class="trend-bar-wrap" title="${a?`Эта неделя: ${e.count} занятий · Так держать!`:``}">
         <div class="trend-bar-val">${e.count>0?e.count:``}</div>
         <div class="trend-bar-bg">
@@ -318,7 +340,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <div class="trend-bars">${i}</div>
       <div class="trend-hint">занятий за неделю · последние 8 недель</div>
     </div>
-  `}function ue(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>O(`/`))}var de={ch1:{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},ch2:{color:`#EC4899`,bg:`#FAE9F2`,img:`ch2.png`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`,img:`ch3.png`},ch4:{color:`#10B981`,bg:`#E8F7EE`,img:`ch4.png`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`,img:`ch5.png`}},fe=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],pe=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],me={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function he(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function ge(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function _e(e){let t=e.profiles;return`
+  `}function fe(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>O(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var pe={ch1:{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},ch2:{color:`#EC4899`,bg:`#FAE9F2`,img:`ch2.png`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`,img:`ch3.png`},ch4:{color:`#10B981`,bg:`#E8F7EE`,img:`ch4.png`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`,img:`ch5.png`}},me=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],he=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],ge={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function _e(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function ve(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function ye(e){let t=e.profiles;return`
     <header class="header">
       <div class="logo">
         <img src="/lets-go-finnish/logo.png" alt="Let's Go Learn Finnish!" class="logo-img">
@@ -336,12 +358,12 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <button class="btn-cta">Начать учить</button>
       </div>
     </header>
-  `}function ve(e,t){let n=g();return`
-    ${_e(e)}
+  `}function be(e,t){let n=g();return`
+    ${ye(e)}
     <div class="hero">
       <div class="hero-text">
         <h1><span class="hero-accent">Suomi on vaikea.</span><br>Mutta me справимся 💪</h1>
-        <p class="greeting">${he(n.name)}</p>
+        <p class="greeting">${_e(n.name)}</p>
       </div>
       <div class="hero-deco">
         <div class="deco-card deco-1"><span class="deco-dot"></span>Moikka! — Привет!</div>
@@ -349,8 +371,8 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <div class="deco-card deco-3"><span class="deco-dot"></span>Hyvää! — Отлично!</div>
       </div>
     </div>
-    ${ye(t,n)}
-  `}function ye(e,t){let n={};return e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),pe.filter(e=>n[e]).map(e=>{let r=me[e]||{color:`#7C3AED`,bg:`#EDE7FB`},i=n[e],a=i.reduce((e,n)=>e+ge(t,n.id),0)/i.length;return`
+    ${xe(t,n)}
+  `}function xe(e,t){let n={};return e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),he.filter(e=>n[e]).map(e=>{let r=ge[e]||{color:`#7C3AED`,bg:`#EDE7FB`},i=n[e],a=i.reduce((e,n)=>e+ve(t,n.id),0)/i.length;return`
         <div class="level-section">
           <div class="level-header">
             <div class="level-badge" style="background: ${r.bg}; color: ${r.color}">${e}</div>
@@ -362,10 +384,10 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             </div>
           </div>
           <div class="chapters-grid">
-            ${i.map((e,n)=>be(e,e.globalIndex+1,t)).join(``)}
+            ${i.map((e,n)=>Se(e,e.globalIndex+1,t)).join(``)}
           </div>
         </div>
-      `}).join(``)}function be(e,t,n){let r=ge(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
+      `}).join(``)}function Se(e,t,n){let r=ve(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
     <div class="chapter-card ${i?`done`:``} ${r>0?`in-progress`:``}"
          data-chapter="${e.id}"
          style="--card-color: ${e.color}">
@@ -388,4 +410,4 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
     </div>
-  `}function X(e){document.querySelector(`#app`).innerHTML=e}function xe(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile;p().activeProfile===t?O(`/profile/${t}`):(_(t),Q())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{O(`/chapter/${e.dataset.chapter}`)})})}var Z=fe.map(e=>({...e,...de[e.id]}));function Q(){X(ve(p(),Z)),xe()}var $={chapters:[],vocabulary:[],exercises:[]};async function Se(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{$=await E(),$.chapters?.length>0&&(Z=$.chapters.map(e=>({...e,...de[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Ce(),k(Ce)}function Ce(){let e=D(),t=p();if(e.page===`dashboard`||!e.page){Q();return}if(e.page===`profile`){X(se(e.profileId)),ue();return}let n=Z.find(t=>t.id===e.chapterId);if(!n){Q();return}let r=$.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=$.exercises.filter(t=>t.chapter_id===e.chapterId);if(e.section===`vocabulary`){X(z(n,r)),ee(n);return}if(e.section===`exercises`){X(re(n,i)),ae(n);return}X(M(n,r,i,t)),N(e.chapterId)}Se();
+  `}function X(e){document.querySelector(`#app`).innerHTML=e}function Ce(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile;p().activeProfile===t?O(`/profile/${t}`):(_(t),Q())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{O(`/chapter/${e.dataset.chapter}`)})})}var Z=me.map(e=>({...e,...pe[e.id]}));function Q(){X(be(p(),Z)),Ce()}var $={chapters:[],vocabulary:[],exercises:[]};async function we(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{$=await E(),$.chapters?.length>0&&(Z=$.chapters.map(e=>({...e,...pe[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Te(),k(Te)}function Te(){let e=D(),t=p();if(e.page===`dashboard`||!e.page){Q();return}if(e.page===`profile`){X(le(e.profileId)),fe();return}let n=Z.find(t=>t.id===e.chapterId);if(!n){Q();return}let r=$.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=$.exercises.filter(t=>t.chapter_id===e.chapterId);if(e.section===`vocabulary`){X(z(n,r)),ee(n);return}if(e.section===`exercises`){X(re(n,i)),ae(n);return}X(M(n,r,i,t)),N(e.chapterId)}we();

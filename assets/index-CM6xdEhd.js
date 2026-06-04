@@ -163,7 +163,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <div class="loading">Упражнения скоро появятся 💪<br>
           <small style="color:#aaa">Добавь их в Google Sheets → лист exercises</small>
         </div>
-      </div>`}function G(e){return Math.round(e/B.length*100)}function K(e,t){let n=e.type||`multiple_choice`,r=z[n]||n,i=[e.option_a,e.option_b,e.option_c,e.option_d].filter(Boolean);return n===`self_check`?`
+      </div>`}function G(e){return Math.round(e/B.length*100)}function te(e){return e.map(e=>({v:e,sort:Math.random()})).sort((e,t)=>e.sort-t.sort).map(({v:e})=>e)}function K(e,t){let n=e.type||`multiple_choice`,r=z[n]||n,i=[e.option_a,e.option_b,e.option_c,e.option_d].filter(Boolean),a=`abcd`.indexOf((e.correct||`a`).toLowerCase()),o=i[a]||i[0],s=n===`self_check`?i:te(i.map((e,t)=>({text:e,isCorrect:t===a})));return n===`self_check`?`
       <div class="ex-card" data-type="${n}">
         <div class="ex-type-badge" style="background: ${U.bg}; color: ${U.color}">${r}</div>
         <div class="ex-question">${e.question}</div>
@@ -184,31 +184,31 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
     `:`
-    <div class="ex-card" data-type="${n}">
+    <div class="ex-card" data-type="${n}" data-correct="${o}">
       <div class="ex-type-badge" style="background: ${U.bg}; color: ${U.color}">${r}</div>
       <div class="ex-question">${e.question}</div>
       <div class="ex-options" id="ex-options">
-        ${i.map((e,t)=>`
-          <button class="ex-option" data-index="${t}" data-value="${e}">
+        ${s.map((e,t)=>`
+          <button class="ex-option" data-correct="${e.isCorrect}" data-value="${e.text}">
             <span class="ex-option-letter">${`ABCD`[t]}</span>
-            <span>${e}</span>
+            <span>${e.text}</span>
           </button>
         `).join(``)}
       </div>
       <div class="ex-feedback" id="ex-feedback" style="display:none"></div>
     </div>
-  `}function te(e){H=e,U=R[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-ex`)?.addEventListener(`click`,()=>{w(`/chapter/${e.id}`)}),q()}function q(){let e=B[V];e&&(W=!1,document.getElementById(`btn-show-answer`)?.addEventListener(`click`,()=>{document.getElementById(`answer-reveal`).style.display=`block`,document.getElementById(`btn-show-answer`).style.display=`none`}),document.querySelectorAll(`.self-btn`).forEach(e=>{e.addEventListener(`click`,()=>{e.dataset.result,h(d().activeProfile,H.id,V,e.dataset.result),J()})}),document.querySelectorAll(`.ex-option`).forEach(t=>{t.addEventListener(`click`,()=>{if(W)return;W=!0;let n=e.correct||`a`,r=`abcd`.indexOf(n.toLowerCase()),i=parseInt(t.dataset.index),a=i===r;document.querySelectorAll(`.ex-option`).forEach((e,t)=>{t===r?e.classList.add(`correct`):t===i&&!a&&e.classList.add(`wrong`),e.disabled=!0});let o=document.getElementById(`ex-feedback`);o.style.display=`block`,o.innerHTML=a?`<div class="feedback-correct" style="border-color: ${U.color}">
+  `}function ne(e){H=e,U=R[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-ex`)?.addEventListener(`click`,()=>{w(`/chapter/${e.id}`)}),q()}function q(){let e=B[V];e&&(W=!1,document.getElementById(`btn-show-answer`)?.addEventListener(`click`,()=>{document.getElementById(`answer-reveal`).style.display=`block`,document.getElementById(`btn-show-answer`).style.display=`none`}),document.querySelectorAll(`.self-btn`).forEach(e=>{e.addEventListener(`click`,()=>{e.dataset.result,h(d().activeProfile,H.id,V,e.dataset.result),J()})}),document.querySelectorAll(`.ex-option`).forEach(t=>{t.addEventListener(`click`,()=>{if(W)return;W=!0;let n=t.dataset.correct===`true`,r=document.querySelector(`.ex-card`).dataset.correct;document.querySelectorAll(`.ex-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===t&&!n&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`ex-feedback`);i.style.display=`block`,i.innerHTML=n?`<div class="feedback-correct" style="border-color: ${U.color}">
              ✓ Правильно! ${e.explanation?`<span>${e.explanation}</span>`:``}
            </div>
            <button class="ex-next-btn" id="btn-next" style="background: ${U.color}">
              ${V+1<B.length?`Следующее →`:`Завершить 🎉`}
            </button>`:`<div class="feedback-wrong">
-             ✗ Правильный ответ: <strong>${[`a`,`b`,`c`,`d`].map((t,r)=>t===n.toLowerCase()?[e.option_a,e.option_b,e.option_c,e.option_d][r]:null).find(Boolean)}</strong>
+             ✗ Правильный ответ: <strong>${r}</strong>
              ${e.explanation?`<br><span>${e.explanation}</span>`:``}
            </div>
            <button class="ex-next-btn" id="btn-next" style="background: ${U.color}">
              ${V+1<B.length?`Следующее →`:`Завершить 🎉`}
-           </button>`,h(d().activeProfile,H.id,V,a?`right`:`wrong`),document.getElementById(`btn-next`)?.addEventListener(`click`,J)})}))}function J(){if(V++,V>=B.length){ne();return}let e=document.getElementById(`ex-container`);e.innerHTML=K(B[V],V),document.getElementById(`ex-counter`).textContent=`${V+1} / ${B.length}`,document.getElementById(`ex-progress-fill`).style.width=`${G(V)}%`,q()}function ne(){let e=document.getElementById(`ex-container`);e.innerHTML=`
+           </button>`,h(d().activeProfile,H.id,V,n?`right`:`wrong`),document.getElementById(`btn-next`)?.addEventListener(`click`,J)})}))}function J(){if(V++,V>=B.length){re();return}let e=document.getElementById(`ex-container`);e.innerHTML=K(B[V],V),document.getElementById(`ex-counter`).textContent=`${V+1} / ${B.length}`,document.getElementById(`ex-progress-fill`).style.width=`${G(V)}%`,q()}function re(){let e=document.getElementById(`ex-container`);e.innerHTML=`
     <div class="complete-screen">
       <div class="complete-emoji">🏆</div>
       <h2>Упражнения завершены!</h2>
@@ -217,7 +217,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         Вернуться к главе →
       </button>
     </div>
-  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{w(`/chapter/${H.id}`)})}var Y={ch1:{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},ch2:{color:`#EC4899`,bg:`#FAE9F2`,img:`ch2.png`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`,img:`ch3.png`},ch4:{color:`#10B981`,bg:`#E8F7EE`,img:`ch4.png`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`,img:`ch5.png`}},re=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],ie=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],ae={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function oe(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function se(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function ce(e){let t=e.profiles;return`
+  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{w(`/chapter/${H.id}`)})}var Y={ch1:{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},ch2:{color:`#EC4899`,bg:`#FAE9F2`,img:`ch2.png`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`,img:`ch3.png`},ch4:{color:`#10B981`,bg:`#E8F7EE`,img:`ch4.png`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`,img:`ch5.png`}},ie=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],ae=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],oe={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function se(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function ce(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function le(e){let t=e.profiles;return`
     <header class="header">
       <div class="logo">
         <img src="/lets-go-finnish/logo.png" alt="Let's Go Learn Finnish!" class="logo-img">
@@ -235,12 +235,12 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <button class="btn-cta">Начать учить</button>
       </div>
     </header>
-  `}function le(e,t){let n=p();return`
-    ${ce(e)}
+  `}function ue(e,t){let n=p();return`
+    ${le(e)}
     <div class="hero">
       <div class="hero-text">
         <h1><span class="hero-accent">Suomi on vaikea.</span><br>Mutta me справимся 💪</h1>
-        <p class="greeting">${oe(n.name)}</p>
+        <p class="greeting">${se(n.name)}</p>
       </div>
       <div class="hero-deco">
         <div class="deco-card deco-1"><span class="deco-dot"></span>Moikka! — Привет!</div>
@@ -248,8 +248,8 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <div class="deco-card deco-3"><span class="deco-dot"></span>Hyvää! — Отлично!</div>
       </div>
     </div>
-    ${ue(t,n)}
-  `}function ue(e,t){let n={};return e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),ie.filter(e=>n[e]).map(e=>{let r=ae[e]||{color:`#7C3AED`,bg:`#EDE7FB`},i=n[e],a=i.reduce((e,n)=>e+se(t,n.id),0)/i.length;return`
+    ${de(t,n)}
+  `}function de(e,t){let n={};return e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),ae.filter(e=>n[e]).map(e=>{let r=oe[e]||{color:`#7C3AED`,bg:`#EDE7FB`},i=n[e],a=i.reduce((e,n)=>e+ce(t,n.id),0)/i.length;return`
         <div class="level-section">
           <div class="level-header">
             <div class="level-badge" style="background: ${r.bg}; color: ${r.color}">${e}</div>
@@ -261,10 +261,10 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             </div>
           </div>
           <div class="chapters-grid">
-            ${i.map((e,n)=>de(e,e.globalIndex+1,t)).join(``)}
+            ${i.map((e,n)=>fe(e,e.globalIndex+1,t)).join(``)}
           </div>
         </div>
-      `}).join(``)}function de(e,t,n){let r=se(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
+      `}).join(``)}function fe(e,t,n){let r=ce(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
     <div class="chapter-card ${i?`done`:``} ${r>0?`in-progress`:``}"
          data-chapter="${e.id}"
          style="--card-color: ${e.color}">
@@ -287,4 +287,4 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
     </div>
-  `}function X(e){document.querySelector(`#app`).innerHTML=e}function fe(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{m(e.dataset.profile),Q()})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{w(`/chapter/${e.dataset.chapter}`)})})}var Z=re.map(e=>({...e,...Y[e.id]}));function Q(){X(le(d(),Z)),fe()}var $={chapters:[],vocabulary:[],exercises:[]};async function pe(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{$=await S(),$.chapters?.length>0&&(Z=$.chapters.map(e=>({...e,...Y[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}me(),T(me)}function me(){let e=C(),t=d();if(e.page===`dashboard`||!e.page){Q();return}let n=Z.find(t=>t.id===e.chapterId);if(!n){Q();return}let r=$.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=$.exercises.filter(t=>t.chapter_id===e.chapterId);if(e.section===`vocabulary`){X(F(n,r)),I(n);return}if(e.section===`exercises`){X(ee(n,i)),te(n);return}X(O(n,r,i,t)),k(e.chapterId)}pe();
+  `}function X(e){document.querySelector(`#app`).innerHTML=e}function pe(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{m(e.dataset.profile),Q()})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{w(`/chapter/${e.dataset.chapter}`)})})}var Z=ie.map(e=>({...e,...Y[e.id]}));function Q(){X(ue(d(),Z)),pe()}var $={chapters:[],vocabulary:[],exercises:[]};async function me(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{$=await S(),$.chapters?.length>0&&(Z=$.chapters.map(e=>({...e,...Y[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}he(),T(he)}function he(){let e=C(),t=d();if(e.page===`dashboard`||!e.page){Q();return}let n=Z.find(t=>t.id===e.chapterId);if(!n){Q();return}let r=$.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=$.exercises.filter(t=>t.chapter_id===e.chapterId);if(e.section===`vocabulary`){X(F(n,r)),I(n);return}if(e.section===`exercises`){X(ee(n,i)),ne(n);return}X(O(n,r,i,t)),k(e.chapterId)}me();

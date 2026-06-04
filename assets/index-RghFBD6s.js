@@ -293,25 +293,25 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
         <div class="trend-label">${e.label}</div>
       </div>
-    `}).join(``);t.slice(0,4).reduce((e,t)=>e+t.count,0),t.slice(4).reduce((e,t)=>e+t.count,0);let a=t[t.length-1].count,o=t[t.length-2].count,s,c,l,u;d===0?(s=`🌱`,c=`Начни первое занятие!`,l=`#F0FDF4`,u=`#166534`):d===1?(s=`🌱`,c=`Первое занятие!`,l=`#F0FDF4`,u=`#166534`):a>o?(s=`📈`,c=`Занимаешься чаще!`,l=`#EDE7FB`,u=`#7C3AED`):a<o?(s=`📉`,c=`Можно позаниматься больше`,l=`#FEF3C7`,u=`#92400E`):(s=`➡️`,c=`Стабильный ритм`,l=`#EFF6FF`,u=`#1D4ED8`);let d=t.reduce((e,t)=>e+t.count,0),f=Math.max(...t.map(e=>e.count)),p=d/8,m=p<1&&p>0?`< 1`:Math.round(p).toString();return`
+    `}).join(``),a=t.reduce((e,t)=>e+t.count,0),o=Math.max(...t.map(e=>e.count)),s=a/8,c=s<1&&s>0?`< 1`:Math.round(s).toString(),l=t[t.length-1].count,u=t[t.length-2].count,d,f,p,m;return a===0?(d=`🌱`,f=`Начни первое занятие!`,p=`#F0FDF4`,m=`#166534`):a===1?(d=`🌱`,f=`Первое занятие!`,p=`#F0FDF4`,m=`#166534`):l>u?(d=`📈`,f=`Занимаешься чаще!`,p=`#EDE7FB`,m=`#7C3AED`):l<u?(d=`📉`,f=`Можно позаниматься больше`,p=`#FEF3C7`,m=`#92400E`):(d=`➡️`,f=`Стабильный ритм`,p=`#EFF6FF`,m=`#1D4ED8`),`
     <div class="trend-card">
       <div class="trend-header">
         <span class="trend-title">Тренд</span>
-        <span class="trend-badge" style="background: ${l}; color: ${u}">${s} ${c}</span>
+        <span class="trend-badge" style="background: ${p}; color: ${m}">${d} ${f}</span>
       </div>
       <div class="trend-mini-stats">
         <div class="trend-mini-stat">
-          <span class="trend-mini-val">${d}</span>
+          <span class="trend-mini-val">${a}</span>
           <span class="trend-mini-label">всего занятий</span>
         </div>
         <div class="trend-mini-divider"></div>
         <div class="trend-mini-stat">
-          <span class="trend-mini-val">${f}</span>
+          <span class="trend-mini-val">${o}</span>
           <span class="trend-mini-label">лучшая неделя</span>
         </div>
         <div class="trend-mini-divider"></div>
         <div class="trend-mini-stat">
-          <span class="trend-mini-val" style="color: ${p>=3?`#10B981`:`#7C3AED`}">${m}</span>
+          <span class="trend-mini-val" style="color: ${s>=3?`#10B981`:`#7C3AED`}">${c}</span>
           <span class="trend-mini-label">среднее/нед. <span style="color:#C4B5FD">(цель: 3)</span></span>
         </div>
       </div>

@@ -838,26 +838,32 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <div class="trend-bars">${i}</div>
       <div class="trend-hint">занятий за неделю · последние 8 недель</div>
     </div>
-  `}function St(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>A(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var Ct=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],wt=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],Tt={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function Et(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function Dt(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function Ot(e){let t=e.profiles;return`
+  `}function St(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>A(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var Ct=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],wt=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],Tt={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function Et(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function Dt(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function Ot(e){let t=e.profiles,n=t[e.activeProfile];return`
     <header class="header">
       <div class="logo">
         <img src="/lets-go-finnish/logo.png" alt="Let's Go Learn Finnish!" class="logo-img">
       </div>
       <div class="header-right">
-        <div class="profile-switcher">
-          ${Object.entries(t).map(([t,n])=>`
-            <button class="profile-btn ${e.activeProfile===t?`active`:``}"
-                    data-profile="${t}">
-              ${n.avatarEmoji?`<span class="avatar-emoji">${n.avatarEmoji}</span>`:`<img class="avatar" src="/lets-go-finnish/${t}.png" alt="${n.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`}
-              <span class="pname">${n.name}</span>
-            </button>
-          `).join(``)}
-          <button class="profile-btn add-profile-btn" id="btn-add-profile" title="Добавить профиль">
-            <span style="font-size:22px;line-height:1">+</span>
-            <span class="pname">Добавить</span>
+        <div class="profile-switcher" style="position:relative">
+          <button class="profile-btn active" id="btn-active-profile">
+            ${n.avatarEmoji?`<span class="avatar-emoji">${n.avatarEmoji}</span>`:`<img class="avatar" src="/lets-go-finnish/${e.activeProfile}.png" alt="${n.name}">`}
+            <span class="pname">${n.name}</span>
+            <span style="font-size:10px;margin-left:2px;opacity:0.5">▼</span>
           </button>
+          <div class="profile-dropdown" id="profile-dropdown" style="display:none">
+            ${Object.entries(t).filter(([t])=>t!==e.activeProfile).map(([e,t])=>`
+              <button class="profile-dropdown-item" data-profile="${e}">
+                ${t.avatarEmoji?`<span>${t.avatarEmoji}</span>`:`<img src="/lets-go-finnish/${e}.png" style="width:24px;height:24px;border-radius:50%;object-fit:cover">`}
+                <span>${t.name}</span>
+                ${t.pin?`<span style="font-size:10px;opacity:0.5">🔒</span>`:``}
+              </button>
+            `).join(``)}
+            <div class="profile-dropdown-divider"></div>
+            <button class="profile-dropdown-item" id="btn-add-profile">
+              <span>＋</span><span>Добавить профиль</span>
+            </button>
+          </div>
         </div>
-        <button class="btn-cta" id="btn-start-learning">+ Создать профиль</button>
       </div>
     </header>
   `}function kt(e,t){let n=g();return`
@@ -930,7 +936,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
     </div>
-  `}function $(e){document.querySelector(`#app`).innerHTML=e}function Mt(){document.querySelectorAll(`.profile-btn[data-profile]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile,n=p();if(n.activeProfile===t){A(`/profile/${t}`);return}let r=n.profiles[t];r?.pin?Bt(t,r.name):(_(t),Pt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-add-profile`)?.addEventListener(`click`,zt),document.getElementById(`btn-start-learning`)?.addEventListener(`click`,zt)}var Nt=Ct.map(e=>({...e,...j[e.id]}));function Pt(){$(kt(p(),Nt)),Mt()}var Ft={chapters:[],vocabulary:[],exercises:[]};async function It(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{Ft=await ne(),Ft.chapters?.length>0&&(Nt=Ft.chapters.map(e=>({...e,...j[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Lt(),re(Lt)}function Lt(){let e=k(),t=p();if(e.page===`dashboard`||!e.page){Pt();return}if(e.page===`profile`){$(yt(e.profileId)),St();return}let n=Nt.find(t=>t.id===e.chapterId);if(!n){Pt();return}let r=Ft.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ft.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ft.grammar||[];if(e.section===`vocabulary`){$(me(n,r)),he(n);return}if(e.section===`exercises`){$(je(n,i)),Ie(n);return}if(e.section===`grammar`){$(qe(n,a)),Je(n);return}if(e.section===`vocab-exercises`){$(Xe(n,r)),Ze(n);return}$(M(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),oe(e.chapterId,r,t.activeProfile,i)}It();var Rt=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`];function zt(){let e=document.createElement(`div`);e.id=`add-profile-modal`,e.innerHTML=`
+  `}function $(e){document.querySelector(`#app`).innerHTML=e}function Mt(){document.getElementById(`btn-active-profile`)?.addEventListener(`click`,e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.addEventListener(`click`,()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)},{once:!1}),document.querySelectorAll(`.profile-dropdown-item[data-profile]`).forEach(e=>{e.addEventListener(`click`,t=>{t.stopPropagation();let n=e.dataset.profile,r=p().profiles[n];r?.pin?Bt(n,r.name):(_(n),Pt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-add-profile`)?.addEventListener(`click`,zt),document.getElementById(`btn-start-learning`)?.addEventListener(`click`,zt)}var Nt=Ct.map(e=>({...e,...j[e.id]}));function Pt(){$(kt(p(),Nt)),Mt()}var Ft={chapters:[],vocabulary:[],exercises:[]};async function It(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{Ft=await ne(),Ft.chapters?.length>0&&(Nt=Ft.chapters.map(e=>({...e,...j[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Lt(),re(Lt)}function Lt(){let e=k(),t=p();if(e.page===`dashboard`||!e.page){Pt();return}if(e.page===`profile`){$(yt(e.profileId)),St();return}let n=Nt.find(t=>t.id===e.chapterId);if(!n){Pt();return}let r=Ft.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ft.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ft.grammar||[];if(e.section===`vocabulary`){$(me(n,r)),he(n);return}if(e.section===`exercises`){$(je(n,i)),Ie(n);return}if(e.section===`grammar`){$(qe(n,a)),Je(n);return}if(e.section===`vocab-exercises`){$(Xe(n,r)),Ze(n);return}$(M(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),oe(e.chapterId,r,t.activeProfile,i)}It();var Rt=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`];function zt(){let e=document.createElement(`div`);e.id=`add-profile-modal`,e.innerHTML=`
     <div class="modal-overlay" id="modal-overlay">
       <div class="modal-box">
         <h3 style="margin-bottom:16px">Новый профиль</h3>

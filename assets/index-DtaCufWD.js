@@ -848,10 +848,14 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
           ${Object.entries(t).map(([t,n])=>`
             <button class="profile-btn ${e.activeProfile===t?`active`:``}"
                     data-profile="${t}">
-              <img class="avatar" src="/lets-go-finnish/${t}.png" alt="${n.name}">
+              ${n.avatarEmoji?`<span class="avatar-emoji">${n.avatarEmoji}</span>`:`<img class="avatar" src="/lets-go-finnish/${t}.png" alt="${n.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`}
               <span class="pname">${n.name}</span>
             </button>
           `).join(``)}
+          <button class="profile-btn add-profile-btn" id="btn-add-profile" title="Добавить профиль">
+            <span style="font-size:22px;line-height:1">+</span>
+            <span class="pname">Добавить</span>
+          </button>
         </div>
         <button class="btn-cta">Начать учить</button>
       </div>
@@ -870,27 +874,33 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
     </div>
     ${At(t,n)}
-  `}function At(e,t){let n={};return e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),Object.values(n).forEach(e=>{e.forEach((e,t)=>{e.levelNum=t+1})}),wt.map(e=>{let r=Tt[e]||{color:`#7C3AED`,bg:`#EDE7FB`},i=n[e]||[],a=i.length>0,o=a?i.reduce((e,n)=>e+Dt(t,n.id),0)/i.length:0;return`
-        <div class="level-section ${a?``:`level-section-soon`}">
-          <div class="level-header">
-            <div class="level-badge" style="background: ${r.bg}; color: ${r.color}">${e}</div>
+  `}function At(e,t){let n={};e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),Object.values(n).forEach(e=>{e.forEach((e,t)=>{e.levelNum=t+1})});let r=-1,i=wt.map((e,i)=>{let a=n[e]||[];if(!a.length)return{pct:0,done:!1,started:!1};let o=a.map(e=>Dt(t,e.id)),s=o.reduce((e,t)=>e+t,0)/o.length,c=o.every(e=>e===100),l=o.some(e=>e>0);return l&&!c&&r===-1&&(r=i),{pct:s,done:c,started:l}});return r===-1&&(r=wt.findIndex(e=>(n[e]||[]).length>0)),wt.map((e,a)=>{let o=Tt[e]||{color:`#7C3AED`,bg:`#EDE7FB`},s=n[e]||[],c=s.length>0,l=i[a],u=a===r,d=l.done&&c;return`
+        <div class="level-section ${c?``:`level-section-soon`} ${d?`level-done`:``}"
+             data-level="${e}">
+          <div class="level-header level-header-toggle" data-level-target="${e}"
+               style="cursor:pointer">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div class="level-badge" style="background:${o.bg};color:${o.color}">${e}</div>
+              ${d?`<span class="level-done-badge">✓ Пройдено</span>`:``}
+            </div>
             <div class="level-progress-wrap">
-              ${a?`
-              <div class="level-progress-bar">
-                <div class="level-progress-fill" style="width: ${Math.round(o)}%; background: ${r.color}"></div>
-              </div>
-              <span class="level-progress-label" style="color: ${r.color}">${Math.round(o)}%</span>
+              ${c?`
+                <div class="level-progress-bar">
+                  <div class="level-progress-fill" style="width:${Math.round(l.pct)}%;background:${o.color}"></div>
+                </div>
+                <span class="level-progress-label" style="color:${o.color}">${Math.round(l.pct)}%</span>
               `:`<span class="level-soon-label">скоро</span>`}
+              <span class="level-chevron ${u?`open`:``}">▼</span>
             </div>
           </div>
-          <div class="chapters-grid">
-            ${a?i.map(e=>jt(e,e.levelNum,t)).join(``):[1,2,3].map(e=>`
+          <div class="chapters-grid level-content ${u?``:`level-collapsed`}" id="level-${e}">
+            ${c?s.map(e=>jt(e,e.levelNum,t)).join(``):[1,2,3].map(e=>`
                   <div class="chapter-card chapter-card-soon">
-                    <div class="card-img-wrap soon-img-wrap" style="background: ${r.bg}">
+                    <div class="card-img-wrap soon-img-wrap" style="background:${o.bg}">
                       <span class="soon-emoji">🔒</span>
                     </div>
                     <div class="card-body">
-                      <div class="card-label" style="color: ${r.color}">Глава ${e}</div>
+                      <div class="card-label" style="color:${o.color}">Глава ${e}</div>
                       <div class="card-title soon-title">Скоро</div>
                       <div class="card-subtitle">Контент в разработке</div>
                     </div>
@@ -920,4 +930,24 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
     </div>
-  `}function $(e){document.querySelector(`#app`).innerHTML=e}function Mt(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile;p().activeProfile===t?A(`/profile/${t}`):(_(t),Pt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})})}var Nt=Ct.map(e=>({...e,...j[e.id]}));function Pt(){$(kt(p(),Nt)),Mt()}var Ft={chapters:[],vocabulary:[],exercises:[]};async function It(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{Ft=await ne(),Ft.chapters?.length>0&&(Nt=Ft.chapters.map(e=>({...e,...j[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Lt(),re(Lt)}function Lt(){let e=k(),t=p();if(e.page===`dashboard`||!e.page){Pt();return}if(e.page===`profile`){$(yt(e.profileId)),St();return}let n=Nt.find(t=>t.id===e.chapterId);if(!n){Pt();return}let r=Ft.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ft.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ft.grammar||[];if(e.section===`vocabulary`){$(me(n,r)),he(n);return}if(e.section===`exercises`){$(je(n,i)),Ie(n);return}if(e.section===`grammar`){$(qe(n,a)),Je(n);return}if(e.section===`vocab-exercises`){$(Xe(n,r)),Ze(n);return}$(M(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),oe(e.chapterId,r,t.activeProfile)}It();
+  `}function $(e){document.querySelector(`#app`).innerHTML=e}function Mt(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile;p().activeProfile===t?A(`/profile/${t}`):(_(t),Pt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-add-profile`)?.addEventListener(`click`,zt)}var Nt=Ct.map(e=>({...e,...j[e.id]}));function Pt(){$(kt(p(),Nt)),Mt()}var Ft={chapters:[],vocabulary:[],exercises:[]};async function It(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{Ft=await ne(),Ft.chapters?.length>0&&(Nt=Ft.chapters.map(e=>({...e,...j[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Lt(),re(Lt)}function Lt(){let e=k(),t=p();if(e.page===`dashboard`||!e.page){Pt();return}if(e.page===`profile`){$(yt(e.profileId)),St();return}let n=Nt.find(t=>t.id===e.chapterId);if(!n){Pt();return}let r=Ft.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ft.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ft.grammar||[];if(e.section===`vocabulary`){$(me(n,r)),he(n);return}if(e.section===`exercises`){$(je(n,i)),Ie(n);return}if(e.section===`grammar`){$(qe(n,a)),Je(n);return}if(e.section===`vocab-exercises`){$(Xe(n,r)),Ze(n);return}$(M(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),oe(e.chapterId,r,t.activeProfile)}It();var Rt=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`];function zt(){let e=document.createElement(`div`);e.id=`add-profile-modal`,e.innerHTML=`
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal-box">
+        <h3 style="margin-bottom:16px">Новый профиль</h3>
+        <input type="text" id="profile-name-input" class="grammar-input"
+          placeholder="Имя..." maxlength="20"
+          style="width:100%;margin-bottom:16px">
+        <div style="font-size:13px;color:#6B7280;margin-bottom:8px">Выбери аватар:</div>
+        <div class="avatar-picker">
+          ${Rt.map(e=>`
+            <button class="avatar-option" data-emoji="${e}">${e}</button>
+          `).join(``)}
+        </div>
+        <div style="display:flex;gap:10px;margin-top:20px">
+          <button class="btn-complete" id="btn-save-profile"
+            style="background:var(--primary);flex:1">Создать</button>
+          <button class="btn-complete" id="btn-cancel-modal"
+            style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
+        </div>
+      </div>
+    </div>`,document.body.appendChild(e);let t=Rt[0];e.querySelector(`.avatar-option[data-emoji="${t}"]`)?.classList.add(`selected`),e.querySelectorAll(`.avatar-option`).forEach(n=>{n.addEventListener(`click`,()=>{e.querySelectorAll(`.avatar-option`).forEach(e=>e.classList.remove(`selected`)),n.classList.add(`selected`),t=n.dataset.emoji})}),document.getElementById(`btn-cancel-modal`)?.addEventListener(`click`,()=>e.remove()),document.getElementById(`modal-overlay`)?.addEventListener(`click`,t=>{t.target.id===`modal-overlay`&&e.remove()}),document.getElementById(`btn-save-profile`)?.addEventListener(`click`,()=>{let n=document.getElementById(`profile-name-input`)?.value.trim();if(!n)return;let r=p(),i=`user_`+Date.now();r.profiles[i]={name:n,avatarEmoji:t,chapters:{},vocabulary:{},exercises:{},activity:{}},h(r),e.remove(),Pt()})}

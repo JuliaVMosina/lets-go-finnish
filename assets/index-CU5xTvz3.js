@@ -411,13 +411,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         Вернуться к главе →
       </button>
     </div>
-  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{A(`/chapter/${Y.id}`)})}var je=0;function Me(e,t){return e.replace(/([^<\n][^\n<]{2,}?)\s*<details><summary>[^<]*<\/summary>([\s\S]*?)<\/details>/g,(e,n,r)=>{let i=`gi-${t}-${je++}`,a=r.trim().replace(/"/g,`&quot;`);return`
+  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{A(`/chapter/${Y.id}`)})}var je=0;function Me(e){return e.trim().toLowerCase().replace(/[.,!?;:«»""''()\-]/g,``).replace(/\s+/g,` `).trim()}function Ne(e,t){return e.replace(/<br>\s*([^<\n][^<]{2,}?)\s*<details><summary>[^<]*<\/summary>([\s\S]*?)<\/details>/g,(e,n,r)=>{let i=`gi-${t}-${je++}`,a=r.trim().replace(/"/g,`&quot;`);return`
         <div class="grammar-input-row">
           <span class="grammar-q">${n.trim()}</span>
           <input type="text" class="grammar-input" id="inp-${i}" placeholder="Твой ответ..." data-answer="${a}">
           <button class="grammar-check-btn" data-input="inp-${i}">Проверь</button>
           <span class="grammar-input-result" id="res-${i}"></span>
-        </div>`})}var Ne={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},Pe=null,Z=[];function Fe(e,t){if(Pe=Ne[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},Z=t.filter(t=>t.Chapter===e.id).sort((e,t)=>(parseInt(e.Block)||0)-(parseInt(t.Block)||0)),!Z.length)return`
+        </div>`})}var Pe={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},Fe=null,Z=[];function Ie(e,t){if(Fe=Pe[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},Z=t.filter(t=>t.Chapter===e.id).sort((e,t)=>(parseInt(e.Block)||0)-(parseInt(t.Block)||0)),!Z.length)return`
       <div class="grammar-page">
         <header class="header">
           <button class="btn-back" id="btn-back-grammar">← ${e.title_fi}</button>
@@ -433,9 +433,9 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </header>
 
       <div class="grammar-header">
-        <h2 style="color: ${Pe.color}; margin: 0 0 8px">Грамматика</h2>
+        <h2 style="color: ${Fe.color}; margin: 0 0 8px">Грамматика</h2>
         <div class="progress-bar" style="height: 8px; margin-bottom: 24px">
-          <div class="progress-fill" style="width: ${Math.round(a/Z.length*100)}%; background: ${Pe.color}; height: 100%"></div>
+          <div class="progress-fill" style="width: ${Math.round(a/Z.length*100)}%; background: ${Fe.color}; height: 100%"></div>
         </div>
       </div>
 
@@ -453,7 +453,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
                 </div>
               </div>
               <div class="grammar-block-content" id="content-${n}" style="display: none; padding: 16px; background: white; border-top: 1px solid #E5E7EB">
-                <div class="grammar-text">${Me(e.Content||``,n)}</div>
+                <div class="grammar-text">${Ne(e.Content||``,n)}</div>
                 ${e.Examples?`
                   <div class="grammar-examples" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #E5E7EB">
                     <div style="font-weight: 600; margin-bottom: 8px">Примеры:</div>
@@ -465,7 +465,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
           `}).join(``)}
       </div>
     </div>
-  `}function Ie(e){document.getElementById(`btn-back-grammar`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-check-btn`);if(!t)return;let n=t.dataset.input,r=document.getElementById(n),i=document.getElementById(`res-${n.replace(`inp-`,``)}`);if(!r||!i)return;let a=r.value.trim().toLowerCase().replace(/[.,!?]/g,``),o=r.dataset.answer.toLowerCase().split(/\s*\/\s*|\n/).map(e=>e.trim().replace(/[.,!?]/g,``).toLowerCase()).some(e=>e===a||e.includes(a)||a.includes(e.split(` `)[0]));if(!a){i.innerHTML=`<span style="color:#F59E0B">✏️ Напиши ответ!</span>`;return}o?(i.innerHTML=`<span style="color:#10B981">✅ Правильно!</span>`,r.style.borderColor=`#10B981`):(i.innerHTML=`<span style="color:#EF4444">❌ Попробуй ещё. Правильно: <strong>${r.dataset.answer}</strong></span>`,r.style.borderColor=`#EF4444`)}),Z.forEach((t,n)=>{let r=`block-${n}`,i=document.getElementById(`expand-${r}`),a=document.getElementById(`content-${r}`),o=document.getElementById(`check-${r}`);i?.addEventListener(`click`,e=>{e.stopPropagation();let t=a.style.display!==`none`;a.style.display=t?`none`:`block`,i.classList.toggle(`expanded`,!t)}),o?.addEventListener(`change`,()=>{let t=p(),n=t.profiles[t.activeProfile];n.grammarProgress||={},n.grammarProgress[e.id]||(n.grammarProgress[e.id]={}),n.grammarProgress[e.id][r]=o.checked,h(t)})})}var Le=[{id:`A0–A1`,label:`A0–A1`,color:`#7C3AED`,bg:`#EDE7FB`,chapters:[`ch1`,`ch2`,`ch3`,`ch4`,`ch5`]},{id:`A1–A2`,label:`A1–A2`,color:`#EC4899`,bg:`#FAE9F2`,chapters:[`ch6`,`ch7`,`ch8`,`ch9`,`ch10`]},{id:`A2–B1`,label:`A2–B1`,color:`#F59E0B`,bg:`#FEEEDB`,chapters:[`ch11`,`ch12`,`ch13`,`ch14`,`ch15`]},{id:`B1–B2`,label:`B1–B2`,color:`#10B981`,bg:`#E8F7EE`,chapters:[`ch16`,`ch17`,`ch18`,`ch19`,`ch20`]}];function Re(e){let t=p().profiles[e];for(let e=0;e<Le.length;e++){let n=Le[e],r=Le[e+1],i=n.chapters.filter(e=>{let n=t.vocabulary[e]||{},r=t.exercises[e]||{};return Object.values(n).filter(e=>e.seen).length>0||Object.values(r).filter(e=>e.completed).length>0}).length,a=n.chapters.length,o=Math.round(i/a*100);if(o<100)return{current:n,next:r,completed:i,total:a,pct:o}}let n=Le[Le.length-1];return{current:n,next:null,completed:n.chapters.length,total:n.chapters.length,pct:100}}function ze(e){let t=p().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=w(e),{current:s,next:c,completed:l,total:u,pct:d}=Re(e);return`
+  `}function Le(e){document.getElementById(`btn-back-grammar`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-check-btn`);if(!t)return;let n=t.dataset.input,r=document.getElementById(n),i=document.getElementById(`res-${n.replace(`inp-`,``)}`);if(!r||!i)return;let a=Me(r.value),o=r.dataset.answer.split(/\s*\/\s*|\n/).map(e=>Me(e)).some(e=>e===a);if(!a){i.innerHTML=`<span style="color:#F59E0B">✏️ Напиши ответ!</span>`;return}o?(i.innerHTML=`<span style="color:#10B981">✅ Правильно!</span>`,r.style.borderColor=`#10B981`):(i.innerHTML=`<span style="color:#EF4444">❌ Попробуй ещё. Правильно: <strong>${r.dataset.answer}</strong></span>`,r.style.borderColor=`#EF4444`)}),Z.forEach((t,n)=>{let r=`block-${n}`,i=document.getElementById(`expand-${r}`),a=document.getElementById(`content-${r}`),o=document.getElementById(`check-${r}`);i?.addEventListener(`click`,e=>{e.stopPropagation();let t=a.style.display!==`none`;a.style.display=t?`none`:`block`,i.classList.toggle(`expanded`,!t)}),o?.addEventListener(`change`,()=>{let t=p(),n=t.profiles[t.activeProfile];n.grammarProgress||={},n.grammarProgress[e.id]||(n.grammarProgress[e.id]={}),n.grammarProgress[e.id][r]=o.checked,h(t)})})}var Re=[{id:`A0–A1`,label:`A0–A1`,color:`#7C3AED`,bg:`#EDE7FB`,chapters:[`ch1`,`ch2`,`ch3`,`ch4`,`ch5`]},{id:`A1–A2`,label:`A1–A2`,color:`#EC4899`,bg:`#FAE9F2`,chapters:[`ch6`,`ch7`,`ch8`,`ch9`,`ch10`]},{id:`A2–B1`,label:`A2–B1`,color:`#F59E0B`,bg:`#FEEEDB`,chapters:[`ch11`,`ch12`,`ch13`,`ch14`,`ch15`]},{id:`B1–B2`,label:`B1–B2`,color:`#10B981`,bg:`#E8F7EE`,chapters:[`ch16`,`ch17`,`ch18`,`ch19`,`ch20`]}];function ze(e){let t=p().profiles[e];for(let e=0;e<Re.length;e++){let n=Re[e],r=Re[e+1],i=n.chapters.filter(e=>{let n=t.vocabulary[e]||{},r=t.exercises[e]||{};return Object.values(n).filter(e=>e.seen).length>0||Object.values(r).filter(e=>e.completed).length>0}).length,a=n.chapters.length,o=Math.round(i/a*100);if(o<100)return{current:n,next:r,completed:i,total:a,pct:o}}let n=Re[Re.length-1];return{current:n,next:null,completed:n.chapters.length,total:n.chapters.length,pct:100}}function Be(e){let t=p().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=w(e),{current:s,next:c,completed:l,total:u,pct:d}=ze(e);return`
     <div class="profile-page">
       <header class="header">
         <button class="btn-back" id="btn-back-profile">← Главная</button>
@@ -532,13 +532,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <div class="profile-section">
         <h2 class="profile-section-title">Активность</h2>
         <div class="activity-row">
-          ${Be(o)}
           ${Ve(o)}
+          ${He(o)}
         </div>
       </div>
 
     </div>
-  `}function Be(e){let t=new Date,n=t.getFullYear(),r=t.getMonth(),i=new Date(n,r,1).toLocaleString(`ru`,{month:`long`,year:`numeric`}),a=new Date(n,r,1).getDay(),o=new Date(n,r+1,0).getDate(),s=a===0?6:a-1,c=[`Пн`,`Вт`,`Ср`,`Чт`,`Пт`,`Сб`,`Вс`],l=t.getDate(),u=``;for(let e=0;e<s;e++)u+=`<div class="cal-cell empty"></div>`;for(let t=1;t<=o;t++){let i=`${n}-${String(r+1).padStart(2,`0`)}-${String(t).padStart(2,`0`)}`,a=!!e[i],o=t===l,s=e[i]?.words||0,c=e[i]?.exercises||0;u+=`
+  `}function Ve(e){let t=new Date,n=t.getFullYear(),r=t.getMonth(),i=new Date(n,r,1).toLocaleString(`ru`,{month:`long`,year:`numeric`}),a=new Date(n,r,1).getDay(),o=new Date(n,r+1,0).getDate(),s=a===0?6:a-1,c=[`Пн`,`Вт`,`Ср`,`Чт`,`Пт`,`Сб`,`Вс`],l=t.getDate(),u=``;for(let e=0;e<s;e++)u+=`<div class="cal-cell empty"></div>`;for(let t=1;t<=o;t++){let i=`${n}-${String(r+1).padStart(2,`0`)}-${String(t).padStart(2,`0`)}`,a=!!e[i],o=t===l,s=e[i]?.words||0,c=e[i]?.exercises||0;u+=`
       <div class="cal-cell ${a?`active`:``} ${o?`today`:``}"
            title="${a?`слов: ${s}, упражнений: ${c}`:``}">
         <span>${t}</span>
@@ -554,7 +554,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         ${u}
       </div>
     </div>
-  `}function Ve(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1);Math.round(3/r*80);let i=t.map((e,n)=>{let i=e.count>0?Math.max(Math.round(e.count/r*80),8):4,a=n===t.length-1,o=e.count===0;return`
+  `}function He(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1);Math.round(3/r*80);let i=t.map((e,n)=>{let i=e.count>0?Math.max(Math.round(e.count/r*80),8):4,a=n===t.length-1,o=e.count===0;return`
       <div class="trend-bar-wrap" title="${a?`Эта неделя: ${e.count} занятий · Так держать!`:``}">
         <div class="trend-bar-val">${e.count>0?e.count:``}</div>
         <div class="trend-bar-bg">
@@ -588,7 +588,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <div class="trend-bars">${i}</div>
       <div class="trend-hint">занятий за неделю · последние 8 недель</div>
     </div>
-  `}function He(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>A(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var Ue={ch1:{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},ch2:{color:`#EC4899`,bg:`#FAE9F2`,img:`ch2.png`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`,img:`ch3.png`},ch4:{color:`#10B981`,bg:`#E8F7EE`,img:`ch4.png`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`,img:`ch5.png`}},We=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],Ge=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],Ke={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function qe(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function Je(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function Ye(e){let t=e.profiles;return`
+  `}function Ue(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>A(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var We={ch1:{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},ch2:{color:`#EC4899`,bg:`#FAE9F2`,img:`ch2.png`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`,img:`ch3.png`},ch4:{color:`#10B981`,bg:`#E8F7EE`,img:`ch4.png`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`,img:`ch5.png`}},Ge=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],Ke=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],qe={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function Je(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function Ye(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function Xe(e){let t=e.profiles;return`
     <header class="header">
       <div class="logo">
         <img src="/lets-go-finnish/logo.png" alt="Let's Go Learn Finnish!" class="logo-img">
@@ -606,12 +606,12 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <button class="btn-cta">Начать учить</button>
       </div>
     </header>
-  `}function Xe(e,t){let n=g();return`
-    ${Ye(e)}
+  `}function Ze(e,t){let n=g();return`
+    ${Xe(e)}
     <div class="hero">
       <div class="hero-text">
         <h1><span class="hero-accent">Suomi on vaikea.</span><br>Mutta me справимся 💪</h1>
-        <p class="greeting">${qe(n.name)}</p>
+        <p class="greeting">${Je(n.name)}</p>
       </div>
       <div class="hero-deco">
         <div class="deco-card deco-1"><span class="deco-dot"></span>Moikka! — Привет!</div>
@@ -619,8 +619,8 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <div class="deco-card deco-3"><span class="deco-dot"></span>Hyvää! — Отлично!</div>
       </div>
     </div>
-    ${Ze(t,n)}
-  `}function Ze(e,t){let n={};return e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),Ge.map(e=>{let r=Ke[e]||{color:`#7C3AED`,bg:`#EDE7FB`},i=n[e]||[],a=i.length>0,o=a?i.reduce((e,n)=>e+Je(t,n.id),0)/i.length:0;return`
+    ${Qe(t,n)}
+  `}function Qe(e,t){let n={};return e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),Ke.map(e=>{let r=qe[e]||{color:`#7C3AED`,bg:`#EDE7FB`},i=n[e]||[],a=i.length>0,o=a?i.reduce((e,n)=>e+Ye(t,n.id),0)/i.length:0;return`
         <div class="level-section ${a?``:`level-section-soon`}">
           <div class="level-header">
             <div class="level-badge" style="background: ${r.bg}; color: ${r.color}">${e}</div>
@@ -634,7 +634,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             </div>
           </div>
           <div class="chapters-grid">
-            ${a?i.map(e=>Qe(e,e.globalIndex+1,t)).join(``):[1,2,3].map(e=>`
+            ${a?i.map(e=>$e(e,e.globalIndex+1,t)).join(``):[1,2,3].map(e=>`
                   <div class="chapter-card chapter-card-soon">
                     <div class="card-img-wrap soon-img-wrap" style="background: ${r.bg}">
                       <span class="soon-emoji">🔒</span>
@@ -647,7 +647,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
                   </div>`).join(``)}
           </div>
         </div>
-      `}).join(``)}function Qe(e,t,n){let r=Je(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
+      `}).join(``)}function $e(e,t,n){let r=Ye(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
     <div class="chapter-card ${i?`done`:``} ${r>0?`in-progress`:``}"
          data-chapter="${e.id}"
          style="--card-color: ${e.color}">
@@ -670,4 +670,4 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
     </div>
-  `}function Q(e){document.querySelector(`#app`).innerHTML=e}function $e(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile;p().activeProfile===t?A(`/profile/${t}`):(_(t),tt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})})}var et=We.map(e=>({...e,...Ue[e.id]}));function tt(){Q(Xe(p(),et)),$e()}var $={chapters:[],vocabulary:[],exercises:[]};async function nt(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{$=await k(),$.chapters?.length>0&&(et=$.chapters.map(e=>({...e,...Ue[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}rt(),j(rt)}function rt(){let e=te(),t=p();if(e.page===`dashboard`||!e.page){tt();return}if(e.page===`profile`){Q(ze(e.profileId)),He();return}let n=et.find(t=>t.id===e.chapterId);if(!n){tt();return}let r=$.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=$.exercises.filter(t=>t.chapter_id===e.chapterId),a=$.grammar||[];if(e.section===`vocabulary`){Q(le(n,r)),W(n);return}if(e.section===`exercises`){Q(Ce(n,i)),De(n);return}if(e.section===`grammar`){Q(Fe(n,a)),Ie(n);return}Q(ie(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),N(e.chapterId,r,t.activeProfile)}nt();
+  `}function Q(e){document.querySelector(`#app`).innerHTML=e}function et(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile;p().activeProfile===t?A(`/profile/${t}`):(_(t),nt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})})}var tt=Ge.map(e=>({...e,...We[e.id]}));function nt(){Q(Ze(p(),tt)),et()}var $={chapters:[],vocabulary:[],exercises:[]};async function rt(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{$=await k(),$.chapters?.length>0&&(tt=$.chapters.map(e=>({...e,...We[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}it(),j(it)}function it(){let e=te(),t=p();if(e.page===`dashboard`||!e.page){nt();return}if(e.page===`profile`){Q(Be(e.profileId)),Ue();return}let n=tt.find(t=>t.id===e.chapterId);if(!n){nt();return}let r=$.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=$.exercises.filter(t=>t.chapter_id===e.chapterId),a=$.grammar||[];if(e.section===`vocabulary`){Q(le(n,r)),W(n);return}if(e.section===`exercises`){Q(Ce(n,i)),De(n);return}if(e.section===`grammar`){Q(Ie(n,a)),Le(n);return}Q(ie(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),N(e.chapterId,r,t.activeProfile)}rt();

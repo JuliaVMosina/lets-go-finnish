@@ -5,9 +5,9 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
 `:`\r`}}function m(e){return e.replace(/[.*+?^${}()|[\]\\]/g,`\\$&`)}function h(e){var t=(e||={}).delimiter,n=e.newline,r=e.comments,i=e.step,a=e.preview,o=e.fastMode,c=null,l=!1,u=e.quoteChar==null?`"`:e.quoteChar,d=u;if(e.escapeChar!==void 0&&(d=e.escapeChar),(typeof t!=`string`||-1<s.BAD_DELIMITERS.indexOf(t))&&(t=`,`),r===t)throw Error(`Comment character same as delimiter`);!0===r?r=`#`:(typeof r!=`string`||-1<s.BAD_DELIMITERS.indexOf(r))&&(r=!1),n!==`
 `&&n!==`\r`&&n!==`\r
 `&&(n=`
-`);var f=0,p=!1;this.parse=function(s,h,g){if(typeof s!=`string`)throw Error(`Input must be a string`);var _=s.length,v=t.length,y=n.length,b=r.length,S=x(i),C=[],w=[],T=[],ee=f=0;if(!s)return N();if(o||!1!==o&&s.indexOf(u)===-1){for(var E=s.split(n),D=0;D<E.length;D++){if(T=E[D],f+=T.length,D!==E.length-1)f+=n.length;else if(g)return N();if(!r||T.substring(0,b)!==r){if(S){if(C=[],M(T.split(t)),P(),p)return N()}else M(T.split(t));if(a&&a<=D)return C=C.slice(0,a),N(!0)}}return N()}for(var O=s.indexOf(t,f),k=s.indexOf(n,f),te=new RegExp(m(d)+m(u),`g`),A=s.indexOf(u,f);;)if(s[f]===u)for(A=f,f++;;){if((A=s.indexOf(u,A+1))===-1)return g||w.push({type:`Quotes`,code:`MissingQuotes`,message:`Quoted field unterminated`,row:C.length,index:f}),re();if(A===_-1)return re(s.substring(f,A).replace(te,u));if(u===d&&s[A+1]===d)A++;else if(u===d||A===0||s[A-1]!==d){O!==-1&&O<A+1&&(O=s.indexOf(t,A+1));var j=ne((k=k!==-1&&k<A+1?s.indexOf(n,A+1):k)===-1?O:Math.min(O,k));if(s.substr(A+1+j,v)===t){T.push(s.substring(f,A).replace(te,u)),s[f=A+1+j+v]!==u&&(A=s.indexOf(u,f)),O=s.indexOf(t,f),k=s.indexOf(n,f);break}if(j=ne(k),s.substring(A+1+j,A+1+j+y)===n){if(T.push(s.substring(f,A).replace(te,u)),ie(A+1+j+y),O=s.indexOf(t,f),A=s.indexOf(u,f),S&&(P(),p))return N();if(a&&C.length>=a)return N(!0);break}w.push({type:`Quotes`,code:`InvalidQuotes`,message:`Trailing quote on quoted field is malformed`,row:C.length,index:f}),A++}}else if(r&&T.length===0&&s.substring(f,f+b)===r){if(k===-1)return N();f=k+y,k=s.indexOf(n,f),O=s.indexOf(t,f)}else if(O!==-1&&(O<k||k===-1))T.push(s.substring(f,O)),f=O+v,O=s.indexOf(t,f);else{if(k===-1)break;if(T.push(s.substring(f,k)),ie(k+y),S&&(P(),p))return N();if(a&&C.length>=a)return N(!0)}return re();function M(e){C.push(e),ee=f}function ne(e){var t=0;return t=e!==-1&&(e=s.substring(A+1,e))&&e.trim()===``?e.length:t}function re(e){return g||(e===void 0&&(e=s.substring(f)),T.push(e),f=_,M(T),S&&P()),N()}function ie(e){f=e,M(T),T=[],k=s.indexOf(n,f)}function N(r){if(e.header&&!h&&C.length&&!l){var i=C[0],a=Object.create(null),o=new Set(i);let t=!1;for(let n=0;n<i.length;n++){let r=i[n];if(a[r=x(e.transformHeader)?e.transformHeader(r,n):r]){let e,s=a[r];for(;e=r+`_`+s,s++,o.has(e););o.add(e),i[n]=e,a[r]++,t=!0,(c=c===null?{}:c)[e]=r}else a[r]=1,i[n]=r;o.add(r)}t&&console.warn(`Duplicate headers found and renamed.`),l=!0}return{data:C,errors:w,meta:{delimiter:t,linebreak:n,aborted:p,truncated:!!r,cursor:ee+(h||0),renamedHeaders:c}}}function P(){i(N()),C=[],w=[]}},this.abort=function(){p=!0},this.getCharIndex=function(){return f}}function g(e){var t=e.data,n=a[t.workerId],r=!1;if(t.error)n.userError(t.error,t.file);else if(t.results&&t.results.data){var i={abort:function(){r=!0,_(t.workerId,{data:[],errors:[],meta:{aborted:!0}})},pause:v,resume:v};if(x(n.userStep)){for(var o=0;o<t.results.data.length&&(n.userStep({data:t.results.data[o],errors:t.results.errors,meta:t.results.meta},i),!r);o++);delete t.results}else x(n.userChunk)&&(n.userChunk(t.results,i,t.file),delete t.results)}t.finished&&!r&&_(t.workerId,t.results)}function _(e,t){var n=a[e];x(n.userComplete)&&n.userComplete(t),n.terminate(),delete a[e]}function v(){throw Error(`Not implemented.`)}function y(e){if(typeof e!=`object`||!e)return e;var t,n=Array.isArray(e)?[]:{};for(t in e)n[t]=y(e[t]);return n}function b(e,t){return function(){e.apply(t,arguments)}}function x(e){return typeof e==`function`}return s.parse=function(n,r){var i=(r||={}).dynamicTyping||!1;if(x(i)&&(r.dynamicTypingFunction=i,i={}),r.dynamicTyping=i,r.transform=!!x(r.transform)&&r.transform,!r.worker||!s.WORKERS_SUPPORTED)return i=null,s.NODE_STREAM_INPUT,typeof n==`string`?(n=(e=>e.charCodeAt(0)===65279?e.slice(1):e)(n),i=new(r.download?l:d)(r)):!0===n.readable&&x(n.read)&&x(n.on)?i=new f(r):(t.File&&n instanceof File||n instanceof Object)&&(i=new u(r)),i.stream(n);(i=(()=>{var n;return!!s.WORKERS_SUPPORTED&&(n=(()=>{var n=t.URL||t.webkitURL||null,r=e.toString();return s.BLOB_URL||=n.createObjectURL(new Blob([`var global = (function() { if (typeof self !== 'undefined') { return self; } if (typeof window !== 'undefined') { return window; } if (typeof global !== 'undefined') { return global; } return {}; })(); global.IS_PAPA_WORKER=true; `,`(`,r,`)();`],{type:`text/javascript`}))})(),(n=new t.Worker(n)).onmessage=g,n.id=o++,a[n.id]=n)})()).userStep=r.step,i.userChunk=r.chunk,i.userComplete=r.complete,i.userError=r.error,r.step=x(r.step),r.chunk=x(r.chunk),r.complete=x(r.complete),r.error=x(r.error),delete r.worker,i.postMessage({input:n,config:r,workerId:i.id})},s.unparse=function(e,t){var n=!1,r=!0,i=`,`,a=`\r
+`);var f=0,p=!1;this.parse=function(s,h,g){if(typeof s!=`string`)throw Error(`Input must be a string`);var _=s.length,v=t.length,y=n.length,b=r.length,S=x(i),C=[],w=[],T=[],ee=f=0;if(!s)return M();if(o||!1!==o&&s.indexOf(u)===-1){for(var E=s.split(n),D=0;D<E.length;D++){if(T=E[D],f+=T.length,D!==E.length-1)f+=n.length;else if(g)return M();if(!r||T.substring(0,b)!==r){if(S){if(C=[],ne(T.split(t)),N(),p)return M()}else ne(T.split(t));if(a&&a<=D)return C=C.slice(0,a),M(!0)}}return M()}for(var O=s.indexOf(t,f),k=s.indexOf(n,f),te=new RegExp(m(d)+m(u),`g`),A=s.indexOf(u,f);;)if(s[f]===u)for(A=f,f++;;){if((A=s.indexOf(u,A+1))===-1)return g||w.push({type:`Quotes`,code:`MissingQuotes`,message:`Quoted field unterminated`,row:C.length,index:f}),ie();if(A===_-1)return ie(s.substring(f,A).replace(te,u));if(u===d&&s[A+1]===d)A++;else if(u===d||A===0||s[A-1]!==d){O!==-1&&O<A+1&&(O=s.indexOf(t,A+1));var j=re((k=k!==-1&&k<A+1?s.indexOf(n,A+1):k)===-1?O:Math.min(O,k));if(s.substr(A+1+j,v)===t){T.push(s.substring(f,A).replace(te,u)),s[f=A+1+j+v]!==u&&(A=s.indexOf(u,f)),O=s.indexOf(t,f),k=s.indexOf(n,f);break}if(j=re(k),s.substring(A+1+j,A+1+j+y)===n){if(T.push(s.substring(f,A).replace(te,u)),ae(A+1+j+y),O=s.indexOf(t,f),A=s.indexOf(u,f),S&&(N(),p))return M();if(a&&C.length>=a)return M(!0);break}w.push({type:`Quotes`,code:`InvalidQuotes`,message:`Trailing quote on quoted field is malformed`,row:C.length,index:f}),A++}}else if(r&&T.length===0&&s.substring(f,f+b)===r){if(k===-1)return M();f=k+y,k=s.indexOf(n,f),O=s.indexOf(t,f)}else if(O!==-1&&(O<k||k===-1))T.push(s.substring(f,O)),f=O+v,O=s.indexOf(t,f);else{if(k===-1)break;if(T.push(s.substring(f,k)),ae(k+y),S&&(N(),p))return M();if(a&&C.length>=a)return M(!0)}return ie();function ne(e){C.push(e),ee=f}function re(e){var t=0;return t=e!==-1&&(e=s.substring(A+1,e))&&e.trim()===``?e.length:t}function ie(e){return g||(e===void 0&&(e=s.substring(f)),T.push(e),f=_,ne(T),S&&N()),M()}function ae(e){f=e,ne(T),T=[],k=s.indexOf(n,f)}function M(r){if(e.header&&!h&&C.length&&!l){var i=C[0],a=Object.create(null),o=new Set(i);let t=!1;for(let n=0;n<i.length;n++){let r=i[n];if(a[r=x(e.transformHeader)?e.transformHeader(r,n):r]){let e,s=a[r];for(;e=r+`_`+s,s++,o.has(e););o.add(e),i[n]=e,a[r]++,t=!0,(c=c===null?{}:c)[e]=r}else a[r]=1,i[n]=r;o.add(r)}t&&console.warn(`Duplicate headers found and renamed.`),l=!0}return{data:C,errors:w,meta:{delimiter:t,linebreak:n,aborted:p,truncated:!!r,cursor:ee+(h||0),renamedHeaders:c}}}function N(){i(M()),C=[],w=[]}},this.abort=function(){p=!0},this.getCharIndex=function(){return f}}function g(e){var t=e.data,n=a[t.workerId],r=!1;if(t.error)n.userError(t.error,t.file);else if(t.results&&t.results.data){var i={abort:function(){r=!0,_(t.workerId,{data:[],errors:[],meta:{aborted:!0}})},pause:v,resume:v};if(x(n.userStep)){for(var o=0;o<t.results.data.length&&(n.userStep({data:t.results.data[o],errors:t.results.errors,meta:t.results.meta},i),!r);o++);delete t.results}else x(n.userChunk)&&(n.userChunk(t.results,i,t.file),delete t.results)}t.finished&&!r&&_(t.workerId,t.results)}function _(e,t){var n=a[e];x(n.userComplete)&&n.userComplete(t),n.terminate(),delete a[e]}function v(){throw Error(`Not implemented.`)}function y(e){if(typeof e!=`object`||!e)return e;var t,n=Array.isArray(e)?[]:{};for(t in e)n[t]=y(e[t]);return n}function b(e,t){return function(){e.apply(t,arguments)}}function x(e){return typeof e==`function`}return s.parse=function(n,r){var i=(r||={}).dynamicTyping||!1;if(x(i)&&(r.dynamicTypingFunction=i,i={}),r.dynamicTyping=i,r.transform=!!x(r.transform)&&r.transform,!r.worker||!s.WORKERS_SUPPORTED)return i=null,s.NODE_STREAM_INPUT,typeof n==`string`?(n=(e=>e.charCodeAt(0)===65279?e.slice(1):e)(n),i=new(r.download?l:d)(r)):!0===n.readable&&x(n.read)&&x(n.on)?i=new f(r):(t.File&&n instanceof File||n instanceof Object)&&(i=new u(r)),i.stream(n);(i=(()=>{var n;return!!s.WORKERS_SUPPORTED&&(n=(()=>{var n=t.URL||t.webkitURL||null,r=e.toString();return s.BLOB_URL||=n.createObjectURL(new Blob([`var global = (function() { if (typeof self !== 'undefined') { return self; } if (typeof window !== 'undefined') { return window; } if (typeof global !== 'undefined') { return global; } return {}; })(); global.IS_PAPA_WORKER=true; `,`(`,r,`)();`],{type:`text/javascript`}))})(),(n=new t.Worker(n)).onmessage=g,n.id=o++,a[n.id]=n)})()).userStep=r.step,i.userChunk=r.chunk,i.userComplete=r.complete,i.userError=r.error,r.step=x(r.step),r.chunk=x(r.chunk),r.complete=x(r.complete),r.error=x(r.error),delete r.worker,i.postMessage({input:n,config:r,workerId:i.id})},s.unparse=function(e,t){var n=!1,r=!0,i=`,`,a=`\r
 `,o=`"`,c=o+o,l=!1,u=null,d=!1,f=((()=>{if(typeof t==`object`){if(typeof t.delimiter!=`string`||s.BAD_DELIMITERS.filter(function(e){return t.delimiter.indexOf(e)!==-1}).length||(i=t.delimiter),typeof t.quotes!=`boolean`&&typeof t.quotes!=`function`&&!Array.isArray(t.quotes)||(n=t.quotes),typeof t.skipEmptyLines!=`boolean`&&typeof t.skipEmptyLines!=`string`||(l=t.skipEmptyLines),typeof t.newline==`string`&&(a=t.newline),typeof t.quoteChar==`string`&&(o=t.quoteChar),typeof t.header==`boolean`&&(r=t.header),Array.isArray(t.columns)){if(t.columns.length===0)throw Error(`Option columns is empty`);u=t.columns}t.escapeChar!==void 0&&(c=t.escapeChar+o),t.escapeFormulae instanceof RegExp?d=t.escapeFormulae:typeof t.escapeFormulae==`boolean`&&t.escapeFormulae&&(d=/^[=+\-@\t\r].*$/)}})(),new RegExp(m(o),`g`));if(typeof e==`string`&&(e=JSON.parse(e)),Array.isArray(e)){if(!e.length||Array.isArray(e[0]))return p(null,e,l);if(typeof e[0]==`object`)return p(u||Object.keys(e[0]),e,l)}else if(typeof e==`object`)return typeof e.data==`string`&&(e.data=JSON.parse(e.data)),Array.isArray(e.data)&&(e.fields||=e.meta&&e.meta.fields||u,e.fields||=Array.isArray(e.data[0])?e.fields:typeof e.data[0]==`object`?Object.keys(e.data[0]):[],Array.isArray(e.data[0])||typeof e.data[0]==`object`||(e.data=[e.data])),p(e.fields||[],e.data||[],l);throw Error(`Unable to serialize unrecognized input`);function p(e,t,n){var o=``,s=(typeof e==`string`&&(e=JSON.parse(e)),typeof t==`string`&&(t=JSON.parse(t)),Array.isArray(e)&&0<e.length),c=!Array.isArray(t[0]);if(s&&r){for(var l=0;l<e.length;l++)0<l&&(o+=i),o+=h(e[l],l);0<t.length&&(o+=a)}for(var u=0;u<t.length;u++){var d=(s?e:t[u]).length,f=!1,p=s?Object.keys(t[u]).length===0:t[u].length===0;if(n&&!s&&(f=n===`greedy`?t[u].join(``).trim()===``:t[u].length===1&&t[u][0].length===0),n===`greedy`&&s){for(var m=[],g=0;g<d;g++){var _=c?e[g]:g;m.push(t[u][_])}f=m.join(``).trim()===``}if(!f){for(var v=0;v<d;v++){0<v&&!p&&(o+=i);var y=s&&c?e[v]:v;o+=h(t[u][y],v)}u<t.length-1&&(!n||0<d&&!p)&&(o+=a)}}return o}function h(e,t){var r,a;return e==null?``:e.constructor===Date?JSON.stringify(e).slice(1,25):(a=!1,d&&typeof e==`string`&&d.test(e)&&(e=`'`+e,a=!0),r=e.toString().replace(f,c),(a=a||!0===n||typeof n==`function`&&n(e,t)||Array.isArray(n)&&n[t]||((e,t)=>{for(var n=0;n<t.length;n++)if(-1<e.indexOf(t[n]))return!0;return!1})(r,s.BAD_DELIMITERS)||-1<r.indexOf(i)||r.charAt(0)===` `||r.charAt(r.length-1)===` `)?o+r+o:r)}},s.RECORD_SEP=``,s.UNIT_SEP=``,s.BYTE_ORDER_MARK=`﻿`,s.BAD_DELIMITERS=[`\r`,`
-`,`"`,s.BYTE_ORDER_MARK],s.WORKERS_SUPPORTED=!r&&!!t.Worker,s.NODE_STREAM_INPUT=1,s.LocalChunkSize=10485760,s.RemoteChunkSize=5242880,s.DefaultDelimiter=`,`,s.Parser=h,s.ParserHandle=p,s.NetworkStreamer=l,s.FileStreamer=u,s.StringStreamer=d,s.ReadableStreamStreamer=f,t.jQuery&&((n=t.jQuery).fn.parse=function(e){var r=e.config||{},i=[];return this.each(function(e){if(!(n(this).prop(`tagName`).toUpperCase()===`INPUT`&&n(this).attr(`type`).toLowerCase()===`file`&&t.FileReader)||!this.files||this.files.length===0)return!0;for(var a=0;a<this.files.length;a++)i.push({file:this.files[a],inputElem:this,instanceConfig:n.extend({},r)})}),a(),this;function a(){if(i.length===0)x(e.complete)&&e.complete();else{var t,r,a,c,l=i[0];if(x(e.before)){var u=e.before(l.file,l.inputElem);if(typeof u==`object`){if(u.action===`abort`)return t=`AbortError`,r=l.file,a=l.inputElem,c=u.reason,void(x(e.error)&&e.error({name:t},r,a,c));if(u.action===`skip`)return void o();typeof u.config==`object`&&(l.instanceConfig=n.extend(l.instanceConfig,u.config))}else if(u===`skip`)return void o()}var d=l.instanceConfig.complete;l.instanceConfig.complete=function(e){x(d)&&d(e,l.file,l.inputElem),o()},s.parse(l.file,l.instanceConfig)}}function o(){i.splice(0,1),a()}}),i&&(t.onmessage=function(e){e=e.data,s.WORKER_ID===void 0&&e&&(s.WORKER_ID=e.workerId),typeof e.input==`string`?t.postMessage({workerId:s.WORKER_ID,results:s.parse(e.input,e.config),finished:!0}):(t.File&&e.input instanceof File||e.input instanceof Object)&&(e=s.parse(e.input,e.config))&&t.postMessage({workerId:s.WORKER_ID,results:e,finished:!0})}),(l.prototype=Object.create(c.prototype)).constructor=l,(u.prototype=Object.create(c.prototype)).constructor=u,(d.prototype=Object.create(d.prototype)).constructor=d,(f.prototype=Object.create(c.prototype)).constructor=f,s})}))(),1),ee=`2PACX-1vQwqkX44b-HPNysrWI2Qy5AtbUv9DVW8JtDXiFBvoe7lkIbkp-TNP2VjLyli2AUzFFCHZH0HYvcfytH`,E={chapters:`0`,vocabulary:`195278083`,exercises:`1198814770`,grammar:`877359757`};function D(e){return`https://docs.google.com/spreadsheets/d/e/${ee}/pub?gid=${e}&single=true&output=csv`}async function O(e){let t=await(await fetch(D(e))).text();return T.default.parse(t,{header:!0,skipEmptyLines:!0}).data}async function k(){let[e,t,n,r]=await Promise.all([O(E.chapters),O(E.vocabulary),O(E.exercises),O(E.grammar)]);return{chapters:e,vocabulary:t,exercises:n,grammar:r}}function te(){let e=(location.hash.replace(`#`,``)||`/`).split(`/`).filter(Boolean);return e.length===0?{page:`dashboard`}:e[0]===`chapter`&&e[1]?{page:e[2]||`chapter`,chapterId:e[1],section:e[2]||null}:e[0]===`profile`&&e[1]?{page:`profile`,profileId:e[1]}:{page:`dashboard`}}function A(e){location.hash=e}function j(e){window.addEventListener(`hashchange`,e)}var M={ch1:{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},ch2:{color:`#EC4899`,bg:`#FAE9F2`,img:`ch2.png`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`,img:`ch3.png`},ch4:{color:`#10B981`,bg:`#E8F7EE`,img:`ch4.png`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`,img:`ch5.png`}};function ne(e,t,n,r){let i=e[n]?.[t]||{},a=Object.values(i).filter(e=>e.completed||e.seen).length;return r>0?Math.round(a/r*100):0}var re={ch1:`👋 К концу этой главы ты сможешь поздороваться, представиться и назвать день недели — по-фински. Это твои первые живые слова!`};function ie(e,t,n,r,i=[]){let a=g(),o=M[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},s=ne(a,e.id,`vocabulary`,t.length),c=ne(a,e.id,`exercises`,n.length),l=i.length,u=a.grammarProgress?.[e.id]||{},d=Object.values(u).filter(e=>e===!0).length,f=l>0?Math.round(d/l*100):0,p=Math.round((s+f+c)/3),m=re[e.id];return`
+`,`"`,s.BYTE_ORDER_MARK],s.WORKERS_SUPPORTED=!r&&!!t.Worker,s.NODE_STREAM_INPUT=1,s.LocalChunkSize=10485760,s.RemoteChunkSize=5242880,s.DefaultDelimiter=`,`,s.Parser=h,s.ParserHandle=p,s.NetworkStreamer=l,s.FileStreamer=u,s.StringStreamer=d,s.ReadableStreamStreamer=f,t.jQuery&&((n=t.jQuery).fn.parse=function(e){var r=e.config||{},i=[];return this.each(function(e){if(!(n(this).prop(`tagName`).toUpperCase()===`INPUT`&&n(this).attr(`type`).toLowerCase()===`file`&&t.FileReader)||!this.files||this.files.length===0)return!0;for(var a=0;a<this.files.length;a++)i.push({file:this.files[a],inputElem:this,instanceConfig:n.extend({},r)})}),a(),this;function a(){if(i.length===0)x(e.complete)&&e.complete();else{var t,r,a,c,l=i[0];if(x(e.before)){var u=e.before(l.file,l.inputElem);if(typeof u==`object`){if(u.action===`abort`)return t=`AbortError`,r=l.file,a=l.inputElem,c=u.reason,void(x(e.error)&&e.error({name:t},r,a,c));if(u.action===`skip`)return void o();typeof u.config==`object`&&(l.instanceConfig=n.extend(l.instanceConfig,u.config))}else if(u===`skip`)return void o()}var d=l.instanceConfig.complete;l.instanceConfig.complete=function(e){x(d)&&d(e,l.file,l.inputElem),o()},s.parse(l.file,l.instanceConfig)}}function o(){i.splice(0,1),a()}}),i&&(t.onmessage=function(e){e=e.data,s.WORKER_ID===void 0&&e&&(s.WORKER_ID=e.workerId),typeof e.input==`string`?t.postMessage({workerId:s.WORKER_ID,results:s.parse(e.input,e.config),finished:!0}):(t.File&&e.input instanceof File||e.input instanceof Object)&&(e=s.parse(e.input,e.config))&&t.postMessage({workerId:s.WORKER_ID,results:e,finished:!0})}),(l.prototype=Object.create(c.prototype)).constructor=l,(u.prototype=Object.create(c.prototype)).constructor=u,(d.prototype=Object.create(d.prototype)).constructor=d,(f.prototype=Object.create(c.prototype)).constructor=f,s})}))(),1),ee=`2PACX-1vQwqkX44b-HPNysrWI2Qy5AtbUv9DVW8JtDXiFBvoe7lkIbkp-TNP2VjLyli2AUzFFCHZH0HYvcfytH`,E={chapters:`0`,vocabulary:`195278083`,exercises:`1198814770`,grammar:`877359757`};function D(e){return`https://docs.google.com/spreadsheets/d/e/${ee}/pub?gid=${e}&single=true&output=csv`}async function O(e){let t=await(await fetch(D(e))).text();return T.default.parse(t,{header:!0,skipEmptyLines:!0}).data}async function k(){let[e,t,n,r]=await Promise.all([O(E.chapters),O(E.vocabulary),O(E.exercises),O(E.grammar)]);return{chapters:e,vocabulary:t,exercises:n,grammar:r}}function te(){let e=(location.hash.replace(`#`,``)||`/`).split(`/`).filter(Boolean);return e.length===0?{page:`dashboard`}:e[0]===`chapter`&&e[1]?{page:e[2]||`chapter`,chapterId:e[1],section:e[2]||null}:e[0]===`profile`&&e[1]?{page:`profile`,profileId:e[1]}:{page:`dashboard`}}function A(e){location.hash=e}function j(e){window.addEventListener(`hashchange`,e)}var ne={ch1:{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},ch2:{color:`#EC4899`,bg:`#FAE9F2`,img:`ch2.png`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`,img:`ch3.png`},ch4:{color:`#10B981`,bg:`#E8F7EE`,img:`ch4.png`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`,img:`ch5.png`}};function re(e,t,n,r){let i=e[n]?.[t]||{},a=Object.values(i).filter(e=>e.completed||e.seen).length;return r>0?Math.round(a/r*100):0}var ie={ch1:`👋 К концу этой главы ты сможешь поздороваться, представиться и назвать день недели — по-фински. Это твои первые живые слова!`};function ae(e,t,n,r,i=[]){let a=g(),o=ne[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},s=re(a,e.id,`vocabulary`,t.length),c=re(a,e.id,`exercises`,n.length),l=i.length,u=a.grammarProgress?.[e.id]||{},d=Object.values(u).filter(e=>e===!0).length,f=l>0?Math.round(d/l*100):0,p=Math.round((s+f+c)/3),m=ie[e.id];return`
     <div class="chapter-page">
       <!-- Header -->
       <header class="header">
@@ -103,17 +103,17 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
 
       </div>
     </div>
-  `}function N(e,t,n){document.getElementById(`btn-back`)?.addEventListener(`click`,()=>{A(`/`)});let r=S(n,e,t.length),i=document.getElementById(`vocab-meta`);i&&(i.textContent=`выучено ${r.known} / ${t.length}`),document.querySelectorAll(`.section-btn`).forEach(t=>{t.addEventListener(`click`,()=>{let n=t.dataset.section;A(`/chapter/${e}/${n}`)})})}var P={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},F=0,I=[],L=[],R=null,z=null,B=!1,ae=null,V=[],H=null,oe={приветствия:`👋`,числа:`🔢`,"дни недели":`📅`,месяцы:`🗓️`,"времена года":`🍂`,погода:`⛅`,семья:`👨‍👩‍👧‍👦`,одежда:`👕`,цвета:`🎨`,время:`⏰`};function se(e){let t={};return e.forEach((e,n)=>{let r=e.category||R.id;t[r]||(t[r]=[]),t[r].push({...e,_origIndex:n})}),t}function ce(){let e=x(p().activeProfile,R.id);if(!e)return`
+  `}function M(e,t,n){document.getElementById(`btn-back`)?.addEventListener(`click`,()=>{A(`/`)});let r=S(n,e,t.length),i=document.getElementById(`vocab-meta`);i&&(i.textContent=`выучено ${r.known} / ${t.length}`),document.querySelectorAll(`.section-btn`).forEach(t=>{t.addEventListener(`click`,()=>{let n=t.dataset.section;A(`/chapter/${e}/${n}`)})})}var N={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},P=0,F=[],I=[],L=null,R=null,z=!1,oe=null,B=[],V=null,se={приветствия:`👋`,числа:`🔢`,"дни недели":`📅`,месяцы:`🗓️`,"времена года":`🍂`,погода:`⛅`,семья:`👨‍👩‍👧‍👦`,одежда:`👕`,цвета:`🎨`,время:`⏰`};function ce(e){let t={};return e.forEach((e,n)=>{let r=e.category||L.id;t[r]||(t[r]=[]),t[r].push({...e,_origIndex:n})}),t}function le(){let e=x(p().activeProfile,L.id);if(!e)return`
       <div class="mode-card" id="mode-test">
-        <div class="mode-icon" style="background: ${z.bg}">📝</div>
+        <div class="mode-icon" style="background: ${R.bg}">📝</div>
         <div class="mode-info">
           <div class="mode-name">Тест</div>
           <div class="mode-desc">Все слова · случайный порядок</div>
         </div>
-        <button class="mode-btn" style="background: ${z.color}">Начать →</button>
+        <button class="mode-btn" style="background: ${R.color}">Начать →</button>
       </div>`;let t=Math.floor((Date.now()-new Date(e.date).getTime())/864e5),n=t>=10,r=new Date(e.date).toLocaleDateString(`ru`,{day:`numeric`,month:`short`}),i=e.pct>=80?`var(--success)`:e.pct>=60?`#F59E0B`:`var(--error)`,a=e.category?` ${e.category}`:``;return`
     <div class="mode-card ${n?`mode-card-repeat`:``}" id="mode-test">
-      <div class="mode-icon" style="background: ${e.pct>=80?`#F0FDF4`:z.bg}">
+      <div class="mode-icon" style="background: ${e.pct>=80?`#F0FDF4`:R.bg}">
         ${e.pct>=80?`✅`:`📝`}
       </div>
       <div class="mode-info">
@@ -124,13 +124,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
         ${n?`<div class="test-remind">⏰ Рекомендуем повторить — прошло ${t} дней</div>`:`<div class="test-remind ok">Следующее повторение через ${10-t} дн.</div>`}
       </div>
-      <button class="mode-btn" style="background: ${n?`#EF4444`:z.color}">
+      <button class="mode-btn" style="background: ${n?`#EF4444`:R.color}">
         ${n?`Повторить!`:`Пересдать →`}
       </button>
-    </div>`}function U(){let e=p(),t=e.profiles[e.activeProfile]?.vocabulary[R.id]||{},n=Object.values(t).filter(e=>e.status===`known`).length,r=Object.values(t).filter(e=>e.status===`hard`).length,i=Object.values(t).filter(e=>e.status===`learning`).length,a=I.length-Object.values(t).filter(e=>e.seen).length;return`
+    </div>`}function H(){let e=p(),t=e.profiles[e.activeProfile]?.vocabulary[L.id]||{},n=Object.values(t).filter(e=>e.status===`known`).length,r=Object.values(t).filter(e=>e.status===`hard`).length,i=Object.values(t).filter(e=>e.status===`learning`).length,a=F.length-Object.values(t).filter(e=>e.seen).length;return`
     <header class="header">
-      <button class="btn-back" id="btn-back-vocab">← ${R.title_fi}</button>
-      <span class="vocab-counter">${I.length} слов</span>
+      <button class="btn-back" id="btn-back-vocab">← ${L.title_fi}</button>
+      <span class="vocab-counter">${F.length} слов</span>
     </header>
     <div class="mode-select-screen">
       <h2 class="mode-title">Словарь</h2>
@@ -142,7 +142,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
       <!-- Learning path -->
       <div class="learning-path">
-        <div class="path-intro">В этой главе <strong>${I.length} слов</strong></div>
+        <div class="path-intro">В этой главе <strong>${F.length} слов</strong></div>
         <div class="path-steps">
           <div class="path-step ${n+i>0?`step-done`:`step-active`}">
             <div class="path-step-num">1</div>
@@ -152,7 +152,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             </div>
           </div>
           <div class="path-arrow">→</div>
-          <div class="path-step ${n>=Math.ceil(I.length*.8)?`step-done`:n+i>0?`step-active`:`step-locked`}">
+          <div class="path-step ${n>=Math.ceil(F.length*.8)?`step-done`:n+i>0?`step-active`:`step-locked`}">
             <div class="path-step-num">2</div>
             <div class="path-step-text">
               <div class="path-step-title">Сдай тест</div>
@@ -160,11 +160,11 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             </div>
           </div>
           <div class="path-arrow">→</div>
-          <div class="path-step ${n>=Math.ceil(I.length*.8)?`step-active`:`step-locked`}">
+          <div class="path-step ${n>=Math.ceil(F.length*.8)?`step-active`:`step-locked`}">
             <div class="path-step-num">✓</div>
             <div class="path-step-text">
               <div class="path-step-title">Глава освоена</div>
-              <div class="path-step-sub">${n} / ${I.length} слов</div>
+              <div class="path-step-sub">${n} / ${F.length} слов</div>
             </div>
           </div>
         </div>
@@ -172,23 +172,23 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
 
       <div class="mode-cards">
         <div class="mode-card" id="mode-flashcard">
-          <div class="mode-icon" style="background: ${z.bg}">🃏</div>
+          <div class="mode-icon" style="background: ${R.bg}">🃏</div>
           <div class="mode-info">
             <div class="mode-name">Заучивание</div>
             <div class="mode-desc">Флэш-карточки · продолжить с места остановки</div>
             <div class="learning-progress" style="margin-top: 10px">
               <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px">
                 <span>${n+i} выучено</span>
-                <span style="color: #999">${I.length} всего</span>
+                <span style="color: #999">${F.length} всего</span>
               </div>
               <div class="progress-bar" style="height: 6px">
-                <div class="progress-fill" style="width: ${Math.round((n+i)/I.length*100)}%; background: ${z.color}"></div>
+                <div class="progress-fill" style="width: ${Math.round((n+i)/F.length*100)}%; background: ${R.color}"></div>
               </div>
             </div>
           </div>
-          <button class="mode-btn" style="background: ${z.color}">Начать →</button>
+          <button class="mode-btn" style="background: ${R.color}">Начать →</button>
         </div>
-        ${ce()}
+        ${le()}
         ${r>0?`
         <div class="mode-card" id="mode-hard">
           <div class="mode-icon" style="background: #FEF2F2">🔴</div>
@@ -200,9 +200,9 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>`:``}
       </div>
     </div>
-  `}function le(e,t){return R=e,I=t,L=t,R._allWords=t,z=P[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},`<div class="vocab-page">${U()}</div>`}function W(e){R=e,R._allWords||=L,z=P[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vocab`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),document.getElementById(`mode-flashcard`)?.addEventListener(`click`,()=>ue(`flashcard`)),document.getElementById(`mode-test`)?.addEventListener(`click`,()=>ue(`test`)),document.getElementById(`mode-hard`)?.addEventListener(`click`,()=>de(!0))}function ue(e){ae=e;let t=se(L),n=[`числа`,`приветствия`,`дни недели`].filter(e=>t[e]).map(e=>{let n=t[e],r=oe[e]||`📚`;return`
+  `}function ue(e,t){return L=e,F=t,I=t,L._allWords=t,R=N[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},`<div class="vocab-page">${H()}</div>`}function U(e){L=e,L._allWords||=I,R=N[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vocab`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),document.getElementById(`mode-flashcard`)?.addEventListener(`click`,()=>de(`flashcard`)),document.getElementById(`mode-test`)?.addEventListener(`click`,()=>de(`test`)),document.getElementById(`mode-hard`)?.addEventListener(`click`,()=>fe(!0))}function de(e){oe=e;let t=ce(I),n=[`числа`,`приветствия`,`дни недели`].filter(e=>t[e]).map(e=>{let n=t[e],r=se[e]||`📚`;return`
         <div class="category-card" data-category="${e}">
-          <div class="cat-icon" style="background: ${z.bg}">${r}</div>
+          <div class="cat-icon" style="background: ${R.bg}">${r}</div>
           <div class="cat-info">
             <div class="cat-name">${e}</div>
             <div class="cat-count">${n.length} слов</div>
@@ -216,12 +216,12 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <h2 class="mode-title">Выбери источник</h2>
       <div class="mode-cards">
         <div class="mode-card" id="source-all">
-          <div class="mode-icon" style="background: ${z.bg}">📚</div>
+          <div class="mode-icon" style="background: ${R.bg}">📚</div>
           <div class="mode-info">
             <div class="mode-name">Все слова</div>
-            <div class="mode-desc">${L.length} слов · вся глава</div>
+            <div class="mode-desc">${I.length} слов · вся глава</div>
           </div>
-          <button class="mode-btn" style="background: ${z.color}">Начать →</button>
+          <button class="mode-btn" style="background: ${R.color}">Начать →</button>
         </div>
       </div>
       ${n?`
@@ -230,18 +230,18 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         ${n}
       </div>`:``}
     </div>
-  `;document.querySelector(`.vocab-page`).innerHTML=r,document.getElementById(`btn-back-source`)?.addEventListener(`click`,()=>{document.querySelector(`.vocab-page`).innerHTML=U(),W(R)}),document.getElementById(`source-all`)?.addEventListener(`click`,()=>{I=L,H=null,ae===`flashcard`?de(!1):ge()}),document.querySelectorAll(`.category-card`).forEach(e=>{e.addEventListener(`click`,()=>{let n=e.dataset.category;I=t[n]||[],H=n,ae===`flashcard`?de(!1):ge()})})}function de(e=!1){let t=p(),n=t.activeProfile;if(e){let e=t.profiles[n]?.vocabulary[R.id]||{},r=Object.entries(e).filter(([,e])=>e.status===`hard`).map(([e])=>parseInt(e.replace(`w_`,``)));F=0,I=r.map(e=>({...I[e],_origIndex:e}))}else I=[...I].map((e,t)=>({...e,_origIndex:t})),F=C(n,R.id,I);B=!1,fe()}function fe(){let e=I[F];if(!e){he();return}let t=p(),n=t.profiles[t.activeProfile]?.vocabulary[R.id]||{};n[`w_${e._origIndex??F}`]?.status,document.querySelector(`.vocab-page`).innerHTML=`
+  `;document.querySelector(`.vocab-page`).innerHTML=r,document.getElementById(`btn-back-source`)?.addEventListener(`click`,()=>{document.querySelector(`.vocab-page`).innerHTML=H(),U(L)}),document.getElementById(`source-all`)?.addEventListener(`click`,()=>{F=I,V=null,oe===`flashcard`?fe(!1):_e()}),document.querySelectorAll(`.category-card`).forEach(e=>{e.addEventListener(`click`,()=>{let n=e.dataset.category;F=t[n]||[],V=n,oe===`flashcard`?fe(!1):_e()})})}function fe(e=!1){let t=p(),n=t.activeProfile;if(e){let e=t.profiles[n]?.vocabulary[L.id]||{},r=Object.entries(e).filter(([,e])=>e.status===`hard`).map(([e])=>parseInt(e.replace(`w_`,``)));P=0,F=r.map(e=>({...F[e],_origIndex:e}))}else F=[...F].map((e,t)=>({...e,_origIndex:t})),P=C(n,L.id,F);z=!1,pe()}function pe(){let e=F[P];if(!e){ge();return}let t=p(),n=t.profiles[t.activeProfile]?.vocabulary[L.id]||{};n[`w_${e._origIndex??P}`]?.status,document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-back-fc">← Режимы</button>
-      <span class="vocab-counter" id="vocab-counter">${F+1} / ${I.length}</span>
+      <span class="vocab-counter" id="vocab-counter">${P+1} / ${F.length}</span>
     </header>
 
     <div class="ex-progress-bar">
-      <div class="ex-progress-fill" style="width: ${F/I.length*100}%; background: ${z.color}"></div>
+      <div class="ex-progress-fill" style="width: ${P/F.length*100}%; background: ${R.color}"></div>
     </div>
 
     <div class="vocab-container">
-      <div class="flashcard" id="flashcard" style="--card-color: ${z.color}; --card-bg: ${z.bg}">
+      <div class="flashcard" id="flashcard" style="--card-color: ${R.color}; --card-bg: ${R.bg}">
         <div class="flashcard-inner" id="flashcard-inner">
           <div class="flashcard-front">
             ${e.tag===`puhekieli`?`<span class="puhekieli-badge">🗣️ puhekieli</span>`:``}
@@ -273,32 +273,32 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
 
       <div class="vocab-progress-dots">
-        ${I.map((e,t)=>{let r=n[`w_${e._origIndex??t}`]?.status;return`<span class="vocab-dot ${r===`known`?`dot-known`:r===`hard`?`dot-hard`:r===`learning`?`dot-learning`:``} ${t===F?`active`:``}"></span>`}).join(``)}
+        ${F.map((e,t)=>{let r=n[`w_${e._origIndex??t}`]?.status;return`<span class="vocab-dot ${r===`known`?`dot-known`:r===`hard`?`dot-hard`:r===`learning`?`dot-learning`:``} ${t===P?`active`:``}"></span>`}).join(``)}
       </div>
     </div>
-  `,pe()}function pe(){document.getElementById(`btn-back-fc`)?.addEventListener(`click`,()=>{let e=p(),t=I[F];if(t){let n=t._origIndex??F;e.profiles[e.activeProfile]?.vocabulary[R.id]?.[`w_${n}`]?.seen||y(e.activeProfile,R.id,n,`learning`)}I=R._allWords||I,document.querySelector(`.vocab-page`).innerHTML=U(),W(R)});let e=document.getElementById(`flashcard`),t=document.getElementById(`flashcard-inner`),n=I[F];e?.addEventListener(`click`,e=>{e.target.closest(`.card-audio-btn`)||e.target.closest(`.card-mic-btn`)||(B=!B,t.classList.toggle(`flipped`,B),document.getElementById(`vocab-actions`).style.display=B?`flex`:`none`)});function r(e){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();let t=new SpeechSynthesisUtterance(e);t.lang=`fi-FI`,t.rate=.85,window.speechSynthesis.speak(t)}document.getElementById(`btn-audio-front`)?.addEventListener(`click`,e=>{e.stopPropagation(),r(n.finnish)}),document.getElementById(`btn-audio-back`)?.addEventListener(`click`,e=>{e.stopPropagation(),r(n.finnish)}),document.getElementById(`btn-mic`)?.addEventListener(`click`,e=>{e.stopPropagation();let t=document.getElementById(`btn-mic`),r=document.getElementById(`mic-result`),i=window.SpeechRecognition||window.webkitSpeechRecognition;if(!i){r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">⚠️ Ваш браузер не поддерживает распознавание речи</span>`;return}let a=new i;a.lang=`fi-FI`,a.interimResults=!1,a.maxAlternatives=5;function o(){t.textContent=`🎤 Попробуй ещё раз`,t.disabled=!1}t.textContent=`🔴 Слушаю...`,t.disabled=!0,r.style.display=`none`;let s=setTimeout(()=>{try{a.stop()}catch{}r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">⚠️ Не услышал ничего, попробуй ещё раз</span>`,o()},7e3);a.onresult=e=>{clearTimeout(s);let i=Array.from(e.results[0]).map(e=>e.transcript.toLowerCase().trim()),a=n.finnish.toLowerCase().trim(),c=i.some(e=>e===a||e.replace(/[.,!?-]/g,``)===a.replace(/[.,!?-]/g,``));r.style.display=`block`,c?(r.innerHTML=`<span style="color:#10B981">✅ Отлично! Правильно произнесено!</span>`,t.textContent=`🎤 Произнеси`):(r.innerHTML=`<span style="color:#EF4444">❌ Услышал: «${i[0]}»<br>Ожидал: «${n.finnish}»</span>`,o()),t.disabled=!1},a.onerror=e=>{clearTimeout(s),r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">${e.error===`no-speech`?`⚠️ Ничего не услышал — говори громче!`:`⚠️ Не удалось распознать, попробуй ещё раз`}</span>`,o()},a.onend=()=>{clearTimeout(s),t.disabled&&o()},a.start()}),document.getElementById(`btn-hard`)?.addEventListener(`click`,()=>me(`hard`)),document.getElementById(`btn-ok`)?.addEventListener(`click`,()=>me(`learning`)),document.getElementById(`btn-know`)?.addEventListener(`click`,()=>me(`known`))}function me(e){let t=p(),n=I[F]._origIndex??F;if(y(t.activeProfile,R.id,n,e),F++,F>=I.length){he();return}B=!1,fe()}function he(){let e=p(),t=e.profiles[e.activeProfile]?.vocabulary[R.id]||{},n=Object.values(t).filter(e=>e.status===`known`).length;document.querySelector(`.vocab-container`)?.parentElement?.querySelector(`.vocab-container`),document.querySelector(`.vocab-page`).innerHTML=`
+  `,me()}function me(){document.getElementById(`btn-back-fc`)?.addEventListener(`click`,()=>{let e=p(),t=F[P];if(t){let n=t._origIndex??P;e.profiles[e.activeProfile]?.vocabulary[L.id]?.[`w_${n}`]?.seen||y(e.activeProfile,L.id,n,`learning`)}F=L._allWords||F,document.querySelector(`.vocab-page`).innerHTML=H(),U(L)});let e=document.getElementById(`flashcard`),t=document.getElementById(`flashcard-inner`),n=F[P];e?.addEventListener(`click`,e=>{e.target.closest(`.card-audio-btn`)||e.target.closest(`.card-mic-btn`)||(z=!z,t.classList.toggle(`flipped`,z),document.getElementById(`vocab-actions`).style.display=z?`flex`:`none`)});function r(e){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();let t=new SpeechSynthesisUtterance(e);t.lang=`fi-FI`,t.rate=.85,window.speechSynthesis.speak(t)}document.getElementById(`btn-audio-front`)?.addEventListener(`click`,e=>{e.stopPropagation(),r(n.finnish)}),document.getElementById(`btn-audio-back`)?.addEventListener(`click`,e=>{e.stopPropagation(),r(n.finnish)}),document.getElementById(`btn-mic`)?.addEventListener(`click`,e=>{e.stopPropagation();let t=document.getElementById(`btn-mic`),r=document.getElementById(`mic-result`),i=window.SpeechRecognition||window.webkitSpeechRecognition;if(!i){r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">⚠️ Ваш браузер не поддерживает распознавание речи</span>`;return}let a=new i;a.lang=`fi-FI`,a.interimResults=!1,a.maxAlternatives=5;function o(){t.textContent=`🎤 Попробуй ещё раз`,t.disabled=!1}t.textContent=`🔴 Слушаю...`,t.disabled=!0,r.style.display=`none`;let s=setTimeout(()=>{try{a.stop()}catch{}r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">⚠️ Не услышал ничего, попробуй ещё раз</span>`,o()},7e3);a.onresult=e=>{clearTimeout(s);let i=Array.from(e.results[0]).map(e=>e.transcript.toLowerCase().trim()),a=n.finnish.toLowerCase().trim(),c=i.some(e=>e===a||e.replace(/[.,!?-]/g,``)===a.replace(/[.,!?-]/g,``));r.style.display=`block`,c?(r.innerHTML=`<span style="color:#10B981">✅ Отлично! Правильно произнесено!</span>`,t.textContent=`🎤 Произнеси`):(r.innerHTML=`<span style="color:#EF4444">❌ Услышал: «${i[0]}»<br>Ожидал: «${n.finnish}»</span>`,o()),t.disabled=!1},a.onerror=e=>{clearTimeout(s),r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">${e.error===`no-speech`?`⚠️ Ничего не услышал — говори громче!`:`⚠️ Не удалось распознать, попробуй ещё раз`}</span>`,o()},a.onend=()=>{clearTimeout(s),t.disabled&&o()},a.start()}),document.getElementById(`btn-hard`)?.addEventListener(`click`,()=>he(`hard`)),document.getElementById(`btn-ok`)?.addEventListener(`click`,()=>he(`learning`)),document.getElementById(`btn-know`)?.addEventListener(`click`,()=>he(`known`))}function he(e){let t=p(),n=F[P]._origIndex??P;if(y(t.activeProfile,L.id,n,e),P++,P>=F.length){ge();return}z=!1,pe()}function ge(){let e=p(),t=e.profiles[e.activeProfile]?.vocabulary[L.id]||{},n=Object.values(t).filter(e=>e.status===`known`).length;document.querySelector(`.vocab-container`)?.parentElement?.querySelector(`.vocab-container`),document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-complete-back">← Режимы</button>
     </header>
     <div class="complete-screen">
       <div class="complete-emoji">🎉</div>
       <h2>Раунд завершён!</h2>
-      <p style="color: #6B7280; margin-top: 8px">Знаю: <strong style="color: var(--success)">${n}</strong> из ${I.length} слов</p>
-      <div style="background: ${z.bg}; padding: 14px 18px; border-radius: 10px; margin-top: 18px; max-width: 380px; font-size: 14px; line-height: 1.5">
+      <p style="color: #6B7280; margin-top: 8px">Знаю: <strong style="color: var(--success)">${n}</strong> из ${F.length} слов</p>
+      <div style="background: ${R.bg}; padding: 14px 18px; border-radius: 10px; margin-top: 18px; max-width: 380px; font-size: 14px; line-height: 1.5">
         🗣️ <strong>Скажи вслух прямо сейчас:</strong> произнеси 3 слова из этого раунда. Язык запоминается ртом, а не глазами!
       </div>
       <div style="display:flex; gap:12px; margin-top:24px; justify-content:center">
-        <button class="btn-complete" style="background: ${z.color}" id="btn-repeat">Ещё раз</button>
-        <button class="btn-complete" style="background: white; color: ${z.color}; border: 2px solid ${z.color}" id="btn-to-chapter-v">К главе</button>
+        <button class="btn-complete" style="background: ${R.color}" id="btn-repeat">Ещё раз</button>
+        <button class="btn-complete" style="background: white; color: ${R.color}; border: 2px solid ${R.color}" id="btn-to-chapter-v">К главе</button>
       </div>
     </div>
-  `,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,()=>{I=R._allWords||I,document.querySelector(`.vocab-page`).innerHTML=U(),W(R)}),document.getElementById(`btn-repeat`)?.addEventListener(`click`,()=>de(!1)),document.getElementById(`btn-to-chapter-v`)?.addEventListener(`click`,()=>A(`/chapter/${R.id}`))}var G=0,K=0;function ge(){G=0,K=0,V=[...R._allWords||I].sort(()=>Math.random()-.5),_e()}function _e(){if(G>=V.length){ye();return}let e=V[G],t=[e,...(R._allWords||I).filter(t=>t.finnish!==e.finnish).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);document.querySelector(`.vocab-page`).innerHTML=`
+  `,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,()=>{F=L._allWords||F,document.querySelector(`.vocab-page`).innerHTML=H(),U(L)}),document.getElementById(`btn-repeat`)?.addEventListener(`click`,()=>fe(!1)),document.getElementById(`btn-to-chapter-v`)?.addEventListener(`click`,()=>A(`/chapter/${L.id}`))}var W=0,G=0;function _e(){W=0,G=0,B=[...L._allWords||F].sort(()=>Math.random()-.5),ve()}function ve(){if(W>=B.length){be();return}let e=B[W],t=[e,...(L._allWords||F).filter(t=>t.finnish!==e.finnish).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-back-test">← Режимы</button>
-      <span class="vocab-counter">${G+1} / ${V.length} · ✓ ${K}</span>
+      <span class="vocab-counter">${W+1} / ${B.length} · ✓ ${G}</span>
     </header>
     <div class="ex-progress-bar">
-      <div class="ex-progress-fill" style="width: ${G/V.length*100}%; background: ${z.color}"></div>
+      <div class="ex-progress-fill" style="width: ${W/B.length*100}%; background: ${R.color}"></div>
     </div>
     <div class="vocab-container" style="max-width: 560px; margin: 0 auto">
       <div class="test-question">
@@ -316,37 +316,37 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
       <div class="ex-feedback" id="test-feedback" style="display:none"></div>
     </div>
-  `,document.getElementById(`btn-back-test`)?.addEventListener(`click`,()=>{I=R._allWords||I,document.querySelector(`.vocab-page`).innerHTML=U(),W(R)}),ve(e)}function ve(e){let t=!1;document.querySelectorAll(`.test-option`).forEach(n=>{n.addEventListener(`click`,()=>{if(t)return;t=!0;let r=n.dataset.correct===`true`;r&&K++,document.querySelectorAll(`.test-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===n&&!r&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`test-feedback`);i.style.display=`flex`,i.innerHTML=r?`<div class="feedback-correct" style="border-color: ${z.color}">✓ Правильно!</div>
-           <button class="ex-next-btn" id="btn-next-test" style="background: ${z.color}">Дальше →</button>`:`<div class="feedback-wrong">✗ Правильно: <strong>${e.russian}</strong></div>
-           <button class="ex-next-btn" id="btn-next-test" style="background: ${z.color}">Дальше →</button>`,i.style.flexDirection=`column`,i.style.gap=`10px`,document.getElementById(`btn-next-test`)?.addEventListener(`click`,()=>{G++,_e()})})})}function ye(){b(p().activeProfile,R.id,K,V.length,H);let e=Math.round(K/V.length*100),t=e>=80?`🏆`:e>=60?`👍`:`💪`,n=new Date;n.setDate(n.getDate()+10);let r=n.toLocaleDateString(`ru`,{day:`numeric`,month:`short`}),i=H?`Тест по ${H}`:`Тест`;document.querySelector(`.vocab-page`).innerHTML=`
+  `,document.getElementById(`btn-back-test`)?.addEventListener(`click`,()=>{F=L._allWords||F,document.querySelector(`.vocab-page`).innerHTML=H(),U(L)}),ye(e)}function ye(e){let t=!1;document.querySelectorAll(`.test-option`).forEach(n=>{n.addEventListener(`click`,()=>{if(t)return;t=!0;let r=n.dataset.correct===`true`;r&&G++,document.querySelectorAll(`.test-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===n&&!r&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`test-feedback`);i.style.display=`flex`,i.innerHTML=r?`<div class="feedback-correct" style="border-color: ${R.color}">✓ Правильно!</div>
+           <button class="ex-next-btn" id="btn-next-test" style="background: ${R.color}">Дальше →</button>`:`<div class="feedback-wrong">✗ Правильно: <strong>${e.russian}</strong></div>
+           <button class="ex-next-btn" id="btn-next-test" style="background: ${R.color}">Дальше →</button>`,i.style.flexDirection=`column`,i.style.gap=`10px`,document.getElementById(`btn-next-test`)?.addEventListener(`click`,()=>{W++,ve()})})})}function be(){b(p().activeProfile,L.id,G,B.length,V);let e=Math.round(G/B.length*100),t=e>=80?`🏆`:e>=60?`👍`:`💪`,n=new Date;n.setDate(n.getDate()+10);let r=n.toLocaleDateString(`ru`,{day:`numeric`,month:`short`}),i=V?`Тест по ${V}`:`Тест`;document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-test-done">← Режимы</button>
     </header>
     <div class="complete-screen">
       <div class="complete-emoji">${t}</div>
       <h2>Тест завершён!</h2>
-      <p style="color: #6B7280; margin-top: 8px">${i}: <strong style="color: ${z.color}">${K} / ${V.length}</strong> (${e}%)</p>
-      <div class="test-completion-info" style="background: ${z.bg}; padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center">
+      <p style="color: #6B7280; margin-top: 8px">${i}: <strong style="color: ${R.color}">${G} / ${B.length}</strong> (${e}%)</p>
+      <div class="test-completion-info" style="background: ${R.bg}; padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center">
         <div style="font-size: 12px; color: #6B7280; margin-bottom: 4px">Следующее повторение</div>
-        <div style="font-size: 16px; font-weight: 600; color: ${z.color}">${r}</div>
+        <div style="font-size: 16px; font-weight: 600; color: ${R.color}">${r}</div>
       </div>
       <div style="display:flex; gap:12px; margin-top:24px; justify-content:center">
-        <button class="btn-complete" style="background: ${z.color}" id="btn-retest">Ещё раз</button>
-        <button class="btn-complete" style="background: white; color: ${z.color}; border: 2px solid ${z.color}" id="btn-to-chapter-t">К главе</button>
+        <button class="btn-complete" style="background: ${R.color}" id="btn-retest">Ещё раз</button>
+        <button class="btn-complete" style="background: white; color: ${R.color}; border: 2px solid ${R.color}" id="btn-to-chapter-t">К главе</button>
       </div>
     </div>
-  `,document.getElementById(`btn-test-done`)?.addEventListener(`click`,()=>{I=R._allWords||I,document.querySelector(`.vocab-page`).innerHTML=U(),W(R)}),document.getElementById(`btn-retest`)?.addEventListener(`click`,ge),document.getElementById(`btn-to-chapter-t`)?.addEventListener(`click`,()=>A(`/chapter/${R.id}`))}var be={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},xe={multiple_choice:`☑️ Выбери правильный`,fill_blank:`✏️ Заполни пропуск`,self_check:`👁️ Самопроверка`,matching:`🔗 Соедини пары`,vowel_harmony:`🔤 Гармония гласных`},q=[],J=0,Y=null,X=null,Se=!1;function Ce(e,t){return Y=e,q=t,J=0,Se=!1,X=be[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},q.length?`
+  `,document.getElementById(`btn-test-done`)?.addEventListener(`click`,()=>{F=L._allWords||F,document.querySelector(`.vocab-page`).innerHTML=H(),U(L)}),document.getElementById(`btn-retest`)?.addEventListener(`click`,_e),document.getElementById(`btn-to-chapter-t`)?.addEventListener(`click`,()=>A(`/chapter/${L.id}`))}var xe={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},Se={multiple_choice:`☑️ Выбери правильный`,fill_blank:`✏️ Заполни пропуск`,self_check:`👁️ Самопроверка`,matching:`🔗 Соедини пары`,vowel_harmony:`🔤 Гармония гласных`},K=[],q=0,J=null,Y=null,Ce=!1;function we(e,t){return J=e,K=t,q=0,Ce=!1,Y=xe[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},K.length?`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="btn-back-ex">← ${e.title_fi}</button>
-        <span class="ex-counter" id="ex-counter">${J+1} / ${q.length}</span>
+        <span class="ex-counter" id="ex-counter">${q+1} / ${K.length}</span>
       </header>
       <div class="ex-progress-bar">
         <div class="ex-progress-fill" id="ex-progress-fill"
-             style="width: ${we(0)}%; background: ${X.color}"></div>
+             style="width: ${Te(0)}%; background: ${Y.color}"></div>
       </div>
       <div class="ex-container" id="ex-container">
-        ${Ee(q[0],0)}
+        ${De(K[0],0)}
       </div>
     </div>
   `:`
@@ -357,13 +357,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <div class="loading">Упражнения скоро появятся 💪<br>
           <small style="color:#aaa">Добавь их в Google Sheets → лист exercises</small>
         </div>
-      </div>`}function we(e){return Math.round(e/q.length*100)}function Te(e){return e.map(e=>({v:e,sort:Math.random()})).sort((e,t)=>e.sort-t.sort).map(({v:e})=>e)}function Ee(e,t){let n=e.type||`multiple_choice`,r=xe[n]||n,i=[e.option_a,e.option_b,e.option_c,e.option_d].filter(Boolean),a=`abcd`.indexOf((e.correct||`a`).toLowerCase()),o=i[a]||i[0],s=n===`self_check`?i:Te(i.map((e,t)=>({text:e,isCorrect:t===a})));return n===`self_check`?`
+      </div>`}function Te(e){return Math.round(e/K.length*100)}function Ee(e){return e.map(e=>({v:e,sort:Math.random()})).sort((e,t)=>e.sort-t.sort).map(({v:e})=>e)}function De(e,t){let n=e.type||`multiple_choice`,r=Se[n]||n,i=[e.option_a,e.option_b,e.option_c,e.option_d].filter(Boolean),a=`abcd`.indexOf((e.correct||`a`).toLowerCase()),o=i[a]||i[0],s=n===`self_check`?i:Ee(i.map((e,t)=>({text:e,isCorrect:t===a})));return n===`self_check`?`
       <div class="ex-card" data-type="${n}">
-        <div class="ex-type-badge" style="background: ${X.bg}; color: ${X.color}">${r}</div>
+        <div class="ex-type-badge" style="background: ${Y.bg}; color: ${Y.color}">${r}</div>
         <div class="ex-question">${e.question}</div>
         <textarea class="ex-textarea" placeholder="Напиши свой ответ..."></textarea>
         <button class="ex-show-answer" id="btn-show-answer"
-                style="border-color: ${X.color}; color: ${X.color}">
+                style="border-color: ${Y.color}; color: ${Y.color}">
           Показать ответ
         </button>
         <div class="ex-answer-reveal" id="answer-reveal" style="display:none">
@@ -373,13 +373,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             <button class="self-btn self-wrong" data-result="wrong">😕 Неверно</button>
             <button class="self-btn self-close" data-result="close">~ Близко</button>
             <button class="self-btn self-right" data-result="right"
-                    style="background: ${X.color}; color: white">✓ Верно</button>
+                    style="background: ${Y.color}; color: white">✓ Верно</button>
           </div>
         </div>
       </div>
     `:`
     <div class="ex-card" data-type="${n}" data-correct="${o}">
-      <div class="ex-type-badge" style="background: ${X.bg}; color: ${X.color}">${r}</div>
+      <div class="ex-type-badge" style="background: ${Y.bg}; color: ${Y.color}">${r}</div>
       <div class="ex-question">${e.question}</div>
       <div class="ex-options" id="ex-options">
         ${s.map((e,t)=>`
@@ -391,33 +391,33 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
       <div class="ex-feedback" id="ex-feedback" style="display:none"></div>
     </div>
-  `}function De(e){Y=e,X=be[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-ex`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),Oe()}function Oe(){let e=q[J];e&&(Se=!1,document.getElementById(`btn-show-answer`)?.addEventListener(`click`,()=>{document.getElementById(`answer-reveal`).style.display=`block`,document.getElementById(`btn-show-answer`).style.display=`none`}),document.querySelectorAll(`.self-btn`).forEach(e=>{e.addEventListener(`click`,()=>{e.dataset.result,v(p().activeProfile,Y.id,J,e.dataset.result),ke()})}),document.querySelectorAll(`.ex-option`).forEach(t=>{t.addEventListener(`click`,()=>{if(Se)return;Se=!0;let n=t.dataset.correct===`true`,r=document.querySelector(`.ex-card`).dataset.correct;document.querySelectorAll(`.ex-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===t&&!n&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`ex-feedback`);i.style.display=`block`,i.innerHTML=n?`<div class="feedback-correct" style="border-color: ${X.color}">
+  `}function Oe(e){J=e,Y=xe[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-ex`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),ke()}function ke(){let e=K[q];e&&(Ce=!1,document.getElementById(`btn-show-answer`)?.addEventListener(`click`,()=>{document.getElementById(`answer-reveal`).style.display=`block`,document.getElementById(`btn-show-answer`).style.display=`none`}),document.querySelectorAll(`.self-btn`).forEach(e=>{e.addEventListener(`click`,()=>{e.dataset.result,v(p().activeProfile,J.id,q,e.dataset.result),Ae()})}),document.querySelectorAll(`.ex-option`).forEach(t=>{t.addEventListener(`click`,()=>{if(Ce)return;Ce=!0;let n=t.dataset.correct===`true`,r=document.querySelector(`.ex-card`).dataset.correct;document.querySelectorAll(`.ex-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===t&&!n&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`ex-feedback`);i.style.display=`block`,i.innerHTML=n?`<div class="feedback-correct" style="border-color: ${Y.color}">
              ✓ Правильно! ${e.explanation?`<span>${e.explanation}</span>`:``}
            </div>
-           <button class="ex-next-btn" id="btn-next" style="background: ${X.color}">
-             ${J+1<q.length?`Следующее →`:`Завершить 🎉`}
+           <button class="ex-next-btn" id="btn-next" style="background: ${Y.color}">
+             ${q+1<K.length?`Следующее →`:`Завершить 🎉`}
            </button>`:`<div class="feedback-wrong">
              ✗ Правильный ответ: <strong>${r}</strong>
              ${e.explanation?`<br><span>${e.explanation}</span>`:``}
            </div>
-           <button class="ex-next-btn" id="btn-next" style="background: ${X.color}">
-             ${J+1<q.length?`Следующее →`:`Завершить 🎉`}
-           </button>`,v(p().activeProfile,Y.id,J,n?`right`:`wrong`),document.getElementById(`btn-next`)?.addEventListener(`click`,ke)})}))}function ke(){if(J++,J>=q.length){Ae();return}let e=document.getElementById(`ex-container`);e.innerHTML=Ee(q[J],J),document.getElementById(`ex-counter`).textContent=`${J+1} / ${q.length}`,document.getElementById(`ex-progress-fill`).style.width=`${we(J)}%`,Oe()}function Ae(){let e=document.getElementById(`ex-container`);e.innerHTML=`
+           <button class="ex-next-btn" id="btn-next" style="background: ${Y.color}">
+             ${q+1<K.length?`Следующее →`:`Завершить 🎉`}
+           </button>`,v(p().activeProfile,J.id,q,n?`right`:`wrong`),document.getElementById(`btn-next`)?.addEventListener(`click`,Ae)})}))}function Ae(){if(q++,q>=K.length){je();return}let e=document.getElementById(`ex-container`);e.innerHTML=De(K[q],q),document.getElementById(`ex-counter`).textContent=`${q+1} / ${K.length}`,document.getElementById(`ex-progress-fill`).style.width=`${Te(q)}%`,ke()}function je(){let e=document.getElementById(`ex-container`);e.innerHTML=`
     <div class="complete-screen">
       <div class="complete-emoji">🏆</div>
       <h2>Упражнения завершены!</h2>
-      <p style="color: #6B7280; margin-top: 8px">${q.length} заданий выполнено</p>
-      <button class="btn-complete" style="background: ${X.color}" id="btn-to-chapter-ex">
+      <p style="color: #6B7280; margin-top: 8px">${K.length} заданий выполнено</p>
+      <button class="btn-complete" style="background: ${Y.color}" id="btn-to-chapter-ex">
         Вернуться к главе →
       </button>
     </div>
-  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{A(`/chapter/${Y.id}`)})}var je=0;function Me(e){return e.trim().toLowerCase().replace(/[.,!?;:«»""''()\-]/g,``).replace(/\s+/g,` `).trim()}function Ne(e,t){return e.replace(/<br>\s*([^<\n][^<]{2,}?)\s*<details><summary>[^<]*<\/summary>([\s\S]*?)<\/details>/g,(e,n,r)=>{let i=`gi-${t}-${je++}`,a=r.trim().replace(/"/g,`&quot;`);return`
+  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{A(`/chapter/${J.id}`)})}var Me=0;function Ne(e){return e.replace(/<[^>]+>/g,``).trim().toLowerCase().replace(/[.,!?;:«»""''()\-]/g,``).replace(/\s+/g,` `).trim()}function Pe(e,t){for(let n=0;n<t.length;n++){if(!e[n])return`пропущено слово «${t[n]}»`;if(e[n]!==t[n])return`«${e[n]}» → должно быть «${t[n]}»`}return e.length>t.length?`лишнее слово «${e[t.length]}»`:null}function Fe(e,t){return e.replace(/<br>\s*([^<\n][^<]{2,}?)\s*<details><summary>[^<]*<\/summary>([\s\S]*?)<\/details>/g,(e,n,r)=>{let i=`gi-${t}-${Me++}`,a=r.trim().replace(/"/g,`&quot;`);return`
         <div class="grammar-input-row">
           <span class="grammar-q">${n.trim()}</span>
           <input type="text" class="grammar-input" id="inp-${i}" placeholder="Твой ответ..." data-answer="${a}">
           <button class="grammar-check-btn" data-input="inp-${i}">Проверь</button>
           <span class="grammar-input-result" id="res-${i}"></span>
-        </div>`})}var Pe={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},Fe=null,Z=[];function Ie(e,t){if(Fe=Pe[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},Z=t.filter(t=>t.Chapter===e.id).sort((e,t)=>(parseInt(e.Block)||0)-(parseInt(t.Block)||0)),!Z.length)return`
+        </div>`})}var Ie={ch1:{color:`#7C3AED`,bg:`#EDE7FB`},ch2:{color:`#EC4899`,bg:`#FAE9F2`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`},ch4:{color:`#10B981`,bg:`#E8F7EE`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`}},Le=null,X=[];function Re(e,t){if(Le=Ie[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},X=t.filter(t=>t.Chapter===e.id).sort((e,t)=>(parseInt(e.Block)||0)-(parseInt(t.Block)||0)),!X.length)return`
       <div class="grammar-page">
         <header class="header">
           <button class="btn-back" id="btn-back-grammar">← ${e.title_fi}</button>
@@ -429,18 +429,18 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
     <div class="grammar-page">
       <header class="header">
         <button class="btn-back" id="btn-back-grammar">← ${e.title_fi}</button>
-        <span class="grammar-counter">${a} / ${Z.length} пройдено</span>
+        <span class="grammar-counter">${a} / ${X.length} пройдено</span>
       </header>
 
       <div class="grammar-header">
-        <h2 style="color: ${Fe.color}; margin: 0 0 8px">Грамматика</h2>
+        <h2 style="color: ${Le.color}; margin: 0 0 8px">Грамматика</h2>
         <div class="progress-bar" style="height: 8px; margin-bottom: 24px">
-          <div class="progress-fill" style="width: ${Math.round(a/Z.length*100)}%; background: ${Fe.color}; height: 100%"></div>
+          <div class="progress-fill" style="width: ${Math.round(a/X.length*100)}%; background: ${Le.color}; height: 100%"></div>
         </div>
       </div>
 
       <div class="grammar-blocks">
-        ${Z.map((e,t)=>{let n=`block-${t}`,r=i[n]===!0;return`
+        ${X.map((e,t)=>{let n=`block-${t}`,r=i[n]===!0;return`
             <div class="grammar-block ${r?`completed`:``}" data-block-id="${n}">
               <div class="grammar-block-header">
                 <div class="grammar-block-title">
@@ -453,7 +453,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
                 </div>
               </div>
               <div class="grammar-block-content" id="content-${n}" style="display: none; padding: 16px; background: white; border-top: 1px solid #E5E7EB">
-                <div class="grammar-text">${Ne(e.Content||``,n)}</div>
+                <div class="grammar-text">${Fe(e.Content||``,n)}</div>
                 ${e.Examples?`
                   <div class="grammar-examples" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #E5E7EB">
                     <div style="font-weight: 600; margin-bottom: 8px">Примеры:</div>
@@ -471,7 +471,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
           `}).join(``)}
       </div>
     </div>
-  `}function Le(e){document.getElementById(`btn-back-grammar`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-train-btn`);if(!t)return;let n=t.dataset.blockId,r=document.getElementById(`train-area-${n}`);if(!r)return;let i=parseInt(n.replace(`block-`,``)),a=Z[i];if(!a)return;let o=[],s=/<br>\s*([^<]{3,}?)\s*<details><summary>[^<]*<\/summary>([\s\S]*?)<\/details>/g,c,l=a.Content||``;for(;(c=s.exec(l))!==null;)o.push({q:c[1].trim(),a:c[2].trim()});if(!o.length){r.style.display=`block`,r.innerHTML=`<div style="color:#6B7280;font-size:13px;padding:12px 0">Дополнительных заданий пока нет — практикуй примеры из блока вслух! 🗣️</div>`,t.style.display=`none`;return}let u=[...o].sort(()=>Math.random()-.5),d=`train-${n}`;r.style.display=`block`,r.innerHTML=`
+  `}function ze(e){document.getElementById(`btn-back-grammar`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-train-btn`);if(!t)return;let n=t.dataset.blockId,r=document.getElementById(`train-area-${n}`);if(!r)return;let i=parseInt(n.replace(`block-`,``)),a=X[i];if(!a)return;let o=[],s=/<br>\s*([^<]{3,}?)\s*<details><summary>[^<]*<\/summary>([\s\S]*?)<\/details>/g,c,l=a.Content||``;for(;(c=s.exec(l))!==null;)o.push({q:c[1].trim(),a:c[2].trim()});if(!o.length){r.style.display=`block`,r.innerHTML=`<div style="color:#6B7280;font-size:13px;padding:12px 0">Дополнительных заданий пока нет — практикуй примеры из блока вслух! 🗣️</div>`,t.style.display=`none`;return}let u=[...o].sort(()=>Math.random()-.5),d=`train-${n}`;r.style.display=`block`,r.innerHTML=`
       <div class="grammar-train-panel">
         <div style="font-weight:700;font-size:14px;margin-bottom:12px">🔁 Ещё тренировка</div>
         ${u.map((e,t)=>{let n=`${d}-${t}`,r=e.a.replace(/"/g,`&quot;`);return`
@@ -483,7 +483,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             </div>`}).join(``)}
         <button class="grammar-train-more-btn" data-block-id="${n}" style="margin-top:8px">🔄 Ещё раз (новый порядок)</button>
       </div>
-    `,t.textContent=`✅ Тренировка открыта`,t.disabled=!0}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-train-more-btn`);if(!t)return;let n=t.dataset.blockId,r=document.getElementById(`train-${n}`);r&&(r.disabled=!1,r.textContent=`💪 Тренироваться ещё`);let i=document.getElementById(`train-area-${n}`);i&&(i.style.display=`none`,i.innerHTML=``)}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-check-btn`);if(!t)return;let n=t.dataset.input,r=document.getElementById(n),i=document.getElementById(`res-${n.replace(`inp-`,``)}`);if(!r||!i)return;let a=Me(r.value),o=r.dataset.answer.split(/\s*\/\s*|\n/).map(e=>Me(e)).some(e=>e===a);if(!a){i.innerHTML=`<span style="color:#F59E0B">✏️ Напиши ответ!</span>`;return}o?(i.innerHTML=`<span style="color:#10B981">✅ Правильно!</span>`,r.style.borderColor=`#10B981`):(i.innerHTML=`<span style="color:#EF4444">❌ Попробуй ещё. Правильно: <strong>${r.dataset.answer}</strong></span>`,r.style.borderColor=`#EF4444`)}),Z.forEach((t,n)=>{let r=`block-${n}`,i=document.getElementById(`expand-${r}`),a=document.getElementById(`content-${r}`),o=document.getElementById(`check-${r}`);i?.addEventListener(`click`,e=>{e.stopPropagation();let t=a.style.display!==`none`;a.style.display=t?`none`:`block`,i.classList.toggle(`expanded`,!t)}),o?.addEventListener(`change`,()=>{let t=p(),n=t.profiles[t.activeProfile];n.grammarProgress||={},n.grammarProgress[e.id]||(n.grammarProgress[e.id]={}),n.grammarProgress[e.id][r]=o.checked,h(t)})})}var Re=[{id:`A0–A1`,label:`A0–A1`,color:`#7C3AED`,bg:`#EDE7FB`,chapters:[`ch1`,`ch2`,`ch3`,`ch4`,`ch5`]},{id:`A1–A2`,label:`A1–A2`,color:`#EC4899`,bg:`#FAE9F2`,chapters:[`ch6`,`ch7`,`ch8`,`ch9`,`ch10`]},{id:`A2–B1`,label:`A2–B1`,color:`#F59E0B`,bg:`#FEEEDB`,chapters:[`ch11`,`ch12`,`ch13`,`ch14`,`ch15`]},{id:`B1–B2`,label:`B1–B2`,color:`#10B981`,bg:`#E8F7EE`,chapters:[`ch16`,`ch17`,`ch18`,`ch19`,`ch20`]}];function ze(e){let t=p().profiles[e];for(let e=0;e<Re.length;e++){let n=Re[e],r=Re[e+1],i=n.chapters.filter(e=>{let n=t.vocabulary[e]||{},r=t.exercises[e]||{};return Object.values(n).filter(e=>e.seen).length>0||Object.values(r).filter(e=>e.completed).length>0}).length,a=n.chapters.length,o=Math.round(i/a*100);if(o<100)return{current:n,next:r,completed:i,total:a,pct:o}}let n=Re[Re.length-1];return{current:n,next:null,completed:n.chapters.length,total:n.chapters.length,pct:100}}function Be(e){let t=p().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=w(e),{current:s,next:c,completed:l,total:u,pct:d}=ze(e);return`
+    `,t.textContent=`✅ Тренировка открыта`,t.disabled=!0}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-train-more-btn`);if(!t)return;let n=t.dataset.blockId,r=document.getElementById(`train-${n}`);r&&(r.disabled=!1,r.textContent=`💪 Тренироваться ещё`);let i=document.getElementById(`train-area-${n}`);i&&(i.style.display=`none`,i.innerHTML=``)}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-check-btn`);if(!t)return;let n=t.dataset.input,r=document.getElementById(n),i=document.getElementById(`res-${n.replace(`inp-`,``)}`);if(!r||!i)return;let a=Ne(r.value),o=r.dataset.answer;if(!a){i.innerHTML=`<span style="color:#F59E0B">✏️ Напиши ответ!</span>`;return}let s=o.split(/\s*\/\s*|\n/).map(e=>Ne(e)).filter(Boolean);if(s.some(e=>e===a))i.innerHTML=`<span style="color:#10B981">✅ Правильно!</span>`,r.style.borderColor=`#10B981`;else{let e=s.reduce((e,t)=>{let n=t.split(` `).filter(e=>a.includes(e)).length;return n>e.overlap?{v:t,overlap:n}:e},{v:s[0],overlap:-1}).v,t=Pe(a.split(` `),e.split(` `)),n=Ne(o.split(/\s*\/\s*/)[0]);i.innerHTML=`<span style="color:#EF4444">❌${t?` Ошибка: ${t}`:``}</span><br><span style="color:#6B7280;font-size:12px">Правильно: <strong>${n}</strong>${s.length>1?` или <strong>${Ne(o.split(/\s*\/\s*/)[1]||``)}</strong>`:``}</span>`,r.style.borderColor=`#EF4444`}}),X.forEach((t,n)=>{let r=`block-${n}`,i=document.getElementById(`expand-${r}`),a=document.getElementById(`content-${r}`),o=document.getElementById(`check-${r}`);i?.addEventListener(`click`,e=>{e.stopPropagation();let t=a.style.display!==`none`;a.style.display=t?`none`:`block`,i.classList.toggle(`expanded`,!t)}),o?.addEventListener(`change`,()=>{let t=p(),n=t.profiles[t.activeProfile];n.grammarProgress||={},n.grammarProgress[e.id]||(n.grammarProgress[e.id]={}),n.grammarProgress[e.id][r]=o.checked,h(t)})})}var Z=[{id:`A0–A1`,label:`A0–A1`,color:`#7C3AED`,bg:`#EDE7FB`,chapters:[`ch1`,`ch2`,`ch3`,`ch4`,`ch5`]},{id:`A1–A2`,label:`A1–A2`,color:`#EC4899`,bg:`#FAE9F2`,chapters:[`ch6`,`ch7`,`ch8`,`ch9`,`ch10`]},{id:`A2–B1`,label:`A2–B1`,color:`#F59E0B`,bg:`#FEEEDB`,chapters:[`ch11`,`ch12`,`ch13`,`ch14`,`ch15`]},{id:`B1–B2`,label:`B1–B2`,color:`#10B981`,bg:`#E8F7EE`,chapters:[`ch16`,`ch17`,`ch18`,`ch19`,`ch20`]}];function Be(e){let t=p().profiles[e];for(let e=0;e<Z.length;e++){let n=Z[e],r=Z[e+1],i=n.chapters.filter(e=>{let n=t.vocabulary[e]||{},r=t.exercises[e]||{};return Object.values(n).filter(e=>e.seen).length>0||Object.values(r).filter(e=>e.completed).length>0}).length,a=n.chapters.length,o=Math.round(i/a*100);if(o<100)return{current:n,next:r,completed:i,total:a,pct:o}}let n=Z[Z.length-1];return{current:n,next:null,completed:n.chapters.length,total:n.chapters.length,pct:100}}function Ve(e){let t=p().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=w(e),{current:s,next:c,completed:l,total:u,pct:d}=Be(e);return`
     <div class="profile-page">
       <header class="header">
         <button class="btn-back" id="btn-back-profile">← Главная</button>
@@ -550,13 +550,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <div class="profile-section">
         <h2 class="profile-section-title">Активность</h2>
         <div class="activity-row">
-          ${Ve(o)}
           ${He(o)}
+          ${Ue(o)}
         </div>
       </div>
 
     </div>
-  `}function Ve(e){let t=new Date,n=t.getFullYear(),r=t.getMonth(),i=new Date(n,r,1).toLocaleString(`ru`,{month:`long`,year:`numeric`}),a=new Date(n,r,1).getDay(),o=new Date(n,r+1,0).getDate(),s=a===0?6:a-1,c=[`Пн`,`Вт`,`Ср`,`Чт`,`Пт`,`Сб`,`Вс`],l=t.getDate(),u=``;for(let e=0;e<s;e++)u+=`<div class="cal-cell empty"></div>`;for(let t=1;t<=o;t++){let i=`${n}-${String(r+1).padStart(2,`0`)}-${String(t).padStart(2,`0`)}`,a=!!e[i],o=t===l,s=e[i]?.words||0,c=e[i]?.exercises||0;u+=`
+  `}function He(e){let t=new Date,n=t.getFullYear(),r=t.getMonth(),i=new Date(n,r,1).toLocaleString(`ru`,{month:`long`,year:`numeric`}),a=new Date(n,r,1).getDay(),o=new Date(n,r+1,0).getDate(),s=a===0?6:a-1,c=[`Пн`,`Вт`,`Ср`,`Чт`,`Пт`,`Сб`,`Вс`],l=t.getDate(),u=``;for(let e=0;e<s;e++)u+=`<div class="cal-cell empty"></div>`;for(let t=1;t<=o;t++){let i=`${n}-${String(r+1).padStart(2,`0`)}-${String(t).padStart(2,`0`)}`,a=!!e[i],o=t===l,s=e[i]?.words||0,c=e[i]?.exercises||0;u+=`
       <div class="cal-cell ${a?`active`:``} ${o?`today`:``}"
            title="${a?`слов: ${s}, упражнений: ${c}`:``}">
         <span>${t}</span>
@@ -572,7 +572,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         ${u}
       </div>
     </div>
-  `}function He(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1);Math.round(3/r*80);let i=t.map((e,n)=>{let i=e.count>0?Math.max(Math.round(e.count/r*80),8):4,a=n===t.length-1,o=e.count===0;return`
+  `}function Ue(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1);Math.round(3/r*80);let i=t.map((e,n)=>{let i=e.count>0?Math.max(Math.round(e.count/r*80),8):4,a=n===t.length-1,o=e.count===0;return`
       <div class="trend-bar-wrap" title="${a?`Эта неделя: ${e.count} занятий · Так держать!`:``}">
         <div class="trend-bar-val">${e.count>0?e.count:``}</div>
         <div class="trend-bar-bg">
@@ -606,7 +606,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <div class="trend-bars">${i}</div>
       <div class="trend-hint">занятий за неделю · последние 8 недель</div>
     </div>
-  `}function Ue(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>A(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var We={ch1:{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},ch2:{color:`#EC4899`,bg:`#FAE9F2`,img:`ch2.png`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`,img:`ch3.png`},ch4:{color:`#10B981`,bg:`#E8F7EE`,img:`ch4.png`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`,img:`ch5.png`}},Ge=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],Ke=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],qe={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function Je(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function Ye(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function Xe(e){let t=e.profiles;return`
+  `}function We(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>A(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var Ge={ch1:{color:`#7C3AED`,bg:`#EDE7FB`,img:`ch1.png`},ch2:{color:`#EC4899`,bg:`#FAE9F2`,img:`ch2.png`},ch3:{color:`#F59E0B`,bg:`#FEEEDB`,img:`ch3.png`},ch4:{color:`#10B981`,bg:`#E8F7EE`,img:`ch4.png`},ch5:{color:`#3B82F6`,bg:`#E9EEFB`,img:`ch5.png`}},Ke=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],qe=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],Je={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function Ye(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function Xe(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function Ze(e){let t=e.profiles;return`
     <header class="header">
       <div class="logo">
         <img src="/lets-go-finnish/logo.png" alt="Let's Go Learn Finnish!" class="logo-img">
@@ -624,12 +624,12 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <button class="btn-cta">Начать учить</button>
       </div>
     </header>
-  `}function Ze(e,t){let n=g();return`
-    ${Xe(e)}
+  `}function Qe(e,t){let n=g();return`
+    ${Ze(e)}
     <div class="hero">
       <div class="hero-text">
         <h1><span class="hero-accent">Suomi on vaikea.</span><br>Mutta me справимся 💪</h1>
-        <p class="greeting">${Je(n.name)}</p>
+        <p class="greeting">${Ye(n.name)}</p>
       </div>
       <div class="hero-deco">
         <div class="deco-card deco-1"><span class="deco-dot"></span>Moikka! — Привет!</div>
@@ -637,8 +637,8 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <div class="deco-card deco-3"><span class="deco-dot"></span>Hyvää! — Отлично!</div>
       </div>
     </div>
-    ${Qe(t,n)}
-  `}function Qe(e,t){let n={};return e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),Ke.map(e=>{let r=qe[e]||{color:`#7C3AED`,bg:`#EDE7FB`},i=n[e]||[],a=i.length>0,o=a?i.reduce((e,n)=>e+Ye(t,n.id),0)/i.length:0;return`
+    ${$e(t,n)}
+  `}function $e(e,t){let n={};return e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),qe.map(e=>{let r=Je[e]||{color:`#7C3AED`,bg:`#EDE7FB`},i=n[e]||[],a=i.length>0,o=a?i.reduce((e,n)=>e+Xe(t,n.id),0)/i.length:0;return`
         <div class="level-section ${a?``:`level-section-soon`}">
           <div class="level-header">
             <div class="level-badge" style="background: ${r.bg}; color: ${r.color}">${e}</div>
@@ -652,7 +652,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             </div>
           </div>
           <div class="chapters-grid">
-            ${a?i.map(e=>$e(e,e.globalIndex+1,t)).join(``):[1,2,3].map(e=>`
+            ${a?i.map(e=>et(e,e.globalIndex+1,t)).join(``):[1,2,3].map(e=>`
                   <div class="chapter-card chapter-card-soon">
                     <div class="card-img-wrap soon-img-wrap" style="background: ${r.bg}">
                       <span class="soon-emoji">🔒</span>
@@ -665,7 +665,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
                   </div>`).join(``)}
           </div>
         </div>
-      `}).join(``)}function $e(e,t,n){let r=Ye(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
+      `}).join(``)}function et(e,t,n){let r=Xe(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
     <div class="chapter-card ${i?`done`:``} ${r>0?`in-progress`:``}"
          data-chapter="${e.id}"
          style="--card-color: ${e.color}">
@@ -688,4 +688,4 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
     </div>
-  `}function Q(e){document.querySelector(`#app`).innerHTML=e}function et(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile;p().activeProfile===t?A(`/profile/${t}`):(_(t),nt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})})}var tt=Ge.map(e=>({...e,...We[e.id]}));function nt(){Q(Ze(p(),tt)),et()}var $={chapters:[],vocabulary:[],exercises:[]};async function rt(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{$=await k(),$.chapters?.length>0&&(tt=$.chapters.map(e=>({...e,...We[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}it(),j(it)}function it(){let e=te(),t=p();if(e.page===`dashboard`||!e.page){nt();return}if(e.page===`profile`){Q(Be(e.profileId)),Ue();return}let n=tt.find(t=>t.id===e.chapterId);if(!n){nt();return}let r=$.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=$.exercises.filter(t=>t.chapter_id===e.chapterId),a=$.grammar||[];if(e.section===`vocabulary`){Q(le(n,r)),W(n);return}if(e.section===`exercises`){Q(Ce(n,i)),De(n);return}if(e.section===`grammar`){Q(Ie(n,a)),Le(n);return}Q(ie(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),N(e.chapterId,r,t.activeProfile)}rt();
+  `}function Q(e){document.querySelector(`#app`).innerHTML=e}function tt(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile;p().activeProfile===t?A(`/profile/${t}`):(_(t),rt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})})}var nt=Ke.map(e=>({...e,...Ge[e.id]}));function rt(){Q(Qe(p(),nt)),tt()}var $={chapters:[],vocabulary:[],exercises:[]};async function it(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{$=await k(),$.chapters?.length>0&&(nt=$.chapters.map(e=>({...e,...Ge[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}at(),j(at)}function at(){let e=te(),t=p();if(e.page===`dashboard`||!e.page){rt();return}if(e.page===`profile`){Q(Ve(e.profileId)),We();return}let n=nt.find(t=>t.id===e.chapterId);if(!n){rt();return}let r=$.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=$.exercises.filter(t=>t.chapter_id===e.chapterId),a=$.grammar||[];if(e.section===`vocabulary`){Q(ue(n,r)),U(n);return}if(e.section===`exercises`){Q(we(n,i)),Oe(n);return}if(e.section===`grammar`){Q(Re(n,a)),ze(n);return}Q(ae(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),M(e.chapterId,r,t.activeProfile)}it();

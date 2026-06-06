@@ -857,7 +857,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             <span class="pname">Добавить</span>
           </button>
         </div>
-        <button class="btn-cta">Начать учить</button>
+        <button class="btn-cta" id="btn-start-learning">+ Создать профиль</button>
       </div>
     </header>
   `}function kt(e,t){let n=g();return`
@@ -930,24 +930,44 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
     </div>
-  `}function $(e){document.querySelector(`#app`).innerHTML=e}function Mt(){document.querySelectorAll(`.profile-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile;p().activeProfile===t?A(`/profile/${t}`):(_(t),Pt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-add-profile`)?.addEventListener(`click`,zt)}var Nt=Ct.map(e=>({...e,...j[e.id]}));function Pt(){$(kt(p(),Nt)),Mt()}var Ft={chapters:[],vocabulary:[],exercises:[]};async function It(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{Ft=await ne(),Ft.chapters?.length>0&&(Nt=Ft.chapters.map(e=>({...e,...j[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Lt(),re(Lt)}function Lt(){let e=k(),t=p();if(e.page===`dashboard`||!e.page){Pt();return}if(e.page===`profile`){$(yt(e.profileId)),St();return}let n=Nt.find(t=>t.id===e.chapterId);if(!n){Pt();return}let r=Ft.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ft.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ft.grammar||[];if(e.section===`vocabulary`){$(me(n,r)),he(n);return}if(e.section===`exercises`){$(je(n,i)),Ie(n);return}if(e.section===`grammar`){$(qe(n,a)),Je(n);return}if(e.section===`vocab-exercises`){$(Xe(n,r)),Ze(n);return}$(M(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),oe(e.chapterId,r,t.activeProfile,i)}It();var Rt=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`];function zt(){let e=document.createElement(`div`);e.id=`add-profile-modal`,e.innerHTML=`
+  `}function $(e){document.querySelector(`#app`).innerHTML=e}function Mt(){document.querySelectorAll(`.profile-btn[data-profile]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile,n=p();if(n.activeProfile===t){A(`/profile/${t}`);return}let r=n.profiles[t];r?.pin?Bt(t,r.name):(_(t),Pt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-add-profile`)?.addEventListener(`click`,zt),document.getElementById(`btn-start-learning`)?.addEventListener(`click`,zt)}var Nt=Ct.map(e=>({...e,...j[e.id]}));function Pt(){$(kt(p(),Nt)),Mt()}var Ft={chapters:[],vocabulary:[],exercises:[]};async function It(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{Ft=await ne(),Ft.chapters?.length>0&&(Nt=Ft.chapters.map(e=>({...e,...j[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Lt(),re(Lt)}function Lt(){let e=k(),t=p();if(e.page===`dashboard`||!e.page){Pt();return}if(e.page===`profile`){$(yt(e.profileId)),St();return}let n=Nt.find(t=>t.id===e.chapterId);if(!n){Pt();return}let r=Ft.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ft.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ft.grammar||[];if(e.section===`vocabulary`){$(me(n,r)),he(n);return}if(e.section===`exercises`){$(je(n,i)),Ie(n);return}if(e.section===`grammar`){$(qe(n,a)),Je(n);return}if(e.section===`vocab-exercises`){$(Xe(n,r)),Ze(n);return}$(M(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),oe(e.chapterId,r,t.activeProfile,i)}It();var Rt=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`];function zt(){let e=document.createElement(`div`);e.id=`add-profile-modal`,e.innerHTML=`
     <div class="modal-overlay" id="modal-overlay">
       <div class="modal-box">
         <h3 style="margin-bottom:16px">Новый профиль</h3>
         <input type="text" id="profile-name-input" class="grammar-input"
           placeholder="Имя..." maxlength="20"
-          style="width:100%;margin-bottom:16px">
+          style="width:100%;margin-bottom:12px">
         <div style="font-size:13px;color:#6B7280;margin-bottom:8px">Выбери аватар:</div>
-        <div class="avatar-picker">
+        <div class="avatar-picker" style="margin-bottom:16px">
           ${Rt.map(e=>`
             <button class="avatar-option" data-emoji="${e}">${e}</button>
           `).join(``)}
         </div>
-        <div style="display:flex;gap:10px;margin-top:20px">
+        <div style="font-size:13px;color:#6B7280;margin-bottom:4px">PIN-код (опционально):</div>
+        <input type="password" id="profile-pin-input" class="grammar-input"
+          placeholder="4 цифры для защиты профиля..." maxlength="4" pattern="[0-9]*"
+          inputmode="numeric" style="width:100%;margin-bottom:20px">
+        <div style="display:flex;gap:10px">
           <button class="btn-complete" id="btn-save-profile"
             style="background:var(--primary);flex:1">Создать</button>
           <button class="btn-complete" id="btn-cancel-modal"
             style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
         </div>
       </div>
-    </div>`,document.body.appendChild(e);let t=Rt[0];e.querySelector(`.avatar-option[data-emoji="${t}"]`)?.classList.add(`selected`),e.querySelectorAll(`.avatar-option`).forEach(n=>{n.addEventListener(`click`,()=>{e.querySelectorAll(`.avatar-option`).forEach(e=>e.classList.remove(`selected`)),n.classList.add(`selected`),t=n.dataset.emoji})}),document.getElementById(`btn-cancel-modal`)?.addEventListener(`click`,()=>e.remove()),document.getElementById(`modal-overlay`)?.addEventListener(`click`,t=>{t.target.id===`modal-overlay`&&e.remove()}),document.getElementById(`btn-save-profile`)?.addEventListener(`click`,()=>{let n=document.getElementById(`profile-name-input`)?.value.trim();if(!n)return;let r=p(),i=`user_`+Date.now();r.profiles[i]={name:n,avatarEmoji:t,chapters:{},vocabulary:{},exercises:{},activity:{}},h(r),e.remove(),Pt()})}
+    </div>`,document.body.appendChild(e);let t=Rt[0];e.querySelector(`.avatar-option[data-emoji="${t}"]`)?.classList.add(`selected`),e.querySelectorAll(`.avatar-option`).forEach(n=>{n.addEventListener(`click`,()=>{e.querySelectorAll(`.avatar-option`).forEach(e=>e.classList.remove(`selected`)),n.classList.add(`selected`),t=n.dataset.emoji})}),document.getElementById(`btn-cancel-modal`)?.addEventListener(`click`,()=>e.remove()),document.getElementById(`modal-overlay`)?.addEventListener(`click`,t=>{t.target.id===`modal-overlay`&&e.remove()}),document.getElementById(`btn-save-profile`)?.addEventListener(`click`,()=>{let n=document.getElementById(`profile-name-input`)?.value.trim();if(!n){document.getElementById(`profile-name-input`).style.borderColor=`var(--error)`;return}let r=document.getElementById(`profile-pin-input`)?.value.trim(),i=p(),a=`user_`+Date.now();i.profiles[a]={name:n,avatarEmoji:t,pin:r||null,chapters:{},vocabulary:{},exercises:{},activity:{}},h(i),_(a),e.remove(),Pt()})}function Bt(e,t){let n=document.createElement(`div`);n.innerHTML=`
+    <div class="modal-overlay" id="pin-overlay">
+      <div class="modal-box" style="text-align:center">
+        <h3 style="margin-bottom:8px">Привет, ${t}!</h3>
+        <p style="color:#6B7280;font-size:14px;margin-bottom:16px">Введи PIN-код</p>
+        <input type="password" id="pin-input" class="grammar-input"
+          placeholder="••••" maxlength="4" pattern="[0-9]*"
+          inputmode="numeric" style="text-align:center;font-size:24px;letter-spacing:8px;width:100%;margin-bottom:12px">
+        <div id="pin-error" style="color:var(--error);font-size:13px;height:18px;margin-bottom:8px"></div>
+        <div style="display:flex;gap:10px">
+          <button class="btn-complete" id="btn-confirm-pin"
+            style="background:var(--primary);flex:1">Войти</button>
+          <button class="btn-complete" id="btn-cancel-pin"
+            style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
+        </div>
+      </div>
+    </div>`,document.body.appendChild(n);let r=document.getElementById(`pin-input`);r?.focus();let i=()=>{let t=p();r?.value.trim()===t.profiles[e]?.pin?(_(e),n.remove(),Pt()):(document.getElementById(`pin-error`).textContent=`❌ Неверный PIN`,r.value=``,r.focus())};r?.addEventListener(`keydown`,e=>{e.key===`Enter`&&i()}),document.getElementById(`btn-confirm-pin`)?.addEventListener(`click`,i),document.getElementById(`btn-cancel-pin`)?.addEventListener(`click`,()=>n.remove()),document.getElementById(`pin-overlay`)?.addEventListener(`click`,e=>{e.target.id===`pin-overlay`&&n.remove()})}

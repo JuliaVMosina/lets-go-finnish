@@ -318,7 +318,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         <button class="btn-complete" style="background: white; color: ${G.color}; border: 2px solid ${G.color}" id="btn-to-chapter-v">К главе</button>
       </div>
     </div>
-  `,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,()=>{U=W._allWords||U,document.querySelector(`.vocab-page`).innerHTML=Ja(),Xa(W)}),document.getElementById(`btn-repeat`)?.addEventListener(`click`,()=>Qa(!1)),document.getElementById(`btn-to-chapter-v`)?.addEventListener(`click`,()=>V(`/chapter/${W.id}`))}var ro=0,io=0;function ao(){ro=0,io=0,Ua=[...W._allWords||U].sort(()=>Math.random()-.5),oo()}function oo(){if(ro>=Ua.length){co();return}let e=Ua[ro],t=[e,...(W._allWords||U).filter(t=>t.finnish!==e.finnish).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);document.querySelector(`.vocab-page`).innerHTML=`
+  `,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,()=>{U=W._allWords||U,document.querySelector(`.vocab-page`).innerHTML=Ja(),Xa(W)}),document.getElementById(`btn-repeat`)?.addEventListener(`click`,()=>Qa(!1)),document.getElementById(`btn-to-chapter-v`)?.addEventListener(`click`,()=>V(`/chapter/${W.id}`))}var ro=0,io=0;function ao(){ro=0,io=0,Ua=[...Wa?U:W._allWords||U].sort(()=>Math.random()-.5),oo()}function oo(){if(ro>=Ua.length){co();return}let e=Ua[ro],t=[e,...(W._allWords||U).filter(t=>t.finnish!==e.finnish).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-back-test">← Режимы</button>
       <span class="vocab-counter">${ro+1} / ${Ua.length} · ✓ ${io}</span>

@@ -982,7 +982,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
       <div class="login-left">
         <h1 class="brand-title">Kahvi <span class="brand-amp">&amp;</span> Kieli</h1>
         <p class="brand-sub">Opetellaan suomee!</p>
-        <img src="/lets-go-finnish/heroyenterpage.png" class="login-hero-img" alt=""
+        <img src="/lets-go-finnish/hero-moomin.png" class="login-hero-img" alt=""
              onerror="this.style.display='none'">
       </div>
 

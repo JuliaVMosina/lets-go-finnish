@@ -869,7 +869,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
       <div class="header-right">
         <div class="profile-switcher" style="position:relative">
           <button class="profile-btn active" id="btn-active-profile">
-            ${Ls(t,48)}
+            ${Rs(t,48)}
             <span class="pname">${t.name} <span style="font-size:9px;opacity:0.5">▼</span></span>
           </button>
           <div class="profile-dropdown" id="profile-dropdown" style="display:none">
@@ -960,36 +960,28 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         </div>
       </div>
     </div>
-  `}function ws(e){document.querySelector(`#app`).innerHTML=e}function Ts(){document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{V(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{V(`/profile/${p().activeProfile}`)}),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,Rs),document.getElementById(`btn-logout`)?.addEventListener(`click`,async()=>{if(ds){let e=p().profiles[ds.id];e&&await Ea(ds.id,e)}await Ca(),ds=null,Os=`signin`,ws(ks()),As()});let e=document.getElementById(`btn-active-profile`);e&&(e.onclick=e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.onclick=()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)}}var Es=hs.map(e=>({...e,...Fa[e.id]}));function Ds(){ws(xs(p(),Es)),Ts()}var Os=`signin`;function ks(){let e=Os===`signup`;return`
+  `}function ws(e){document.querySelector(`#app`).innerHTML=e}function Ts(){document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{V(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{V(`/profile/${p().activeProfile}`)}),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,zs),document.getElementById(`btn-logout`)?.addEventListener(`click`,async()=>{if(ds){let e=p().profiles[ds.id];e&&await Ea(ds.id,e)}await Ca(),ds=null,Os=`signin`,ws(As()),js()});let e=document.getElementById(`btn-active-profile`);e&&(e.onclick=e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.onclick=()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)}}var Es=hs.map(e=>({...e,...Fa[e.id]}));function Ds(){ws(xs(p(),Es)),Ts()}var Os=`signin`;function ks(e,t,n){return`
+    <svg class="deco-leaf ${e}" viewBox="0 0 120 200" fill="none"
+         stroke="${t}" stroke-width="2.5" stroke-linecap="round">
+      <path d="M60 195 C58 150 60 100 72 20"/>
+      <path d="M62 150 C95 145 108 120 105 92 C76 96 60 122 62 150 Z" fill="${n}" fill-opacity="0.45"/>
+      <path d="M60 120 C27 116 16 90 19 62 C50 66 64 92 60 120 Z" fill="${n}" fill-opacity="0.45"/>
+      <path d="M64 90 C95 85 106 60 103 34 C74 39 60 64 64 90 Z" fill="${n}" fill-opacity="0.45"/>
+      <path d="M68 60 C42 55 33 33 36 12 C61 17 71 39 68 60 Z" fill="${n}" fill-opacity="0.45"/>
+    </svg>`}function As(){let e=Os===`signup`;return`
     <div class="login-split">
       <!-- decorative corner patterns -->
       <div class="deco-blob deco-blob-tr"></div>
       <div class="deco-blob deco-blob-br"></div>
       <div class="deco-blob deco-blob-bl"></div>
-      <svg class="deco-leaf deco-leaf-tr" viewBox="0 0 120 160" fill="none" stroke="#C4B5FD" stroke-width="2">
-        <path d="M60 150 C60 100 60 50 70 10" />
-        <path d="M64 120 C90 115 100 95 98 75 C78 78 64 95 64 120 Z" fill="#DDD6FE" fill-opacity="0.4"/>
-        <path d="M62 90 C40 86 30 66 33 48 C53 52 64 70 62 90 Z" fill="#DDD6FE" fill-opacity="0.4"/>
-        <path d="M66 60 C88 56 96 38 94 22 C76 26 66 42 66 60 Z" fill="#DDD6FE" fill-opacity="0.4"/>
-      </svg>
-      <svg class="deco-leaf deco-leaf-br" viewBox="0 0 120 160" fill="none" stroke="#F9A8D4" stroke-width="2">
-        <path d="M60 150 C60 100 60 50 70 10" />
-        <path d="M64 120 C90 115 100 95 98 75 C78 78 64 95 64 120 Z" fill="#FBCFE8" fill-opacity="0.45"/>
-        <path d="M62 90 C40 86 30 66 33 48 C53 52 64 70 62 90 Z" fill="#FBCFE8" fill-opacity="0.45"/>
-        <path d="M66 60 C88 56 96 38 94 22 C76 26 66 42 66 60 Z" fill="#FBCFE8" fill-opacity="0.45"/>
-      </svg>
-      <svg class="deco-leaf deco-leaf-bl" viewBox="0 0 100 120" fill="none" stroke="#C4B5FD" stroke-width="2">
-        <path d="M50 115 C50 80 50 45 50 12" />
-        <circle cx="50" cy="14" r="8" fill="#DDD6FE" fill-opacity="0.5"/>
-        <path d="M50 55 C30 52 22 38 24 24 C42 27 51 41 50 55 Z" fill="#DDD6FE" fill-opacity="0.4"/>
-        <path d="M50 80 C70 77 78 63 76 49 C58 52 49 66 50 80 Z" fill="#DDD6FE" fill-opacity="0.4"/>
-      </svg>
+      ${ks(`deco-leaf-tr`,`#C4B5FD`,`#DDD6FE`)}
+      ${ks(`deco-leaf-br`,`#F9A8D4`,`#FBCFE8`)}
+      ${ks(`deco-leaf-bl`,`#C4B5FD`,`#DDD6FE`)}
 
       <!-- Left: brand + characters -->
       <div class="login-left">
         <h1 class="brand-title">Kahvi <span class="brand-amp">&amp;</span> Kieli</h1>
         <p class="brand-sub">Opetellaan suomee!</p>
-        <p class="brand-sub-en">Let's learn Finnish!</p>
         <img src="/lets-go-finnish/heroyenterpage.png" class="login-hero-img" alt=""
              onerror="this.style.display='none'">
       </div>
@@ -1026,7 +1018,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
           </button>
         </div>
       </div>
-    </div>`}function As(){document.getElementById(`btn-switch-mode`)?.addEventListener(`click`,()=>{Os=Os===`signin`?`signup`:`signin`,ws(ks()),As()});let e=async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-password`)?.value,n=document.getElementById(`auth-name`)?.value.trim(),r=document.getElementById(`auth-error`),i=document.getElementById(`btn-auth-submit`);if(!e||!t){r.textContent=`Заполни email и пароль`;return}if(Os===`signup`&&t.length<6){r.textContent=`Пароль минимум 6 символов`;return}r.textContent=``,i.disabled=!0,i.textContent=`Загрузка...`;let a;if(a=Os===`signup`?await xa(e,t,n||e.split(`@`)[0]):await Sa(e,t),a.error){r.textContent=js(a.error.message),i.disabled=!1,i.textContent=Os===`signup`?`Создать аккаунт`:`Войти`;return}if(!a.session){r.style.color=`var(--success)`,r.textContent=`✅ Проверь почту и подтверди email, потом войди`,i.disabled=!1,i.textContent=`Войти`,Os=`signin`;return}await ms(a.user),V(`/`),Ds()};document.getElementById(`btn-auth-submit`)?.addEventListener(`click`,e),document.getElementById(`auth-password`)?.addEventListener(`keydown`,t=>{t.key===`Enter`&&e()}),document.getElementById(`btn-forgot`)?.addEventListener(`click`,async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-error`);if(!e){t.style.color=`var(--error)`,t.textContent=`Введи email выше, потом нажми «Unohditko salasanasi?»`;return}let{error:n}=await ba.auth.resetPasswordForEmail(e,{redirectTo:window.location.origin+`/lets-go-finnish/`});t.style.color=n?`var(--error)`:`var(--success)`,t.textContent=n?js(n.message):`✅ Письмо для сброса пароля отправлено на `+e})}function js(e){let t=e.toLowerCase();return t.includes(`invalid login`)?`❌ Неверный email или пароль`:t.includes(`already registered`)?`❌ Этот email уже зарегистрирован`:t.includes(`password`)?`❌ Пароль слишком короткий (мин. 6)`:t.includes(`email`)?`❌ Проверь правильность email`:`❌ `+e}var Ms={chapters:[],vocabulary:[],exercises:[]};async function Ns(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{let e=await wa();e?.user&&await ms(e.user)}catch{console.log(`Нет активной сессии`)}try{Ms=await Ma(),Ms.chapters?.length>0&&(Es=Ms.chapters.map(e=>({...e,...Fa[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Ps(),Pa(Ps)}function Ps(){let e=Na(),t=p();if(!ds){ws(ks()),As();return}if(e.page===`dashboard`||!e.page){Ds();return}if(e.page===`profile`){ws(ss(e.profileId)),us();return}let n=Es.find(t=>t.id===e.chapterId);if(!n){Ds();return}let r=Ms.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ms.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ms.grammar||[];if(e.section===`vocabulary`){ws(Ya(n,r)),Xa(n);return}if(e.section===`exercises`){ws(po(n,i)),vo(n);return}if(e.section===`grammar`){ws(Ao(n,a)),jo(n);return}if(e.section===`vocab-exercises`){ws(Lo(n,r)),Ro(n);return}ws(Ra(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),za(e.chapterId,r,t.activeProfile,i)}Ns();var Fs=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`],Is=[`av1.png`,`av2.png`,`av3.png`,`av4.png`];function Ls(e,t=40){return e?.avatarImg?`<img class="avatar" src="/lets-go-finnish/${e.avatarImg}" alt="${e.name||``}" style="width:${t}px;height:${t}px;border-radius:50%;object-fit:cover">`:e?.avatarEmoji?`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">${e.avatarEmoji}</span>`:`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">🦊</span>`}function Rs(){let e=p(),t=e.profiles[e.activeProfile];if(!t)return;let n=document.createElement(`div`);n.innerHTML=`
+    </div>`}function js(){document.getElementById(`btn-switch-mode`)?.addEventListener(`click`,()=>{Os=Os===`signin`?`signup`:`signin`,ws(As()),js()});let e=async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-password`)?.value,n=document.getElementById(`auth-name`)?.value.trim(),r=document.getElementById(`auth-error`),i=document.getElementById(`btn-auth-submit`);if(!e||!t){r.textContent=`Заполни email и пароль`;return}if(Os===`signup`&&t.length<6){r.textContent=`Пароль минимум 6 символов`;return}r.textContent=``,i.disabled=!0,i.textContent=`Загрузка...`;let a;if(a=Os===`signup`?await xa(e,t,n||e.split(`@`)[0]):await Sa(e,t),a.error){r.textContent=Ms(a.error.message),i.disabled=!1,i.textContent=Os===`signup`?`Создать аккаунт`:`Войти`;return}if(!a.session){r.style.color=`var(--success)`,r.textContent=`✅ Проверь почту и подтверди email, потом войди`,i.disabled=!1,i.textContent=`Войти`,Os=`signin`;return}await ms(a.user),V(`/`),Ds()};document.getElementById(`btn-auth-submit`)?.addEventListener(`click`,e),document.getElementById(`auth-password`)?.addEventListener(`keydown`,t=>{t.key===`Enter`&&e()}),document.getElementById(`btn-forgot`)?.addEventListener(`click`,async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-error`);if(!e){t.style.color=`var(--error)`,t.textContent=`Введи email выше, потом нажми «Unohditko salasanasi?»`;return}let{error:n}=await ba.auth.resetPasswordForEmail(e,{redirectTo:window.location.origin+`/lets-go-finnish/`});t.style.color=n?`var(--error)`:`var(--success)`,t.textContent=n?Ms(n.message):`✅ Письмо для сброса пароля отправлено на `+e})}function Ms(e){let t=e.toLowerCase();return t.includes(`invalid login`)?`❌ Неверный email или пароль`:t.includes(`already registered`)?`❌ Этот email уже зарегистрирован`:t.includes(`password`)?`❌ Пароль слишком короткий (мин. 6)`:t.includes(`email`)?`❌ Проверь правильность email`:`❌ `+e}var Ns={chapters:[],vocabulary:[],exercises:[]};async function Ps(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{let e=await wa();e?.user&&await ms(e.user)}catch{console.log(`Нет активной сессии`)}try{Ns=await Ma(),Ns.chapters?.length>0&&(Es=Ns.chapters.map(e=>({...e,...Fa[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Fs(),Pa(Fs)}function Fs(){let e=Na(),t=p();if(!ds){ws(As()),js();return}if(e.page===`dashboard`||!e.page){Ds();return}if(e.page===`profile`){ws(ss(e.profileId)),us();return}let n=Es.find(t=>t.id===e.chapterId);if(!n){Ds();return}let r=Ns.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ns.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ns.grammar||[];if(e.section===`vocabulary`){ws(Ya(n,r)),Xa(n);return}if(e.section===`exercises`){ws(po(n,i)),vo(n);return}if(e.section===`grammar`){ws(Ao(n,a)),jo(n);return}if(e.section===`vocab-exercises`){ws(Lo(n,r)),Ro(n);return}ws(Ra(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),za(e.chapterId,r,t.activeProfile,i)}Ps();var Is=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`],Ls=[`av1.png`,`av2.png`,`av3.png`,`av4.png`];function Rs(e,t=40){return e?.avatarImg?`<img class="avatar" src="/lets-go-finnish/${e.avatarImg}" alt="${e.name||``}" style="width:${t}px;height:${t}px;border-radius:50%;object-fit:cover">`:e?.avatarEmoji?`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">${e.avatarEmoji}</span>`:`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">🦊</span>`}function zs(){let e=p(),t=e.profiles[e.activeProfile];if(!t)return;let n=document.createElement(`div`);n.innerHTML=`
     <div class="modal-overlay" id="acc-overlay">
       <div class="modal-box">
         <h3 style="margin-bottom:16px">⚙️ Настройки</h3>
@@ -1036,14 +1028,14 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
           maxlength="20" style="width:100%;margin-bottom:16px">
         <div style="font-size:13px;color:#6B7280;margin-bottom:8px">Аватар:</div>
         <div class="avatar-picker" style="margin-bottom:12px">
-          ${Is.map(e=>`
+          ${Ls.map(e=>`
             <button class="avatar-option avatar-img-option ${t.avatarImg===e?`selected`:``}" data-img="${e}">
               <img src="/lets-go-finnish/${e}" alt="">
             </button>
           `).join(``)}
         </div>
         <div class="avatar-picker" style="margin-bottom:20px">
-          ${Fs.map(e=>`
+          ${Is.map(e=>`
             <button class="avatar-option ${!t.avatarImg&&t.avatarEmoji===e?`selected`:``}" data-emoji="${e}">${e}</button>
           `).join(``)}
         </div>
@@ -1052,4 +1044,4 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
           <button class="btn-complete" id="btn-acc-cancel" style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
         </div>
       </div>
-    </div>`,document.body.appendChild(n);let r=t.avatarEmoji||Fs[0],i=t.avatarImg||null;n.querySelectorAll(`.avatar-option`).forEach(e=>{e.addEventListener(`click`,()=>{n.querySelectorAll(`.avatar-option`).forEach(e=>e.classList.remove(`selected`)),e.classList.add(`selected`),e.dataset.img?(i=e.dataset.img,r=null):(r=e.dataset.emoji,i=null)})}),document.getElementById(`btn-acc-cancel`)?.addEventListener(`click`,()=>n.remove()),document.getElementById(`acc-overlay`)?.addEventListener(`click`,e=>{e.target.id===`acc-overlay`&&n.remove()}),document.getElementById(`btn-acc-save`)?.addEventListener(`click`,()=>{let e=document.getElementById(`acc-name`)?.value.trim(),t=p();e&&(t.profiles[t.activeProfile].name=e),t.profiles[t.activeProfile].avatarImg=i,t.profiles[t.activeProfile].avatarEmoji=i?null:r,_(t),n.remove(),Ds()})}
+    </div>`,document.body.appendChild(n);let r=t.avatarEmoji||Is[0],i=t.avatarImg||null;n.querySelectorAll(`.avatar-option`).forEach(e=>{e.addEventListener(`click`,()=>{n.querySelectorAll(`.avatar-option`).forEach(e=>e.classList.remove(`selected`)),e.classList.add(`selected`),e.dataset.img?(i=e.dataset.img,r=null):(r=e.dataset.emoji,i=null)})}),document.getElementById(`btn-acc-cancel`)?.addEventListener(`click`,()=>n.remove()),document.getElementById(`acc-overlay`)?.addEventListener(`click`,e=>{e.target.id===`acc-overlay`&&n.remove()}),document.getElementById(`btn-acc-save`)?.addEventListener(`click`,()=>{let e=document.getElementById(`acc-name`)?.value.trim(),t=p();e&&(t.profiles[t.activeProfile].name=e),t.profiles[t.activeProfile].avatarImg=i,t.profiles[t.activeProfile].avatarEmoji=i?null:r,_(t),n.remove(),Ds()})}

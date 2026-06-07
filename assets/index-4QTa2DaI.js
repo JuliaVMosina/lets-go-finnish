@@ -746,7 +746,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
 
       <!-- Profile hero -->
       <div class="profile-hero">
-        <img src="/lets-go-finnish/${e}.png" class="profile-avatar-big" alt="${t.name}">
+        ${t.avatarImg?`<img src="/lets-go-finnish/${t.avatarImg}" class="profile-avatar-big" alt="${t.name}">`:`<div class="profile-avatar-big profile-avatar-emoji">${t.avatarEmoji||`🦊`}</div>`}
         <div class="profile-hero-info">
           <h1 class="profile-name">${t.name}</h1>
           <div class="profile-streak">

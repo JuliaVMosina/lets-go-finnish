@@ -516,13 +516,13 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         Вернуться к главе →
       </button>
     </div>
-  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{V(`/chapter/${uo.id}`)})}var So={tervehtimiset:[{q:`Как поздороваться вечером`,a:`Iltaa`},{q:`Как сказать «Добро пожаловать»`,a:`Tervetuloa`},{q:`Как ответить на «Kiitos»`,a:`Ei kestä`},{q:`Как сказать «Ничего страшного»`,a:`Ei se mitään`},{q:`Как спросить «Как дела»`,a:`Mitä kuuluu`},{q:`Как сказать «Спокойной ночи»`,a:`Hyvää yötä`},{q:`Как сказать «До свидания» (официально)`,a:`Näkemiin`},{q:`Как сказать «Увидимся» (в разговоре)`,a:`Nähdään`},{q:`Как сказать «Пока пока» (разговорное)`,a:`Moi moi / Hei hei / Moikka`},{q:`Как попросить прощения`,a:`Anteeksi`},{q:`Как ответить на «Mitä kuuluu»`,a:`Ihan hyvää / Kiitos hyvää`}],tutustuminen:[{q:`Как сказать «Меня зовут Анна»`,a:`Mun nimi on Anna / Minun nimeni on Anna`},{q:`Как спросить «Откуда ты» по-разговорному`,a:`Mistä oot kotoisin`},{q:`Как сказать «Я из Финляндии»`,a:`Olen Suomesta`},{q:`Как сказать «Мне 28 лет»`,a:`Olen 28-vuotias`},{q:`Как сказать «Не понимаю»`,a:`En ymmärrä`},{q:`Как попросить говорить медленнее`,a:`Voitko puhua hitaammin`},{q:`Как сказать «Приятно познакомиться»`,a:`Hauska tutustua`},{q:`Как спросить «Говоришь по-английски» (вопрос)`,a:`Puhutko englantia`},{q:`Как спросить «Как тебя зовут» по-разговорному (вопрос)`,a:`Mikä sun nimi on`},{q:`Как сказать «Я из России»`,a:`Olen Venäjältä`},{q:`Как сказать «Мне нужна помощь»`,a:`Tarvitsen apua`},{q:`Как спросить «Тебе нужна помощь?» (вопрос)`,a:`Tarvitsetko apua`},{q:`Как спросить «Где ты живёшь?» (вопрос)`,a:`Missä asut`},{q:`Как спросить «Что случилось?» (вопрос)`,a:`Mitä on tapahtunut / Mitä tapahtui`},{q:`Как спросить «Как это пишется?» (вопрос)`,a:`Miten tämä kirjoitetaan`}],lauserakenne:[{q:`Как спросить «Что это» (вопрос)`,a:`Mikä tämä on`},{q:`Как сказать «Это книга»`,a:`Se on kirja`},{q:`Как сказать «Это хороший автобус»`,a:`Se on hyvä bussi`},{q:`Как сказать «Эта машина плохая»`,a:`Tämä auto on huono`},{q:`Как сказать «Это отель»`,a:`Se on hotelli`},{q:`Как спросить «Это хорошая книга?» (вопрос)`,a:`Onko se hyvä kirja`},{q:`Как спросить «Кто это?» (вопрос)`,a:`Kuka tämä on`}],persoonapronominit:[{q:`Как сказать «Вы финны»`,a:`Te olette suomalaisia / Te ootte suomalaisia`},{q:`Как сказать «Я студентка»`,a:`Minä olen opiskelija / Mä oon opiskelija`},{q:`Как сказать «Он дома»`,a:`Hän on kotona / Se on kotona`},{q:`Как сказать «Они здесь»`,a:`He ovat täällä / Ne on täällä`},{q:`Как сказать «Ты готова»`,a:`Sinä olet valmis / Sä oot valmis`},{q:`Как спросить «Ты готова?» (вопрос)`,a:`Oletko sinä valmis / Ootko sä valmis`},{q:`Как сказать «Мы учимся»`,a:`Me opiskelemme / Me opiskellaan`}],verbit:[{q:`Как сказать «Я живу в Хельсинки»`,a:`Asun Helsingissä / Mä asun Helsingissä`},{q:`Как спросить «Где ты живёшь?» (вопрос)`,a:`Missä asut`},{q:`Как сказать «Она живёт в Тампере»`,a:`Hän asuu Tampereella / Se asuu Tampereella`},{q:`Как сказать «Мы живём в Финляндии»`,a:`Me asumme Suomessa / Me asutaan Suomessa`},{q:`Как сказать «Я говорю по-фински»`,a:`Puhun suomea / Mä puhun suomea`},{q:`Как спросить «Ты говоришь по-русски?» (вопрос)`,a:`Puhutko venäjää / Puhutko sä venäjää`},{q:`Как сказать «Он говорит по-английски»`,a:`Hän puhuu englantia / Se puhuu englantia`},{q:`Как сказать «Мы говорим по-фински»`,a:`Me puhumme suomea / Me puhutaan suomea`}],"verbi olla":[{q:`Скажи «Я не студентка»`,a:`Minä en ole opiskelija / Mä en oo opiskelija`},{q:`Скажи «Она не дома»`,a:`Hän ei ole kotona / Se ei oo kotona`},{q:`Скажи «Мы не готовы»`,a:`Me emme ole valmiita / Me ei olla valmiita`},{q:`Скажи «Они финны»`,a:`He ovat suomalaisia / Ne on suomalaisia`},{q:`Как спросить «Ты финн?» (вопрос)`,a:`Oletko sinä suomalainen / Ootko sä suomalainen`},{q:`Как спросить «Она дома?» (вопрос)`,a:`Onko hän kotona / Onko se kotona`},{q:`Как сказать «Я в кафе»`,a:`Minä olen kahvilassa / Mä oon kahvilassa`}],vokaaliharmonia:[{q:`В школе (koulu)?`,a:`koulussa`},{q:`На столе (pöytä)?`,a:`pöydällä`},{q:`В городе (kaupunki)?`,a:`kaupungissa`},{q:`На работе (työ)?`,a:`työssä`},{q:`В Турку (Turku)?`,a:`Turussa`},{q:`В лесу (metsä)?`,a:`metsässä`},{q:`В машине (auto)?`,a:`autossa`},{q:`На улице (katu)?`,a:`kadulla`}],numerot:[{q:`Как сказать «13»?`,a:`kolmetoista`},{q:`Как сказать «17»?`,a:`seitsemäntoista`},{q:`Как сказать «30»?`,a:`kolmekymmentä`},{q:`Как сказать «Мне 28 лет»?`,a:`Olen 28-vuotias / Olen kaksikymmentäkahdeksan`},{q:`Как сказать «Кофе стоит 4 евро»?`,a:`Kahvi maksaa neljä euroa`},{q:`Как спросить «Сколько стоит»?`,a:`Paljonko maksaa`},{q:`Как сказать «Сейчас 3 часа»?`,a:`Kello on kolme`}],viikonpäivät:[{q:`Как сказать «В четверг»?`,a:`torstaina`},{q:`Как сказать «В воскресенье»?`,a:`sunnuntaina`},{q:`Как сказать «Сегодня среда»?`,a:`Tänään on keskiviikko`},{q:`Как сказать «Вчера была пятница»?`,a:`Eilen oli perjantai`},{q:`Как сказать «Увидимся в понедельник»?`,a:`Nähdään maanantaina`},{q:`Как спросить «Какой сегодня день»?`,a:`Mikä päivä tänään on`},{q:`Как сказать «Завтра суббота»?`,a:`Huomenna on lauantai`}]};function Co(e){let t=Object.keys(So).find(t=>e.toLowerCase().includes(t));return t?[...So[t]].sort(()=>Math.random()-.5):[]}var wo=0;function To(e){return e.replace(/<[^>]+>/g,``).trim().toLowerCase().replace(/[.,!?;:«»""''()\-]/g,``).replace(/\s+/g,` `).trim()}function Eo(e,t){for(let n=0;n<t.length;n++){if(!e[n])return`пропущено слово «${t[n]}»`;if(e[n]!==t[n])return`«${e[n]}» → должно быть «${t[n]}»`}return e.length>t.length?`лишнее слово «${e[t.length]}»`:null}function Do(e,t){return e.replace(/<\/details>/g,`</details><br>`).replace(/<br>\s*([^<\n]{4,}?)\s*<details><summary>[^<]*<\/summary>([\s\S]*?)<\/details>/g,(e,n,r)=>{let i=`gi-${t}-${wo++}`,a=r.replace(/<[^>]+>/g,``).replace(/"/g,`&quot;`).trim();return`
+  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{V(`/chapter/${uo.id}`)})}var So={tervehtimiset:[{q:`Как поздороваться вечером`,a:`Hyvää iltaa / Iltaa`},{q:`Как сказать «Добро пожаловать»`,a:`Tervetuloa`},{q:`Как ответить на «Kiitos»`,a:`Ei kestä / Ole hyvä / Eipä kestä`},{q:`Как сказать «Ничего страшного»`,a:`Ei se mitään / Ei mitään`},{q:`Как спросить «Как дела»`,a:`Mitä kuuluu`},{q:`Как сказать «Спокойной ночи»`,a:`Hyvää yötä / Öitä`},{q:`Как сказать «До свидания» (официально)`,a:`Näkemiin / Näkemisiin`},{q:`Как сказать «Увидимся» (в разговоре)`,a:`Nähdään / Nähdään taas`},{q:`Как сказать «Пока пока» (разговорное)`,a:`Moi moi / Hei hei / Moikka / Heippa`},{q:`Как попросить прощения`,a:`Anteeksi / Sori`},{q:`Как ответить на «Mitä kuuluu»`,a:`Hyvää, kiitos / Kiitos hyvää / Ihan hyvää / Hyvää`}],tutustuminen:[{q:`Как сказать «Меня зовут Анна»`,a:`Mun nimi on Anna / Minun nimeni on Anna`},{q:`Как спросить «Откуда ты» по-разговорному`,a:`Mistä oot kotoisin / Mistä sä oot kotoisin`},{q:`Как сказать «Я из Финляндии»`,a:`Olen Suomesta / Mä oon Suomesta`},{q:`Как сказать «Мне 28 лет»`,a:`Olen 28-vuotias / Mä oon 28-vuotias`},{q:`Как сказать «Не понимаю»`,a:`En ymmärrä / Mä en ymmärrä`},{q:`Как попросить говорить медленнее`,a:`Voitko puhua hitaammin / Voitsä puhua hitaammin`},{q:`Как сказать «Приятно познакомиться»`,a:`Hauska tutustua`},{q:`Как спросить «Говоришь по-английски» (вопрос)`,a:`Puhutko englantia / Puhutko sä englantia`},{q:`Как спросить «Как тебя зовут» по-разговорному (вопрос)`,a:`Mikä sun nimi on / Mikä sinun nimesi on`},{q:`Как сказать «Я из России»`,a:`Olen Venäjältä / Mä oon Venäjältä`},{q:`Как сказать «Мне нужна помощь»`,a:`Tarvitsen apua / Mä tarvitsen apua`},{q:`Как спросить «Тебе нужна помощь?» (вопрос)`,a:`Tarvitsetko apua / Tarvitsetko sä apua`},{q:`Как спросить «Где ты живёшь?» (вопрос)`,a:`Missä asut / Missä sä asut / Missä sinä asut`},{q:`Как спросить «Что случилось?» (вопрос)`,a:`Mitä on tapahtunut / Mitä tapahtui`},{q:`Как спросить «Как это пишется?» (вопрос)`,a:`Miten tämä kirjoitetaan`}],lauserakenne:[{q:`Как спросить «Что это» (вопрос)`,a:`Mikä tämä on / Mikä se on`},{q:`Как сказать «Это книга»`,a:`Se on kirja / Tämä on kirja`},{q:`Как сказать «Это хороший автобус»`,a:`Se on hyvä bussi`},{q:`Как сказать «Эта машина плохая»`,a:`Tämä auto on huono`},{q:`Как сказать «Это отель»`,a:`Se on hotelli`},{q:`Как спросить «Это хорошая книга?» (вопрос)`,a:`Onko se hyvä kirja / Onko tämä hyvä kirja`},{q:`Как спросить «Кто это?» (вопрос)`,a:`Kuka tämä on / Kuka se on`}],persoonapronominit:[{q:`Как сказать «Вы финны»`,a:`Te olette suomalaisia / Te ootte suomalaisia`},{q:`Как сказать «Я студентка»`,a:`Minä olen opiskelija / Mä oon opiskelija`},{q:`Как сказать «Он дома»`,a:`Hän on kotona / Se on kotona`},{q:`Как сказать «Они здесь»`,a:`He ovat täällä / Ne on täällä`},{q:`Как сказать «Ты готова»`,a:`Sinä olet valmis / Sä oot valmis`},{q:`Как спросить «Ты готова?» (вопрос)`,a:`Oletko sinä valmis / Ootko sä valmis`},{q:`Как сказать «Мы учимся»`,a:`Me opiskelemme / Me opiskellaan`}],verbit:[{q:`Как сказать «Я живу в Хельсинки»`,a:`Asun Helsingissä / Mä asun Helsingissä`},{q:`Как спросить «Где ты живёшь?» (вопрос)`,a:`Missä asut`},{q:`Как сказать «Она живёт в Тампере»`,a:`Hän asuu Tampereella / Se asuu Tampereella`},{q:`Как сказать «Мы живём в Финляндии»`,a:`Me asumme Suomessa / Me asutaan Suomessa`},{q:`Как сказать «Я говорю по-фински»`,a:`Puhun suomea / Mä puhun suomea`},{q:`Как спросить «Ты говоришь по-русски?» (вопрос)`,a:`Puhutko venäjää / Puhutko sä venäjää`},{q:`Как сказать «Он говорит по-английски»`,a:`Hän puhuu englantia / Se puhuu englantia`},{q:`Как сказать «Мы говорим по-фински»`,a:`Me puhumme suomea / Me puhutaan suomea`}],"verbi olla":[{q:`Скажи «Я не студентка»`,a:`Minä en ole opiskelija / Mä en oo opiskelija`},{q:`Скажи «Она не дома»`,a:`Hän ei ole kotona / Se ei oo kotona`},{q:`Скажи «Мы не готовы»`,a:`Me emme ole valmiita / Me ei olla valmiita`},{q:`Скажи «Они финны»`,a:`He ovat suomalaisia / Ne on suomalaisia`},{q:`Как спросить «Ты финн?» (вопрос)`,a:`Oletko sinä suomalainen / Ootko sä suomalainen`},{q:`Как спросить «Она дома?» (вопрос)`,a:`Onko hän kotona / Onko se kotona`},{q:`Как сказать «Я в кафе»`,a:`Minä olen kahvilassa / Mä oon kahvilassa`}],vokaaliharmonia:[{q:`В школе (koulu)?`,a:`koulussa`},{q:`На столе (pöytä)?`,a:`pöydällä`},{q:`В городе (kaupunki)?`,a:`kaupungissa`},{q:`На работе (työ)?`,a:`työssä`},{q:`В Турку (Turku)?`,a:`Turussa`},{q:`В лесу (metsä)?`,a:`metsässä`},{q:`В машине (auto)?`,a:`autossa`},{q:`На улице (katu)?`,a:`kadulla`}],numerot:[{q:`Как сказать «13»?`,a:`kolmetoista`},{q:`Как сказать «17»?`,a:`seitsemäntoista`},{q:`Как сказать «30»?`,a:`kolmekymmentä`},{q:`Как сказать «Мне 28 лет»?`,a:`Olen 28-vuotias / Olen kaksikymmentäkahdeksan`},{q:`Как сказать «Кофе стоит 4 евро»?`,a:`Kahvi maksaa neljä euroa`},{q:`Как спросить «Сколько стоит»?`,a:`Paljonko maksaa / Paljonko se maksaa / Kuinka paljon maksaa`},{q:`Как сказать «Сейчас 3 часа»?`,a:`Kello on kolme / Kello on nyt kolme`}],viikonpäivät:[{q:`Как сказать «В четверг»?`,a:`torstaina`},{q:`Как сказать «В воскресенье»?`,a:`sunnuntaina`},{q:`Как сказать «Сегодня среда»?`,a:`Tänään on keskiviikko`},{q:`Как сказать «Вчера была пятница»?`,a:`Eilen oli perjantai`},{q:`Как сказать «Увидимся в понедельник»?`,a:`Nähdään maanantaina`},{q:`Как спросить «Какой сегодня день»?`,a:`Mikä päivä tänään on / Mikä päivä on tänään`},{q:`Как сказать «Завтра суббота»?`,a:`Huomenna on lauantai`}]};function Co(e){let t=Object.keys(So).find(t=>e.toLowerCase().includes(t));return t?[...So[t]].sort(()=>Math.random()-.5):[]}var wo=0;function To(e){return e.replace(/<[^>]+>/g,``).trim().toLowerCase().replace(/[.,!?;:«»""''()\-]/g,``).replace(/\s+/g,` `).trim()}function Eo(e,t){for(let n=0;n<t.length;n++){if(!e[n])return`пропущено слово «${t[n]}»`;if(e[n]!==t[n])return`«${e[n]}» → должно быть «${t[n]}»`}return e.length>t.length?`лишнее слово «${e[t.length]}»`:null}function Do(e){return e.replace(/(Скажи вслух[:!]?\s*<\/strong>)/i,`$1<br><span class="grammar-say-hint">*ожидается, что вы используете лексику из теории выше</span>`)}function Oo(e,t){return e.replace(/<\/details>/g,`</details><br>`).replace(/<br>\s*([^<\n]{4,}?)\s*<details><summary>[^<]*<\/summary>([\s\S]*?)<\/details>/g,(e,n,r)=>{let i=`gi-${t}-${wo++}`,a=r.replace(/<[^>]+>/g,``).replace(/"/g,`&quot;`).trim();return`
         <div class="grammar-input-row">
           <span class="grammar-q">${n.trim().replace(/\?$/,``)}</span>
           <input type="text" class="grammar-input" id="inp-${i}" placeholder="Твой ответ..." data-answer="${a}">
           <button class="grammar-check-btn" data-input="inp-${i}">Проверь</button>
           <span class="grammar-input-result" id="res-${i}"></span>
-        </div>`})}var Oo=null,ko=[];function Ao(e,t){if(Oo=Fa[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},ko=t.filter(t=>t.Chapter===e.id).sort((e,t)=>(parseInt(e.Block)||0)-(parseInt(t.Block)||0)),!ko.length)return`
+        </div>`})}var ko=null,Ao=[];function jo(e,t){if(ko=Fa[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},Ao=t.filter(t=>t.Chapter===e.id).sort((e,t)=>(parseInt(e.Block)||0)-(parseInt(t.Block)||0)),!Ao.length)return`
       <div class="grammar-page">
         <header class="header">
           <button class="btn-back" id="btn-back-grammar">← ${e.title_fi}</button>
@@ -534,18 +534,18 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
     <div class="grammar-page">
       <header class="header">
         <button class="btn-back" id="btn-back-grammar">← ${e.title_fi}</button>
-        <span class="grammar-counter">${a} / ${ko.length} пройдено</span>
+        <span class="grammar-counter">${a} / ${Ao.length} пройдено</span>
       </header>
 
       <div class="grammar-header">
-        <h2 style="color: ${Oo.color}; margin: 0 0 8px">Грамматика</h2>
+        <h2 style="color: ${ko.color}; margin: 0 0 8px">Грамматика</h2>
         <div class="progress-bar" style="height: 8px; margin-bottom: 24px">
-          <div class="progress-fill" style="width: ${Math.round(a/ko.length*100)}%; background: ${Oo.color}; height: 100%"></div>
+          <div class="progress-fill" style="width: ${Math.round(a/Ao.length*100)}%; background: ${ko.color}; height: 100%"></div>
         </div>
       </div>
 
       <div class="grammar-blocks">
-        ${ko.map((e,t)=>{let n=`block-${t}`,r=i[n]===!0;return`
+        ${Ao.map((e,t)=>{let n=`block-${t}`,r=i[n]===!0;return`
             <div class="grammar-block ${r?`completed`:``}" data-block-id="${n}">
               <div class="grammar-block-header">
                 <div class="grammar-block-title">
@@ -558,7 +558,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
                 </div>
               </div>
               <div class="grammar-block-content" id="content-${n}" style="display: none; padding: 16px; background: white; border-top: 1px solid #E5E7EB">
-                <div class="grammar-text">${Do(e.Content||``,n)}</div>
+                <div class="grammar-text">${Do(Oo(e.Content||``,n))}</div>
                 ${e.Examples?`
                   <div class="grammar-examples" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #E5E7EB">
                     <div style="font-weight: 600; margin-bottom: 8px">Примеры:</div>
@@ -576,7 +576,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
           `}).join(``)}
       </div>
     </div>
-  `}function jo(e){document.getElementById(`btn-back-grammar`)?.addEventListener(`click`,()=>{V(`/chapter/${e.id}`)}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-train-btn`);if(!t)return;let n=t.dataset.blockId,r=document.getElementById(`train-area-${n}`);if(!r)return;let i=parseInt(n.replace(`block-`,``)),a=ko[i];if(!a)return;let o=Co(a.Title);if(!o.length){r.style.display=`block`,r.innerHTML=`<div style="color:#6B7280;font-size:13px;padding:12px 0">Дополнительных заданий пока нет — практикуй примеры из блока вслух! 🗣️</div>`,t.style.display=`none`;return}let s=o,c=`train-${n}`;r.style.display=`block`,r.innerHTML=`
+  `}function Mo(e){document.getElementById(`btn-back-grammar`)?.addEventListener(`click`,()=>{V(`/chapter/${e.id}`)}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-train-btn`);if(!t)return;let n=t.dataset.blockId,r=document.getElementById(`train-area-${n}`);if(!r)return;let i=parseInt(n.replace(`block-`,``)),a=Ao[i];if(!a)return;let o=Co(a.Title);if(!o.length){r.style.display=`block`,r.innerHTML=`<div style="color:#6B7280;font-size:13px;padding:12px 0">Дополнительных заданий пока нет — практикуй примеры из блока вслух! 🗣️</div>`,t.style.display=`none`;return}let s=o,c=`train-${n}`;r.style.display=`block`,r.innerHTML=`
       <div class="grammar-train-panel">
         <div style="font-weight:700;font-size:14px;margin-bottom:12px">🔁 Ещё тренировка</div>
         ${s.map((e,t)=>{let n=`${c}-${t}`,r=e.a.replace(/"/g,`&quot;`);return`
@@ -588,11 +588,11 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
             </div>`}).join(``)}
         <button class="grammar-train-more-btn" data-block-id="${n}" style="margin-top:8px">🔄 Ещё раз (новый порядок)</button>
       </div>
-    `,t.textContent=`✅ Тренировка открыта`,t.disabled=!0}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-train-more-btn`);if(!t)return;let n=t.dataset.blockId,r=document.getElementById(`train-${n}`);r&&(r.disabled=!1,r.textContent=`💪 Тренироваться ещё`);let i=document.getElementById(`train-area-${n}`);i&&(i.style.display=`none`,i.innerHTML=``)}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-check-btn`);if(!t)return;let n=t.dataset.input,r=document.getElementById(n),i=document.getElementById(`res-${n.replace(`inp-`,``)}`);if(!r||!i)return;let a=To(r.value),o=r.dataset.answer;if(!a){i.innerHTML=`<span style="color:#F59E0B">✏️ Напиши ответ!</span>`;return}let s=o.split(/\s*\/\s*|\n/).map(e=>To(e)).filter(Boolean);if(s.some(e=>e===a))i.innerHTML=`<span style="color:#10B981">✅ Правильно!</span>`,r.style.borderColor=`#10B981`;else{let e=s.reduce((e,t)=>{let n=t.split(` `).filter(e=>a.includes(e)).length;return n>e.overlap?{v:t,overlap:n}:e},{v:s[0],overlap:-1}).v,t=Eo(a.split(` `),e.split(` `)),n=To(o.split(/\s*\/\s*/)[0]);i.innerHTML=`<span style="color:#EF4444">❌${t?` Ошибка: ${t}`:``}</span><br><span style="color:#6B7280;font-size:12px">Правильно: <strong>${n}</strong>${s.length>1?` или <strong>${To(o.split(/\s*\/\s*/)[1]||``)}</strong>`:``}</span>`,r.style.borderColor=`#EF4444`}}),ko.forEach((t,n)=>{let r=`block-${n}`,i=document.getElementById(`expand-${r}`),a=document.getElementById(`content-${r}`),o=document.getElementById(`check-${r}`);i?.addEventListener(`click`,e=>{e.stopPropagation();let t=a.style.display!==`none`;a.style.display=t?`none`:`block`,i.classList.toggle(`expanded`,!t)}),o?.addEventListener(`change`,()=>{let t=p(),n=t.profiles[t.activeProfile];n.grammarProgress||={},n.grammarProgress[e.id]||(n.grammarProgress[e.id]={}),n.grammarProgress[e.id][r]=o.checked,_(t)})})}var Mo=null,Y=null,No=[],Po=null,X=0,Z=0,Fo=0,Q=[];function Io(e){return[...e].sort(()=>Math.random()-.5)}function Lo(e,t){return Mo=e,No=t.filter(e=>e.finnish&&e.russian),Y=Fa[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},`
+    `,t.textContent=`✅ Тренировка открыта`,t.disabled=!0}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-train-more-btn`);if(!t)return;let n=t.dataset.blockId,r=document.getElementById(`train-${n}`);r&&(r.disabled=!1,r.textContent=`💪 Тренироваться ещё`);let i=document.getElementById(`train-area-${n}`);i&&(i.style.display=`none`,i.innerHTML=``)}),document.addEventListener(`click`,e=>{let t=e.target.closest(`.grammar-check-btn`);if(!t)return;let n=t.dataset.input,r=document.getElementById(n),i=document.getElementById(`res-${n.replace(`inp-`,``)}`);if(!r||!i)return;let a=To(r.value),o=r.dataset.answer;if(!a){i.innerHTML=`<span style="color:#F59E0B">✏️ Напиши ответ!</span>`;return}let s=o.split(/\s*\/\s*|\n/).map(e=>To(e)).filter(Boolean);if(s.some(e=>e===a))i.innerHTML=`<span style="color:#10B981">✅ Правильно!</span>`,r.style.borderColor=`#10B981`;else{let e=s.reduce((e,t)=>{let n=t.split(` `).filter(e=>a.includes(e)).length;return n>e.overlap?{v:t,overlap:n}:e},{v:s[0],overlap:-1}).v,t=Eo(a.split(` `),e.split(` `)),n=To(o.split(/\s*\/\s*/)[0]);i.innerHTML=`<span style="color:#EF4444">❌${t?` Ошибка: ${t}`:``}</span><br><span style="color:#6B7280;font-size:12px">Правильно: <strong>${n}</strong>${s.length>1?` или <strong>${To(o.split(/\s*\/\s*/)[1]||``)}</strong>`:``}</span>`,r.style.borderColor=`#EF4444`}}),Ao.forEach((t,n)=>{let r=`block-${n}`,i=document.getElementById(`expand-${r}`),a=document.getElementById(`content-${r}`),o=document.getElementById(`check-${r}`);i?.addEventListener(`click`,e=>{e.stopPropagation();let t=a.style.display!==`none`;a.style.display=t?`none`:`block`,i.classList.toggle(`expanded`,!t)}),o?.addEventListener(`change`,()=>{let t=p(),n=t.profiles[t.activeProfile];n.grammarProgress||={},n.grammarProgress[e.id]||(n.grammarProgress[e.id]={}),n.grammarProgress[e.id][r]=o.checked,_(t)})})}var No=null,Y=null,Po=[],Fo=null,X=0,Z=0,Io=0,Q=[];function Lo(e){return[...e].sort(()=>Math.random()-.5)}function Ro(e,t){return No=e,Po=t.filter(e=>e.finnish&&e.russian),Y=Fa[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},`
     <div class="vocab-ex-page">
       <header class="header">
         <button class="btn-back" id="btn-back-vex">← ${e.title_fi}</button>
-        <span class="vocab-counter">${No.length} слов</span>
+        <span class="vocab-counter">${Po.length} слов</span>
       </header>
 
       <div class="mode-select-screen">
@@ -638,14 +638,14 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         </div>
       </div>
     </div>
-  `}function Ro(e){Mo=e,Y=Fa[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vex`)?.addEventListener(`click`,()=>{V(`/chapter/${e.id}/exercises`)}),document.getElementById(`vex-input`)?.addEventListener(`click`,()=>Go()),document.getElementById(`vex-match`)?.addEventListener(`click`,()=>Xo()),document.getElementById(`vex-drag`)?.addEventListener(`click`,()=>ts()),document.getElementById(`vex-audio`)?.addEventListener(`click`,()=>rs())}function zo(){return document.querySelector(`.vocab-ex-page`)}function Bo(e,t,n){return`
+  `}function zo(e){No=e,Y=Fa[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vex`)?.addEventListener(`click`,()=>{V(`/chapter/${e.id}/exercises`)}),document.getElementById(`vex-input`)?.addEventListener(`click`,()=>Ko()),document.getElementById(`vex-match`)?.addEventListener(`click`,()=>Zo()),document.getElementById(`vex-drag`)?.addEventListener(`click`,()=>ns()),document.getElementById(`vex-audio`)?.addEventListener(`click`,()=>is())}function Bo(){return document.querySelector(`.vocab-ex-page`)}function Vo(e,t,n){return`
     <header class="header">
       <button class="btn-back" id="btn-back-vex-mode">← Упражнения</button>
       <span class="vocab-counter">${t} / ${n}</span>
     </header>
     <div class="ex-progress-bar">
       <div class="ex-progress-fill" style="width:${t/n*100}%;background:${Y.color}"></div>
-    </div>`}function Vo(){document.getElementById(`btn-back-vex-mode`)?.addEventListener(`click`,()=>{zo().innerHTML=Ho(),Ro(Mo)})}function Ho(){return document.querySelector(`.vocab-ex-page`)?.outerHTML||``}function Uo(e,t,n){let r=Math.round(t/n*100),i=r>=80?`🏆`:r>=60?`👍`:`💪`;zo().innerHTML=`
+    </div>`}function Ho(){document.getElementById(`btn-back-vex-mode`)?.addEventListener(`click`,()=>{Bo().innerHTML=Uo(),zo(No)})}function Uo(){return document.querySelector(`.vocab-ex-page`)?.outerHTML||``}function Wo(e,t,n){let r=Math.round(t/n*100),i=r>=80?`🏆`:r>=60?`👍`:`💪`;Bo().innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-complete-back">← Упражнения</button>
     </header>
@@ -657,8 +657,8 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         <button class="btn-complete" style="background:${Y.color}" id="btn-again">Ещё раз</button>
         <button class="btn-complete" style="background:white;color:${Y.color};border:2px solid ${Y.color}" id="btn-to-ex">К упражнениям</button>
       </div>
-    </div>`,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,Wo),document.getElementById(`btn-to-ex`)?.addEventListener(`click`,Wo),document.getElementById(`btn-again`)?.addEventListener(`click`,()=>{Po===`input`?Go():Po===`match`?Xo():Po===`drag`?ts():Po===`audio`&&rs()})}function Wo(){V(`/chapter/${Mo.id}/exercises`)}function Go(){Po=`input`,X=0,Fo=0,Q=Io(No).slice(0,Math.min(15,No.length)),Z=Q.length,Ko()}function Ko(){if(Fo>=Q.length){Uo(`Ввод`,X,Z);return}let e=Q[Fo];zo().innerHTML=`
-    ${Bo(`Ввод перевода`,Fo+1,Z)}
+    </div>`,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,Go),document.getElementById(`btn-to-ex`)?.addEventListener(`click`,Go),document.getElementById(`btn-again`)?.addEventListener(`click`,()=>{Fo===`input`?Ko():Fo===`match`?Zo():Fo===`drag`?ns():Fo===`audio`&&is()})}function Go(){V(`/chapter/${No.id}/exercises`)}function Ko(){Fo=`input`,X=0,Io=0,Q=Lo(Po).slice(0,Math.min(15,Po.length)),Z=Q.length,qo()}function qo(){if(Io>=Q.length){Wo(`Ввод`,X,Z);return}let e=Q[Io];Bo().innerHTML=`
+    ${Vo(`Ввод перевода`,Io+1,Z)}
     <div class="ex-container">
       <div class="ex-card">
         <div class="ex-type-badge" style="background:${Y.bg};color:${Y.color}">✏️ Напиши перевод</div>
@@ -673,59 +673,59 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         </button>
         <div id="input-feedback" style="display:none;margin-top:12px;text-align:center"></div>
       </div>
-    </div>`,Vo();let t=document.getElementById(`input-answer`);t?.focus(),t?.addEventListener(`keydown`,t=>{t.key===`Enter`&&qo(e)}),document.getElementById(`btn-check-input`)?.addEventListener(`click`,()=>qo(e))}function qo(e){let t=document.getElementById(`input-answer`)?.value.trim().toLowerCase()||``;if(!t)return;let n=e.russian.toLowerCase().split(/[,;/()]/).map(e=>e.trim()).filter(Boolean).some(e=>t.includes(e)||e.includes(t));n&&X++;let r=document.getElementById(`input-feedback`);r.style.display=`block`,r.innerHTML=n?`<span style="color:var(--success);font-weight:600">✅ Правильно!</span>`:`<span style="color:var(--error)">❌ Правильно: <strong>${e.russian}</strong></span>`,document.getElementById(`btn-check-input`).textContent=`Дальше →`,document.getElementById(`btn-check-input`).onclick=()=>{Fo++,Ko()},document.getElementById(`input-answer`).disabled=!0}var $=null,Jo=[],Yo=[];function Xo(){Po=`match`,X=0,$=null,Yo=[],Q=Io(No).slice(0,Math.min(8,No.length)),Z=Q.length,Jo=Q,Zo()}function Zo(){let e=Io(Jo.map(e=>({id:e.finnish,text:e.finnish,type:`fi`}))),t=Io(Jo.map(e=>({id:e.finnish,text:e.russian,type:`ru`})));zo().innerHTML=`
-    ${Bo(`Мэтч`,Yo.length,Z)}
+    </div>`,Ho();let t=document.getElementById(`input-answer`);t?.focus(),t?.addEventListener(`keydown`,t=>{t.key===`Enter`&&Jo(e)}),document.getElementById(`btn-check-input`)?.addEventListener(`click`,()=>Jo(e))}function Jo(e){let t=document.getElementById(`input-answer`)?.value.trim().toLowerCase()||``;if(!t)return;let n=e.russian.toLowerCase().split(/[,;/()]/).map(e=>e.trim()).filter(Boolean).some(e=>t.includes(e)||e.includes(t));n&&X++;let r=document.getElementById(`input-feedback`);r.style.display=`block`,r.innerHTML=n?`<span style="color:var(--success);font-weight:600">✅ Правильно!</span>`:`<span style="color:var(--error)">❌ Правильно: <strong>${e.russian}</strong></span>`,document.getElementById(`btn-check-input`).textContent=`Дальше →`,document.getElementById(`btn-check-input`).onclick=()=>{Io++,qo()},document.getElementById(`input-answer`).disabled=!0}var $=null,Yo=[],Xo=[];function Zo(){Fo=`match`,X=0,$=null,Xo=[],Q=Lo(Po).slice(0,Math.min(8,Po.length)),Z=Q.length,Yo=Q,Qo()}function Qo(){let e=Lo(Yo.map(e=>({id:e.finnish,text:e.finnish,type:`fi`}))),t=Lo(Yo.map(e=>({id:e.finnish,text:e.russian,type:`ru`})));Bo().innerHTML=`
+    ${Vo(`Мэтч`,Xo.length,Z)}
     <div class="ex-container">
       <div class="ex-card">
         <div class="ex-type-badge" style="background:${Y.bg};color:${Y.color}">🔗 Соедини пары</div>
         <div class="match-grid">
           <div class="match-col" id="col-fi">
             ${e.map(e=>`
-              <button class="match-btn ${Yo.includes(e.id)?`match-done`:``}"
+              <button class="match-btn ${Xo.includes(e.id)?`match-done`:``}"
                 data-id="${e.id}" data-type="fi">
                 ${e.text}
               </button>`).join(``)}
           </div>
           <div class="match-col" id="col-ru">
             ${t.map(e=>`
-              <button class="match-btn ${Yo.includes(e.id)?`match-done`:``}"
+              <button class="match-btn ${Xo.includes(e.id)?`match-done`:``}"
                 data-id="${e.id}" data-type="ru">
                 ${e.text}
               </button>`).join(``)}
           </div>
         </div>
       </div>
-    </div>`,Vo(),document.querySelectorAll(`.match-btn:not(.match-done)`).forEach(e=>{e.addEventListener(`click`,()=>Qo(e))})}function Qo(e){let t=e.dataset.id,n=e.dataset.type;if(!$){$={id:t,type:n,btn:e},e.classList.add(`match-selected`);return}if($.btn===e){e.classList.remove(`match-selected`),$=null;return}$.id===t&&$.type!==n?(X++,Yo.push(t),$.btn.classList.remove(`match-selected`),$.btn.classList.add(`match-correct`),e.classList.add(`match-correct`),$=null,Yo.length===Z&&setTimeout(()=>Uo(`Мэтч`,X,Z),600)):($.btn.classList.remove(`match-selected`),$.btn.classList.add(`match-wrong`),e.classList.add(`match-wrong`),setTimeout(()=>{$?.btn.classList.remove(`match-wrong`),e.classList.remove(`match-wrong`),$=null},700))}var $o=[],es={};function ts(){Po=`drag`,X=0,es={},Q=Io(No).slice(0,Math.min(6,No.length)),Z=Q.length,$o=Q,ns()}function ns(){let e=[...$o].sort(()=>Math.random()-.5),t=Io([...$o]);zo().innerHTML=`
-    ${Bo(`Drag & Drop`,Object.keys(es).length,Z)}
+    </div>`,Ho(),document.querySelectorAll(`.match-btn:not(.match-done)`).forEach(e=>{e.addEventListener(`click`,()=>$o(e))})}function $o(e){let t=e.dataset.id,n=e.dataset.type;if(!$){$={id:t,type:n,btn:e},e.classList.add(`match-selected`);return}if($.btn===e){e.classList.remove(`match-selected`),$=null;return}$.id===t&&$.type!==n?(X++,Xo.push(t),$.btn.classList.remove(`match-selected`),$.btn.classList.add(`match-correct`),e.classList.add(`match-correct`),$=null,Xo.length===Z&&setTimeout(()=>Wo(`Мэтч`,X,Z),600)):($.btn.classList.remove(`match-selected`),$.btn.classList.add(`match-wrong`),e.classList.add(`match-wrong`),setTimeout(()=>{$?.btn.classList.remove(`match-wrong`),e.classList.remove(`match-wrong`),$=null},700))}var es=[],ts={};function ns(){Fo=`drag`,X=0,ts={},Q=Lo(Po).slice(0,Math.min(6,Po.length)),Z=Q.length,es=Q,rs()}function rs(){let e=[...es].sort(()=>Math.random()-.5),t=Lo([...es]);Bo().innerHTML=`
+    ${Vo(`Drag & Drop`,Object.keys(ts).length,Z)}
     <div class="ex-container">
       <div class="ex-card">
         <div class="ex-type-badge" style="background:${Y.bg};color:${Y.color}">↕️ Перетащи к переводу</div>
         <div class="drag-targets">
           ${e.map(e=>`
             <div class="drag-row">
-              <div class="drag-target ${es[e.finnish]===void 0?``:es[e.finnish]===e.finnish?`drag-correct`:`drag-wrong`}"
+              <div class="drag-target ${ts[e.finnish]===void 0?``:ts[e.finnish]===e.finnish?`drag-correct`:`drag-wrong`}"
                    data-target="${e.finnish}"
                    ondragover="event.preventDefault()"
                    ondrop="window._handleDrop(event, '${e.finnish.replace(/'/g,`\\'`)}')">
-                ${es[e.finnish]===void 0?`<span class="drag-placeholder">Перетащи сюда</span>`:`<span class="drag-placed">${$o.find(t=>t.finnish===es[e.finnish])?.finnish||``}</span>`}
+                ${ts[e.finnish]===void 0?`<span class="drag-placeholder">Перетащи сюда</span>`:`<span class="drag-placed">${es.find(t=>t.finnish===ts[e.finnish])?.finnish||``}</span>`}
               </div>
               <div class="drag-translation">${e.russian}</div>
             </div>`).join(``)}
         </div>
         <div class="drag-chips" id="drag-chips">
-          ${t.filter(e=>!Object.values(es).includes(e.finnish)).map(e=>`
+          ${t.filter(e=>!Object.values(ts).includes(e.finnish)).map(e=>`
             <div class="drag-chip" draggable="true" data-word="${e.finnish.replace(/"/g,`&quot;`)}"
                  ondragstart="window._handleDragStart(event, '${e.finnish.replace(/'/g,`\\'`)}')">
               ${e.finnish}
             </div>`).join(``)}
         </div>
-        ${Object.keys(es).length===Z?`
+        ${Object.keys(ts).length===Z?`
           <button class="ex-next-btn" id="btn-drag-done" style="background:${Y.color};margin-top:16px;width:100%">
             Проверить всё →
           </button>`:``}
       </div>
-    </div>`,Vo(),window._handleDragStart=(e,t)=>{e.dataTransfer.setData(`text/plain`,t)},window._handleDrop=(e,t)=>{let n=e.dataTransfer.getData(`text/plain`);es[t]=n,n===t&&X++,ns()};let n=null;document.querySelectorAll(`.drag-chip`).forEach(e=>{e.addEventListener(`click`,()=>{if(document.querySelectorAll(`.drag-chip`).forEach(e=>e.classList.remove(`chip-selected`)),n===e.dataset.word){n=null;return}n=e.dataset.word,e.classList.add(`chip-selected`)})}),document.querySelectorAll(`.drag-target`).forEach(e=>{e.addEventListener(`click`,()=>{if(!n)return;let t=e.dataset.target;es[t]=n,n===t&&X++,n=null,ns()})}),document.getElementById(`btn-drag-done`)?.addEventListener(`click`,()=>{Uo(`Drag & Drop`,X,Z)})}function rs(){Po=`audio`,X=0,Fo=0,Q=Io(No).slice(0,Math.min(10,No.length)),Z=Q.length,is()}function is(){if(Fo>=Q.length){Uo(`Произношение`,X,Z);return}let e=Q[Fo];zo().innerHTML=`
-    ${Bo(`Произношение`,Fo+1,Z)}
+    </div>`,Ho(),window._handleDragStart=(e,t)=>{e.dataTransfer.setData(`text/plain`,t)},window._handleDrop=(e,t)=>{let n=e.dataTransfer.getData(`text/plain`);ts[t]=n,n===t&&X++,rs()};let n=null;document.querySelectorAll(`.drag-chip`).forEach(e=>{e.addEventListener(`click`,()=>{if(document.querySelectorAll(`.drag-chip`).forEach(e=>e.classList.remove(`chip-selected`)),n===e.dataset.word){n=null;return}n=e.dataset.word,e.classList.add(`chip-selected`)})}),document.querySelectorAll(`.drag-target`).forEach(e=>{e.addEventListener(`click`,()=>{if(!n)return;let t=e.dataset.target;ts[t]=n,n===t&&X++,n=null,rs()})}),document.getElementById(`btn-drag-done`)?.addEventListener(`click`,()=>{Wo(`Drag & Drop`,X,Z)})}function is(){Fo=`audio`,X=0,Io=0,Q=Lo(Po).slice(0,Math.min(10,Po.length)),Z=Q.length,as()}function as(){if(Io>=Q.length){Wo(`Произношение`,X,Z);return}let e=Q[Io];Bo().innerHTML=`
+    ${Vo(`Произношение`,Io+1,Z)}
     <div class="ex-container">
       <div class="ex-card" style="text-align:center">
         <div class="ex-type-badge" style="background:${Y.bg};color:${Y.color}">🎤 Послушай и произнеси</div>
@@ -738,7 +738,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         <div class="card-mic-result" id="mic-result" style="display:none;margin-bottom:16px"></div>
         <button class="ex-next-btn" id="btn-next-audio" style="background:${Y.color}">Дальше →</button>
       </div>
-    </div>`,Vo();function t(){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();let t=new SpeechSynthesisUtterance(e.finnish);t.lang=`fi-FI`,t.rate=.85,window.speechSynthesis.speak(t)}document.getElementById(`btn-speak`)?.addEventListener(`click`,t),t(),document.getElementById(`btn-mic`)?.addEventListener(`click`,()=>{let t=document.getElementById(`btn-mic`),n=document.getElementById(`mic-result`),r=window.SpeechRecognition||window.webkitSpeechRecognition;if(!r){n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Браузер не поддерживает распознавание</span>`;return}let i=new r;i.lang=`fi-FI`,i.maxAlternatives=5,t.textContent=`🔴 Слушаю...`,t.disabled=!0,n.style.display=`none`;let a=setTimeout(()=>{try{i.stop()}catch{}n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Ничего не услышал</span>`,t.textContent=`🎤 Попробуй ещё`,t.disabled=!1},7e3);i.onresult=r=>{clearTimeout(a);let i=Array.from(r.results[0]).map(e=>e.transcript.toLowerCase().trim()),o=e.finnish.toLowerCase().trim(),s=i.some(e=>e.replace(/[.,!?]/g,``)===o.replace(/[.,!?]/g,``));s&&X++,n.style.display=`block`,n.innerHTML=s?`<span style="color:var(--success)">✅ Отлично!</span>`:`<span style="color:var(--error)">❌ Услышал: «${i[0]}»</span>`,t.textContent=s?`🎤 Произнеси`:`🎤 Попробуй ещё`,t.disabled=!1},i.onerror=()=>{clearTimeout(a),n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Попробуй ещё раз</span>`,t.textContent=`🎤 Попробуй ещё`,t.disabled=!1},i.onend=()=>{clearTimeout(a),t.disabled&&(t.disabled=!1,t.textContent=`🎤 Попробуй ещё`)},i.start()}),document.getElementById(`btn-next-audio`)?.addEventListener(`click`,()=>{Fo++,is()})}var as=[{id:`A0–A1`,label:`A0–A1`,color:`#7C3AED`,bg:`#EDE7FB`,chapters:[`ch1`,`ch2`,`ch3`,`ch4`,`ch5`]},{id:`A1–A2`,label:`A1–A2`,color:`#EC4899`,bg:`#FAE9F2`,chapters:[`ch6`,`ch7`,`ch8`,`ch9`,`ch10`]},{id:`A2–B1`,label:`A2–B1`,color:`#F59E0B`,bg:`#FEEEDB`,chapters:[`ch11`,`ch12`,`ch13`,`ch14`,`ch15`]},{id:`B1–B2`,label:`B1–B2`,color:`#10B981`,bg:`#E8F7EE`,chapters:[`ch16`,`ch17`,`ch18`,`ch19`,`ch20`]}];function os(e){let t=p().profiles[e];for(let e=0;e<as.length;e++){let n=as[e],r=as[e+1],i=n.chapters.filter(e=>{let n=t.vocabulary[e]||{},r=t.exercises[e]||{};return Object.values(n).filter(e=>e.seen).length>0||Object.values(r).filter(e=>e.completed).length>0}).length,a=n.chapters.length,o=Math.round(i/a*100);if(o<100)return{current:n,next:r,completed:i,total:a,pct:o}}let n=as[as.length-1];return{current:n,next:null,completed:n.chapters.length,total:n.chapters.length,pct:100}}function ss(e){let t=p().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=ne(e),{current:s,next:c,completed:l,total:u,pct:d}=os(e);return`
+    </div>`,Ho();function t(){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();let t=new SpeechSynthesisUtterance(e.finnish);t.lang=`fi-FI`,t.rate=.85,window.speechSynthesis.speak(t)}document.getElementById(`btn-speak`)?.addEventListener(`click`,t),t(),document.getElementById(`btn-mic`)?.addEventListener(`click`,()=>{let t=document.getElementById(`btn-mic`),n=document.getElementById(`mic-result`),r=window.SpeechRecognition||window.webkitSpeechRecognition;if(!r){n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Браузер не поддерживает распознавание</span>`;return}let i=new r;i.lang=`fi-FI`,i.maxAlternatives=5,t.textContent=`🔴 Слушаю...`,t.disabled=!0,n.style.display=`none`;let a=setTimeout(()=>{try{i.stop()}catch{}n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Ничего не услышал</span>`,t.textContent=`🎤 Попробуй ещё`,t.disabled=!1},7e3);i.onresult=r=>{clearTimeout(a);let i=Array.from(r.results[0]).map(e=>e.transcript.toLowerCase().trim()),o=e.finnish.toLowerCase().trim(),s=i.some(e=>e.replace(/[.,!?]/g,``)===o.replace(/[.,!?]/g,``));s&&X++,n.style.display=`block`,n.innerHTML=s?`<span style="color:var(--success)">✅ Отлично!</span>`:`<span style="color:var(--error)">❌ Услышал: «${i[0]}»</span>`,t.textContent=s?`🎤 Произнеси`:`🎤 Попробуй ещё`,t.disabled=!1},i.onerror=()=>{clearTimeout(a),n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Попробуй ещё раз</span>`,t.textContent=`🎤 Попробуй ещё`,t.disabled=!1},i.onend=()=>{clearTimeout(a),t.disabled&&(t.disabled=!1,t.textContent=`🎤 Попробуй ещё`)},i.start()}),document.getElementById(`btn-next-audio`)?.addEventListener(`click`,()=>{Io++,as()})}var os=[{id:`A0–A1`,label:`A0–A1`,color:`#7C3AED`,bg:`#EDE7FB`,chapters:[`ch1`,`ch2`,`ch3`,`ch4`,`ch5`]},{id:`A1–A2`,label:`A1–A2`,color:`#EC4899`,bg:`#FAE9F2`,chapters:[`ch6`,`ch7`,`ch8`,`ch9`,`ch10`]},{id:`A2–B1`,label:`A2–B1`,color:`#F59E0B`,bg:`#FEEEDB`,chapters:[`ch11`,`ch12`,`ch13`,`ch14`,`ch15`]},{id:`B1–B2`,label:`B1–B2`,color:`#10B981`,bg:`#E8F7EE`,chapters:[`ch16`,`ch17`,`ch18`,`ch19`,`ch20`]}];function ss(e){let t=p().profiles[e];for(let e=0;e<os.length;e++){let n=os[e],r=os[e+1],i=n.chapters.filter(e=>{let n=t.vocabulary[e]||{},r=t.exercises[e]||{};return Object.values(n).filter(e=>e.seen).length>0||Object.values(r).filter(e=>e.completed).length>0}).length,a=n.chapters.length,o=Math.round(i/a*100);if(o<100)return{current:n,next:r,completed:i,total:a,pct:o}}let n=os[os.length-1];return{current:n,next:null,completed:n.chapters.length,total:n.chapters.length,pct:100}}function cs(e){let t=p().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=ne(e),{current:s,next:c,completed:l,total:u,pct:d}=ss(e);return`
     <div class="profile-page">
       <header class="header">
         <button class="btn-back" id="btn-back-profile">← Главная</button>
@@ -805,13 +805,13 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
       <div class="profile-section">
         <h2 class="profile-section-title">Активность</h2>
         <div class="activity-row">
-          ${cs(o)}
           ${ls(o)}
+          ${us(o)}
         </div>
       </div>
 
     </div>
-  `}function cs(e){let t=new Date,n=t.getFullYear(),r=t.getMonth(),i=new Date(n,r,1).toLocaleString(`ru`,{month:`long`,year:`numeric`}),a=new Date(n,r,1).getDay(),o=new Date(n,r+1,0).getDate(),s=a===0?6:a-1,c=[`Пн`,`Вт`,`Ср`,`Чт`,`Пт`,`Сб`,`Вс`],l=t.getDate(),u=``;for(let e=0;e<s;e++)u+=`<div class="cal-cell empty"></div>`;for(let t=1;t<=o;t++){let i=`${n}-${String(r+1).padStart(2,`0`)}-${String(t).padStart(2,`0`)}`,a=!!e[i],o=t===l,s=e[i]?.words||0,c=e[i]?.exercises||0;u+=`
+  `}function ls(e){let t=new Date,n=t.getFullYear(),r=t.getMonth(),i=new Date(n,r,1).toLocaleString(`ru`,{month:`long`,year:`numeric`}),a=new Date(n,r,1).getDay(),o=new Date(n,r+1,0).getDate(),s=a===0?6:a-1,c=[`Пн`,`Вт`,`Ср`,`Чт`,`Пт`,`Сб`,`Вс`],l=t.getDate(),u=``;for(let e=0;e<s;e++)u+=`<div class="cal-cell empty"></div>`;for(let t=1;t<=o;t++){let i=`${n}-${String(r+1).padStart(2,`0`)}-${String(t).padStart(2,`0`)}`,a=!!e[i],o=t===l,s=e[i]?.words||0,c=e[i]?.exercises||0;u+=`
       <div class="cal-cell ${a?`active`:``} ${o?`today`:``}"
            title="${a?`слов: ${s}, упражнений: ${c}`:``}">
         <span>${t}</span>
@@ -827,7 +827,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         ${u}
       </div>
     </div>
-  `}function ls(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1);Math.round(3/r*80);let i=t.map((e,n)=>{let i=e.count>0?Math.max(Math.round(e.count/r*80),8):4,a=n===t.length-1,o=e.count===0;return`
+  `}function us(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1);Math.round(3/r*80);let i=t.map((e,n)=>{let i=e.count>0?Math.max(Math.round(e.count/r*80),8):4,a=n===t.length-1,o=e.count===0;return`
       <div class="trend-bar-wrap" title="${a?`Эта неделя: ${e.count} занятий · Так держать!`:``}">
         <div class="trend-bar-val">${e.count>0?e.count:``}</div>
         <div class="trend-bar-bg">
@@ -861,7 +861,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
       <div class="trend-bars">${i}</div>
       <div class="trend-hint">занятий за неделю · последние 8 недель</div>
     </div>
-  `}function us(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>V(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var ds=null,fs=null;function ps(){ds&&(clearTimeout(fs),fs=setTimeout(()=>{let e=p().profiles[ds.id];e&&Ea(ds.id,e)},1500))}g(ps);async function ms(e){ds=e;let t=p(),n=e.user_metadata?.name||e.email?.split(`@`)[0]||`Я`;t.profiles[e.id]||(t.profiles[e.id]={name:n,avatarEmoji:`🦊`,chapters:{},vocabulary:{},exercises:{},activity:{}});let r=await Ta(e.id);r?.data&&(t.profiles[e.id]={...t.profiles[e.id],...r.data}),t.activeProfile=e.id,_(t)}var hs=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],gs=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],_s={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function vs(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function ys(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function bs(e){let t=e.profiles[e.activeProfile];return`
+  `}function ds(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>V(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var fs=null,ps=null;function ms(){fs&&(clearTimeout(ps),ps=setTimeout(()=>{let e=p().profiles[fs.id];e&&Ea(fs.id,e)},1500))}g(ms);async function hs(e){fs=e;let t=p(),n=e.user_metadata?.name||e.email?.split(`@`)[0]||`Я`;t.profiles[e.id]||(t.profiles[e.id]={name:n,avatarEmoji:`🦊`,chapters:{},vocabulary:{},exercises:{},activity:{}});let r=await Ta(e.id);r?.data&&(t.profiles[e.id]={...t.profiles[e.id],...r.data}),t.activeProfile=e.id,_(t)}var gs=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],_s=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],vs={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function ys(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function bs(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function xs(e){let t=e.profiles[e.activeProfile];return`
     <header class="header">
       <div class="logo">
         <img src="/lets-go-finnish/logo.png" alt="Let's Go Learn Finnish!" class="logo-img">
@@ -869,12 +869,12 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
       <div class="header-right">
         <div class="profile-switcher" style="position:relative">
           <button class="profile-btn active" id="btn-active-profile">
-            ${Rs(t,48)}
+            ${zs(t,48)}
             <span class="pname">${t.name} <span style="font-size:9px;opacity:0.5">▼</span></span>
           </button>
           <div class="profile-dropdown" id="profile-dropdown" style="display:none">
             <div style="padding:8px 12px;font-size:12px;color:#9CA3AF;border-bottom:1px solid var(--border);margin-bottom:4px">
-              ${ds?.email||``}
+              ${fs?.email||``}
             </div>
             <button class="profile-dropdown-item" id="btn-my-progress">
               <span>📊</span><span>Мой прогресс</span>
@@ -890,12 +890,12 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         </div>
       </div>
     </header>
-  `}function xs(e,t){let n=v();return`
-    ${bs(e)}
+  `}function Ss(e,t){let n=v();return`
+    ${xs(e)}
     <div class="hero">
       <div class="hero-text">
         <h1><span class="hero-accent">Suomi on vaikea.</span><br><span style="white-space:nowrap">Mutta me pärjäämme! 💪</span></h1>
-        <p class="greeting">${vs(n.name)}</p>
+        <p class="greeting">${ys(n.name)}</p>
       </div>
       <div class="hero-deco">
         <div class="deco-card deco-1"><span class="deco-dot"></span>Moikka! — Привет!</div>
@@ -903,8 +903,8 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         <div class="deco-card deco-3"><span class="deco-dot"></span>Hyvää! — Отлично!</div>
       </div>
     </div>
-    ${Ss(t,n)}
-  `}function Ss(e,t){let n={};e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),Object.values(n).forEach(e=>{e.forEach((e,t)=>{e.levelNum=t+1})});let r=-1,i=gs.map((e,i)=>{let a=n[e]||[];if(!a.length)return{pct:0,done:!1,started:!1};let o=a.map(e=>ys(t,e.id)),s=o.reduce((e,t)=>e+t,0)/o.length,c=o.every(e=>e===100),l=o.some(e=>e>0);return l&&!c&&r===-1&&(r=i),{pct:s,done:c,started:l}});return r===-1&&(r=gs.findIndex(e=>(n[e]||[]).length>0)),gs.map((e,a)=>{let o=_s[e]||{color:`#7C3AED`,bg:`#EDE7FB`},s=n[e]||[],c=s.length>0,l=i[a],u=a===r,d=l.done&&c;return`
+    ${Cs(t,n)}
+  `}function Cs(e,t){let n={};e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),Object.values(n).forEach(e=>{e.forEach((e,t)=>{e.levelNum=t+1})});let r=-1,i=_s.map((e,i)=>{let a=n[e]||[];if(!a.length)return{pct:0,done:!1,started:!1};let o=a.map(e=>bs(t,e.id)),s=o.reduce((e,t)=>e+t,0)/o.length,c=o.every(e=>e===100),l=o.some(e=>e>0);return l&&!c&&r===-1&&(r=i),{pct:s,done:c,started:l}});return r===-1&&(r=_s.findIndex(e=>(n[e]||[]).length>0)),_s.map((e,a)=>{let o=vs[e]||{color:`#7C3AED`,bg:`#EDE7FB`},s=n[e]||[],c=s.length>0,l=i[a],u=a===r,d=l.done&&c;return`
         <div class="level-section ${c?``:`level-section-soon`} ${d?`level-done`:``}"
              data-level="${e}">
           <div class="level-header level-header-toggle" data-level-target="${e}"
@@ -924,7 +924,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
             </div>
           </div>
           <div class="chapters-grid level-content ${u?``:`level-collapsed`}" id="level-${e}">
-            ${c?s.map(e=>Cs(e,e.levelNum,t)).join(``):[1,2,3].map(e=>`
+            ${c?s.map(e=>ws(e,e.levelNum,t)).join(``):[1,2,3].map(e=>`
                   <div class="chapter-card chapter-card-soon">
                     <div class="card-img-wrap soon-img-wrap" style="background:${o.bg}">
                       <span class="soon-emoji">🔒</span>
@@ -937,7 +937,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
                   </div>`).join(``)}
           </div>
         </div>
-      `}).join(``)}function Cs(e,t,n){let r=ys(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
+      `}).join(``)}function ws(e,t,n){let r=bs(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
     <div class="chapter-card ${i?`done`:``} ${r>0?`in-progress`:``}"
          data-chapter="${e.id}"
          style="--card-color: ${e.color}">
@@ -960,7 +960,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         </div>
       </div>
     </div>
-  `}function ws(e){document.querySelector(`#app`).innerHTML=e}function Ts(){document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{V(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{V(`/profile/${p().activeProfile}`)}),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,zs),document.getElementById(`btn-logout`)?.addEventListener(`click`,async()=>{if(ds){let e=p().profiles[ds.id];e&&await Ea(ds.id,e)}await Ca(),ds=null,Os=`signin`,ws(As()),js()});let e=document.getElementById(`btn-active-profile`);e&&(e.onclick=e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.onclick=()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)}}var Es=hs.map(e=>({...e,...Fa[e.id]}));function Ds(){ws(xs(p(),Es)),Ts()}var Os=`signin`;function ks(e,t,n){return`
+  `}function Ts(e){document.querySelector(`#app`).innerHTML=e}function Es(){document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{V(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{V(`/profile/${p().activeProfile}`)}),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,Bs),document.getElementById(`btn-logout`)?.addEventListener(`click`,async()=>{if(fs){let e=p().profiles[fs.id];e&&await Ea(fs.id,e)}await Ca(),fs=null,ks=`signin`,Ts(js()),Ms()});let e=document.getElementById(`btn-active-profile`);e&&(e.onclick=e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.onclick=()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)}}var Ds=gs.map(e=>({...e,...Fa[e.id]}));function Os(){Ts(Ss(p(),Ds)),Es()}var ks=`signin`;function As(e,t,n){return`
     <svg class="deco-leaf ${e}" viewBox="0 0 120 200" fill="none"
          stroke="${t}" stroke-width="2.5" stroke-linecap="round">
       <path d="M60 195 C58 150 60 100 72 20"/>
@@ -968,15 +968,15 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
       <path d="M60 120 C27 116 16 90 19 62 C50 66 64 92 60 120 Z" fill="${n}" fill-opacity="0.45"/>
       <path d="M64 90 C95 85 106 60 103 34 C74 39 60 64 64 90 Z" fill="${n}" fill-opacity="0.45"/>
       <path d="M68 60 C42 55 33 33 36 12 C61 17 71 39 68 60 Z" fill="${n}" fill-opacity="0.45"/>
-    </svg>`}function As(){let e=Os===`signup`;return`
+    </svg>`}function js(){let e=ks===`signup`;return`
     <div class="login-split">
       <!-- decorative corner patterns -->
       <div class="deco-blob deco-blob-tr"></div>
       <div class="deco-blob deco-blob-br"></div>
       <div class="deco-blob deco-blob-bl"></div>
-      ${ks(`deco-leaf-tr`,`#C4B5FD`,`#DDD6FE`)}
-      ${ks(`deco-leaf-br`,`#F9A8D4`,`#FBCFE8`)}
-      ${ks(`deco-leaf-bl`,`#C4B5FD`,`#DDD6FE`)}
+      ${As(`deco-leaf-tr`,`#C4B5FD`,`#DDD6FE`)}
+      ${As(`deco-leaf-br`,`#F9A8D4`,`#FBCFE8`)}
+      ${As(`deco-leaf-bl`,`#C4B5FD`,`#DDD6FE`)}
 
       <!-- Left: brand + characters -->
       <div class="login-left">
@@ -1018,24 +1018,24 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
           </button>
         </div>
       </div>
-    </div>`}function js(){document.getElementById(`btn-switch-mode`)?.addEventListener(`click`,()=>{Os=Os===`signin`?`signup`:`signin`,ws(As()),js()});let e=async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-password`)?.value,n=document.getElementById(`auth-name`)?.value.trim(),r=document.getElementById(`auth-error`),i=document.getElementById(`btn-auth-submit`);if(!e||!t){r.textContent=`Заполни email и пароль`;return}if(Os===`signup`&&t.length<6){r.textContent=`Пароль минимум 6 символов`;return}r.textContent=``,i.disabled=!0,i.textContent=`Загрузка...`;let a;if(a=Os===`signup`?await xa(e,t,n||e.split(`@`)[0]):await Sa(e,t),a.error){r.textContent=Ms(a.error.message),i.disabled=!1,i.textContent=Os===`signup`?`Создать аккаунт`:`Войти`;return}if(!a.session){r.style.color=`var(--success)`,r.textContent=`✅ Проверь почту и подтверди email, потом войди`,i.disabled=!1,i.textContent=`Войти`,Os=`signin`;return}await ms(a.user),V(`/`),Ds()};document.getElementById(`btn-auth-submit`)?.addEventListener(`click`,e),document.getElementById(`auth-password`)?.addEventListener(`keydown`,t=>{t.key===`Enter`&&e()}),document.getElementById(`btn-forgot`)?.addEventListener(`click`,async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-error`);if(!e){t.style.color=`var(--error)`,t.textContent=`Введи email выше, потом нажми «Unohditko salasanasi?»`;return}let{error:n}=await ba.auth.resetPasswordForEmail(e,{redirectTo:window.location.origin+`/lets-go-finnish/`});t.style.color=n?`var(--error)`:`var(--success)`,t.textContent=n?Ms(n.message):`✅ Письмо для сброса пароля отправлено на `+e})}function Ms(e){let t=e.toLowerCase();return t.includes(`invalid login`)?`❌ Неверный email или пароль`:t.includes(`already registered`)?`❌ Этот email уже зарегистрирован`:t.includes(`password`)?`❌ Пароль слишком короткий (мин. 6)`:t.includes(`email`)?`❌ Проверь правильность email`:`❌ `+e}var Ns={chapters:[],vocabulary:[],exercises:[]};async function Ps(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{let e=await wa();e?.user&&await ms(e.user)}catch{console.log(`Нет активной сессии`)}try{Ns=await Ma(),Ns.chapters?.length>0&&(Es=Ns.chapters.map(e=>({...e,...Fa[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Fs(),Pa(Fs)}function Fs(){let e=Na(),t=p();if(!ds){ws(As()),js();return}if(e.page===`dashboard`||!e.page){Ds();return}if(e.page===`profile`){ws(ss(e.profileId)),us();return}let n=Es.find(t=>t.id===e.chapterId);if(!n){Ds();return}let r=Ns.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ns.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ns.grammar||[];if(e.section===`vocabulary`){ws(Ya(n,r)),Xa(n);return}if(e.section===`exercises`){ws(po(n,i)),vo(n);return}if(e.section===`grammar`){ws(Ao(n,a)),jo(n);return}if(e.section===`vocab-exercises`){ws(Lo(n,r)),Ro(n);return}ws(Ra(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),za(e.chapterId,r,t.activeProfile,i)}Ps();var Is=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`],Ls=[`av1.png`,`av2.png`,`av3.png`,`av4.png`];function Rs(e,t=40){return e?.avatarImg?`<img class="avatar" src="/lets-go-finnish/${e.avatarImg}" alt="${e.name||``}" style="width:${t}px;height:${t}px;border-radius:50%;object-fit:cover">`:e?.avatarEmoji?`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">${e.avatarEmoji}</span>`:`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">🦊</span>`}function zs(){let e=p(),t=e.profiles[e.activeProfile];if(!t)return;let n=document.createElement(`div`);n.innerHTML=`
+    </div>`}function Ms(){document.getElementById(`btn-switch-mode`)?.addEventListener(`click`,()=>{ks=ks===`signin`?`signup`:`signin`,Ts(js()),Ms()});let e=async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-password`)?.value,n=document.getElementById(`auth-name`)?.value.trim(),r=document.getElementById(`auth-error`),i=document.getElementById(`btn-auth-submit`);if(!e||!t){r.textContent=`Заполни email и пароль`;return}if(ks===`signup`&&t.length<6){r.textContent=`Пароль минимум 6 символов`;return}r.textContent=``,i.disabled=!0,i.textContent=`Загрузка...`;let a;if(a=ks===`signup`?await xa(e,t,n||e.split(`@`)[0]):await Sa(e,t),a.error){r.textContent=Ns(a.error.message),i.disabled=!1,i.textContent=ks===`signup`?`Создать аккаунт`:`Войти`;return}if(!a.session){r.style.color=`var(--success)`,r.textContent=`✅ Проверь почту и подтверди email, потом войди`,i.disabled=!1,i.textContent=`Войти`,ks=`signin`;return}await hs(a.user),V(`/`),Os()};document.getElementById(`btn-auth-submit`)?.addEventListener(`click`,e),document.getElementById(`auth-password`)?.addEventListener(`keydown`,t=>{t.key===`Enter`&&e()}),document.getElementById(`btn-forgot`)?.addEventListener(`click`,async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-error`);if(!e){t.style.color=`var(--error)`,t.textContent=`Введи email выше, потом нажми «Unohditko salasanasi?»`;return}let{error:n}=await ba.auth.resetPasswordForEmail(e,{redirectTo:window.location.origin+`/lets-go-finnish/`});t.style.color=n?`var(--error)`:`var(--success)`,t.textContent=n?Ns(n.message):`✅ Письмо для сброса пароля отправлено на `+e})}function Ns(e){let t=e.toLowerCase();return t.includes(`invalid login`)?`❌ Неверный email или пароль`:t.includes(`already registered`)?`❌ Этот email уже зарегистрирован`:t.includes(`password`)?`❌ Пароль слишком короткий (мин. 6)`:t.includes(`email`)?`❌ Проверь правильность email`:`❌ `+e}var Ps={chapters:[],vocabulary:[],exercises:[]};async function Fs(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{let e=await wa();e?.user&&await hs(e.user)}catch{console.log(`Нет активной сессии`)}try{Ps=await Ma(),Ps.chapters?.length>0&&(Ds=Ps.chapters.map(e=>({...e,...Fa[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Is(),Pa(Is)}function Is(){let e=Na(),t=p();if(!fs){Ts(js()),Ms();return}if(e.page===`dashboard`||!e.page){Os();return}if(e.page===`profile`){Ts(cs(e.profileId)),ds();return}let n=Ds.find(t=>t.id===e.chapterId);if(!n){Os();return}let r=Ps.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ps.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ps.grammar||[];if(e.section===`vocabulary`){Ts(Ya(n,r)),Xa(n);return}if(e.section===`exercises`){Ts(po(n,i)),vo(n);return}if(e.section===`grammar`){Ts(jo(n,a)),Mo(n);return}if(e.section===`vocab-exercises`){Ts(Ro(n,r)),zo(n);return}Ts(Ra(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),za(e.chapterId,r,t.activeProfile,i)}Fs();var Ls=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`],Rs=[`av1.png`,`av2.png`,`av3.png`,`av4.png`];function zs(e,t=40){return e?.avatarImg?`<img class="avatar" src="/lets-go-finnish/${e.avatarImg}" alt="${e.name||``}" style="width:${t}px;height:${t}px;border-radius:50%;object-fit:cover">`:e?.avatarEmoji?`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">${e.avatarEmoji}</span>`:`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">🦊</span>`}function Bs(){let e=p(),t=e.profiles[e.activeProfile];if(!t)return;let n=document.createElement(`div`);n.innerHTML=`
     <div class="modal-overlay" id="acc-overlay">
       <div class="modal-box">
         <h3 style="margin-bottom:16px">⚙️ Настройки</h3>
-        <div style="font-size:12px;color:#9CA3AF;margin-bottom:16px">${ds?.email||``}</div>
+        <div style="font-size:12px;color:#9CA3AF;margin-bottom:16px">${fs?.email||``}</div>
         <div style="font-size:13px;color:#6B7280;margin-bottom:4px">Имя:</div>
         <input type="text" id="acc-name" class="grammar-input" value="${t.name||``}"
           maxlength="20" style="width:100%;margin-bottom:16px">
         <div style="font-size:13px;color:#6B7280;margin-bottom:8px">Аватар:</div>
         <div class="avatar-picker" style="margin-bottom:12px">
-          ${Ls.map(e=>`
+          ${Rs.map(e=>`
             <button class="avatar-option avatar-img-option ${t.avatarImg===e?`selected`:``}" data-img="${e}">
               <img src="/lets-go-finnish/${e}" alt="">
             </button>
           `).join(``)}
         </div>
         <div class="avatar-picker" style="margin-bottom:20px">
-          ${Is.map(e=>`
+          ${Ls.map(e=>`
             <button class="avatar-option ${!t.avatarImg&&t.avatarEmoji===e?`selected`:``}" data-emoji="${e}">${e}</button>
           `).join(``)}
         </div>
@@ -1044,4 +1044,4 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
           <button class="btn-complete" id="btn-acc-cancel" style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
         </div>
       </div>
-    </div>`,document.body.appendChild(n);let r=t.avatarEmoji||Is[0],i=t.avatarImg||null;n.querySelectorAll(`.avatar-option`).forEach(e=>{e.addEventListener(`click`,()=>{n.querySelectorAll(`.avatar-option`).forEach(e=>e.classList.remove(`selected`)),e.classList.add(`selected`),e.dataset.img?(i=e.dataset.img,r=null):(r=e.dataset.emoji,i=null)})}),document.getElementById(`btn-acc-cancel`)?.addEventListener(`click`,()=>n.remove()),document.getElementById(`acc-overlay`)?.addEventListener(`click`,e=>{e.target.id===`acc-overlay`&&n.remove()}),document.getElementById(`btn-acc-save`)?.addEventListener(`click`,()=>{let e=document.getElementById(`acc-name`)?.value.trim(),t=p();e&&(t.profiles[t.activeProfile].name=e),t.profiles[t.activeProfile].avatarImg=i,t.profiles[t.activeProfile].avatarEmoji=i?null:r,_(t),n.remove(),Ds()})}
+    </div>`,document.body.appendChild(n);let r=t.avatarEmoji||Ls[0],i=t.avatarImg||null;n.querySelectorAll(`.avatar-option`).forEach(e=>{e.addEventListener(`click`,()=>{n.querySelectorAll(`.avatar-option`).forEach(e=>e.classList.remove(`selected`)),e.classList.add(`selected`),e.dataset.img?(i=e.dataset.img,r=null):(r=e.dataset.emoji,i=null)})}),document.getElementById(`btn-acc-cancel`)?.addEventListener(`click`,()=>n.remove()),document.getElementById(`acc-overlay`)?.addEventListener(`click`,e=>{e.target.id===`acc-overlay`&&n.remove()}),document.getElementById(`btn-acc-save`)?.addEventListener(`click`,()=>{let e=document.getElementById(`acc-name`)?.value.trim(),t=p();e&&(t.profiles[t.activeProfile].name=e),t.profiles[t.activeProfile].avatarImg=i,t.profiles[t.activeProfile].avatarEmoji=i?null:r,_(t),n.remove(),Os()})}

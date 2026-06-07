@@ -894,7 +894,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
     ${bs(e)}
     <div class="hero">
       <div class="hero-text">
-        <h1><span class="hero-accent">Suomi on vaikea.</span><br>Mutta me справимся 💪</h1>
+        <h1><span class="hero-accent">Suomi on vaikea.</span><br>Mutta me pärjäämme! 💪</h1>
         <p class="greeting">${vs(n.name)}</p>
       </div>
       <div class="hero-deco">

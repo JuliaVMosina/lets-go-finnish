@@ -960,17 +960,37 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         </div>
       </div>
     </div>
-  `}function ws(e){document.querySelector(`#app`).innerHTML=e}function Ts(){document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{V(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{V(`/profile/${p().activeProfile}`)}),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,Rs),document.getElementById(`btn-logout`)?.addEventListener(`click`,async()=>{if(ds){let e=p().profiles[ds.id];e&&await Ea(ds.id,e)}await Ca(),ds=null,Os=`signin`,ws(ks()),As()});let e=document.getElementById(`btn-active-profile`);e&&(e.onclick=e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.onclick=()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)}}var Es=hs.map(e=>({...e,...Fa[e.id]}));function Ds(){ws(xs(p(),Es)),Ts()}var Os=`signin`;function ks(){let e=Os===`signup`,t=`/lets-go-finnish/`;return`
+  `}function ws(e){document.querySelector(`#app`).innerHTML=e}function Ts(){document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{V(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{V(`/profile/${p().activeProfile}`)}),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,Rs),document.getElementById(`btn-logout`)?.addEventListener(`click`,async()=>{if(ds){let e=p().profiles[ds.id];e&&await Ea(ds.id,e)}await Ca(),ds=null,Os=`signin`,ws(ks()),As()});let e=document.getElementById(`btn-active-profile`);e&&(e.onclick=e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.onclick=()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)}}var Es=hs.map(e=>({...e,...Fa[e.id]}));function Ds(){ws(xs(p(),Es)),Ts()}var Os=`signin`;function ks(){let e=Os===`signup`;return`
     <div class="login-split">
-      <!-- decorative corner element -->
-      <img src="${t}el1.png" class="login-corner-el" alt="">
+      <!-- decorative corner patterns -->
+      <div class="deco-blob deco-blob-tr"></div>
+      <div class="deco-blob deco-blob-br"></div>
+      <div class="deco-blob deco-blob-bl"></div>
+      <svg class="deco-leaf deco-leaf-tr" viewBox="0 0 120 160" fill="none" stroke="#C4B5FD" stroke-width="2">
+        <path d="M60 150 C60 100 60 50 70 10" />
+        <path d="M64 120 C90 115 100 95 98 75 C78 78 64 95 64 120 Z" fill="#DDD6FE" fill-opacity="0.4"/>
+        <path d="M62 90 C40 86 30 66 33 48 C53 52 64 70 62 90 Z" fill="#DDD6FE" fill-opacity="0.4"/>
+        <path d="M66 60 C88 56 96 38 94 22 C76 26 66 42 66 60 Z" fill="#DDD6FE" fill-opacity="0.4"/>
+      </svg>
+      <svg class="deco-leaf deco-leaf-br" viewBox="0 0 120 160" fill="none" stroke="#F9A8D4" stroke-width="2">
+        <path d="M60 150 C60 100 60 50 70 10" />
+        <path d="M64 120 C90 115 100 95 98 75 C78 78 64 95 64 120 Z" fill="#FBCFE8" fill-opacity="0.45"/>
+        <path d="M62 90 C40 86 30 66 33 48 C53 52 64 70 62 90 Z" fill="#FBCFE8" fill-opacity="0.45"/>
+        <path d="M66 60 C88 56 96 38 94 22 C76 26 66 42 66 60 Z" fill="#FBCFE8" fill-opacity="0.45"/>
+      </svg>
+      <svg class="deco-leaf deco-leaf-bl" viewBox="0 0 100 120" fill="none" stroke="#C4B5FD" stroke-width="2">
+        <path d="M50 115 C50 80 50 45 50 12" />
+        <circle cx="50" cy="14" r="8" fill="#DDD6FE" fill-opacity="0.5"/>
+        <path d="M50 55 C30 52 22 38 24 24 C42 27 51 41 50 55 Z" fill="#DDD6FE" fill-opacity="0.4"/>
+        <path d="M50 80 C70 77 78 63 76 49 C58 52 49 66 50 80 Z" fill="#DDD6FE" fill-opacity="0.4"/>
+      </svg>
 
       <!-- Left: brand + characters -->
       <div class="login-left">
         <h1 class="brand-title">Kahvi <span class="brand-amp">&amp;</span> Kieli</h1>
         <p class="brand-sub">Opetellaan suomee!</p>
         <p class="brand-sub-en">Let's learn Finnish!</p>
-        <img src="${t}heroyenterpage.png" class="login-hero-img" alt=""
+        <img src="/lets-go-finnish/heroyenterpage.png" class="login-hero-img" alt=""
              onerror="this.style.display='none'">
       </div>
 

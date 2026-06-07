@@ -103,7 +103,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
 
       </div>
     </div>
-  `}function oe(e,t,n,r=[]){document.getElementById(`btn-back`)?.addEventListener(`click`,()=>{A(`/`)});let i=C(n,e,t.length),a=document.getElementById(`vocab-meta`);a&&(a.textContent=`выучено ${i.known} / ${t.length}`);let o=document.getElementById(`ex-meta`);if(o)if(r.length>0){let t=p().profiles[n]?.exercises[e]||{};o.textContent=`выполнено ${Object.values(t).filter(e=>e.completed).length} / ${r.length}`}else o.textContent=`задания`;document.querySelectorAll(`.section-card`).forEach(t=>{t.style.cursor=`pointer`,t.addEventListener(`click`,()=>{let n=t.querySelector(`.section-btn`)?.dataset.section;n&&A(`/chapter/${e}/${n}`)})}),document.querySelectorAll(`.section-btn`).forEach(t=>{t.addEventListener(`click`,n=>{n.stopPropagation();let r=t.dataset.section;A(`/chapter/${e}/${r}`)})})}var N=0,P=[],se=[],F=null,I=null,L=!1,ce=null,R=[],le=null,ue={приветствия:`👋`,числа:`🔢`,"дни недели":`📅`,месяцы:`🗓️`,"времена года":`🍂`,погода:`⛅`,семья:`👨‍👩‍👧‍👦`,одежда:`👕`,цвета:`🎨`,время:`⏰`};function de(e){let t={};return e.forEach((e,n)=>{let r=e.category||F.id;t[r]||(t[r]=[]),t[r].push({...e,_origIndex:n})}),t}function fe(){let e=p(),t=x(e.activeProfile,F.id),n=S(e.activeProfile,F.id),r=Object.keys(n).length>0,i=t&&!t.category?t:null;if(!i&&!r)return`
+  `}function oe(e,t,n,r=[]){document.getElementById(`btn-back`)?.addEventListener(`click`,()=>{A(`/`)});let i=C(n,e,t.length),a=document.getElementById(`vocab-meta`);a&&(a.textContent=`выучено ${i.known} / ${t.length}`);let o=document.getElementById(`ex-meta`);if(o)if(r.length>0){let t=p().profiles[n]?.exercises[e]||{};o.textContent=`выполнено ${Object.values(t).filter(e=>e.completed).length} / ${r.length}`}else o.textContent=`задания`;document.querySelectorAll(`.section-card`).forEach(t=>{t.style.cursor=`pointer`,t.addEventListener(`click`,()=>{let n=t.querySelector(`.section-btn`)?.dataset.section;n&&A(`/chapter/${e}/${n}`)})}),document.querySelectorAll(`.section-btn`).forEach(t=>{t.addEventListener(`click`,n=>{n.stopPropagation();let r=t.dataset.section;A(`/chapter/${e}/${r}`)})})}var N=0,P=[],se=[],F=null,I=null,ce=!1,le=null,L=[],ue=null,de={приветствия:`👋`,числа:`🔢`,"дни недели":`📅`,месяцы:`🗓️`,"времена года":`🍂`,погода:`⛅`,семья:`👨‍👩‍👧‍👦`,одежда:`👕`,цвета:`🎨`,время:`⏰`};function fe(e){let t={};return e.forEach((e,n)=>{let r=e.category||F.id;t[r]||(t[r]=[]),t[r].push({...e,_origIndex:n})}),t}function pe(){let e=p(),t=x(e.activeProfile,F.id),n=S(e.activeProfile,F.id),r=Object.keys(n).length>0,i=t&&!t.category?t:null;if(!i&&!r)return`
       <div class="mode-card" id="mode-test">
         <div class="mode-icon" style="background: ${I.bg}">📝</div>
         <div class="mode-info">
@@ -130,7 +130,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         ${o}
       </div>
       <button class="mode-btn" style="background: ${I.color}">Начать →</button>
-    </div>`}function pe(){let e=p(),t=e.profiles[e.activeProfile]?.vocabulary[F.id]||{},n=Object.values(t).filter(e=>e.status===`known`).length,r=Object.values(t).filter(e=>e.status===`hard`).length,i=Object.values(t).filter(e=>e.status===`learning`).length,a=P.length-Object.values(t).filter(e=>e.seen).length;return`
+    </div>`}function me(){let e=p(),t=e.profiles[e.activeProfile]?.vocabulary[F.id]||{},n=Object.values(t).filter(e=>e.status===`known`).length,r=Object.values(t).filter(e=>e.status===`hard`).length,i=Object.values(t).filter(e=>e.status===`learning`).length,a=P.length-Object.values(t).filter(e=>e.seen).length;return`
     <header class="header">
       <button class="btn-back" id="btn-back-vocab">← ${F.title_fi}</button>
       <span class="vocab-counter">${P.length} слов</span>
@@ -191,7 +191,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
           </div>
           <button class="mode-btn" style="background: ${I.color}">Начать →</button>
         </div>
-        ${fe()}
+        ${pe()}
         ${r>0?`
         <div class="mode-card" id="mode-hard">
           <div class="mode-icon" style="background: #FEF2F2">🔴</div>
@@ -203,7 +203,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>`:``}
       </div>
     </div>
-  `}function me(e,t){return F=e,P=t,se=t,F._allWords=t,I=j[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},`<div class="vocab-page">${pe()}</div>`}function he(e){F=e,F._allWords||=se,I=j[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vocab`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),document.getElementById(`mode-flashcard`)?.addEventListener(`click`,()=>ge(`flashcard`)),document.getElementById(`mode-test`)?.addEventListener(`click`,()=>ge(`test`)),document.getElementById(`mode-hard`)?.addEventListener(`click`,()=>_e(!0))}function ge(e){ce=e;let t=de(se),n=[`числа`,`приветствия`,`дни недели`].filter(e=>t[e]).map(e=>{let n=t[e],r=ue[e]||`📚`;return`
+  `}function he(e,t){return F=e,P=t,se=t,F._allWords=t,I=j[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},`<div class="vocab-page">${me()}</div>`}function ge(e){F=e,F._allWords||=se,I=j[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vocab`)?.addEventListener(`click`,()=>{A(`/chapter/${e.id}`)}),document.getElementById(`mode-flashcard`)?.addEventListener(`click`,()=>_e(`flashcard`)),document.getElementById(`mode-test`)?.addEventListener(`click`,()=>_e(`test`)),document.getElementById(`mode-hard`)?.addEventListener(`click`,()=>ve(!0))}function _e(e){le=e;let t=fe(se),n=[`числа`,`приветствия`,`дни недели`].filter(e=>t[e]).map(e=>{let n=t[e],r=de[e]||`📚`;return`
         <div class="category-card" data-category="${e}">
           <div class="cat-icon" style="background: ${I.bg}">${r}</div>
           <div class="cat-info">
@@ -233,7 +233,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         ${n}
       </div>`:``}
     </div>
-  `;document.querySelector(`.vocab-page`).innerHTML=r,document.getElementById(`btn-back-source`)?.addEventListener(`click`,()=>{document.querySelector(`.vocab-page`).innerHTML=pe(),he(F)}),document.getElementById(`source-all`)?.addEventListener(`click`,()=>{P=se,le=null,ce===`flashcard`?_e(!1):we()}),document.querySelectorAll(`.category-card`).forEach(e=>{e.addEventListener(`click`,()=>{let n=e.dataset.category;P=t[n]||[],le=n,ce===`flashcard`?_e(!1):we()})})}function _e(e=!1){let t=p(),n=t.activeProfile;if(e){let e=t.profiles[n]?.vocabulary[F.id]||{},r=Object.entries(e).filter(([,e])=>e.status===`hard`).map(([e])=>parseInt(e.replace(`w_`,``)));N=0,P=r.map(e=>({...P[e],_origIndex:e}))}else P=[...P].map((e,t)=>({...e,_origIndex:t})),N=w(n,F.id,P);L=!1,ve()}function ve(){let e=P[N];if(!e){xe();return}let t=p(),n=t.profiles[t.activeProfile]?.vocabulary[F.id]||{};n[`w_${e._origIndex??N}`]?.status,document.querySelector(`.vocab-page`).innerHTML=`
+  `;document.querySelector(`.vocab-page`).innerHTML=r,document.getElementById(`btn-back-source`)?.addEventListener(`click`,()=>{document.querySelector(`.vocab-page`).innerHTML=me(),ge(F)}),document.getElementById(`source-all`)?.addEventListener(`click`,()=>{P=se,ue=null,le===`flashcard`?ve(!1):we()}),document.querySelectorAll(`.category-card`).forEach(e=>{e.addEventListener(`click`,()=>{let n=e.dataset.category;P=t[n]||[],ue=n,le===`flashcard`?ve(!1):we()})})}function ve(e=!1){let t=p(),n=t.activeProfile;if(e){let e=t.profiles[n]?.vocabulary[F.id]||{},r=Object.entries(e).filter(([,e])=>e.status===`hard`).map(([e])=>parseInt(e.replace(`w_`,``)));N=0,P=r.map(e=>({...P[e],_origIndex:e}))}else P=[...P].map((e,t)=>({...e,_origIndex:t})),N=w(n,F.id,P);ce=!1,ye()}function ye(){let e=P[N];if(!e){Se();return}let t=p(),n=t.profiles[t.activeProfile]?.vocabulary[F.id]||{};n[`w_${e._origIndex??N}`]?.status,document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-back-fc">← Режимы</button>
       <span class="vocab-counter" id="vocab-counter">${N+1} / ${P.length}</span>
@@ -279,7 +279,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         ${P.map((e,t)=>{let r=n[`w_${e._origIndex??t}`]?.status;return`<span class="vocab-dot ${r===`known`?`dot-known`:r===`hard`?`dot-hard`:r===`learning`?`dot-learning`:``} ${t===N?`active`:``}"></span>`}).join(``)}
       </div>
     </div>
-  `,ye()}function ye(){document.getElementById(`btn-back-fc`)?.addEventListener(`click`,()=>{let e=p(),t=P[N];if(t){let n=t._origIndex??N;e.profiles[e.activeProfile]?.vocabulary[F.id]?.[`w_${n}`]?.seen||y(e.activeProfile,F.id,n,`learning`)}P=F._allWords||P,document.querySelector(`.vocab-page`).innerHTML=pe(),he(F)});let e=document.getElementById(`flashcard`),t=document.getElementById(`flashcard-inner`),n=P[N];e?.addEventListener(`click`,e=>{e.target.closest(`.card-audio-btn`)||e.target.closest(`.card-mic-btn`)||(L=!L,t.classList.toggle(`flipped`,L),document.getElementById(`vocab-actions`).style.display=L?`flex`:`none`)});function r(e){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();let t=new SpeechSynthesisUtterance(e);t.lang=`fi-FI`,t.rate=.85,window.speechSynthesis.speak(t)}document.getElementById(`btn-audio-front`)?.addEventListener(`click`,e=>{e.stopPropagation(),r(n.finnish)}),document.getElementById(`btn-audio-back`)?.addEventListener(`click`,e=>{e.stopPropagation(),r(n.finnish)}),document.getElementById(`btn-mic`)?.addEventListener(`click`,e=>{e.stopPropagation();let t=document.getElementById(`btn-mic`),r=document.getElementById(`mic-result`),i=window.SpeechRecognition||window.webkitSpeechRecognition;if(!i){r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">⚠️ Ваш браузер не поддерживает распознавание речи</span>`;return}let a=new i;a.lang=`fi-FI`,a.interimResults=!1,a.maxAlternatives=5;function o(){t.textContent=`🎤 Попробуй ещё раз`,t.disabled=!1}t.textContent=`🔴 Слушаю...`,t.disabled=!0,r.style.display=`none`;let s=setTimeout(()=>{try{a.stop()}catch{}r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">⚠️ Не услышал ничего, попробуй ещё раз</span>`,o()},7e3);a.onresult=e=>{clearTimeout(s);let i=Array.from(e.results[0]).map(e=>e.transcript.toLowerCase().trim()),a=n.finnish.toLowerCase().trim(),c=i.some(e=>e===a||e.replace(/[.,!?-]/g,``)===a.replace(/[.,!?-]/g,``));r.style.display=`block`,c?(r.innerHTML=`<span style="color:#10B981">✅ Отлично! Правильно произнесено!</span>`,t.textContent=`🎤 Произнеси`):(r.innerHTML=`<span style="color:#EF4444">❌ Услышал: «${i[0]}»<br>Ожидал: «${n.finnish}»</span>`,o()),t.disabled=!1},a.onerror=e=>{clearTimeout(s),r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">${e.error===`no-speech`?`⚠️ Ничего не услышал — говори громче!`:`⚠️ Не удалось распознать, попробуй ещё раз`}</span>`,o()},a.onend=()=>{clearTimeout(s),t.disabled&&o()},a.start()}),document.getElementById(`btn-hard`)?.addEventListener(`click`,()=>be(`hard`)),document.getElementById(`btn-ok`)?.addEventListener(`click`,()=>be(`learning`)),document.getElementById(`btn-know`)?.addEventListener(`click`,()=>be(`known`))}function be(e){let t=p(),n=P[N]._origIndex??N;if(y(t.activeProfile,F.id,n,e),N++,N>=P.length){xe();return}L=!1,ve()}function xe(){let e=p(),t=e.profiles[e.activeProfile]?.vocabulary[F.id]||{},n=Object.values(t).filter(e=>e.status===`known`).length;document.querySelector(`.vocab-container`)?.parentElement?.querySelector(`.vocab-container`),document.querySelector(`.vocab-page`).innerHTML=`
+  `,be()}function be(){document.getElementById(`btn-back-fc`)?.addEventListener(`click`,()=>{let e=p(),t=P[N];if(t){let n=t._origIndex??N;e.profiles[e.activeProfile]?.vocabulary[F.id]?.[`w_${n}`]?.seen||y(e.activeProfile,F.id,n,`learning`)}P=F._allWords||P,document.querySelector(`.vocab-page`).innerHTML=me(),ge(F)});let e=document.getElementById(`flashcard`),t=document.getElementById(`flashcard-inner`),n=P[N];e?.addEventListener(`click`,e=>{e.target.closest(`.card-audio-btn`)||e.target.closest(`.card-mic-btn`)||(ce=!ce,t.classList.toggle(`flipped`,ce),document.getElementById(`vocab-actions`).style.display=ce?`flex`:`none`)});function r(e){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();let t=new SpeechSynthesisUtterance(e);t.lang=`fi-FI`,t.rate=.85,window.speechSynthesis.speak(t)}document.getElementById(`btn-audio-front`)?.addEventListener(`click`,e=>{e.stopPropagation(),r(n.finnish)}),document.getElementById(`btn-audio-back`)?.addEventListener(`click`,e=>{e.stopPropagation(),r(n.finnish)}),document.getElementById(`btn-mic`)?.addEventListener(`click`,e=>{e.stopPropagation();let t=document.getElementById(`btn-mic`),r=document.getElementById(`mic-result`),i=window.SpeechRecognition||window.webkitSpeechRecognition;if(!i){r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">⚠️ Ваш браузер не поддерживает распознавание речи</span>`;return}let a=new i;a.lang=`fi-FI`,a.interimResults=!1,a.maxAlternatives=5;function o(){t.textContent=`🎤 Попробуй ещё раз`,t.disabled=!1}t.textContent=`🔴 Слушаю...`,t.disabled=!0,r.style.display=`none`;let s=setTimeout(()=>{try{a.stop()}catch{}r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">⚠️ Не услышал ничего, попробуй ещё раз</span>`,o()},7e3);a.onresult=e=>{clearTimeout(s);let i=Array.from(e.results[0]).map(e=>e.transcript.toLowerCase().trim()),a=n.finnish.toLowerCase().trim(),c=i.some(e=>e===a||e.replace(/[.,!?-]/g,``)===a.replace(/[.,!?-]/g,``));r.style.display=`block`,c?(r.innerHTML=`<span style="color:#10B981">✅ Отлично! Правильно произнесено!</span>`,t.textContent=`🎤 Произнеси`):(r.innerHTML=`<span style="color:#EF4444">❌ Услышал: «${i[0]}»<br>Ожидал: «${n.finnish}»</span>`,o()),t.disabled=!1},a.onerror=e=>{clearTimeout(s),r.style.display=`block`,r.innerHTML=`<span style="color:#F59E0B">${e.error===`no-speech`?`⚠️ Ничего не услышал — говори громче!`:`⚠️ Не удалось распознать, попробуй ещё раз`}</span>`,o()},a.onend=()=>{clearTimeout(s),t.disabled&&o()},a.start()}),document.getElementById(`btn-hard`)?.addEventListener(`click`,()=>xe(`hard`)),document.getElementById(`btn-ok`)?.addEventListener(`click`,()=>xe(`learning`)),document.getElementById(`btn-know`)?.addEventListener(`click`,()=>xe(`known`))}function xe(e){let t=p(),n=P[N]._origIndex??N;if(y(t.activeProfile,F.id,n,e),N++,N>=P.length){Se();return}ce=!1,ye()}function Se(){let e=p(),t=e.profiles[e.activeProfile]?.vocabulary[F.id]||{},n=Object.values(t).filter(e=>e.status===`known`).length;document.querySelector(`.vocab-container`)?.parentElement?.querySelector(`.vocab-container`),document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-complete-back">← Режимы</button>
     </header>
@@ -295,13 +295,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <button class="btn-complete" style="background: white; color: ${I.color}; border: 2px solid ${I.color}" id="btn-to-chapter-v">К главе</button>
       </div>
     </div>
-  `,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,()=>{P=F._allWords||P,document.querySelector(`.vocab-page`).innerHTML=pe(),he(F)}),document.getElementById(`btn-repeat`)?.addEventListener(`click`,()=>_e(!1)),document.getElementById(`btn-to-chapter-v`)?.addEventListener(`click`,()=>A(`/chapter/${F.id}`))}var Se=0,Ce=0;function we(){Se=0,Ce=0,R=[...F._allWords||P].sort(()=>Math.random()-.5),Te()}function Te(){if(Se>=R.length){De();return}let e=R[Se],t=[e,...(F._allWords||P).filter(t=>t.finnish!==e.finnish).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);document.querySelector(`.vocab-page`).innerHTML=`
+  `,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,()=>{P=F._allWords||P,document.querySelector(`.vocab-page`).innerHTML=me(),ge(F)}),document.getElementById(`btn-repeat`)?.addEventListener(`click`,()=>ve(!1)),document.getElementById(`btn-to-chapter-v`)?.addEventListener(`click`,()=>A(`/chapter/${F.id}`))}var R=0,Ce=0;function we(){R=0,Ce=0,L=[...F._allWords||P].sort(()=>Math.random()-.5),Te()}function Te(){if(R>=L.length){De();return}let e=L[R],t=[e,...(F._allWords||P).filter(t=>t.finnish!==e.finnish).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-back-test">← Режимы</button>
-      <span class="vocab-counter">${Se+1} / ${R.length} · ✓ ${Ce}</span>
+      <span class="vocab-counter">${R+1} / ${L.length} · ✓ ${Ce}</span>
     </header>
     <div class="ex-progress-bar">
-      <div class="ex-progress-fill" style="width: ${Se/R.length*100}%; background: ${I.color}"></div>
+      <div class="ex-progress-fill" style="width: ${R/L.length*100}%; background: ${I.color}"></div>
     </div>
     <div class="vocab-container" style="max-width: 560px; margin: 0 auto">
       <div class="test-question">
@@ -319,16 +319,16 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
       <div class="ex-feedback" id="test-feedback" style="display:none"></div>
     </div>
-  `,document.getElementById(`btn-back-test`)?.addEventListener(`click`,()=>{P=F._allWords||P,document.querySelector(`.vocab-page`).innerHTML=pe(),he(F)}),Ee(e)}function Ee(e){let t=!1;document.querySelectorAll(`.test-option`).forEach(n=>{n.addEventListener(`click`,()=>{if(t)return;t=!0;let r=n.dataset.correct===`true`;r&&Ce++,document.querySelectorAll(`.test-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===n&&!r&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`test-feedback`);i.style.display=`flex`,i.innerHTML=r?`<div class="feedback-correct" style="border-color: ${I.color}">✓ Правильно!</div>
+  `,document.getElementById(`btn-back-test`)?.addEventListener(`click`,()=>{P=F._allWords||P,document.querySelector(`.vocab-page`).innerHTML=me(),ge(F)}),Ee(e)}function Ee(e){let t=!1;document.querySelectorAll(`.test-option`).forEach(n=>{n.addEventListener(`click`,()=>{if(t)return;t=!0;let r=n.dataset.correct===`true`;r&&Ce++,document.querySelectorAll(`.test-option`).forEach(e=>{e.dataset.correct===`true`?e.classList.add(`correct`):e===n&&!r&&e.classList.add(`wrong`),e.disabled=!0});let i=document.getElementById(`test-feedback`);i.style.display=`flex`,i.innerHTML=r?`<div class="feedback-correct" style="border-color: ${I.color}">✓ Правильно!</div>
            <button class="ex-next-btn" id="btn-next-test" style="background: ${I.color}">Дальше →</button>`:`<div class="feedback-wrong">✗ Правильно: <strong>${e.russian}</strong></div>
-           <button class="ex-next-btn" id="btn-next-test" style="background: ${I.color}">Дальше →</button>`,i.style.flexDirection=`column`,i.style.gap=`10px`,document.getElementById(`btn-next-test`)?.addEventListener(`click`,()=>{Se++,Te()})})})}function De(){b(p().activeProfile,F.id,Ce,R.length,le);let e=Math.round(Ce/R.length*100),t=e>=80?`🏆`:e>=60?`👍`:`💪`,n=new Date;n.setDate(n.getDate()+10);let r=n.toLocaleDateString(`ru`,{day:`numeric`,month:`short`}),i=le?`Тест по ${le}`:`Тест`;document.querySelector(`.vocab-page`).innerHTML=`
+           <button class="ex-next-btn" id="btn-next-test" style="background: ${I.color}">Дальше →</button>`,i.style.flexDirection=`column`,i.style.gap=`10px`,document.getElementById(`btn-next-test`)?.addEventListener(`click`,()=>{R++,Te()})})})}function De(){b(p().activeProfile,F.id,Ce,L.length,ue);let e=Math.round(Ce/L.length*100),t=e>=80?`🏆`:e>=60?`👍`:`💪`,n=new Date;n.setDate(n.getDate()+10);let r=n.toLocaleDateString(`ru`,{day:`numeric`,month:`short`}),i=ue?`Тест по ${ue}`:`Тест`;document.querySelector(`.vocab-page`).innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-test-done">← Режимы</button>
     </header>
     <div class="complete-screen">
       <div class="complete-emoji">${t}</div>
       <h2>Тест завершён!</h2>
-      <p style="color: #6B7280; margin-top: 8px">${i}: <strong style="color: ${I.color}">${Ce} / ${R.length}</strong> (${e}%)</p>
+      <p style="color: #6B7280; margin-top: 8px">${i}: <strong style="color: ${I.color}">${Ce} / ${L.length}</strong> (${e}%)</p>
       <div class="test-completion-info" style="background: ${I.bg}; padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center">
         <div style="font-size: 12px; color: #6B7280; margin-bottom: 4px">Следующее повторение</div>
         <div style="font-size: 16px; font-weight: 600; color: ${I.color}">${r}</div>
@@ -338,7 +338,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <button class="btn-complete" style="background: white; color: ${I.color}; border: 2px solid ${I.color}" id="btn-to-chapter-t">К главе</button>
       </div>
     </div>
-  `,document.getElementById(`btn-test-done`)?.addEventListener(`click`,()=>{P=F._allWords||P,document.querySelector(`.vocab-page`).innerHTML=pe(),he(F)}),document.getElementById(`btn-retest`)?.addEventListener(`click`,we),document.getElementById(`btn-to-chapter-t`)?.addEventListener(`click`,()=>A(`/chapter/${F.id}`))}var Oe={multiple_choice:`☑️ Выбери правильный`,fill_blank:`✏️ Заполни пропуск`,self_check:`👁️ Самопроверка`,matching:`🔗 Соедини пары`,vowel_harmony:`🔤 Гармония гласных`},z=[],B=0,ke=null,V=null,Ae=!1;function je(e,t){return ke=e,z=t,B=0,Ae=!1,V=j[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},z.length?`
+  `,document.getElementById(`btn-test-done`)?.addEventListener(`click`,()=>{P=F._allWords||P,document.querySelector(`.vocab-page`).innerHTML=me(),ge(F)}),document.getElementById(`btn-retest`)?.addEventListener(`click`,we),document.getElementById(`btn-to-chapter-t`)?.addEventListener(`click`,()=>A(`/chapter/${F.id}`))}var Oe={multiple_choice:`☑️ Выбери правильный`,fill_blank:`✏️ Заполни пропуск`,self_check:`👁️ Самопроверка`,matching:`🔗 Соедини пары`,vowel_harmony:`🔤 Гармония гласных`},z=[],B=0,ke=null,V=null,Ae=!1;function je(e,t){return ke=e,z=t,B=0,Ae=!1,V=j[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},z.length?`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="btn-back-ex">← ${e.title_fi}</button>
@@ -838,7 +838,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <div class="trend-bars">${i}</div>
       <div class="trend-hint">занятий за неделю · последние 8 недель</div>
     </div>
-  `}function St(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>A(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var Ct=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],wt=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],Tt={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function Et(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function Dt(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function Ot(e){let t=e.profiles,n=t[e.activeProfile];return`
+  `}function St(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>A(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var Ct=`finnish_app_auth`;function wt(){try{return JSON.parse(localStorage.getItem(Ct))||{}}catch{return{}}}function Tt(e){localStorage.setItem(Ct,JSON.stringify({profileId:e}))}function Et(){localStorage.removeItem(Ct)}function Dt(){let e=wt();return!!(e.profileId&&p().profiles[e.profileId])}var Ot=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],kt=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],At={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function jt(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function Mt(e,t,n=20){let r=e.exercises[t]||{},i=e.vocabulary[t]||{},a=Object.values(r).filter(e=>e.completed).length+Object.values(i).filter(e=>e.seen).length;return Math.min(100,Math.round(a/n*100))}function Nt(e){let t=e.profiles,n=t[e.activeProfile];return`
     <header class="header">
       <div class="logo">
         <img src="/lets-go-finnish/logo.png" alt="Let's Go Learn Finnish!" class="logo-img">
@@ -868,16 +868,20 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             <button class="profile-dropdown-item" id="btn-add-profile">
               <span>＋</span><span>Добавить профиль</span>
             </button>
+            <div class="profile-dropdown-divider"></div>
+            <button class="profile-dropdown-item" id="btn-logout">
+              <span>🚪</span><span>Выйти</span>
+            </button>
           </div>
         </div>
       </div>
     </header>
-  `}function kt(e,t){let n=g();return`
-    ${Ot(e)}
+  `}function Pt(e,t){let n=g();return`
+    ${Nt(e)}
     <div class="hero">
       <div class="hero-text">
         <h1><span class="hero-accent">Suomi on vaikea.</span><br>Mutta me справимся 💪</h1>
-        <p class="greeting">${Et(n.name)}</p>
+        <p class="greeting">${jt(n.name)}</p>
       </div>
       <div class="hero-deco">
         <div class="deco-card deco-1"><span class="deco-dot"></span>Moikka! — Привет!</div>
@@ -885,8 +889,8 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <div class="deco-card deco-3"><span class="deco-dot"></span>Hyvää! — Отлично!</div>
       </div>
     </div>
-    ${At(t,n)}
-  `}function At(e,t){let n={};e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),Object.values(n).forEach(e=>{e.forEach((e,t)=>{e.levelNum=t+1})});let r=-1,i=wt.map((e,i)=>{let a=n[e]||[];if(!a.length)return{pct:0,done:!1,started:!1};let o=a.map(e=>Dt(t,e.id)),s=o.reduce((e,t)=>e+t,0)/o.length,c=o.every(e=>e===100),l=o.some(e=>e>0);return l&&!c&&r===-1&&(r=i),{pct:s,done:c,started:l}});return r===-1&&(r=wt.findIndex(e=>(n[e]||[]).length>0)),wt.map((e,a)=>{let o=Tt[e]||{color:`#7C3AED`,bg:`#EDE7FB`},s=n[e]||[],c=s.length>0,l=i[a],u=a===r,d=l.done&&c;return`
+    ${Ft(t,n)}
+  `}function Ft(e,t){let n={};e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),Object.values(n).forEach(e=>{e.forEach((e,t)=>{e.levelNum=t+1})});let r=-1,i=kt.map((e,i)=>{let a=n[e]||[];if(!a.length)return{pct:0,done:!1,started:!1};let o=a.map(e=>Mt(t,e.id)),s=o.reduce((e,t)=>e+t,0)/o.length,c=o.every(e=>e===100),l=o.some(e=>e>0);return l&&!c&&r===-1&&(r=i),{pct:s,done:c,started:l}});return r===-1&&(r=kt.findIndex(e=>(n[e]||[]).length>0)),kt.map((e,a)=>{let o=At[e]||{color:`#7C3AED`,bg:`#EDE7FB`},s=n[e]||[],c=s.length>0,l=i[a],u=a===r,d=l.done&&c;return`
         <div class="level-section ${c?``:`level-section-soon`} ${d?`level-done`:``}"
              data-level="${e}">
           <div class="level-header level-header-toggle" data-level-target="${e}"
@@ -906,7 +910,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             </div>
           </div>
           <div class="chapters-grid level-content ${u?``:`level-collapsed`}" id="level-${e}">
-            ${c?s.map(e=>jt(e,e.levelNum,t)).join(``):[1,2,3].map(e=>`
+            ${c?s.map(e=>It(e,e.levelNum,t)).join(``):[1,2,3].map(e=>`
                   <div class="chapter-card chapter-card-soon">
                     <div class="card-img-wrap soon-img-wrap" style="background:${o.bg}">
                       <span class="soon-emoji">🔒</span>
@@ -919,7 +923,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
                   </div>`).join(``)}
           </div>
         </div>
-      `}).join(``)}function jt(e,t,n){let r=Dt(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
+      `}).join(``)}function It(e,t,n){let r=Mt(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
     <div class="chapter-card ${i?`done`:``} ${r>0?`in-progress`:``}"
          data-chapter="${e.id}"
          style="--card-color: ${e.color}">
@@ -942,7 +946,62 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         </div>
       </div>
     </div>
-  `}function $(e){document.querySelector(`#app`).innerHTML=e}function Mt(){document.getElementById(`btn-active-profile`)?.addEventListener(`click`,e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.addEventListener(`click`,()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)},{once:!1}),document.querySelectorAll(`.profile-dropdown-item[data-profile]`).forEach(e=>{e.addEventListener(`click`,t=>{t.stopPropagation();let n=e.dataset.profile,r=p().profiles[n];r?.pin?Ut(n,r.name):(_(n),Pt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-add-profile`)?.addEventListener(`click`,zt),document.getElementById(`btn-start-learning`)?.addEventListener(`click`,zt),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,Bt),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{A(`/profile/${p().activeProfile}`)})}var Nt=Ct.map(e=>({...e,...j[e.id]}));function Pt(){$(kt(p(),Nt)),Mt()}var Ft={chapters:[],vocabulary:[],exercises:[]};async function It(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{Ft=await ne(),Ft.chapters?.length>0&&(Nt=Ft.chapters.map(e=>({...e,...j[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Lt(),re(Lt)}function Lt(){let e=k(),t=p();if(e.page===`dashboard`||!e.page){Pt();return}if(e.page===`profile`){$(yt(e.profileId)),St();return}let n=Nt.find(t=>t.id===e.chapterId);if(!n){Pt();return}let r=Ft.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ft.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ft.grammar||[];if(e.section===`vocabulary`){$(me(n,r)),he(n);return}if(e.section===`exercises`){$(je(n,i)),Ie(n);return}if(e.section===`grammar`){$(qe(n,a)),Je(n);return}if(e.section===`vocab-exercises`){$(Xe(n,r)),Ze(n);return}$(M(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),oe(e.chapterId,r,t.activeProfile,i)}It();var Rt=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`];function zt(){let e=document.createElement(`div`);e.id=`add-profile-modal`,e.innerHTML=`
+  `}function $(e){document.querySelector(`#app`).innerHTML=e}function Lt(){document.getElementById(`btn-active-profile`)?.addEventListener(`click`,e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.addEventListener(`click`,()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)},{once:!1}),document.querySelectorAll(`.profile-dropdown-item[data-profile]`).forEach(e=>{e.addEventListener(`click`,t=>{t.stopPropagation();let n=e.dataset.profile,r=p().profiles[n];r?.pin?$t(n,r.name):(_(n),zt())})}),document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{A(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-add-profile`)?.addEventListener(`click`,Yt),document.getElementById(`btn-start-learning`)?.addEventListener(`click`,Yt),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,Xt),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{A(`/profile/${p().activeProfile}`)}),document.getElementById(`btn-logout`)?.addEventListener(`click`,()=>{Et(),$(Bt()),Vt()}),document.getElementById(`btn-active-profile`)?.addEventListener(`click`,e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.addEventListener(`click`,()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)})}var Rt=Ot.map(e=>({...e,...j[e.id]}));function zt(){$(Pt(p(),Rt)),Lt()}function Bt(){let e=p();return`
+    <div class="login-screen">
+      <img src="/lets-go-finnish/logo.png" class="login-logo" alt="">
+      <h1 class="login-title">Kuka sinä olet?</h1>
+      <p class="login-sub">Выбери свой профиль</p>
+      <div class="login-profiles">
+        ${Object.entries(e.profiles).map(([e,t])=>`
+          <button class="login-profile-card" data-profile="${e}">
+            <div class="login-avatar">
+              ${t.avatarEmoji?`<span style="font-size:48px">${t.avatarEmoji}</span>`:`<img src="/lets-go-finnish/${e}.png" alt="${t.name}" style="width:80px;height:80px;object-fit:contain">`}
+            </div>
+            <div class="login-name">${t.name}</div>
+            ${t.pin?`<div class="login-lock">🔒</div>`:``}
+          </button>
+        `).join(``)}
+        <button class="login-profile-card login-add" id="login-add-profile">
+          <div class="login-avatar"><span style="font-size:40px;color:#9CA3AF">＋</span></div>
+          <div class="login-name" style="color:#9CA3AF">Новый профиль</div>
+        </button>
+      </div>
+    </div>`}function Vt(){document.querySelectorAll(`.login-profile-card[data-profile]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.profile,n=p().profiles[t];n?.pin?Ut(t,n.name):Ht(t)})}),document.getElementById(`login-add-profile`)?.addEventListener(`click`,Yt)}function Ht(e){Tt(e),_(e),A(`/`),zt()}function Ut(e,t){let n=document.createElement(`div`);n.innerHTML=`
+    <div class="modal-overlay" id="login-pin-overlay">
+      <div class="modal-box" style="text-align:center">
+        <h3 style="margin-bottom:8px">Привет, ${t}!</h3>
+        <p style="color:#6B7280;font-size:14px;margin-bottom:16px">Введи свой PIN-код</p>
+        <input type="password" id="login-pin-input" class="grammar-input"
+          placeholder="••••" maxlength="4" pattern="[0-9]*" inputmode="numeric"
+          style="text-align:center;font-size:24px;letter-spacing:8px;width:100%;margin-bottom:8px">
+        <div id="login-pin-error" style="color:var(--error);font-size:13px;height:18px;margin-bottom:8px"></div>
+        <div style="display:flex;gap:10px;margin-bottom:12px">
+          <button class="btn-complete" id="btn-login-confirm" style="background:var(--primary);flex:1">Войти</button>
+          <button class="btn-complete" id="btn-login-cancel" style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
+        </div>
+        <button id="btn-forgot-pin" style="background:none;border:none;color:#6B7280;font-size:13px;text-decoration:underline;cursor:pointer">Забыл PIN?</button>
+      </div>
+    </div>`,document.body.appendChild(n);let r=document.getElementById(`login-pin-input`);r?.focus();let i=()=>{r?.value.trim()===p().profiles[e]?.pin?(n.remove(),Ht(e)):(document.getElementById(`login-pin-error`).textContent=`❌ Неверный PIN`,r.value=``,r.focus())};r?.addEventListener(`keydown`,e=>{e.key===`Enter`&&i()}),document.getElementById(`btn-login-confirm`)?.addEventListener(`click`,i),document.getElementById(`btn-login-cancel`)?.addEventListener(`click`,()=>n.remove()),document.getElementById(`login-pin-overlay`)?.addEventListener(`click`,e=>{e.target.id===`login-pin-overlay`&&n.remove()}),document.getElementById(`btn-forgot-pin`)?.addEventListener(`click`,()=>{n.remove(),Wt(e,t)})}function Wt(e,t){let n=p().profiles[e],r=!!n.email,i=document.createElement(`div`);if(i.innerHTML=`
+    <div class="modal-overlay" id="forgot-overlay">
+      <div class="modal-box">
+        <h3 style="margin-bottom:8px">Восстановление PIN</h3>
+        ${r?`
+          <p style="color:#6B7280;font-size:14px;margin-bottom:16px">Введи email, указанный в профиле <strong>${t}</strong>. Если он совпадёт — сможешь задать новый PIN.</p>
+          <input type="email" id="recover-email" class="grammar-input" placeholder="Email из профиля..." style="width:100%;margin-bottom:8px">
+          <div id="recover-error" style="color:var(--error);font-size:13px;height:18px;margin-bottom:8px"></div>
+          <div id="recover-step2" style="display:none">
+            <input type="password" id="recover-new-pin" class="grammar-input" placeholder="Новый PIN (4 цифры)" maxlength="4" pattern="[0-9]*" inputmode="numeric" style="width:100%;margin-bottom:12px">
+          </div>
+          <div style="display:flex;gap:10px">
+            <button class="btn-complete" id="btn-recover" style="background:var(--primary);flex:1">Проверить email</button>
+            <button class="btn-complete" id="btn-recover-cancel" style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
+          </div>
+        `:`
+          <p style="color:#6B7280;font-size:14px;margin-bottom:16px">⚠️ В этом профиле не указан email для восстановления. Без него сбросить PIN нельзя.</p>
+          <button class="btn-complete" id="btn-recover-cancel" style="background:var(--primary);width:100%">Понятно</button>
+        `}
+      </div>
+    </div>`,document.body.appendChild(i),document.getElementById(`btn-recover-cancel`)?.addEventListener(`click`,()=>i.remove()),document.getElementById(`forgot-overlay`)?.addEventListener(`click`,e=>{e.target.id===`forgot-overlay`&&i.remove()}),r){let t=!1;document.getElementById(`btn-recover`)?.addEventListener(`click`,()=>{let r=document.getElementById(`recover-error`);if(!t)document.getElementById(`recover-email`)?.value.trim().toLowerCase()===n.email.toLowerCase()?(t=!0,document.getElementById(`recover-step2`).style.display=`block`,document.getElementById(`btn-recover`).textContent=`Задать новый PIN`,r.style.color=`var(--success)`,r.textContent=`✅ Email подтверждён`):r.textContent=`❌ Email не совпадает`;else{let t=document.getElementById(`recover-new-pin`)?.value.trim();if(!t){r.style.color=`var(--error)`,r.textContent=`Введи новый PIN`;return}let n=p();n.profiles[e].pin=t,h(n),i.remove(),Ht(e)}})}}var Gt={chapters:[],vocabulary:[],exercises:[]};async function Kt(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{Gt=await ne(),Gt.chapters?.length>0&&(Rt=Gt.chapters.map(e=>({...e,...j[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}qt(),re(qt)}function qt(){let e=k(),t=p();if(!Dt()){$(Bt()),Vt();return}let n=wt();if(t.activeProfile!==n.profileId&&_(n.profileId),e.page===`dashboard`||!e.page){zt();return}if(e.page===`profile`){$(yt(e.profileId)),St();return}let r=Rt.find(t=>t.id===e.chapterId);if(!r){zt();return}let i=Gt.vocabulary.filter(t=>t.chapter_id===e.chapterId),a=Gt.exercises.filter(t=>t.chapter_id===e.chapterId),o=Gt.grammar||[];if(e.section===`vocabulary`){$(he(r,i)),ge(r);return}if(e.section===`exercises`){$(je(r,a)),Ie(r);return}if(e.section===`grammar`){$(qe(r,o)),Je(r);return}if(e.section===`vocab-exercises`){$(Xe(r,i)),Ze(r);return}$(M(r,i,a,t,o.filter(t=>t.Chapter===e.chapterId))),oe(e.chapterId,i,t.activeProfile,a)}Kt();var Jt=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`];function Yt(){let e=document.createElement(`div`);e.id=`add-profile-modal`,e.innerHTML=`
     <div class="modal-overlay" id="modal-overlay">
       <div class="modal-box">
         <h3 style="margin-bottom:16px">Новый профиль</h3>
@@ -951,14 +1010,17 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
           style="width:100%;margin-bottom:12px">
         <div style="font-size:13px;color:#6B7280;margin-bottom:8px">Выбери аватар:</div>
         <div class="avatar-picker" style="margin-bottom:16px">
-          ${Rt.map(e=>`
+          ${Jt.map(e=>`
             <button class="avatar-option" data-emoji="${e}">${e}</button>
           `).join(``)}
         </div>
         <div style="font-size:13px;color:#6B7280;margin-bottom:4px">PIN-код (опционально):</div>
         <input type="password" id="profile-pin-input" class="grammar-input"
           placeholder="4 цифры для защиты профиля..." maxlength="4" pattern="[0-9]*"
-          inputmode="numeric" style="width:100%;margin-bottom:20px">
+          inputmode="numeric" style="width:100%;margin-bottom:12px">
+        <div style="font-size:13px;color:#6B7280;margin-bottom:4px">Email (для восстановления PIN):</div>
+        <input type="email" id="profile-email-input" class="grammar-input"
+          placeholder="email@example.com" style="width:100%;margin-bottom:20px">
         <div style="display:flex;gap:10px">
           <button class="btn-complete" id="btn-save-profile"
             style="background:var(--primary);flex:1">Создать</button>
@@ -966,7 +1028,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
         </div>
       </div>
-    </div>`,document.body.appendChild(e);let t=Rt[0];e.querySelector(`.avatar-option[data-emoji="${t}"]`)?.classList.add(`selected`),e.querySelectorAll(`.avatar-option`).forEach(n=>{n.addEventListener(`click`,()=>{e.querySelectorAll(`.avatar-option`).forEach(e=>e.classList.remove(`selected`)),n.classList.add(`selected`),t=n.dataset.emoji})}),document.getElementById(`btn-cancel-modal`)?.addEventListener(`click`,()=>e.remove()),document.getElementById(`modal-overlay`)?.addEventListener(`click`,t=>{t.target.id===`modal-overlay`&&e.remove()}),document.getElementById(`btn-save-profile`)?.addEventListener(`click`,()=>{let n=document.getElementById(`profile-name-input`)?.value.trim();if(!n){document.getElementById(`profile-name-input`).style.borderColor=`var(--error)`;return}let r=document.getElementById(`profile-pin-input`)?.value.trim(),i=p(),a=`user_`+Date.now();i.profiles[a]={name:n,avatarEmoji:t,pin:r||null,chapters:{},vocabulary:{},exercises:{},activity:{}},h(i),_(a),e.remove(),Pt()})}function Bt(){let e=p();if(e.profiles[e.activeProfile].pin){Vt();return}Ht()}function Vt(){let e=p();e.profiles[e.activeProfile];let t=document.createElement(`div`);t.innerHTML=`
+    </div>`,document.body.appendChild(e);let t=Jt[0];e.querySelector(`.avatar-option[data-emoji="${t}"]`)?.classList.add(`selected`),e.querySelectorAll(`.avatar-option`).forEach(n=>{n.addEventListener(`click`,()=>{e.querySelectorAll(`.avatar-option`).forEach(e=>e.classList.remove(`selected`)),n.classList.add(`selected`),t=n.dataset.emoji})}),document.getElementById(`btn-cancel-modal`)?.addEventListener(`click`,()=>e.remove()),document.getElementById(`modal-overlay`)?.addEventListener(`click`,t=>{t.target.id===`modal-overlay`&&e.remove()}),document.getElementById(`btn-save-profile`)?.addEventListener(`click`,()=>{let n=document.getElementById(`profile-name-input`)?.value.trim();if(!n){document.getElementById(`profile-name-input`).style.borderColor=`var(--error)`;return}let r=document.getElementById(`profile-pin-input`)?.value.trim(),i=document.getElementById(`profile-email-input`)?.value.trim(),a=p(),o=`user_`+Date.now();a.profiles[o]={name:n,avatarEmoji:t,pin:r||null,email:i||null,chapters:{},vocabulary:{},exercises:{},activity:{}},h(a),Tt(o),_(o),e.remove(),A(`/`),zt()})}function Xt(){let e=p();if(e.profiles[e.activeProfile].pin){Zt();return}Qt()}function Zt(){let e=p();e.profiles[e.activeProfile];let t=document.createElement(`div`);t.innerHTML=`
     <div class="modal-overlay" id="verify-overlay">
       <div class="modal-box" style="text-align:center">
         <h3 style="margin-bottom:8px">Подтверди личность</h3>
@@ -980,7 +1042,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
           <button class="btn-complete" id="btn-cancel-verify" style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
         </div>
       </div>
-    </div>`,document.body.appendChild(t);let n=document.getElementById(`verify-pin-input`);n?.focus();let r=()=>{let e=n?.value.trim(),r=p();e===r.profiles[r.activeProfile]?.pin?(t.remove(),Ht()):(document.getElementById(`verify-error`).textContent=`❌ Неверный PIN`,n.value=``,n.focus())};n?.addEventListener(`keydown`,e=>{e.key===`Enter`&&r()}),document.getElementById(`btn-confirm-verify`)?.addEventListener(`click`,r),document.getElementById(`btn-cancel-verify`)?.addEventListener(`click`,()=>t.remove()),document.getElementById(`verify-overlay`)?.addEventListener(`click`,e=>{e.target.id===`verify-overlay`&&t.remove()})}function Ht(){let e=p(),t=e.profiles[e.activeProfile],n=!!t.pin,r=document.createElement(`div`);r.innerHTML=`
+    </div>`,document.body.appendChild(t);let n=document.getElementById(`verify-pin-input`);n?.focus();let r=()=>{let e=n?.value.trim(),r=p();e===r.profiles[r.activeProfile]?.pin?(t.remove(),Qt()):(document.getElementById(`verify-error`).textContent=`❌ Неверный PIN`,n.value=``,n.focus())};n?.addEventListener(`keydown`,e=>{e.key===`Enter`&&r()}),document.getElementById(`btn-confirm-verify`)?.addEventListener(`click`,r),document.getElementById(`btn-cancel-verify`)?.addEventListener(`click`,()=>t.remove()),document.getElementById(`verify-overlay`)?.addEventListener(`click`,e=>{e.target.id===`verify-overlay`&&t.remove()})}function Qt(){let e=p(),t=e.profiles[e.activeProfile],n=!!t.pin,r=document.createElement(`div`);r.innerHTML=`
     <div class="modal-overlay" id="settings-overlay">
       <div class="modal-box">
         <h3 style="margin-bottom:16px">⚙️ Настройки профиля</h3>
@@ -991,7 +1053,11 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
         <input type="password" id="new-pin-input" class="grammar-input"
           placeholder="${n?`Новый PIN или пусто чтобы убрать`:`4 цифры...`}"
           maxlength="4" pattern="[0-9]*" inputmode="numeric"
-          style="width:100%;margin-bottom:20px;margin-top:8px">
+          style="width:100%;margin-bottom:12px;margin-top:8px">
+        <div style="font-size:13px;color:#6B7280;margin-bottom:4px">Email для восстановления:</div>
+        <input type="email" id="new-email-input" class="grammar-input"
+          placeholder="email@example.com" value="${t.email||``}"
+          style="width:100%;margin-bottom:20px">
         <div style="display:flex;gap:10px">
           <button class="btn-complete" id="btn-save-settings"
             style="background:var(--primary);flex:1">Сохранить</button>
@@ -999,7 +1065,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
         </div>
       </div>
-    </div>`,document.body.appendChild(r),document.getElementById(`btn-cancel-settings`)?.addEventListener(`click`,()=>r.remove()),document.getElementById(`settings-overlay`)?.addEventListener(`click`,e=>{e.target.id===`settings-overlay`&&r.remove()}),document.getElementById(`btn-save-settings`)?.addEventListener(`click`,()=>{let e=document.getElementById(`new-pin-input`)?.value.trim(),t=p();t.profiles[t.activeProfile].pin=e||null,h(t),r.remove();let n=document.createElement(`div`);n.textContent=e?`🔒 PIN установлен!`:`🔓 PIN убран`,n.style.cssText=`position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1A1A2E;color:white;padding:10px 20px;border-radius:999px;font-size:14px;font-weight:600;z-index:1000`,document.body.appendChild(n),setTimeout(()=>n.remove(),2500)})}function Ut(e,t){let n=document.createElement(`div`);n.innerHTML=`
+    </div>`,document.body.appendChild(r),document.getElementById(`btn-cancel-settings`)?.addEventListener(`click`,()=>r.remove()),document.getElementById(`settings-overlay`)?.addEventListener(`click`,e=>{e.target.id===`settings-overlay`&&r.remove()}),document.getElementById(`btn-save-settings`)?.addEventListener(`click`,()=>{let e=document.getElementById(`new-pin-input`)?.value.trim(),t=document.getElementById(`new-email-input`)?.value.trim(),n=p();n.profiles[n.activeProfile].pin=e||null,n.profiles[n.activeProfile].email=t||null,h(n),r.remove();let i=document.createElement(`div`);i.textContent=e?`🔒 PIN установлен!`:`🔓 PIN убран`,i.style.cssText=`position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1A1A2E;color:white;padding:10px 20px;border-radius:999px;font-size:14px;font-weight:600;z-index:1000`,document.body.appendChild(i),setTimeout(()=>i.remove(),2500)})}function $t(e,t){let n=document.createElement(`div`);n.innerHTML=`
     <div class="modal-overlay" id="pin-overlay">
       <div class="modal-box" style="text-align:center">
         <h3 style="margin-bottom:8px">Привет, ${t}!</h3>
@@ -1015,4 +1081,4 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
             style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
         </div>
       </div>
-    </div>`,document.body.appendChild(n);let r=document.getElementById(`pin-input`);r?.focus();let i=()=>{let t=p();r?.value.trim()===t.profiles[e]?.pin?(_(e),n.remove(),Pt()):(document.getElementById(`pin-error`).textContent=`❌ Неверный PIN`,r.value=``,r.focus())};r?.addEventListener(`keydown`,e=>{e.key===`Enter`&&i()}),document.getElementById(`btn-confirm-pin`)?.addEventListener(`click`,i),document.getElementById(`btn-cancel-pin`)?.addEventListener(`click`,()=>n.remove()),document.getElementById(`pin-overlay`)?.addEventListener(`click`,e=>{e.target.id===`pin-overlay`&&n.remove()})}
+    </div>`,document.body.appendChild(n);let r=document.getElementById(`pin-input`);r?.focus();let i=()=>{let t=p();r?.value.trim()===t.profiles[e]?.pin?(_(e),n.remove(),zt()):(document.getElementById(`pin-error`).textContent=`❌ Неверный PIN`,r.value=``,r.focus())};r?.addEventListener(`keydown`,e=>{e.key===`Enter`&&i()}),document.getElementById(`btn-confirm-pin`)?.addEventListener(`click`,i),document.getElementById(`btn-cancel-pin`)?.addEventListener(`click`,()=>n.remove()),document.getElementById(`pin-overlay`)?.addEventListener(`click`,e=>{e.target.id===`pin-overlay`&&n.remove()})}

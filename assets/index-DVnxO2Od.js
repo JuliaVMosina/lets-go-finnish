@@ -961,25 +961,52 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
       </div>
     </div>
   `}function ws(e){document.querySelector(`#app`).innerHTML=e}function Ts(){document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{V(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{V(`/profile/${p().activeProfile}`)}),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,Rs),document.getElementById(`btn-logout`)?.addEventListener(`click`,async()=>{if(ds){let e=p().profiles[ds.id];e&&await Ea(ds.id,e)}await Ca(),ds=null,Os=`signin`,ws(ks()),As()});let e=document.getElementById(`btn-active-profile`);e&&(e.onclick=e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.onclick=()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)}}var Es=hs.map(e=>({...e,...Fa[e.id]}));function Ds(){ws(xs(p(),Es)),Ts()}var Os=`signin`;function ks(){let e=Os===`signup`;return`
-    <div class="login-screen">
-      <img src="/lets-go-finnish/logo.png" class="login-logo" alt="">
-      <h1 class="login-title">${e?`Tervetuloa!`:`Hei taas!`}</h1>
-      <p class="login-sub">${e?`Создай аккаунт — прогресс сохранится в облаке`:`Войди, чтобы продолжить учить финский`}</p>
-      <div class="auth-box">
-        ${e?`
-          <input type="text" id="auth-name" class="grammar-input auth-input" placeholder="Имя" autocomplete="name">
-        `:``}
-        <input type="email" id="auth-email" class="grammar-input auth-input" placeholder="Email" autocomplete="email">
-        <input type="password" id="auth-password" class="grammar-input auth-input" placeholder="Пароль (мин. 6 символов)" autocomplete="${e?`new-password`:`current-password`}">
-        <div id="auth-error" class="auth-error"></div>
-        <button class="btn-complete auth-submit" id="btn-auth-submit" style="background:var(--primary);width:100%">
-          ${e?`Создать аккаунт`:`Войти`}
-        </button>
-        <div class="auth-switch">
-          ${e?`Уже есть аккаунт? <button id="btn-switch-mode" class="auth-link">Войти</button>`:`Нет аккаунта? <button id="btn-switch-mode" class="auth-link">Зарегистрироваться</button>`}
+    <div class="login-split">
+      <!-- decorative leaves / blobs -->
+      <div class="login-blob login-blob-tr"></div>
+      <div class="login-blob login-blob-bl"></div>
+
+      <!-- Left: brand + characters -->
+      <div class="login-left">
+        <h1 class="brand-title">Kahvi <span class="brand-amp">&amp;</span> Kieli</h1>
+        <p class="brand-sub">Let's Go Learn Finnish!</p>
+        <img src="/lets-go-finnish/login-hero.png" class="login-hero-img" alt=""
+             onerror="this.style.display='none'">
+      </div>
+
+      <!-- Right: auth card -->
+      <div class="login-right">
+        <div class="auth-card">
+          <h2 class="auth-title">${e?`Tervetuloa!`:`Tervetuloa takaisin!`}</h2>
+          <p class="auth-subtitle">${e?`Luo tili — edistymisesi tallentuu pilveen.`:`Kirjaudu sisään jatkaaksesi oppimista.`}</p>
+
+          ${e?`
+            <label class="auth-label">Nimi</label>
+            <input type="text" id="auth-name" class="auth-field" placeholder="Etunimi" autocomplete="name">
+          `:``}
+
+          <label class="auth-label">Sähköposti</label>
+          <input type="email" id="auth-email" class="auth-field" placeholder="esimerkki@email.com" autocomplete="email">
+
+          <label class="auth-label">Salasana</label>
+          <input type="password" id="auth-password" class="auth-field" placeholder="••••••••" autocomplete="${e?`new-password`:`current-password`}">
+
+          ${e?``:`<div class="auth-forgot"><button id="btn-forgot" class="auth-link">Unohditko salasanasi?</button></div>`}
+
+          <div id="auth-error" class="auth-error"></div>
+
+          <button class="auth-primary-btn" id="btn-auth-submit">
+            ${e?`Luo tili`:`Kirjaudu sisään`}
+          </button>
+
+          <div class="auth-divider"><span>tai</span></div>
+
+          <button class="auth-secondary-btn" id="btn-switch-mode">
+            ${e?`Kirjaudu sisään`:`Luo uusi tili`}
+          </button>
         </div>
       </div>
-    </div>`}function As(){document.getElementById(`btn-switch-mode`)?.addEventListener(`click`,()=>{Os=Os===`signin`?`signup`:`signin`,ws(ks()),As()});let e=async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-password`)?.value,n=document.getElementById(`auth-name`)?.value.trim(),r=document.getElementById(`auth-error`),i=document.getElementById(`btn-auth-submit`);if(!e||!t){r.textContent=`Заполни email и пароль`;return}if(Os===`signup`&&t.length<6){r.textContent=`Пароль минимум 6 символов`;return}r.textContent=``,i.disabled=!0,i.textContent=`Загрузка...`;let a;if(a=Os===`signup`?await xa(e,t,n||e.split(`@`)[0]):await Sa(e,t),a.error){r.textContent=js(a.error.message),i.disabled=!1,i.textContent=Os===`signup`?`Создать аккаунт`:`Войти`;return}if(!a.session){r.style.color=`var(--success)`,r.textContent=`✅ Проверь почту и подтверди email, потом войди`,i.disabled=!1,i.textContent=`Войти`,Os=`signin`;return}await ms(a.user),V(`/`),Ds()};document.getElementById(`btn-auth-submit`)?.addEventListener(`click`,e),document.getElementById(`auth-password`)?.addEventListener(`keydown`,t=>{t.key===`Enter`&&e()})}function js(e){let t=e.toLowerCase();return t.includes(`invalid login`)?`❌ Неверный email или пароль`:t.includes(`already registered`)?`❌ Этот email уже зарегистрирован`:t.includes(`password`)?`❌ Пароль слишком короткий (мин. 6)`:t.includes(`email`)?`❌ Проверь правильность email`:`❌ `+e}var Ms={chapters:[],vocabulary:[],exercises:[]};async function Ns(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{let e=await wa();e?.user&&await ms(e.user)}catch{console.log(`Нет активной сессии`)}try{Ms=await Ma(),Ms.chapters?.length>0&&(Es=Ms.chapters.map(e=>({...e,...Fa[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Ps(),Pa(Ps)}function Ps(){let e=Na(),t=p();if(!ds){ws(ks()),As();return}if(e.page===`dashboard`||!e.page){Ds();return}if(e.page===`profile`){ws(ss(e.profileId)),us();return}let n=Es.find(t=>t.id===e.chapterId);if(!n){Ds();return}let r=Ms.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ms.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ms.grammar||[];if(e.section===`vocabulary`){ws(Ya(n,r)),Xa(n);return}if(e.section===`exercises`){ws(po(n,i)),vo(n);return}if(e.section===`grammar`){ws(Ao(n,a)),jo(n);return}if(e.section===`vocab-exercises`){ws(Lo(n,r)),Ro(n);return}ws(Ra(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),za(e.chapterId,r,t.activeProfile,i)}Ns();var Fs=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`],Is=[`av1.png`,`av2.png`,`av3.png`,`av4.png`];function Ls(e,t=40){return e?.avatarImg?`<img class="avatar" src="/lets-go-finnish/${e.avatarImg}" alt="${e.name||``}" style="width:${t}px;height:${t}px;border-radius:50%;object-fit:cover">`:e?.avatarEmoji?`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">${e.avatarEmoji}</span>`:`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">🦊</span>`}function Rs(){let e=p(),t=e.profiles[e.activeProfile];if(!t)return;let n=document.createElement(`div`);n.innerHTML=`
+    </div>`}function As(){document.getElementById(`btn-switch-mode`)?.addEventListener(`click`,()=>{Os=Os===`signin`?`signup`:`signin`,ws(ks()),As()});let e=async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-password`)?.value,n=document.getElementById(`auth-name`)?.value.trim(),r=document.getElementById(`auth-error`),i=document.getElementById(`btn-auth-submit`);if(!e||!t){r.textContent=`Заполни email и пароль`;return}if(Os===`signup`&&t.length<6){r.textContent=`Пароль минимум 6 символов`;return}r.textContent=``,i.disabled=!0,i.textContent=`Загрузка...`;let a;if(a=Os===`signup`?await xa(e,t,n||e.split(`@`)[0]):await Sa(e,t),a.error){r.textContent=js(a.error.message),i.disabled=!1,i.textContent=Os===`signup`?`Создать аккаунт`:`Войти`;return}if(!a.session){r.style.color=`var(--success)`,r.textContent=`✅ Проверь почту и подтверди email, потом войди`,i.disabled=!1,i.textContent=`Войти`,Os=`signin`;return}await ms(a.user),V(`/`),Ds()};document.getElementById(`btn-auth-submit`)?.addEventListener(`click`,e),document.getElementById(`auth-password`)?.addEventListener(`keydown`,t=>{t.key===`Enter`&&e()}),document.getElementById(`btn-forgot`)?.addEventListener(`click`,async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-error`);if(!e){t.style.color=`var(--error)`,t.textContent=`Введи email выше, потом нажми «Unohditko salasanasi?»`;return}let{error:n}=await ba.auth.resetPasswordForEmail(e,{redirectTo:window.location.origin+`/lets-go-finnish/`});t.style.color=n?`var(--error)`:`var(--success)`,t.textContent=n?js(n.message):`✅ Письмо для сброса пароля отправлено на `+e})}function js(e){let t=e.toLowerCase();return t.includes(`invalid login`)?`❌ Неверный email или пароль`:t.includes(`already registered`)?`❌ Этот email уже зарегистрирован`:t.includes(`password`)?`❌ Пароль слишком короткий (мин. 6)`:t.includes(`email`)?`❌ Проверь правильность email`:`❌ `+e}var Ms={chapters:[],vocabulary:[],exercises:[]};async function Ns(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{let e=await wa();e?.user&&await ms(e.user)}catch{console.log(`Нет активной сессии`)}try{Ms=await Ma(),Ms.chapters?.length>0&&(Es=Ms.chapters.map(e=>({...e,...Fa[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Ps(),Pa(Ps)}function Ps(){let e=Na(),t=p();if(!ds){ws(ks()),As();return}if(e.page===`dashboard`||!e.page){Ds();return}if(e.page===`profile`){ws(ss(e.profileId)),us();return}let n=Es.find(t=>t.id===e.chapterId);if(!n){Ds();return}let r=Ms.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ms.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ms.grammar||[];if(e.section===`vocabulary`){ws(Ya(n,r)),Xa(n);return}if(e.section===`exercises`){ws(po(n,i)),vo(n);return}if(e.section===`grammar`){ws(Ao(n,a)),jo(n);return}if(e.section===`vocab-exercises`){ws(Lo(n,r)),Ro(n);return}ws(Ra(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),za(e.chapterId,r,t.activeProfile,i)}Ns();var Fs=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`],Is=[`av1.png`,`av2.png`,`av3.png`,`av4.png`];function Ls(e,t=40){return e?.avatarImg?`<img class="avatar" src="/lets-go-finnish/${e.avatarImg}" alt="${e.name||``}" style="width:${t}px;height:${t}px;border-radius:50%;object-fit:cover">`:e?.avatarEmoji?`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">${e.avatarEmoji}</span>`:`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">🦊</span>`}function Rs(){let e=p(),t=e.profiles[e.activeProfile];if(!t)return;let n=document.createElement(`div`);n.innerHTML=`
     <div class="modal-overlay" id="acc-overlay">
       <div class="modal-box">
         <h3 style="margin-bottom:16px">⚙️ Настройки</h3>

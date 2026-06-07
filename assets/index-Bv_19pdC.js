@@ -870,8 +870,7 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         <div class="profile-switcher" style="position:relative">
           <button class="profile-btn active" id="btn-active-profile">
             ${Ls(t,48)}
-            <span class="pname">${t.name}</span>
-            <span style="font-size:10px;margin-left:2px;opacity:0.5">▼</span>
+            <span class="pname">${t.name} <span style="font-size:9px;opacity:0.5">▼</span></span>
           </button>
           <div class="profile-dropdown" id="profile-dropdown" style="display:none">
             <div style="padding:8px 12px;font-size:12px;color:#9CA3AF;border-bottom:1px solid var(--border);margin-bottom:4px">

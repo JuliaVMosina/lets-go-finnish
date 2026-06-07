@@ -960,18 +960,17 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
         </div>
       </div>
     </div>
-  `}function ws(e){document.querySelector(`#app`).innerHTML=e}function Ts(){document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{V(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{V(`/profile/${p().activeProfile}`)}),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,Rs),document.getElementById(`btn-logout`)?.addEventListener(`click`,async()=>{if(ds){let e=p().profiles[ds.id];e&&await Ea(ds.id,e)}await Ca(),ds=null,Os=`signin`,ws(ks()),As()});let e=document.getElementById(`btn-active-profile`);e&&(e.onclick=e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.onclick=()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)}}var Es=hs.map(e=>({...e,...Fa[e.id]}));function Ds(){ws(xs(p(),Es)),Ts()}var Os=`signin`;function ks(){let e=Os===`signup`;return`
+  `}function ws(e){document.querySelector(`#app`).innerHTML=e}function Ts(){document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{V(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{V(`/profile/${p().activeProfile}`)}),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,Rs),document.getElementById(`btn-logout`)?.addEventListener(`click`,async()=>{if(ds){let e=p().profiles[ds.id];e&&await Ea(ds.id,e)}await Ca(),ds=null,Os=`signin`,ws(ks()),As()});let e=document.getElementById(`btn-active-profile`);e&&(e.onclick=e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.onclick=()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)}}var Es=hs.map(e=>({...e,...Fa[e.id]}));function Ds(){ws(xs(p(),Es)),Ts()}var Os=`signin`;function ks(){let e=Os===`signup`,t=`/lets-go-finnish/`;return`
     <div class="login-split">
-      <!-- decorative leaves / blobs -->
-      <div class="login-blob login-blob-tr"></div>
-      <div class="login-blob login-blob-bl"></div>
+      <!-- decorative corner element -->
+      <img src="${t}el1.png" class="login-corner-el" alt="">
 
       <!-- Left: brand + characters -->
       <div class="login-left">
         <h1 class="brand-title">Kahvi <span class="brand-amp">&amp;</span> Kieli</h1>
         <p class="brand-sub">Opetellaan suomee!</p>
         <p class="brand-sub-en">Let's learn Finnish!</p>
-        <img src="/lets-go-finnish/login-hero.png" class="login-hero-img" alt=""
+        <img src="${t}heroyenterpage.png" class="login-hero-img" alt=""
              onerror="this.style.display='none'">
       </div>
 

@@ -657,7 +657,10 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
       </div>
       <div class="ex-container">
         <div class="ex-card">
-          <div class="ex-type-badge" style="background:${q.bg};color:${q.color}">📐 ${e.blockTitle}</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+            <div class="ex-type-badge" style="background:${q.bg};color:${q.color}">📐 ${e.blockTitle}</div>
+            <span style="font-size:13px;font-weight:700;color:${q.color}">Вопрос ${Fo+1} / ${Po.length}　·　✓ ${Io}</span>
+          </div>
           <div class="ex-question" style="margin:20px 0">${e.q}</div>
           <input type="text" class="grammar-input" id="gq-input" placeholder="Твой ответ по-фински..."
             style="width:100%;font-size:16px;padding:12px 16px" autocomplete="off">

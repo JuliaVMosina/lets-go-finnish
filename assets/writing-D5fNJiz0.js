@@ -1,5 +1,5 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-H0niVZwf.js","assets/index-Cs5SYE4U.css"])))=>i.map(i=>d[i]);
-import{c as e,n as t,o as n,s as r}from"./index-H0niVZwf.js";var i=null,a=null,o=[];function s(){return document.querySelector(`#app`)}function c(e){return i=e,a=n[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},o=t(e.id),u()}function l(){d()}function u(){return`
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-FiMcON5p.js","assets/index-Cs5SYE4U.css"])))=>i.map(i=>d[i]);
+import{c as e,n as t,o as n,s as r}from"./index-FiMcON5p.js";var i=null,a=null,o=[];function s(){return document.querySelector(`#app`)}function c(e){return i=e,a=n[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},o=t(e.id),u()}function l(){d()}function u(){return`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="wr-back-hub">← Упражнения</button>
@@ -19,7 +19,7 @@ import{c as e,n as t,o as n,s as r}from"./index-H0niVZwf.js";var i=null,a=null,o
             </div>`).join(``)}
         </div>
       </div>
-    </div>`}function d(){document.getElementById(`wr-back-hub`)?.addEventListener(`click`,()=>{e(()=>import(`./index-H0niVZwf.js`).then(e=>e.t).then(e=>{s().innerHTML=e.renderExercisesPage(i,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))}),document.querySelectorAll(`.wr-task-card`).forEach(e=>{e.addEventListener(`click`,()=>{let t=o[+e.dataset.i];r.writingStart(i.id,t.id),t.type===`form`?f(t):m(t)})})}function f(e){s().innerHTML=`
+    </div>`}function d(){document.getElementById(`wr-back-hub`)?.addEventListener(`click`,()=>{e(()=>import(`./index-FiMcON5p.js`).then(e=>e.t).then(e=>{s().innerHTML=e.renderExercisesPage(i,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))}),document.querySelectorAll(`.wr-task-card`).forEach(e=>{e.addEventListener(`click`,()=>{let t=o[+e.dataset.i];r.writingStart(i.id,t.id),t.type===`form`?f(t):m(t)})})}function f(e){s().innerHTML=`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="wr-back-form">← Письмо</button>

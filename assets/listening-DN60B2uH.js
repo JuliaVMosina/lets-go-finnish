@@ -1,5 +1,5 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-DZoUCo_D.js","assets/index-Cs5SYE4U.css"])))=>i.map(i=>d[i]);
-import{c as e,i as t,o as n,s as r}from"./index-DZoUCo_D.js";function i(e){return e===`puhekieli`?`<span class="reg-badge reg-puhe">💬 puhekieli</span>`:e===`kirjakieli`?`<span class="reg-badge reg-kirja">📖 kirjakieli</span>`:``}var a=null,o=null,s=[],c=0,l=0,u=!1;function d(){return document.querySelector(`#app`)}function f(e){return a=e,o=n[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},s=t(e.id),c=0,l=0,m()}function p(){h()}function m(){return`
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-H0niVZwf.js","assets/index-Cs5SYE4U.css"])))=>i.map(i=>d[i]);
+import{c as e,i as t,o as n,s as r}from"./index-H0niVZwf.js";function i(e){return e===`puhekieli`?`<span class="reg-badge reg-puhe">💬 puhekieli</span>`:e===`kirjakieli`?`<span class="reg-badge reg-kirja">📖 kirjakieli</span>`:``}var a=null,o=null,s=[],c=0,l=0,u=!1;function d(){return document.querySelector(`#app`)}function f(e){return a=e,o=n[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},s=t(e.id),c=0,l=0,m()}function p(){h()}function m(){return`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="ls-back-list">← Упражнения</button>
@@ -19,7 +19,7 @@ import{c as e,i as t,o as n,s as r}from"./index-DZoUCo_D.js";function i(e){retur
             </div>`).join(``)}
         </div>
       </div>
-    </div>`}function h(){document.getElementById(`ls-back-list`)?.addEventListener(`click`,()=>{e(()=>import(`./index-DZoUCo_D.js`).then(e=>e.t).then(e=>{d().innerHTML=e.renderExercisesPage(a,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))}),document.querySelectorAll(`.ls-track-card`).forEach(e=>{e.addEventListener(`click`,()=>{c=+e.dataset.i,l=0,u=!1,r.listeningStart(a.id,s[c].id),g()})})}function g(){let e=s[c];_(e,0)}function _(e,t){let n=e.questions[t],r=t===e.questions.length-1,a=Math.round(t/e.questions.length*100);d().innerHTML=`
+    </div>`}function h(){document.getElementById(`ls-back-list`)?.addEventListener(`click`,()=>{e(()=>import(`./index-H0niVZwf.js`).then(e=>e.t).then(e=>{d().innerHTML=e.renderExercisesPage(a,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))}),document.querySelectorAll(`.ls-track-card`).forEach(e=>{e.addEventListener(`click`,()=>{c=+e.dataset.i,l=0,u=!1,r.listeningStart(a.id,s[c].id),g()})})}function g(){let e=s[c];_(e,0)}function _(e,t){let n=e.questions[t],r=t===e.questions.length-1,a=Math.round(t/e.questions.length*100);d().innerHTML=`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="ls-back-track">← Аудирование</button>

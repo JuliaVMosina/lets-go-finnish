@@ -1,5 +1,5 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-DZoUCo_D.js","assets/index-Cs5SYE4U.css"])))=>i.map(i=>d[i]);
-import{a as e,c as t,o as n,s as r}from"./index-DZoUCo_D.js";var i=null,a=null,o=null,s=null,c=[],l=0,u=0;function d(){return document.querySelector(`#app`)}function f(t){return i=t,a=n[t.id]||{color:`#7C3AED`,bg:`#EDE7FB`},o=e(t.id),m()}function p(){h()}function m(){if(!o)return`<div class="ex-page"><p style="padding:24px">Мини-игры для этой главы скоро появятся.</p></div>`;let e=a;return`
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-H0niVZwf.js","assets/index-Cs5SYE4U.css"])))=>i.map(i=>d[i]);
+import{a as e,c as t,o as n,s as r}from"./index-H0niVZwf.js";var i=null,a=null,o=null,s=null,c=[],l=0,u=0;function d(){return document.querySelector(`#app`)}function f(t){return i=t,a=n[t.id]||{color:`#7C3AED`,bg:`#EDE7FB`},o=e(t.id),m()}function p(){h()}function m(){if(!o)return`<div class="ex-page"><p style="padding:24px">Мини-игры для этой главы скоро появятся.</p></div>`;let e=a;return`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="mg-back-hub">← Упражнения</button>
@@ -18,7 +18,7 @@ import{a as e,c as t,o as n,s as r}from"./index-DZoUCo_D.js";var i=null,a=null,o
             </div>`).join(``)}
         </div>
       </div>
-    </div>`}function h(){document.getElementById(`mg-back-hub`)?.addEventListener(`click`,()=>{t(()=>import(`./index-DZoUCo_D.js`).then(e=>e.t).then(e=>{d().innerHTML=e.renderExercisesPage(i,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))}),document.querySelectorAll(`.mg-mode-card`).forEach(e=>{e.addEventListener(`click`,()=>g(e.dataset.game))})}function g(e){s=e,c=P([...o[e]]),l=0,u=0,r.miniGameStart(i.id,e),y()}function _(){d().innerHTML=m(),h()}function v(){if(l++,l>=c.length){N();return}y()}function y(){let e=c[l],t=`${l+1} / ${c.length}`,n=Math.round(l/c.length*100),r=``;s===`wordOrder`&&(r=b(e)),s===`registerPick`&&(r=S(e)),s===`suffixChoice`&&(r=w(e)),s===`findError`&&(r=E(e)),s===`dialogueGap`&&(r=O(e)),s===`quickNumbers`&&(r=A(e)),d().innerHTML=`
+    </div>`}function h(){document.getElementById(`mg-back-hub`)?.addEventListener(`click`,()=>{t(()=>import(`./index-H0niVZwf.js`).then(e=>e.t).then(e=>{d().innerHTML=e.renderExercisesPage(i,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))}),document.querySelectorAll(`.mg-mode-card`).forEach(e=>{e.addEventListener(`click`,()=>g(e.dataset.game))})}function g(e){s=e,c=P([...o[e]]),l=0,u=0,r.miniGameStart(i.id,e),y()}function _(){d().innerHTML=m(),h()}function v(){if(l++,l>=c.length){N();return}y()}function y(){let e=c[l],t=`${l+1} / ${c.length}`,n=Math.round(l/c.length*100),r=``;s===`wordOrder`&&(r=b(e)),s===`registerPick`&&(r=S(e)),s===`suffixChoice`&&(r=w(e)),s===`findError`&&(r=E(e)),s===`dialogueGap`&&(r=O(e)),s===`quickNumbers`&&(r=A(e)),d().innerHTML=`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="mg-back-game">← Мини-игры</button>

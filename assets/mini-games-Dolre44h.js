@@ -1,5 +1,5 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-BUfmuiSz.js","assets/index-CdQz-gzi.css"])))=>i.map(i=>d[i]);
-import{c as e,d as t,f as n,l as r,s as i,u as a}from"./index-BUfmuiSz.js";var o=null,s=null,c=null,l=null,u=[],d=0,f=0;function p(){return document.querySelector(`#app`)}function m(t){return o=t,s=e[t.id]||{color:`#7C3AED`,bg:`#EDE7FB`},c=i(t.id),g()}function h(){_()}function g(){if(!c)return`<div class="ex-page"><p style="padding:24px">Мини-игры для этой главы скоро появятся.</p></div>`;let e=s;return`
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-tNTjidNP.js","assets/index-CdQz-gzi.css"])))=>i.map(i=>d[i]);
+import{c as e,f as t,l as n,m as r,p as i,u as a}from"./index-tNTjidNP.js";var o=null,s=null,c=null,l=null,u=[],d=0,f=0;function p(){return document.querySelector(`#app`)}function m(t){return o=t,s=n[t.id]||{color:`#7C3AED`,bg:`#EDE7FB`},c=e(t.id),g()}function h(){_()}function g(){if(!c)return`<div class="ex-page"><p style="padding:24px">Мини-игры для этой главы скоро появятся.</p></div>`;let e=s;return`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="mg-back-hub">← Упражнения</button>
@@ -18,7 +18,7 @@ import{c as e,d as t,f as n,l as r,s as i,u as a}from"./index-BUfmuiSz.js";var o
             </div>`).join(``)}
         </div>
       </div>
-    </div>`}function _(){document.getElementById(`mg-back-hub`)?.addEventListener(`click`,()=>{a(()=>import(`./index-BUfmuiSz.js`).then(e=>e.t).then(e=>{p().innerHTML=e.renderExercisesPage(o,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))}),document.querySelectorAll(`.mg-mode-card`).forEach(e=>{e.addEventListener(`click`,()=>v(e.dataset.game))})}function v(e){l=e,u=I([...c[e]]),d=0,f=0,r.miniGameStart(o.id,e),x()}function y(){p().innerHTML=g(),_()}function b(){if(d++,d>=u.length){F();return}x()}function x(){let e=u[d],t=`${d+1} / ${u.length}`,n=Math.round(d/u.length*100),r=``;l===`wordOrder`&&(r=S(e)),l===`registerPick`&&(r=w(e)),l===`suffixChoice`&&(r=E(e)),l===`findError`&&(r=O(e)),l===`dialogueGap`&&(r=A(e)),l===`quickNumbers`&&(r=M(e)),p().innerHTML=`
+    </div>`}function _(){document.getElementById(`mg-back-hub`)?.addEventListener(`click`,()=>{t(()=>import(`./index-tNTjidNP.js`).then(e=>e.t).then(e=>{p().innerHTML=e.renderExercisesPage(o,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))}),document.querySelectorAll(`.mg-mode-card`).forEach(e=>{e.addEventListener(`click`,()=>v(e.dataset.game))})}function v(e){l=e,u=I([...c[e]]),d=0,f=0,a.miniGameStart(o.id,e),x()}function y(){p().innerHTML=g(),_()}function b(){if(d++,d>=u.length){F();return}x()}function x(){let e=u[d],t=`${d+1} / ${u.length}`,n=Math.round(d/u.length*100),r=``;l===`wordOrder`&&(r=S(e)),l===`registerPick`&&(r=w(e)),l===`suffixChoice`&&(r=E(e)),l===`findError`&&(r=O(e)),l===`dialogueGap`&&(r=A(e)),l===`quickNumbers`&&(r=M(e)),p().innerHTML=`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="mg-back-game">← Мини-игры</button>
@@ -101,15 +101,15 @@ import{c as e,d as t,f as n,l as r,s as i,u as a}from"./index-BUfmuiSz.js";var o
       </div>
       <div class="mg-feedback" id="mg-feedback"></div>
       <button class="mg-check-btn" id="mg-check" style="background:${s.color}">Проверить</button>
-    </div>`}function N(e){let t=document.getElementById(`mg-input`),n=document.getElementById(`mg-check`);t?.focus();function r(){let r=t.value.trim().toLowerCase(),i=e.type===`time2clock`?r.replace(/[., ](\d{2})$/,`:$1`):r,a=(e.acceptVariants?e.acceptVariants.map(e=>e.toLowerCase()):[e.answer.toLowerCase()]).includes(i),o=document.getElementById(`mg-feedback`);a?(f++,o.innerHTML=`<span class="mg-correct">✓ Правильно!</span>`):o.innerHTML=`<span class="mg-wrong">✗ Правильно: <em>${e.answer}</em></span>`,t.disabled=!0,n.textContent=d===u.length-1?`Завершить →`:`Дальше →`,n.onclick=b}t?.addEventListener(`keydown`,e=>{e.key===`Enter`&&r()}),n?.addEventListener(`click`,r)}function P(e){l===`wordOrder`&&C(e),l===`registerPick`&&T(e),l===`suffixChoice`&&D(e),l===`findError`&&k(e),l===`dialogueGap`&&j(e),l===`quickNumbers`&&N(e)}function F(){let e=u.length,i=Math.round(f/e*100),a=i>=80?`🎉`:i>=50?`👍`:`💪`;r.miniGameComplete(o.id,l,f,e),n(t().activeProfile,o.id,`mini_games_done`,null),p().innerHTML=`
+    </div>`}function N(e){let t=document.getElementById(`mg-input`),n=document.getElementById(`mg-check`);t?.focus();function r(){let r=t.value.trim().toLowerCase(),i=e.type===`time2clock`?r.replace(/[., ](\d{2})$/,`:$1`):r,a=(e.acceptVariants?e.acceptVariants.map(e=>e.toLowerCase()):[e.answer.toLowerCase()]).includes(i),o=document.getElementById(`mg-feedback`);a?(f++,o.innerHTML=`<span class="mg-correct">✓ Правильно!</span>`):o.innerHTML=`<span class="mg-wrong">✗ Правильно: <em>${e.answer}</em></span>`,t.disabled=!0,n.textContent=d===u.length-1?`Завершить →`:`Дальше →`,n.onclick=b}t?.addEventListener(`keydown`,e=>{e.key===`Enter`&&r()}),n?.addEventListener(`click`,r)}function P(e){l===`wordOrder`&&C(e),l===`registerPick`&&T(e),l===`suffixChoice`&&D(e),l===`findError`&&k(e),l===`dialogueGap`&&j(e),l===`quickNumbers`&&N(e)}function F(){let e=u.length,t=Math.round(f/e*100),n=t>=80?`🎉`:t>=50?`👍`:`💪`;a.miniGameComplete(o.id,l,f,e),r(i().activeProfile,o.id,`mini_games_done`,null),p().innerHTML=`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="mg-back-done">← Мини-игры</button>
       </header>
       <div class="ex-container" style="text-align:center;padding-top:40px">
-        <div style="font-size:48px;margin-bottom:16px">${a}</div>
+        <div style="font-size:48px;margin-bottom:16px">${n}</div>
         <h2 style="color:${s.color};margin-bottom:8px">Готово!</h2>
-        <p style="color:#6B7280;margin-bottom:4px">Результат: <strong style="color:${s.color}">${f} / ${e}</strong> (${i}%)</p>
+        <p style="color:#6B7280;margin-bottom:4px">Результат: <strong style="color:${s.color}">${f} / ${e}</strong> (${t}%)</p>
         <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;max-width:300px;margin-inline:auto">
           <button class="mode-btn" id="mg-retry" style="background:${s.color}">Повторить →</button>
           <button class="mode-btn" id="mg-hub" style="background:white;color:${s.color};border:2px solid ${s.color}">← Все мини-игры</button>

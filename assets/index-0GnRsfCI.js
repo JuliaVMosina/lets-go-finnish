@@ -420,6 +420,10 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
               </div>
               <div class="grammar-block-content" id="content-${n}" style="display: none; padding: 16px; background: white; border-top: 1px solid #E5E7EB">
                 <div class="grammar-text">${ko(Ao(e.Content||``,n))}</div>
+                ${(e.Title||``).toLowerCase().includes(`viikonpäiv`)?`
+                  <img src="/schema time.png" alt="Временная шкала: toissapäivänä — eilen — tänään — huomenna — ylihuomenna"
+                    style="width:100%;max-width:600px;display:block;margin:16px auto 0;border-radius:12px">
+                `:``}
                 ${e.Examples?`
                   <div class="grammar-examples" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #E5E7EB">
                     <div style="font-weight: 600; margin-bottom: 8px">Примеры:</div>
@@ -604,7 +608,7 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
       </div>
       <div class="ex-feedback" id="ex-feedback" style="display:none"></div>
     </div>
-  `}function us(e){let t=document.querySelector(`#app`),n=K;switch(e){case`ex-start-sheet`:G=0,Yo=!1,t.innerHTML=os(n),document.getElementById(`btn-back-ex`)?.addEventListener(`click`,ns),ws();break;case`ex-alphabet`:Ui(()=>import(`./alphabet-ESZeXQ8x.js`).then(e=>{t.innerHTML=e.renderAlphabetPage(n),e.bindAlphabetPage()}),[]);break;case`ex-vocab-drills`:R(`/chapter/${n.id}/vocab-exercises`);break;case`ex-grammar-quiz`:ps();break;case`ex-reading`:Qo=Io(n.id),bs();break;case`ex-mini-games`:Ui(()=>import(`./mini-games-DOpJBvk-.js`).then(e=>{t.innerHTML=e.renderMiniGamesPage(n),e.bindMiniGamesPage()}),[]);break;case`ex-listening`:Ui(()=>import(`./listening-Bjl4EdLD.js`).then(e=>{t.innerHTML=e.renderListeningPage(n),e.bindListeningPage()}),[]);break;case`ex-speaking`:Ui(()=>import(`./speaking-nWWrrWGj.js`).then(e=>{t.innerHTML=e.renderSpeakingPage(n),e.bindSpeakingPage()}),[]);break;case`ex-writing`:Ui(()=>import(`./writing-Bo4rYQIS.js`).then(e=>{t.innerHTML=e.renderWritingPage(n),e.bindWritingPage()}),[]);break}}function ds(){fs(K,J)}function fs(e,t){K=e,t&&(J=t),q=Va[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-ex`)?.addEventListener(`click`,()=>{R(`/chapter/${e.id}`)}),document.querySelectorAll(`.ex-unlock-anyway`).forEach(e=>{e.addEventListener(`click`,t=>{t.stopPropagation(),us(e.dataset.unlock)})});let n=e=>{document.getElementById(e)?.addEventListener(`click`,()=>us(e))};n(`ex-start-sheet`),n(`ex-alphabet`),n(`ex-vocab-drills`),n(`ex-grammar-quiz`),n(`ex-reading`),n(`ex-mini-games`),n(`ex-listening`),n(`ex-speaking`),n(`ex-writing`),document.getElementById(`btn-reset-exercises`)?.addEventListener(`click`,()=>{confirm(`⚠️ Сбросить прогресс упражнений этой главы?`)&&(b(m().activeProfile,e.id,`exercises`),ns())})}function ps(){Y=[],J.forEach(e=>{let t=e.Title||``,n=yo(t);n.length&&Y.push({blockTitle:t,blockNum:e.Block,...n[0]})}),Xo=0,Zo=0,Y.length||Object.entries(vo).forEach(([e,t])=>{let n=t[Math.floor(Math.random()*t.length)];Y.push({blockTitle:e,blockNum:``,...n})}),ms()}function ms(){if(Xo>=Y.length){gs();return}let e=Y[Xo],t=window.SpeechRecognition||window.webkitSpeechRecognition;document.querySelector(`#app`).innerHTML=`
+  `}function us(e){let t=document.querySelector(`#app`),n=K;switch(e){case`ex-start-sheet`:G=0,Yo=!1,t.innerHTML=os(n),document.getElementById(`btn-back-ex`)?.addEventListener(`click`,ns),ws();break;case`ex-alphabet`:Ui(()=>import(`./alphabet-nk_0KdWe.js`).then(e=>{t.innerHTML=e.renderAlphabetPage(n),e.bindAlphabetPage()}),[]);break;case`ex-vocab-drills`:R(`/chapter/${n.id}/vocab-exercises`);break;case`ex-grammar-quiz`:ps();break;case`ex-reading`:Qo=Io(n.id),bs();break;case`ex-mini-games`:Ui(()=>import(`./mini-games-rQqZ0JTl.js`).then(e=>{t.innerHTML=e.renderMiniGamesPage(n),e.bindMiniGamesPage()}),[]);break;case`ex-listening`:Ui(()=>import(`./listening-DX_v_8Ng.js`).then(e=>{t.innerHTML=e.renderListeningPage(n),e.bindListeningPage()}),[]);break;case`ex-speaking`:Ui(()=>import(`./speaking-CWBP1hQ3.js`).then(e=>{t.innerHTML=e.renderSpeakingPage(n),e.bindSpeakingPage()}),[]);break;case`ex-writing`:Ui(()=>import(`./writing-CoIl2ayl.js`).then(e=>{t.innerHTML=e.renderWritingPage(n),e.bindWritingPage()}),[]);break}}function ds(){fs(K,J)}function fs(e,t){K=e,t&&(J=t),q=Va[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-ex`)?.addEventListener(`click`,()=>{R(`/chapter/${e.id}`)}),document.querySelectorAll(`.ex-unlock-anyway`).forEach(e=>{e.addEventListener(`click`,t=>{t.stopPropagation(),us(e.dataset.unlock)})});let n=e=>{document.getElementById(e)?.addEventListener(`click`,()=>us(e))};n(`ex-start-sheet`),n(`ex-alphabet`),n(`ex-vocab-drills`),n(`ex-grammar-quiz`),n(`ex-reading`),n(`ex-mini-games`),n(`ex-listening`),n(`ex-speaking`),n(`ex-writing`),document.getElementById(`btn-reset-exercises`)?.addEventListener(`click`,()=>{confirm(`⚠️ Сбросить прогресс упражнений этой главы?`)&&(b(m().activeProfile,e.id,`exercises`),ns())})}function ps(){Y=[],J.forEach(e=>{let t=e.Title||``,n=yo(t);n.length&&Y.push({blockTitle:t,blockNum:e.Block,...n[0]})}),Xo=0,Zo=0,Y.length||Object.entries(vo).forEach(([e,t])=>{let n=t[Math.floor(Math.random()*t.length)];Y.push({blockTitle:e,blockNum:``,...n})}),ms()}function ms(){if(Xo>=Y.length){gs();return}let e=Y[Xo],t=window.SpeechRecognition||window.webkitSpeechRecognition;document.querySelector(`#app`).innerHTML=`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="btn-back-gq">← Упражнения</button>
@@ -744,10 +748,10 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
         Вернуться к главе →
       </button>
     </div>
-  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{R(`/chapter/${K.id}`)})}var Ds=null,X=null,Os=[],ks=null,As=0,Z=0,js=0,Q=[];function Ms(e){return[...e].sort(()=>Math.random()-.5)}function Ns(e,t){return Ds=e,Os=t.filter(e=>e.finnish&&e.russian),X=Va[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},`<div class="vocab-ex-page">${Ps(e)}</div>`}function Ps(e){return`
+  `,document.getElementById(`btn-to-chapter-ex`)?.addEventListener(`click`,()=>{R(`/chapter/${K.id}`)})}var Ds={nolla:`0`,yksi:`1`,kaksi:`2`,kolme:`3`,neljä:`4`,viisi:`5`,kuusi:`6`,seitsemän:`7`,kahdeksan:`8`,yhdeksän:`9`,kymmenen:`10`,yksitoista:`11`,kaksitoista:`12`,kolmetoista:`13`,neljätoista:`14`,viisitoista:`15`,kuusitoista:`16`,seitsemäntoista:`17`,kahdeksantoista:`18`,yhdeksäntoista:`19`,kaksikymmentä:`20`,kaksikymmentäyksi:`21`,kaksikymmentäkaksi:`22`,kaksikymmentäkolme:`23`,kaksikymmentäneljä:`24`,kaksikymmentäviisi:`25`,kaksikymmentäkuusi:`26`,kaksikymmentäseitsemän:`27`,kaksikymmentäkahdeksan:`28`,kaksikymmentäyhdeksän:`29`,kolmekymmentä:`30`,neljäkymmentä:`40`,viisikymmentä:`50`,kuusikymmentä:`60`,seitsemänkymmentä:`70`,kahdeksankymmentä:`80`,yhdeksänkymmentä:`90`,sata:`100`},Os={henkilötiedot:[`личные данные`,`персональные данные`,`персональная информация`,`личная информация`],tiedot:[`данные`,`информация`,`сведения`],nimi:[`имя`,`название`,`имя / название`],osoite:[`адрес`],puhelinnumero:[`номер телефона`,`телефон`],sähköposti:[`электронная почта`,`email`,`почта`,`e-mail`]},ks=null,X=null,As=[],js=null,Ms=0,Z=0,Ns=0,Q=[];function Ps(e){return[...e].sort(()=>Math.random()-.5)}function Fs(e,t){return ks=e,As=t.filter(e=>e.finnish&&e.russian),X=Va[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},`<div class="vocab-ex-page">${Is(e)}</div>`}function Is(e){return`
       <header class="header">
         <button class="btn-back" id="btn-back-vex">← ${e.title_fi}</button>
-        <span class="vocab-counter">${Os.length} слов</span>
+        <span class="vocab-counter">${As.length} слов</span>
       </header>
 
       <div class="mode-select-screen">
@@ -796,14 +800,14 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
           <button class="reset-btn" id="btn-reset-vex">↺ Сбросить прогресс словаря</button>
         </div>
       </div>
-  `}function Fs(e){Ds=e,X=Va[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vex`)?.addEventListener(`click`,()=>{R(`/chapter/${e.id}/exercises`)}),document.getElementById(`vex-input`)?.addEventListener(`click`,()=>Hs()),document.getElementById(`vex-match`)?.addEventListener(`click`,()=>qs()),document.getElementById(`vex-drag`)?.addEventListener(`click`,()=>Qs()),document.getElementById(`vex-audio`)?.addEventListener(`click`,()=>ec()),document.getElementById(`btn-reset-vex`)?.addEventListener(`click`,()=>{confirm(`⚠️ Сбросить прогресс словаря этой главы?`)&&(b(m().activeProfile,e.id,`vocabulary`),Is().innerHTML=Ps(e),Fs(e))})}function Is(){return document.querySelector(`.vocab-ex-page`)}function Ls(e,t,n){return`
+  `}function Ls(e){ks=e,X=Va[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},document.getElementById(`btn-back-vex`)?.addEventListener(`click`,()=>{R(`/chapter/${e.id}/exercises`)}),document.getElementById(`vex-input`)?.addEventListener(`click`,()=>Ws()),document.getElementById(`vex-match`)?.addEventListener(`click`,()=>Ys()),document.getElementById(`vex-drag`)?.addEventListener(`click`,()=>ec()),document.getElementById(`vex-audio`)?.addEventListener(`click`,()=>nc()),document.getElementById(`btn-reset-vex`)?.addEventListener(`click`,()=>{confirm(`⚠️ Сбросить прогресс словаря этой главы?`)&&(b(m().activeProfile,e.id,`vocabulary`),Rs().innerHTML=Is(e),Ls(e))})}function Rs(){return document.querySelector(`.vocab-ex-page`)}function zs(e,t,n){return`
     <header class="header">
       <button class="btn-back" id="btn-back-vex-mode">← Упражнения</button>
       <span class="vocab-counter">${t} / ${n}</span>
     </header>
     <div class="ex-progress-bar">
       <div class="ex-progress-fill" style="width:${t/n*100}%;background:${X.color}"></div>
-    </div>`}function Rs(){document.getElementById(`btn-back-vex-mode`)?.addEventListener(`click`,zs)}function zs(){Is().innerHTML=Ps(Ds),Fs(Ds)}function Bs(e,t,n){let r=Math.round(t/n*100),i=r>=80?`🏆`:r>=60?`👍`:`💪`;Is().innerHTML=`
+    </div>`}function Bs(){document.getElementById(`btn-back-vex-mode`)?.addEventListener(`click`,Vs)}function Vs(){Rs().innerHTML=Is(ks),Ls(ks)}function Hs(e,t,n){let r=Math.round(t/n*100),i=r>=80?`🏆`:r>=60?`👍`:`💪`;Rs().innerHTML=`
     <header class="header">
       <button class="btn-back" id="btn-complete-back">← Упражнения</button>
     </header>
@@ -815,8 +819,8 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
         <button class="btn-complete" style="background:${X.color}" id="btn-again">Ещё раз</button>
         <button class="btn-complete" style="background:white;color:${X.color};border:2px solid ${X.color}" id="btn-to-ex">К упражнениям</button>
       </div>
-    </div>`,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,Vs),document.getElementById(`btn-to-ex`)?.addEventListener(`click`,Vs),document.getElementById(`btn-again`)?.addEventListener(`click`,()=>{ks===`input`?Hs():ks===`match`?qs():ks===`drag`?Qs():ks===`audio`&&ec()})}function Vs(){R(`/chapter/${Ds.id}/exercises`)}function Hs(){ks=`input`,As=0,js=0,Q=Ms(Os).slice(0,Math.min(15,Os.length)),Z=Q.length,Us()}function Us(){if(js>=Q.length){Bs(`Ввод`,As,Z);return}let e=Q[js];Is().innerHTML=`
-    ${Ls(`Ввод перевода`,js+1,Z)}
+    </div>`,document.getElementById(`btn-complete-back`)?.addEventListener(`click`,Us),document.getElementById(`btn-to-ex`)?.addEventListener(`click`,Us),document.getElementById(`btn-again`)?.addEventListener(`click`,()=>{js===`input`?Ws():js===`match`?Ys():js===`drag`?ec():js===`audio`&&nc()})}function Us(){R(`/chapter/${ks.id}/exercises`)}function Ws(){js=`input`,Ms=0,Ns=0,Q=Ps(As).slice(0,Math.min(15,As.length)),Z=Q.length,Gs()}function Gs(){if(Ns>=Q.length){Hs(`Ввод`,Ms,Z);return}let e=Q[Ns];Rs().innerHTML=`
+    ${zs(`Ввод перевода`,Ns+1,Z)}
     <div class="ex-container">
       <div class="ex-card">
         <div class="ex-type-badge" style="background:${X.bg};color:${X.color}">✏️ Напиши перевод</div>
@@ -831,59 +835,59 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
         </button>
         <div id="input-feedback" style="display:none;margin-top:12px;text-align:center"></div>
       </div>
-    </div>`,Rs();let t=document.getElementById(`input-answer`);t?.focus(),t?.addEventListener(`keydown`,t=>{t.key===`Enter`&&Ws(e)}),document.getElementById(`btn-check-input`)?.addEventListener(`click`,()=>Ws(e))}function Ws(e){let t=document.getElementById(`input-answer`)?.value.trim().toLowerCase()||``;if(!t)return;let n=e.russian.toLowerCase().split(/[,;/()]/).map(e=>e.trim()).filter(Boolean).some(e=>t.includes(e)||e.includes(t));n&&As++;let r=document.getElementById(`input-feedback`);r.style.display=`block`,r.innerHTML=n?`<span style="color:var(--success);font-weight:600">✅ Правильно!</span>`:`<span style="color:var(--error)">❌ Правильно: <strong>${e.russian}</strong></span>`,document.getElementById(`btn-check-input`).textContent=`Дальше →`,document.getElementById(`btn-check-input`).onclick=()=>{js++,Us()},document.getElementById(`input-answer`).disabled=!0}var $=null,Gs=[],Ks=[];function qs(){ks=`match`,As=0,$=null,Ks=[],Q=Ms(Os).slice(0,Math.min(8,Os.length)),Z=Q.length,Gs=Q,Js()}function Js(){let e=Ms(Gs.map(e=>({id:e.finnish,text:e.finnish,type:`fi`}))),t=Ms(Gs.map(e=>({id:e.finnish,text:e.russian,type:`ru`})));Is().innerHTML=`
-    ${Ls(`Мэтч`,Ks.length,Z)}
+    </div>`,Bs();let t=document.getElementById(`input-answer`);t?.focus(),t?.addEventListener(`keydown`,t=>{t.key===`Enter`&&Ks(e)}),document.getElementById(`btn-check-input`)?.addEventListener(`click`,()=>Ks(e))}function Ks(e){let t=document.getElementById(`input-answer`)?.value.trim().toLowerCase()||``;if(!t)return;let n=e.russian.toLowerCase().split(/[,;/()]/).map(e=>e.trim()).filter(Boolean).some(e=>t.includes(e)||e.includes(t));!n&&Ds[e.finnish.toLowerCase()]&&(n=t===Ds[e.finnish.toLowerCase()]),n||=(Os[e.finnish.toLowerCase()]||[]).some(e=>t.includes(e)||e.includes(t)),n&&Ms++;let r=document.getElementById(`input-feedback`);r.style.display=`block`,r.innerHTML=n?`<span style="color:var(--success);font-weight:600">✅ Правильно!</span>`:`<span style="color:var(--error)">❌ Правильно: <strong>${e.russian}</strong></span>`,document.getElementById(`btn-check-input`).textContent=`Дальше →`,document.getElementById(`btn-check-input`).onclick=()=>{Ns++,Gs()},document.getElementById(`input-answer`).disabled=!0}var $=null,qs=[],Js=[];function Ys(){js=`match`,Ms=0,$=null,Js=[],Q=Ps(As).slice(0,Math.min(8,As.length)),Z=Q.length,qs=Q,Xs()}function Xs(){let e=Ps(qs.map(e=>({id:e.finnish,text:e.finnish,type:`fi`}))),t=Ps(qs.map(e=>({id:e.finnish,text:e.russian,type:`ru`})));Rs().innerHTML=`
+    ${zs(`Мэтч`,Js.length,Z)}
     <div class="ex-container">
       <div class="ex-card">
         <div class="ex-type-badge" style="background:${X.bg};color:${X.color}">🔗 Соедини пары</div>
         <div class="match-grid">
           <div class="match-col" id="col-fi">
             ${e.map(e=>`
-              <button class="match-btn ${Ks.includes(e.id)?`match-done`:``}"
+              <button class="match-btn ${Js.includes(e.id)?`match-done`:``}"
                 data-id="${e.id}" data-type="fi">
                 ${e.text}
               </button>`).join(``)}
           </div>
           <div class="match-col" id="col-ru">
             ${t.map(e=>`
-              <button class="match-btn ${Ks.includes(e.id)?`match-done`:``}"
+              <button class="match-btn ${Js.includes(e.id)?`match-done`:``}"
                 data-id="${e.id}" data-type="ru">
                 ${e.text}
               </button>`).join(``)}
           </div>
         </div>
       </div>
-    </div>`,Rs(),document.querySelectorAll(`.match-btn:not(.match-done)`).forEach(e=>{e.addEventListener(`click`,()=>Ys(e))})}function Ys(e){let t=e.dataset.id,n=e.dataset.type;if(!$){$={id:t,type:n,btn:e},e.classList.add(`match-selected`);return}if($.btn===e){e.classList.remove(`match-selected`),$=null;return}$.id===t&&$.type!==n?(As++,Ks.push(t),$.btn.classList.remove(`match-selected`),$.btn.classList.add(`match-correct`),e.classList.add(`match-correct`),$=null,Ks.length===Z&&setTimeout(()=>Bs(`Мэтч`,As,Z),600)):($.btn.classList.remove(`match-selected`),$.btn.classList.add(`match-wrong`),e.classList.add(`match-wrong`),setTimeout(()=>{$?.btn.classList.remove(`match-wrong`),e.classList.remove(`match-wrong`),$=null},700))}var Xs=[],Zs={};function Qs(){ks=`drag`,As=0,Zs={},Q=Ms(Os).slice(0,Math.min(6,Os.length)),Z=Q.length,Xs=Q,$s()}function $s(){let e=[...Xs].sort(()=>Math.random()-.5),t=Ms([...Xs]);Is().innerHTML=`
-    ${Ls(`Drag & Drop`,Object.keys(Zs).length,Z)}
+    </div>`,Bs(),document.querySelectorAll(`.match-btn:not(.match-done)`).forEach(e=>{e.addEventListener(`click`,()=>Zs(e))})}function Zs(e){let t=e.dataset.id,n=e.dataset.type;if(!$){$={id:t,type:n,btn:e},e.classList.add(`match-selected`);return}if($.btn===e){e.classList.remove(`match-selected`),$=null;return}$.id===t&&$.type!==n?(Ms++,Js.push(t),$.btn.classList.remove(`match-selected`),$.btn.classList.add(`match-correct`),e.classList.add(`match-correct`),$=null,Js.length===Z&&setTimeout(()=>Hs(`Мэтч`,Ms,Z),600)):($.btn.classList.remove(`match-selected`),$.btn.classList.add(`match-wrong`),e.classList.add(`match-wrong`),setTimeout(()=>{$?.btn.classList.remove(`match-wrong`),e.classList.remove(`match-wrong`),$=null},700))}var Qs=[],$s={};function ec(){js=`drag`,Ms=0,$s={},Q=Ps(As).slice(0,Math.min(6,As.length)),Z=Q.length,Qs=Q,tc()}function tc(){let e=[...Qs].sort(()=>Math.random()-.5),t=Ps([...Qs]);Rs().innerHTML=`
+    ${zs(`Drag & Drop`,Object.keys($s).length,Z)}
     <div class="ex-container">
       <div class="ex-card">
         <div class="ex-type-badge" style="background:${X.bg};color:${X.color}">↕️ Перетащи к переводу</div>
         <div class="drag-targets">
           ${e.map(e=>`
             <div class="drag-row">
-              <div class="drag-target ${Zs[e.finnish]===void 0?``:Zs[e.finnish]===e.finnish?`drag-correct`:`drag-wrong`}"
+              <div class="drag-target ${$s[e.finnish]===void 0?``:$s[e.finnish]===e.finnish?`drag-correct`:`drag-wrong`}"
                    data-target="${e.finnish}"
                    ondragover="event.preventDefault()"
                    ondrop="window._handleDrop(event, '${e.finnish.replace(/'/g,`\\'`)}')">
-                ${Zs[e.finnish]===void 0?`<span class="drag-placeholder">Перетащи сюда</span>`:`<span class="drag-placed">${Xs.find(t=>t.finnish===Zs[e.finnish])?.finnish||``}</span>`}
+                ${$s[e.finnish]===void 0?`<span class="drag-placeholder">Перетащи сюда</span>`:`<span class="drag-placed">${Qs.find(t=>t.finnish===$s[e.finnish])?.finnish||``}</span>`}
               </div>
               <div class="drag-translation">${e.russian}</div>
             </div>`).join(``)}
         </div>
         <div class="drag-chips" id="drag-chips">
-          ${t.filter(e=>!Object.values(Zs).includes(e.finnish)).map(e=>`
+          ${t.filter(e=>!Object.values($s).includes(e.finnish)).map(e=>`
             <div class="drag-chip" draggable="true" data-word="${e.finnish.replace(/"/g,`&quot;`)}"
                  ondragstart="window._handleDragStart(event, '${e.finnish.replace(/'/g,`\\'`)}')">
               ${e.finnish}
             </div>`).join(``)}
         </div>
-        ${Object.keys(Zs).length===Z?`
+        ${Object.keys($s).length===Z?`
           <button class="ex-next-btn" id="btn-drag-done" style="background:${X.color};margin-top:16px;width:100%">
             Проверить всё →
           </button>`:``}
       </div>
-    </div>`,Rs(),window._handleDragStart=(e,t)=>{e.dataTransfer.setData(`text/plain`,t)},window._handleDrop=(e,t)=>{let n=e.dataTransfer.getData(`text/plain`);Zs[t]=n,n===t&&As++,$s()};let n=null;document.querySelectorAll(`.drag-chip`).forEach(e=>{e.addEventListener(`click`,()=>{if(document.querySelectorAll(`.drag-chip`).forEach(e=>e.classList.remove(`chip-selected`)),n===e.dataset.word){n=null;return}n=e.dataset.word,e.classList.add(`chip-selected`)})}),document.querySelectorAll(`.drag-target`).forEach(e=>{e.addEventListener(`click`,()=>{if(!n)return;let t=e.dataset.target;Zs[t]=n,n===t&&As++,n=null,$s()})}),document.getElementById(`btn-drag-done`)?.addEventListener(`click`,()=>{Bs(`Drag & Drop`,As,Z)})}function ec(){ks=`audio`,As=0,js=0,Q=Ms(Os).slice(0,Math.min(10,Os.length)),Z=Q.length,tc()}function tc(){if(js>=Q.length){Bs(`Произношение`,As,Z);return}let e=Q[js];Is().innerHTML=`
-    ${Ls(`Произношение`,js+1,Z)}
+    </div>`,Bs(),window._handleDragStart=(e,t)=>{e.dataTransfer.setData(`text/plain`,t)},window._handleDrop=(e,t)=>{let n=e.dataTransfer.getData(`text/plain`);$s[t]=n,n===t&&Ms++,tc()};let n=null;document.querySelectorAll(`.drag-chip`).forEach(e=>{e.addEventListener(`click`,()=>{if(document.querySelectorAll(`.drag-chip`).forEach(e=>e.classList.remove(`chip-selected`)),n===e.dataset.word){n=null;return}n=e.dataset.word,e.classList.add(`chip-selected`)})}),document.querySelectorAll(`.drag-target`).forEach(e=>{e.addEventListener(`click`,()=>{if(!n)return;let t=e.dataset.target;$s[t]=n,n===t&&Ms++,n=null,tc()})}),document.getElementById(`btn-drag-done`)?.addEventListener(`click`,()=>{Hs(`Drag & Drop`,Ms,Z)})}function nc(){js=`audio`,Ms=0,Ns=0,Q=Ps(As).slice(0,Math.min(10,As.length)),Z=Q.length,rc()}function rc(){if(Ns>=Q.length){Hs(`Произношение`,Ms,Z);return}let e=Q[Ns];Rs().innerHTML=`
+    ${zs(`Произношение`,Ns+1,Z)}
     <div class="ex-container">
       <div class="ex-card" style="text-align:center">
         <div class="ex-type-badge" style="background:${X.bg};color:${X.color}">🎤 Послушай и произнеси</div>
@@ -896,7 +900,7 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
         <div class="card-mic-result" id="mic-result" style="display:none;margin-bottom:16px"></div>
         <button class="ex-next-btn" id="btn-next-audio" style="background:${X.color}">Дальше →</button>
       </div>
-    </div>`,Rs();function t(){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();let t=new SpeechSynthesisUtterance(e.finnish);t.lang=`fi-FI`,t.rate=.85,window.speechSynthesis.speak(t)}document.getElementById(`btn-speak`)?.addEventListener(`click`,t),t(),document.getElementById(`btn-mic`)?.addEventListener(`click`,()=>{let t=document.getElementById(`btn-mic`),n=document.getElementById(`mic-result`),r=window.SpeechRecognition||window.webkitSpeechRecognition;if(!r){n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Браузер не поддерживает распознавание</span>`;return}let i=new r;i.lang=`fi-FI`,i.maxAlternatives=5,t.textContent=`🔴 Слушаю...`,t.disabled=!0,n.style.display=`none`;let a=setTimeout(()=>{try{i.stop()}catch{}n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Ничего не услышал</span>`,t.textContent=`🎤 Попробуй ещё`,t.disabled=!1},7e3);i.onresult=r=>{clearTimeout(a);let i=Array.from(r.results[0]).map(e=>e.transcript.toLowerCase().trim()),o=e.finnish.toLowerCase().trim(),s=i.some(e=>e.replace(/[.,!?]/g,``)===o.replace(/[.,!?]/g,``));s&&As++,n.style.display=`block`,n.innerHTML=s?`<span style="color:var(--success)">✅ Отлично!</span>`:`<span style="color:var(--error)">❌ Услышал: «${i[0]}»</span>`,t.textContent=s?`🎤 Произнеси`:`🎤 Попробуй ещё`,t.disabled=!1},i.onerror=()=>{clearTimeout(a),n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Попробуй ещё раз</span>`,t.textContent=`🎤 Попробуй ещё`,t.disabled=!1},i.onend=()=>{clearTimeout(a),t.disabled&&(t.disabled=!1,t.textContent=`🎤 Попробуй ещё`)},i.start()}),document.getElementById(`btn-next-audio`)?.addEventListener(`click`,()=>{js++,tc()})}var nc=[{id:`A0–A1`,label:`A0–A1`,color:`#7C3AED`,bg:`#EDE7FB`,chapters:[`ch1`,`ch2`,`ch3`,`ch4`,`ch5`]},{id:`A1–A2`,label:`A1–A2`,color:`#EC4899`,bg:`#FAE9F2`,chapters:[`ch6`,`ch7`,`ch8`,`ch9`,`ch10`]},{id:`A2–B1`,label:`A2–B1`,color:`#F59E0B`,bg:`#FEEEDB`,chapters:[`ch11`,`ch12`,`ch13`,`ch14`,`ch15`]},{id:`B1–B2`,label:`B1–B2`,color:`#10B981`,bg:`#E8F7EE`,chapters:[`ch16`,`ch17`,`ch18`,`ch19`,`ch20`]}];function rc(e){let t=m().profiles[e];for(let e=0;e<nc.length;e++){let n=nc[e],r=nc[e+1],i=n.chapters.filter(e=>{let n=t.vocabulary[e]||{},r=t.exercises[e]||{};return Object.values(n).filter(e=>e.seen).length>0||Object.values(r).filter(e=>e.completed).length>0}).length,a=n.chapters.length,o=Math.round(i/a*100);if(o<100)return{current:n,next:r,completed:i,total:a,pct:o}}let n=nc[nc.length-1];return{current:n,next:null,completed:n.chapters.length,total:n.chapters.length,pct:100}}function ic(e){let t=m().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=ie(e),{current:s,next:c,completed:l,total:u,pct:d}=rc(e);return`
+    </div>`,Bs();function t(){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();let t=new SpeechSynthesisUtterance(e.finnish);t.lang=`fi-FI`,t.rate=.85,window.speechSynthesis.speak(t)}document.getElementById(`btn-speak`)?.addEventListener(`click`,t),t(),document.getElementById(`btn-mic`)?.addEventListener(`click`,()=>{let t=document.getElementById(`btn-mic`),n=document.getElementById(`mic-result`),r=window.SpeechRecognition||window.webkitSpeechRecognition;if(!r){n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Браузер не поддерживает распознавание</span>`;return}let i=new r;i.lang=`fi-FI`,i.maxAlternatives=5,t.textContent=`🔴 Слушаю...`,t.disabled=!0,n.style.display=`none`;let a=setTimeout(()=>{try{i.stop()}catch{}n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Ничего не услышал</span>`,t.textContent=`🎤 Попробуй ещё`,t.disabled=!1},7e3);i.onresult=r=>{clearTimeout(a);let i=Array.from(r.results[0]).map(e=>e.transcript.toLowerCase().trim()),o=e.finnish.toLowerCase().trim(),s=i.some(e=>e.replace(/[.,!?]/g,``)===o.replace(/[.,!?]/g,``));s&&Ms++,n.style.display=`block`,n.innerHTML=s?`<span style="color:var(--success)">✅ Отлично!</span>`:`<span style="color:var(--error)">❌ Услышал: «${i[0]}»</span>`,t.textContent=s?`🎤 Произнеси`:`🎤 Попробуй ещё`,t.disabled=!1},i.onerror=()=>{clearTimeout(a),n.style.display=`block`,n.innerHTML=`<span style="color:#F59E0B">⚠️ Попробуй ещё раз</span>`,t.textContent=`🎤 Попробуй ещё`,t.disabled=!1},i.onend=()=>{clearTimeout(a),t.disabled&&(t.disabled=!1,t.textContent=`🎤 Попробуй ещё`)},i.start()}),document.getElementById(`btn-next-audio`)?.addEventListener(`click`,()=>{Ns++,rc()})}var ic=[{id:`A0–A1`,label:`A0–A1`,color:`#7C3AED`,bg:`#EDE7FB`,chapters:[`ch1`,`ch2`,`ch3`,`ch4`,`ch5`]},{id:`A1–A2`,label:`A1–A2`,color:`#EC4899`,bg:`#FAE9F2`,chapters:[`ch6`,`ch7`,`ch8`,`ch9`,`ch10`]},{id:`A2–B1`,label:`A2–B1`,color:`#F59E0B`,bg:`#FEEEDB`,chapters:[`ch11`,`ch12`,`ch13`,`ch14`,`ch15`]},{id:`B1–B2`,label:`B1–B2`,color:`#10B981`,bg:`#E8F7EE`,chapters:[`ch16`,`ch17`,`ch18`,`ch19`,`ch20`]}];function ac(e){let t=m().profiles[e];for(let e=0;e<ic.length;e++){let n=ic[e],r=ic[e+1],i=n.chapters.filter(e=>{let n=t.vocabulary[e]||{},r=t.exercises[e]||{};return Object.values(n).filter(e=>e.seen).length>0||Object.values(r).filter(e=>e.completed).length>0}).length,a=n.chapters.length,o=Math.round(i/a*100);if(o<100)return{current:n,next:r,completed:i,total:a,pct:o}}let n=ic[ic.length-1];return{current:n,next:null,completed:n.chapters.length,total:n.chapters.length,pct:100}}function oc(e){let t=m().profiles[e],{totalWords:n,totalExercises:r,totalChapters:i,streak:a,activity:o}=ie(e),{current:s,next:c,completed:l,total:u,pct:d}=ac(e);return`
     <div class="profile-page">
       <header class="header">
         <button class="btn-back" id="btn-back-profile">← Главная</button>
@@ -963,13 +967,13 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
       <div class="profile-section">
         <h2 class="profile-section-title">Активность</h2>
         <div class="activity-row">
-          ${ac(o)}
-          ${oc(o)}
+          ${sc(o)}
+          ${cc(o)}
         </div>
       </div>
 
     </div>
-  `}function ac(e){let t=new Date,n=t.getFullYear(),r=t.getMonth(),i=new Date(n,r,1).toLocaleString(`ru`,{month:`long`,year:`numeric`}),a=new Date(n,r,1).getDay(),o=new Date(n,r+1,0).getDate(),s=a===0?6:a-1,c=[`Пн`,`Вт`,`Ср`,`Чт`,`Пт`,`Сб`,`Вс`],l=t.getDate(),u=``;for(let e=0;e<s;e++)u+=`<div class="cal-cell empty"></div>`;for(let t=1;t<=o;t++){let i=`${n}-${String(r+1).padStart(2,`0`)}-${String(t).padStart(2,`0`)}`,a=!!e[i],o=t===l,s=e[i]?.words||0,c=e[i]?.exercises||0;u+=`
+  `}function sc(e){let t=new Date,n=t.getFullYear(),r=t.getMonth(),i=new Date(n,r,1).toLocaleString(`ru`,{month:`long`,year:`numeric`}),a=new Date(n,r,1).getDay(),o=new Date(n,r+1,0).getDate(),s=a===0?6:a-1,c=[`Пн`,`Вт`,`Ср`,`Чт`,`Пт`,`Сб`,`Вс`],l=t.getDate(),u=``;for(let e=0;e<s;e++)u+=`<div class="cal-cell empty"></div>`;for(let t=1;t<=o;t++){let i=`${n}-${String(r+1).padStart(2,`0`)}-${String(t).padStart(2,`0`)}`,a=!!e[i],o=t===l,s=e[i]?.words||0,c=e[i]?.exercises||0;u+=`
       <div class="cal-cell ${a?`active`:``} ${o?`today`:``}"
            title="${a?`слов: ${s}, упражнений: ${c}`:``}">
         <span>${t}</span>
@@ -985,7 +989,7 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
         ${u}
       </div>
     </div>
-  `}function oc(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1);Math.round(3/r*80);let i=t.map((e,n)=>{let i=e.count>0?Math.max(Math.round(e.count/r*80),8):4,a=n===t.length-1,o=e.count===0;return`
+  `}function cc(e){let t=[],n=new Date;for(let r=7;r>=0;r--){let i=0,a=``;for(let t=0;t<7;t++){let o=new Date(n);o.setDate(n.getDate()-r*7-t),e[o.toISOString().slice(0,10)]&&i++,t===0&&r%2==0&&(a=`${o.getDate()}.${String(o.getMonth()+1).padStart(2,`0`)}`)}t.push({count:i,label:a})}let r=Math.max(...t.map(e=>e.count),1);Math.round(3/r*80);let i=t.map((e,n)=>{let i=e.count>0?Math.max(Math.round(e.count/r*80),8):4,a=n===t.length-1,o=e.count===0;return`
       <div class="trend-bar-wrap" title="${a?`Эта неделя: ${e.count} занятий · Так держать!`:``}">
         <div class="trend-bar-val">${e.count>0?e.count:``}</div>
         <div class="trend-bar-bg">
@@ -1019,7 +1023,7 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
       <div class="trend-bars">${i}</div>
       <div class="trend-hint">занятий за неделю · последние 8 недель</div>
     </div>
-  `}function sc(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>R(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var cc=null,lc=null;function uc(){cc&&(clearTimeout(lc),lc=setTimeout(()=>{let e=m().profiles[cc.id];e&&ja(cc.id,e)},1500))}_(uc);async function dc(e){cc=e;let t=m(),n=e.user_metadata?.name||e.email?.split(`@`)[0]||`Я`;t.profiles[e.id]||(t.profiles[e.id]={name:n,avatarEmoji:`🦊`,chapters:{},vocabulary:{},exercises:{},activity:{}});let r=await Aa(e.id);r?.data&&(t.profiles[e.id]={...t.profiles[e.id],...r.data}),t.activeProfile=e.id,v(t)}var fc=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],pc=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],mc={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function hc(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function gc(e,t){let n=Ac.vocabulary.filter(e=>e.chapter_id===t).length,r=Ac.exercises.filter(e=>e.chapter_id===t).length,i=(Ac.grammar||[]).filter(e=>e.Chapter===t).length,a=e.vocabulary[t]||{},o=e.exercises[t]||{},s=e.grammarProgress?.[t]||{},c=Object.values(a).filter(e=>e.seen).length,l=Object.values(o).filter(e=>e.completed).length,u=Object.values(s).filter(e=>e===!0).length,d=[];return n&&d.push(Math.min(1,c/n)),i&&d.push(Math.min(1,u/i)),r&&d.push(Math.min(1,l/r)),d.length?Math.round(d.reduce((e,t)=>e+t,0)/d.length*100):0}function _c(e){let t=e.profiles[e.activeProfile];return`
+  `}function lc(){document.getElementById(`btn-back-profile`)?.addEventListener(`click`,()=>R(`/`));let e=document.getElementById(`level-bar-fill`),t=document.getElementById(`level-bar-arrow`),n=parseInt(e?.dataset.pct||`0`);setTimeout(()=>{e&&(e.style.width=`${n}%`),t&&(t.style.left=`${Math.min(n,95)}%`)},150)}var uc=null,dc=null;function fc(){uc&&(clearTimeout(dc),dc=setTimeout(()=>{let e=m().profiles[uc.id];e&&ja(uc.id,e)},1500))}_(fc);async function pc(e){uc=e;let t=m(),n=e.user_metadata?.name||e.email?.split(`@`)[0]||`Я`;t.profiles[e.id]||(t.profiles[e.id]={name:n,avatarEmoji:`🦊`,chapters:{},vocabulary:{},exercises:{},activity:{}});let r=await Aa(e.id);r?.data&&(t.profiles[e.id]={...t.profiles[e.id],...r.data}),t.activeProfile=e.id,v(t)}var mc=[{id:`ch1`,title_fi:`Hei ja tervetuloa`,title_ru:`Привет и добро пожаловать`,level:`A0–A1`},{id:`ch2`,title_fi:`Minkämaalainen sinä olet?`,title_ru:`Ты откуда?`,level:`A0–A1`},{id:`ch3`,title_fi:`Pedro soittaa Mikkolle`,title_ru:`Педро звонит Микко`,level:`A0–A1`},{id:`ch4`,title_fi:`Minä`,title_ru:`Я`,level:`A0–A1`},{id:`ch5`,title_fi:`Meidän tavallinen päivä`,title_ru:`Наш обычный день`,level:`A0–A1`}],hc=[`A0–A1`,`A1–A2`,`A2–B1`,`B1–B2`],gc={"A0–A1":{color:`#7C3AED`,bg:`#EDE7FB`},"A1–A2":{color:`#EC4899`,bg:`#FAE9F2`},"A2–B1":{color:`#F59E0B`,bg:`#FEEEDB`},"B1–B2":{color:`#10B981`,bg:`#E8F7EE`}};function _c(e){let t=new Date().getHours();return t>=6&&t<12?`Hyvää huomenta, ${e}! ☀️ Готова к финскому?`:t>=12&&t<18?`Hei hei, ${e}! Продолжим?`:`Hyvää iltaa, ${e}! Один урок перед сном?`}function vc(e,t){let n=Mc.vocabulary.filter(e=>e.chapter_id===t).length,r=Mc.exercises.filter(e=>e.chapter_id===t).length,i=(Mc.grammar||[]).filter(e=>e.Chapter===t).length,a=e.vocabulary[t]||{},o=e.exercises[t]||{},s=e.grammarProgress?.[t]||{},c=Object.values(a).filter(e=>e.seen).length,l=Object.values(o).filter(e=>e.completed).length,u=Object.values(s).filter(e=>e===!0).length,d=[];return n&&d.push(Math.min(1,c/n)),i&&d.push(Math.min(1,u/i)),r&&d.push(Math.min(1,l/r)),d.length?Math.round(d.reduce((e,t)=>e+t,0)/d.length*100):0}function yc(e){let t=e.profiles[e.activeProfile];return`
     <header class="header">
       <div class="logo">
         <img src="/logo.png" alt="Let's Go Learn Finnish!" class="logo-img">
@@ -1027,12 +1031,12 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
       <div class="header-right">
         <div class="profile-switcher" style="position:relative">
           <button class="profile-btn active" id="btn-active-profile">
-            ${Fc(t,48)}
+            ${Lc(t,48)}
             <span class="pname">${t.name} <span style="font-size:9px;opacity:0.5">▼</span></span>
           </button>
           <div class="profile-dropdown" id="profile-dropdown" style="display:none">
             <div style="padding:8px 12px;font-size:12px;color:#9CA3AF;border-bottom:1px solid var(--border);margin-bottom:4px">
-              ${cc?.email||``}
+              ${uc?.email||``}
             </div>
             <button class="profile-dropdown-item" id="btn-my-progress">
               <span>📊</span><span>Мой прогресс</span>
@@ -1048,12 +1052,12 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
         </div>
       </div>
     </header>
-  `}function vc(e,t){let n=y();return`
-    ${_c(e)}
+  `}function bc(e,t){let n=y();return`
+    ${yc(e)}
     <div class="hero">
       <div class="hero-text">
         <h1><span class="hero-accent">Suomi on vaikea.</span><br><span style="white-space:nowrap">Mutta me pärjäämme! 💪</span></h1>
-        <p class="greeting">${hc(n.name)}</p>
+        <p class="greeting">${_c(n.name)}</p>
       </div>
       <div class="hero-deco">
         <div class="deco-card deco-1"><span class="deco-dot"></span>Moikka! — Привет!</div>
@@ -1061,8 +1065,8 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
         <div class="deco-card deco-3"><span class="deco-dot"></span>Hyvää! — Отлично!</div>
       </div>
     </div>
-    ${yc(t,n)}
-  `}function yc(e,t){let n={};e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),Object.values(n).forEach(e=>{e.forEach((e,t)=>{e.levelNum=t+1})});let r=-1,i=pc.map((e,i)=>{let a=n[e]||[];if(!a.length)return{pct:0,done:!1,started:!1};let o=a.map(e=>gc(t,e.id)),s=o.reduce((e,t)=>e+t,0)/o.length,c=o.every(e=>e===100),l=o.some(e=>e>0);return l&&!c&&r===-1&&(r=i),{pct:s,done:c,started:l}});return r===-1&&(r=pc.findIndex(e=>(n[e]||[]).length>0)),pc.map((e,a)=>{let o=mc[e]||{color:`#7C3AED`,bg:`#EDE7FB`},s=n[e]||[],c=s.length>0,l=i[a],u=a===r,d=l.done&&c;return`
+    ${xc(t,n)}
+  `}function xc(e,t){let n={};e.forEach((e,t)=>{let r=e.level||`A0–A1`;n[r]||(n[r]=[]),n[r].push({...e,globalIndex:t})}),Object.values(n).forEach(e=>{e.forEach((e,t)=>{e.levelNum=t+1})});let r=-1,i=hc.map((e,i)=>{let a=n[e]||[];if(!a.length)return{pct:0,done:!1,started:!1};let o=a.map(e=>vc(t,e.id)),s=o.reduce((e,t)=>e+t,0)/o.length,c=o.every(e=>e===100),l=o.some(e=>e>0);return l&&!c&&r===-1&&(r=i),{pct:s,done:c,started:l}});return r===-1&&(r=hc.findIndex(e=>(n[e]||[]).length>0)),hc.map((e,a)=>{let o=gc[e]||{color:`#7C3AED`,bg:`#EDE7FB`},s=n[e]||[],c=s.length>0,l=i[a],u=a===r,d=l.done&&c;return`
         <div class="level-section ${c?``:`level-section-soon`} ${d?`level-done`:``}"
              data-level="${e}">
           <div class="level-header level-header-toggle" data-level-target="${e}"
@@ -1082,7 +1086,7 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
             </div>
           </div>
           <div class="chapters-grid level-content ${u?``:`level-collapsed`}" id="level-${e}">
-            ${c?s.map(e=>bc(e,e.levelNum,t)).join(``):[1,2,3].map(e=>`
+            ${c?s.map(e=>Sc(e,e.levelNum,t)).join(``):[1,2,3].map(e=>`
                   <div class="chapter-card chapter-card-soon">
                     <div class="card-img-wrap soon-img-wrap" style="background:${o.bg}">
                       <span class="soon-emoji">🔒</span>
@@ -1095,7 +1099,7 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
                   </div>`).join(``)}
           </div>
         </div>
-      `}).join(``)}function bc(e,t,n){let r=gc(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
+      `}).join(``)}function Sc(e,t,n){let r=vc(n,e.id),i=r===100,a=r===0?`Начать`:i?`Повторить`:`Продолжить →`;return`
     <div class="chapter-card ${i?`done`:``} ${r>0?`in-progress`:``}"
          data-chapter="${e.id}"
          style="--card-color: ${e.color}">
@@ -1118,7 +1122,7 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
         </div>
       </div>
     </div>
-  `}function xc(e){document.querySelector(`#app`).innerHTML=e}function Sc(){document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{R(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{R(`/profile/${m().activeProfile}`)}),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,Ic),document.getElementById(`btn-logout`)?.addEventListener(`click`,async()=>{if(cc){let e=m().profiles[cc.id];e&&await ja(cc.id,e)}await Oa(),cc=null,Tc=`signin`,xc(Dc()),Oc()});let e=document.getElementById(`btn-active-profile`);e&&(e.onclick=e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.onclick=()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)}}var Cc=fc.map(e=>({...e,...Va[e.id]}));function wc(){xc(vc(m(),Cc)),Sc()}var Tc=`signin`;function Ec(e,t,n){return`
+  `}function Cc(e){document.querySelector(`#app`).innerHTML=e}function wc(){document.querySelectorAll(`.chapter-card`).forEach(e=>{e.addEventListener(`click`,()=>{R(`/chapter/${e.dataset.chapter}`)})}),document.querySelectorAll(`.level-header-toggle`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.levelTarget,n=document.getElementById(`level-${t}`),r=e.querySelector(`.level-chevron`);if(!n)return;let i=!n.classList.contains(`level-collapsed`);n.classList.toggle(`level-collapsed`,i),r?.classList.toggle(`open`,!i)})}),document.getElementById(`btn-my-progress`)?.addEventListener(`click`,()=>{R(`/profile/${m().activeProfile}`)}),document.getElementById(`btn-profile-settings`)?.addEventListener(`click`,Rc),document.getElementById(`btn-logout`)?.addEventListener(`click`,async()=>{if(uc){let e=m().profiles[uc.id];e&&await ja(uc.id,e)}await Oa(),uc=null,Dc=`signin`,Cc(kc()),Ac()});let e=document.getElementById(`btn-active-profile`);e&&(e.onclick=e=>{e.stopPropagation();let t=document.getElementById(`profile-dropdown`);t&&(t.style.display=t.style.display===`none`?`block`:`none`)}),document.onclick=()=>{let e=document.getElementById(`profile-dropdown`);e&&(e.style.display=`none`)}}var Tc=mc.map(e=>({...e,...Va[e.id]}));function Ec(){Cc(bc(m(),Tc)),wc()}var Dc=`signin`;function Oc(e,t,n){return`
     <svg class="deco-leaf ${e}" viewBox="0 0 120 200" fill="none"
          stroke="${t}" stroke-width="2.5" stroke-linecap="round">
       <path d="M60 195 C58 150 60 100 72 20"/>
@@ -1126,15 +1130,15 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
       <path d="M60 120 C27 116 16 90 19 62 C50 66 64 92 60 120 Z" fill="${n}" fill-opacity="0.45"/>
       <path d="M64 90 C95 85 106 60 103 34 C74 39 60 64 64 90 Z" fill="${n}" fill-opacity="0.45"/>
       <path d="M68 60 C42 55 33 33 36 12 C61 17 71 39 68 60 Z" fill="${n}" fill-opacity="0.45"/>
-    </svg>`}function Dc(){let e=Tc===`signup`;return`
+    </svg>`}function kc(){let e=Dc===`signup`;return`
     <div class="login-split">
       <!-- decorative corner patterns -->
       <div class="deco-blob deco-blob-tr"></div>
       <div class="deco-blob deco-blob-br"></div>
       <div class="deco-blob deco-blob-bl"></div>
-      ${Ec(`deco-leaf-tr`,`#C4B5FD`,`#DDD6FE`)}
-      ${Ec(`deco-leaf-br`,`#F9A8D4`,`#FBCFE8`)}
-      ${Ec(`deco-leaf-bl`,`#C4B5FD`,`#DDD6FE`)}
+      ${Oc(`deco-leaf-tr`,`#C4B5FD`,`#DDD6FE`)}
+      ${Oc(`deco-leaf-br`,`#F9A8D4`,`#FBCFE8`)}
+      ${Oc(`deco-leaf-bl`,`#C4B5FD`,`#DDD6FE`)}
 
       <!-- Left: brand + characters -->
       <div class="login-left">
@@ -1176,24 +1180,24 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
           </button>
         </div>
       </div>
-    </div>`}function Oc(){document.getElementById(`btn-switch-mode`)?.addEventListener(`click`,()=>{Tc=Tc===`signin`?`signup`:`signin`,xc(Dc()),Oc()});let e=async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-password`)?.value,n=document.getElementById(`auth-name`)?.value.trim(),r=document.getElementById(`auth-error`),i=document.getElementById(`btn-auth-submit`);if(!e||!t){r.textContent=`Please enter your email and password`;return}if(Tc===`signup`&&t.length<6){r.textContent=`Password must be at least 6 characters`;return}r.textContent=``,i.disabled=!0,i.textContent=`Loading...`;let a;if(Tc===`signup`?(a=await Ea(e,t,n||e.split(`@`)[0]),a.error||Ba.register(e)):(a=await Da(e,t),a.error||Ba.login(e)),a.error){r.textContent=kc(a.error.message),i.disabled=!1,i.textContent=Tc===`signup`?`Luo tili`:`Kirjaudu sisään`;return}if(!a.session){r.style.color=`var(--success)`,r.textContent=`✅ Check your inbox and confirm your email, then sign in`,i.disabled=!1,i.textContent=`Kirjaudu sisään`,Tc=`signin`;return}await dc(a.user),R(`/`),wc()};document.getElementById(`btn-auth-submit`)?.addEventListener(`click`,e),document.getElementById(`auth-password`)?.addEventListener(`keydown`,t=>{t.key===`Enter`&&e()}),document.getElementById(`btn-forgot`)?.addEventListener(`click`,async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-error`);if(!e){t.style.color=`var(--error)`,t.textContent=`Enter your email above, then click “Unohditko salasanasi?”`;return}let{error:n}=await Ta.auth.resetPasswordForEmail(e,{redirectTo:window.location.origin+`/`});t.style.color=n?`var(--error)`:`var(--success)`,t.textContent=n?kc(n.message):`✅ Password reset link sent to `+e})}function kc(e){let t=e.toLowerCase();return t.includes(`invalid login`)?`❌ Invalid email or password`:t.includes(`already registered`)?`❌ This email is already registered`:t.includes(`password`)?`❌ Password is too short (min. 6 characters)`:t.includes(`email`)?`❌ Please check your email address`:t.includes(`rate limit`)||t.includes(`too many`)?`❌ Too many attempts — please try again later`:`❌ `+e}var Ac={chapters:[],vocabulary:[],exercises:[]};async function jc(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{let e=await ka();e?.user&&await dc(e.user)}catch{console.log(`Нет активной сессии`)}try{Ac=await La(),Ac.chapters?.length>0&&(Cc=Ac.chapters.map(e=>({...e,...Va[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Mc(),za(Mc)}function Mc(){let e=Ra(),t=m();if(!cc){xc(Dc()),Oc();return}if(e.page===`dashboard`||!e.page){wc();return}if(e.page===`profile`){xc(ic(e.profileId)),sc();return}let n=Cc.find(t=>t.id===e.chapterId);if(!n){wc();return}let r=Ac.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Ac.exercises.filter(t=>t.chapter_id===e.chapterId),a=Ac.grammar||[];if(e.section===`vocabulary`){xc(to(n,r)),no(n);return}if(e.section===`exercises`){let t=a.filter(t=>t.Chapter===e.chapterId);xc(as(n,i,t,r.length)),fs(n,t);return}if(e.section===`grammar`){xc(No(n,a)),Po(n);return}if(e.section===`vocab-exercises`){xc(Ns(n,r)),Fs(n);return}xc(Wa(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),Ga(e.chapterId,r,t.activeProfile,i)}jc();var Nc=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`],Pc=[`av1.png`,`av2.png`,`av3.png`,`av4.png`];function Fc(e,t=40){return e?.avatarImg?`<img class="avatar" src="/${e.avatarImg}" alt="${e.name||``}" style="width:${t}px;height:${t}px;border-radius:50%;object-fit:cover">`:e?.avatarEmoji?`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">${e.avatarEmoji}</span>`:`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">🦊</span>`}function Ic(){let e=m(),t=e.profiles[e.activeProfile];if(!t)return;let n=document.createElement(`div`);n.innerHTML=`
+    </div>`}function Ac(){document.getElementById(`btn-switch-mode`)?.addEventListener(`click`,()=>{Dc=Dc===`signin`?`signup`:`signin`,Cc(kc()),Ac()});let e=async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-password`)?.value,n=document.getElementById(`auth-name`)?.value.trim(),r=document.getElementById(`auth-error`),i=document.getElementById(`btn-auth-submit`);if(!e||!t){r.textContent=`Please enter your email and password`;return}if(Dc===`signup`&&t.length<6){r.textContent=`Password must be at least 6 characters`;return}r.textContent=``,i.disabled=!0,i.textContent=`Loading...`;let a;if(Dc===`signup`?(a=await Ea(e,t,n||e.split(`@`)[0]),a.error||Ba.register(e)):(a=await Da(e,t),a.error||Ba.login(e)),a.error){r.textContent=jc(a.error.message),i.disabled=!1,i.textContent=Dc===`signup`?`Luo tili`:`Kirjaudu sisään`;return}if(!a.session){r.style.color=`var(--success)`,r.textContent=`✅ Check your inbox and confirm your email, then sign in`,i.disabled=!1,i.textContent=`Kirjaudu sisään`,Dc=`signin`;return}await pc(a.user),R(`/`),Ec()};document.getElementById(`btn-auth-submit`)?.addEventListener(`click`,e),document.getElementById(`auth-password`)?.addEventListener(`keydown`,t=>{t.key===`Enter`&&e()}),document.getElementById(`btn-forgot`)?.addEventListener(`click`,async()=>{let e=document.getElementById(`auth-email`)?.value.trim(),t=document.getElementById(`auth-error`);if(!e){t.style.color=`var(--error)`,t.textContent=`Enter your email above, then click “Unohditko salasanasi?”`;return}let{error:n}=await Ta.auth.resetPasswordForEmail(e,{redirectTo:window.location.origin+`/`});t.style.color=n?`var(--error)`:`var(--success)`,t.textContent=n?jc(n.message):`✅ Password reset link sent to `+e})}function jc(e){let t=e.toLowerCase();return t.includes(`invalid login`)?`❌ Invalid email or password`:t.includes(`already registered`)?`❌ This email is already registered`:t.includes(`password`)?`❌ Password is too short (min. 6 characters)`:t.includes(`email`)?`❌ Please check your email address`:t.includes(`rate limit`)||t.includes(`too many`)?`❌ Too many attempts — please try again later`:`❌ `+e}var Mc={chapters:[],vocabulary:[],exercises:[]};async function Nc(){document.querySelector(`#app`).innerHTML=`<div class="loading">Загружаем финский... 🇫🇮</div>`;try{let e=await ka();e?.user&&await pc(e.user)}catch{console.log(`Нет активной сессии`)}try{Mc=await La(),Mc.chapters?.length>0&&(Tc=Mc.chapters.map(e=>({...e,...Va[e.id]})))}catch{console.log(`Sheets недоступен, используем demo данные`)}Pc(),za(Pc)}function Pc(){let e=Ra(),t=m();if(!uc){Cc(kc()),Ac();return}if(e.page===`dashboard`||!e.page){Ec();return}if(e.page===`profile`){Cc(oc(e.profileId)),lc();return}let n=Tc.find(t=>t.id===e.chapterId);if(!n){Ec();return}let r=Mc.vocabulary.filter(t=>t.chapter_id===e.chapterId),i=Mc.exercises.filter(t=>t.chapter_id===e.chapterId),a=Mc.grammar||[];if(e.section===`vocabulary`){Cc(to(n,r)),no(n);return}if(e.section===`exercises`){let t=a.filter(t=>t.Chapter===e.chapterId);Cc(as(n,i,t,r.length)),fs(n,t);return}if(e.section===`grammar`){Cc(No(n,a)),Po(n);return}if(e.section===`vocab-exercises`){Cc(Fs(n,r)),Ls(n);return}Cc(Wa(n,r,i,t,a.filter(t=>t.Chapter===e.chapterId))),Ga(e.chapterId,r,t.activeProfile,i)}Nc();var Fc=[`🦊`,`🐱`,`🐻`,`🐼`,`🦁`,`🐸`,`🐧`,`🦋`,`🌸`,`⭐`,`🎯`,`🚀`],Ic=[`av1.png`,`av2.png`,`av3.png`,`av4.png`];function Lc(e,t=40){return e?.avatarImg?`<img class="avatar" src="/${e.avatarImg}" alt="${e.name||``}" style="width:${t}px;height:${t}px;border-radius:50%;object-fit:cover">`:e?.avatarEmoji?`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">${e.avatarEmoji}</span>`:`<span class="avatar-emoji" style="font-size:${Math.round(t*.7)}px">🦊</span>`}function Rc(){let e=m(),t=e.profiles[e.activeProfile];if(!t)return;let n=document.createElement(`div`);n.innerHTML=`
     <div class="modal-overlay" id="acc-overlay">
       <div class="modal-box">
         <h3 style="margin-bottom:16px">⚙️ Настройки</h3>
-        <div style="font-size:12px;color:#9CA3AF;margin-bottom:16px">${cc?.email||``}</div>
+        <div style="font-size:12px;color:#9CA3AF;margin-bottom:16px">${uc?.email||``}</div>
         <div style="font-size:13px;color:#6B7280;margin-bottom:4px">Имя:</div>
         <input type="text" id="acc-name" class="grammar-input" value="${t.name||``}"
           maxlength="20" style="width:100%;margin-bottom:16px">
         <div style="font-size:13px;color:#6B7280;margin-bottom:8px">Аватар:</div>
         <div class="avatar-picker" style="margin-bottom:12px">
-          ${Pc.map(e=>`
+          ${Ic.map(e=>`
             <button class="avatar-option avatar-img-option ${t.avatarImg===e?`selected`:``}" data-img="${e}">
               <img src="/${e}" alt="">
             </button>
           `).join(``)}
         </div>
         <div class="avatar-picker" style="margin-bottom:20px">
-          ${Nc.map(e=>`
+          ${Fc.map(e=>`
             <button class="avatar-option ${!t.avatarImg&&t.avatarEmoji===e?`selected`:``}" data-emoji="${e}">${e}</button>
           `).join(``)}
         </div>
@@ -1202,4 +1206,4 @@ Moikkaa mulle! 💬`,translation:`Привет! 👋 Я Сара.
           <button class="btn-complete" id="btn-acc-cancel" style="background:white;color:var(--primary);border:2px solid var(--primary);flex:1">Отмена</button>
         </div>
       </div>
-    </div>`,document.body.appendChild(n);let r=t.avatarEmoji||Nc[0],i=t.avatarImg||null;n.querySelectorAll(`.avatar-option`).forEach(e=>{e.addEventListener(`click`,()=>{n.querySelectorAll(`.avatar-option`).forEach(e=>e.classList.remove(`selected`)),e.classList.add(`selected`),e.dataset.img?(i=e.dataset.img,r=null):(r=e.dataset.emoji,i=null)})}),document.getElementById(`btn-acc-cancel`)?.addEventListener(`click`,()=>n.remove()),document.getElementById(`acc-overlay`)?.addEventListener(`click`,e=>{e.target.id===`acc-overlay`&&n.remove()}),document.getElementById(`btn-acc-save`)?.addEventListener(`click`,()=>{let e=document.getElementById(`acc-name`)?.value.trim(),t=m();e&&(t.profiles[t.activeProfile].name=e),t.profiles[t.activeProfile].avatarImg=i,t.profiles[t.activeProfile].avatarEmoji=i?null:r,v(t),n.remove(),wc()})}export{Bo as a,Ba as c,x as d,Ho as i,Ui as l,Ko as n,Ro as o,Wo as r,Va as s,qo as t,m as u};
+    </div>`,document.body.appendChild(n);let r=t.avatarEmoji||Fc[0],i=t.avatarImg||null;n.querySelectorAll(`.avatar-option`).forEach(e=>{e.addEventListener(`click`,()=>{n.querySelectorAll(`.avatar-option`).forEach(e=>e.classList.remove(`selected`)),e.classList.add(`selected`),e.dataset.img?(i=e.dataset.img,r=null):(r=e.dataset.emoji,i=null)})}),document.getElementById(`btn-acc-cancel`)?.addEventListener(`click`,()=>n.remove()),document.getElementById(`acc-overlay`)?.addEventListener(`click`,e=>{e.target.id===`acc-overlay`&&n.remove()}),document.getElementById(`btn-acc-save`)?.addEventListener(`click`,()=>{let e=document.getElementById(`acc-name`)?.value.trim(),t=m();e&&(t.profiles[t.activeProfile].name=e),t.profiles[t.activeProfile].avatarImg=i,t.profiles[t.activeProfile].avatarEmoji=i?null:r,v(t),n.remove(),Ec()})}export{Bo as a,Ba as c,x as d,Ho as i,Ui as l,Ko as n,Ro as o,Wo as r,Va as s,qo as t,m as u};

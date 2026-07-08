@@ -1,4 +1,4 @@
-import{n as e}from"./index-D_FLv3ZU.js";function t(t){let r=e(t.id);return r.length?`
+import{n as e}from"./index-zkehfUsJ.js";function t(t){let r=e(t.id);return r.length?`
     <div class="exercise-page">
       <header class="header">
         <button class="btn-back" id="btn-back-reallife">← Упражнения</button>
@@ -56,6 +56,12 @@ import{n as e}from"./index-D_FLv3ZU.js";function t(t){let r=e(t.id);return r.len
           `).join(``)}
         </div>
       </div>
+
+      <!-- Register note -->
+      ${e.register_note?`
+      <div style="margin:0 16px 16px;padding:12px 14px;background:#fefce8;border-left:3px solid #eab308;border-radius:8px;font-size:13px;color:#555;line-height:1.6">
+        📝 <b>Про регистр:</b> ${e.register_note}
+      </div>`:``}
 
       <!-- Variants -->
       <div style="padding:0 16px 20px">

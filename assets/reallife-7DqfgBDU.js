@@ -1,4 +1,4 @@
-import{n as e}from"./index-QgwLZg-m.js";function t(t){let r=e(t.id);return r.length?`
+import{n as e}from"./index-D_FLv3ZU.js";function t(t){let r=e(t.id);return r.length?`
     <div class="exercise-page">
       <header class="header">
         <button class="btn-back" id="btn-back-reallife">← Упражнения</button>
@@ -23,10 +23,9 @@ import{n as e}from"./index-QgwLZg-m.js";function t(t){let r=e(t.id);return r.len
         <div style="font-size:13px;opacity:0.85;margin-top:2px">${e.situation_ru}</div>
       </div>
 
-      <!-- Lena block -->
-      <div style="display:flex;gap:12px;padding:16px;background:#f8f7ff;border-bottom:1px solid #ede9fe">
-        <div style="font-size:28px;flex-shrink:0">👩‍🏫</div>
-        <div style="font-size:14px;color:#444;line-height:1.6"><b>Лена:</b> ${e.lena}</div>
+      <!-- Context tip -->
+      <div style="padding:14px 16px;background:#f8f7ff;border-bottom:1px solid #ede9fe;font-size:14px;color:#555;line-height:1.6">
+        💡 ${e.lena}
       </div>
 
       <!-- Dialogue -->

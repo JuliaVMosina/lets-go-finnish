@@ -1,5 +1,5 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-3OaFXvpk.js","assets/index-B9U8tG5e.css"])))=>i.map(i=>d[i]);
-import{f as e,i as t,l as n,m as r,p as i,u as a}from"./index-3OaFXvpk.js";var o=null,s=null,c=null,l=0,u=0;function d(){return document.querySelector(`#app`)}function f(e){return o=e,s=n[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},c=t(),a.exerciseStart?.(e.id,`alphabet`),m()}function p(){h()}function m(){let{color:e,bg:t}=s,n=new Set(c.special),r=c.letters.map(e=>`
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-DAc18qCq.js","assets/index-B9U8tG5e.css"])))=>i.map(i=>d[i]);
+import{f as e,i as t,l as n,m as r,p as i,u as a}from"./index-DAc18qCq.js";var o=null,s=null,c=null,l=0,u=0;function d(){return document.querySelector(`#app`)}function f(e){return o=e,s=n[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},c=t(),a.exerciseStart?.(e.id,`alphabet`),m()}function p(){h()}function m(){let{color:e,bg:t}=s,n=new Set(c.special),r=c.letters.map(e=>`
       <div class="ab-letter-card${n.has(e.letter)?` ab-special`:``}" title="${e.name} — ${e.sound}">
         <div class="ab-letter">${e.letter}</div>
         <div class="ab-name">${e.name}</div>
@@ -67,7 +67,7 @@ import{f as e,i as t,l as n,m as r,p as i,u as a}from"./index-3OaFXvpk.js";var o
           </button>
         </div>
       </div>
-    </div>`}function h(){document.getElementById(`ab-back`)?.addEventListener(`click`,()=>{e(()=>import(`./index-3OaFXvpk.js`).then(e=>e.t).then(e=>{d().innerHTML=e.renderExercisesPage(o,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))});let t=document.getElementById(`ab-audio`),n=document.getElementById(`ab-play`),r=!1;n?.addEventListener(`click`,()=>{t&&(r?(t.pause(),t.currentTime=0,n.textContent=`▶ Слушать алфавит`,r=!1):(t.play().catch(()=>{}),n.textContent=`⏹ Остановить`,r=!0))}),t?.addEventListener(`ended`,()=>{n.textContent=`▶ Слушать алфавит`,r=!1}),document.getElementById(`ab-start-quiz`)?.addEventListener(`click`,()=>{l=0,u=0,g()})}function g(){let e=c.quiz;if(l>=e.length){_();return}let t=e[l],{color:n,bg:r}=s,i=[...t.options].sort(()=>Math.random()-.5);d().innerHTML=`
+    </div>`}function h(){document.getElementById(`ab-back`)?.addEventListener(`click`,()=>{e(()=>import(`./index-DAc18qCq.js`).then(e=>e.t).then(e=>{d().innerHTML=e.renderExercisesPage(o,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))});let t=document.getElementById(`ab-audio`),n=document.getElementById(`ab-play`),r=!1;n?.addEventListener(`click`,()=>{t&&(r?(t.pause(),t.currentTime=0,n.textContent=`▶ Слушать алфавит`,r=!1):(t.play().catch(()=>{}),n.textContent=`⏹ Остановить`,r=!0))}),t?.addEventListener(`ended`,()=>{n.textContent=`▶ Слушать алфавит`,r=!1}),document.getElementById(`ab-start-quiz`)?.addEventListener(`click`,()=>{l=0,u=0,g()})}function g(){let e=c.quiz;if(l>=e.length){_();return}let t=e[l],{color:n,bg:r}=s,i=[...t.options].sort(()=>Math.random()-.5);d().innerHTML=`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="ab-quiz-back">← Алфавит</button>
@@ -105,4 +105,4 @@ import{f as e,i as t,l as n,m as r,p as i,u as a}from"./index-3OaFXvpk.js";var o
           <button class="btn-complete" style="background:white;color:${p};border:2px solid ${p}" id="ab-to-hub">К упражнениям</button>
         </div>
       </div>
-    </div>`,document.getElementById(`ab-done-back`)?.addEventListener(`click`,()=>{d().innerHTML=m(),h()}),document.getElementById(`ab-retry`)?.addEventListener(`click`,()=>{l=0,u=0,g()}),document.getElementById(`ab-to-hub`)?.addEventListener(`click`,()=>{e(()=>import(`./index-3OaFXvpk.js`).then(e=>e.t).then(e=>{d().innerHTML=e.renderExercisesPage(o,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))})}export{p as bindAlphabetPage,f as renderAlphabetPage};
+    </div>`,document.getElementById(`ab-done-back`)?.addEventListener(`click`,()=>{d().innerHTML=m(),h()}),document.getElementById(`ab-retry`)?.addEventListener(`click`,()=>{l=0,u=0,g()}),document.getElementById(`ab-to-hub`)?.addEventListener(`click`,()=>{e(()=>import(`./index-DAc18qCq.js`).then(e=>e.t).then(e=>{d().innerHTML=e.renderExercisesPage(o,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))})}export{p as bindAlphabetPage,f as renderAlphabetPage};

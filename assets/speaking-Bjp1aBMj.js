@@ -1,5 +1,5 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-wuB2L9Xv.js","assets/index-CdQz-gzi.css"])))=>i.map(i=>d[i]);
-import{f as e,l as t,m as n,o as r,p as i,u as a}from"./index-wuB2L9Xv.js";var o=null,s=null,c=[],l=[],u=0,d=0;function f(){return document.querySelector(`#app`)}function p(e){return o=e,s=t[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},c=r(e.id),g()}function m(){_()}function h(){let e={};return c.forEach(t=>{e[t.topic]||(e[t.topic]=[]),e[t.topic].push(t)}),e}function g(){let e=h();return`
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/index-B4H0TP_g.js","assets/index-CdQz-gzi.css"])))=>i.map(i=>d[i]);
+import{f as e,l as t,m as n,o as r,p as i,u as a}from"./index-B4H0TP_g.js";var o=null,s=null,c=[],l=[],u=0,d=0;function f(){return document.querySelector(`#app`)}function p(e){return o=e,s=t[e.id]||{color:`#7C3AED`,bg:`#EDE7FB`},c=r(e.id),g()}function m(){_()}function h(){let e={};return c.forEach(t=>{e[t.topic]||(e[t.topic]=[]),e[t.topic].push(t)}),e}function g(){let e=h();return`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="sp-back-hub">← Упражнения</button>
@@ -27,7 +27,7 @@ import{f as e,l as t,m as n,o as r,p as i,u as a}from"./index-wuB2L9Xv.js";var o
             </div>`).join(``)}
         </div>
       </div>
-    </div>`}function _(){document.getElementById(`sp-back-hub`)?.addEventListener(`click`,()=>{e(()=>import(`./index-wuB2L9Xv.js`).then(e=>e.t).then(e=>{f().innerHTML=e.renderExercisesPage(o,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))}),document.querySelectorAll(`.sp-topic-card`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.topic;l=b(t===`all`?[...c]:c.filter(e=>e.topic===t)),u=0,d=0,a.speakingStart(o.id,t),v()})})}function v(){let e=l[u],t=Math.round(u/l.length*100),n=u===l.length-1;f().innerHTML=`
+    </div>`}function _(){document.getElementById(`sp-back-hub`)?.addEventListener(`click`,()=>{e(()=>import(`./index-B4H0TP_g.js`).then(e=>e.t).then(e=>{f().innerHTML=e.renderExercisesPage(o,[],[]),e.bindExercisesPage()}),__vite__mapDeps([0,1]))}),document.querySelectorAll(`.sp-topic-card`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.topic;l=b(t===`all`?[...c]:c.filter(e=>e.topic===t)),u=0,d=0,a.speakingStart(o.id,t),v()})})}function v(){let e=l[u],t=Math.round(u/l.length*100),n=u===l.length-1;f().innerHTML=`
     <div class="ex-page">
       <header class="header">
         <button class="btn-back" id="sp-back-phrase">← Говорение</button>

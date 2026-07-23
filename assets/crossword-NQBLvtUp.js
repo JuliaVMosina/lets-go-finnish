@@ -1,4 +1,4 @@
-import{d as e,n as t}from"./index-j9S4tkbq.js";function n(e){let n=t(e.id);if(!n.length)return`<div class="app-wrap"><p>Кроссворд для этой главы пока не добавлен.</p></div>`;let r=e.color||`#7C3AED`,i=e.bg||`#EDE7FB`,a=n.map((e,t)=>{let n=e.word.split(``).map((e,n)=>`<input class="cw-box" data-word="${t}" data-idx="${n}" maxlength="1" autocomplete="off" spellcheck="false" />`).join(``);return`
+import{d as e,n as t}from"./index-CpQShxYZ.js";function n(e){let n=t(e.id);if(!n.length)return`<div class="app-wrap"><p>Кроссворд для этой главы пока не добавлен.</p></div>`;let r=e.color||`#7C3AED`,i=e.bg||`#EDE7FB`,a=n.map((e,t)=>{let n=e.word.split(``).map((e,n)=>`<input class="cw-box" data-word="${t}" data-idx="${n}" maxlength="1" autocomplete="off" spellcheck="false" />`).join(``);return`
       <div class="cw-row" data-word="${t}">
         <span class="cw-num" style="color:${r}">${t+1}</span>
         <div class="cw-boxes">${n}</div>

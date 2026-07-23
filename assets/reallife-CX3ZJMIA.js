@@ -1,4 +1,4 @@
-import{r as e}from"./index-BQtnq6Oy.js";function t(t){let r=e(t.id);return r.length?`
+import{r as e}from"./index-C719Hsmj.js";function t(t){let r=e(t.id);return r.length?`
     <div class="exercise-page">
       <header class="header">
         <button class="btn-back" id="btn-back-reallife">← Упражнения</button>
